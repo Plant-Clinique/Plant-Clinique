@@ -9,10 +9,12 @@ name: Ruby
 
 on:
   push:
-    branches: [ main ]
     paths:
       - '**.rb'
+    branches: [ main ]
   pull_request:
+    paths:
+      - '**.rb'
     branches: [ main ]
 
 jobs:
