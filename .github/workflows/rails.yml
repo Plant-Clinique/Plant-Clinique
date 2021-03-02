@@ -1,5 +1,9 @@
 name: Rails
-on: [push]
+on:
+  push:
+    paths-ignore:
+      - '**.yml'
+      - '**.md'
 
 jobs:
   linters:
