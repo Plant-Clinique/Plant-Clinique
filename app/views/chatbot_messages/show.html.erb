@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @chatbot_message.user_id %>
+</p>
+
+<p>
+  <strong>Time sent:</strong>
+  <%= @chatbot_message.time_sent %>
+</p>
+
+<p>
+  <strong>From bot:</strong>
+  <%= @chatbot_message.from_bot %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @chatbot_message.content %>
+</p>
+
+<%= link_to 'Edit', edit_chatbot_message_path(@chatbot_message) %> |
+<%= link_to 'Back', chatbot_messages_path %>

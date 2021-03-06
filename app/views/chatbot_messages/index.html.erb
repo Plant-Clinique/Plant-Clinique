@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Chatbot Messages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Time sent</th>
+      <th>From bot</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chatbot_messages.each do |chatbot_message| %>
+      <tr>
+        <td><%= chatbot_message.user_id %></td>
+        <td><%= chatbot_message.time_sent %></td>
+        <td><%= chatbot_message.from_bot %></td>
+        <td><%= chatbot_message.content %></td>
+        <td><%= link_to 'Show', chatbot_message %></td>
+        <td><%= link_to 'Edit', edit_chatbot_message_path(chatbot_message) %></td>
+        <td><%= link_to 'Destroy', chatbot_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Chatbot Message', new_chatbot_message_path %>

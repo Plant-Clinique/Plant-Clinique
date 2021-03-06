@@ -1,0 +1,37 @@
+<%= form_with(model: chatbot_message) do |form| %>
+  <% if chatbot_message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(chatbot_message.errors.count, "error") %> prohibited this chatbot_message from being saved:</h2>
+
+      <ul>
+        <% chatbot_message.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time_sent %>
+    <%= form.datetime_select :time_sent %>
+  </div>
+
+  <div class="field">
+    <%= form.label :from_bot %>
+    <%= form.check_box :from_bot %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

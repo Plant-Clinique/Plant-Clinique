@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_plant.user_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user_plant.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @user_plant.age %>
+</p>
+
+<p>
+  <strong>Plant type:</strong>
+  <%= @user_plant.plant_type %>
+</p>
+
+<p>
+  <strong>Img url:</strong>
+  <%= @user_plant.img_url %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @user_plant.description %>
+</p>
+
+<%= link_to 'Edit', edit_user_plant_path(@user_plant) %> |
+<%= link_to 'Back', user_plants_path %>

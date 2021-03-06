@@ -1,0 +1,47 @@
+<%= form_with(model: user_plant) do |form| %>
+  <% if user_plant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_plant.errors.count, "error") %> prohibited this user_plant from being saved:</h2>
+
+      <ul>
+        <% user_plant.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.text_field :age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :plant_type %>
+    <%= form.text_field :plant_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :img_url %>
+    <%= form.text_field :img_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
