@@ -4,7 +4,6 @@ class CreateReplies < ActiveRecord::Migration[6.1]
       t.integer :user_id
       t.integer :post_id
       t.string :body
-      t.datetime :created_at
 
       t.timestamps
     end

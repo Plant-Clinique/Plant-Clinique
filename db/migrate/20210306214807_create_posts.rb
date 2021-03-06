@@ -5,7 +5,6 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.integer :topic
       t.string :title
       t.string :body
-      t.datetime :create_at
 
       t.timestamps
     end
