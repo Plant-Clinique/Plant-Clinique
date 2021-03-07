@@ -31,6 +31,11 @@ gem 'faker'
 gem 'hirb'
 ##################
 
+##################
+# Linting
+gem 'rubocop'
+##################
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
