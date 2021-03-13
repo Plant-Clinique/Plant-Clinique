@@ -7,7 +7,7 @@ on:
 
 jobs:
   linters:
-    name: Linters
+    name: Style
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -52,15 +52,6 @@ jobs:
   tests:
     name: Tests
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:11
-        env:
-          POSTGRES_USER: myapp
-          POSTGRES_DB: myapp_test
-          POSTGRES_PASSWORD: ""
-        ports: ["5432:5432"]
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -97,8 +88,9 @@ jobs:
         run: |
           yarn install --pure-lockfile
 
-      - name: Setup test database
-        env:
+      - name: Run tests
+        run: |
+          rails test
           RAILS_ENV: test
           PGHOST: localhost
           PGUSER: myapp
