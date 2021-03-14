@@ -1,4 +1,5 @@
 class UserPlantsController < ApplicationController
+  before_action :require_login
   before_action :set_user_plant, only: %i[ show edit update destroy ]
 
   # GET /user_plants or /user_plants.json

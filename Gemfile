@@ -30,6 +30,7 @@ gem 'better_errors'
 gem 'awesome_print'
 gem 'faker'
 gem 'hirb'
+gem "binding_of_caller" 
 ##################
 
 ##################

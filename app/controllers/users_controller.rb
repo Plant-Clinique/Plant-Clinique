@@ -1,6 +1,7 @@
 class UsersController < Clearance::UsersController
+  before_action :require_login
   before_action :set_user, only: %i[ show edit update destroy ]
-
+  
   # GET /users or /users.json
   def index
     @users = User.all

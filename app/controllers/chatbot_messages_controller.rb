@@ -1,4 +1,5 @@
 class ChatbotMessagesController < ApplicationController
+  before_action :require_login
   before_action :set_chatbot_message, only: %i[ show edit update destroy ]
 
   # GET /chatbot_messages or /chatbot_messages.json
