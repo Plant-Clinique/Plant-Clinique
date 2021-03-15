@@ -1,5 +1,6 @@
 class UsersController < Clearance::UsersController
-  before_action :require_login
+  # before_action :require_login
+  before_action :require_login, except: [:new, :create, :set_user, :user_params]
   before_action :set_user, only: %i[ show edit update destroy ]
   
   # GET /users or /users.json
@@ -58,7 +59,6 @@ class UsersController < Clearance::UsersController
   end
 
   private
-
   # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
