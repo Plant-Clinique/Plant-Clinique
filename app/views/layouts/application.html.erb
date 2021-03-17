@@ -8,32 +8,37 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
 
-  <body>
-    <ul> 
-      <b>Links:</b>
-      <li> <%= link_to "User", users_path %></li>
-      <li> <%= link_to "UserPlant", user_plants_path %></li> 
-      <li> <%= link_to "Reminder", reminders_path %></li>
-      <li> <%= link_to "Post", posts_path %></li>
-      <li> <%= link_to "Reply", replies_path %></li>
-      <li> <%= link_to "ChatbotMessage", chatbot_messages_path %></li>
-    </ul>
-
-    <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign in', sign_in_path %>
-    <% end %>
+  <body style = "background-color: #98FFB3">
+    <nav class="navbar mb-2 bg-warning">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div class="header">Plant-Clinique</div>
+        </div>
+        <ul class="nav navbar-right ">
+          <li><%= link_to "User", users_path, class: "mx-2 " %></li>
+          <li> <%= link_to "UserPlant", user_plants_path , class: "mx-2 "%></li> 
+          <li> <%= link_to "Reminder", reminders_path, class: "mx-2 " %></li>
+          <li> <%= link_to "Post", posts_path, class: "mx-2 " %></li>
+          <li> <%= link_to "Reply", replies_path, class: "mx-2 " %></li>
+          <li> <%= link_to "ChatbotMessage", chatbot_messages_path, class: "mx-2 " %></li>
+          <% if signed_in? %>
+            <li><%= button_to 'Sign out', sign_out_path, method: :delete, class: "mx-2" %></li>
+          <% else %>
+            <li><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></li>
+          <% end %>
+        </ul>
+        
+      </div>
+    </nav>
 
     <div id="flash">
       <% flash.each do |key, value| %>
         <div class="flash <%= key %>"><%= value %></div>
       <% end %>
+      <%= yield %>
     </div>
-
-    <%= yield %>
   </body>
 </html>

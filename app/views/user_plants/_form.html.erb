@@ -1,11 +1,12 @@
 <%= form_with(model: user_plant) do |form| %>
-  <% if user_plant.errors.any? %>
+  <% if user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user_plant.errors.count, "error") %> prohibited this user_plant from being saved:</h2>
-
+      <div class="alert alert-danger">
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      </div>
       <ul>
-        <% user_plant.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% user.errors.each do |error| %>
+          <li class='text-danger'><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
