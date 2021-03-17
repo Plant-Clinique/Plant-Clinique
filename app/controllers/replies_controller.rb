@@ -1,4 +1,5 @@
 class RepliesController < ApplicationController
+  before_action :require_login
   before_action :set_reply, only: %i[ show edit update destroy ]
 
   # GET /replies or /replies.json

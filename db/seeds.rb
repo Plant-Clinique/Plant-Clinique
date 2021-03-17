@@ -16,7 +16,7 @@ Reply.delete_all
 ChatbotMessage.delete_all
 
 10.times do
-  User.create(name: Faker::Name.name)
+  User.create(username: Faker::Name.name, email:, password:)
 end
 
 20.times do
