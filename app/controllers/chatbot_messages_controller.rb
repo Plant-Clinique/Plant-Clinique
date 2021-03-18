@@ -24,15 +24,11 @@ class ChatbotMessagesController < ApplicationController
   def create
     @chatbot_message = ChatbotMessage.new(chatbot_message_params)
 
-    respond_to do |format|
-      if @chatbot_message.save
-        format.html { redirect_to @chatbot_message, notice: "Chatbot message was successfully created." }
-        format.json { render :show, status: :created, location: @chatbot_message }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @chatbot_message.errors, status: :unprocessable_entity }
-      end
-    end
+    @chatbot_message.save
+
+    ChatbotMessage.create(user_id: chatbot_message_params['user_id'], time_sent: Time.now.utc, from_bot: true, content: "What do you mean by #{chatbot_message_params['content']}")
+
+    redirect_to chatbot_messages_url
   end
 
   # PATCH/PUT /chatbot_messages/1 or /chatbot_messages/1.json
@@ -65,6 +61,6 @@ class ChatbotMessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def chatbot_message_params
-      params.require(:chatbot_message).permit(:user_id, :time_sent, :from_bot, :content)
+      params.permit(:user_id, :time_sent, :from_bot, :content)
     end
 end
