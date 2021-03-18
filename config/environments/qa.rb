@@ -55,12 +55,12 @@ Rails.application.configure do
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
 
-  # Use a different cache store in production.
+  # Use a different cache store in qa.
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "plant_clinique_production"
+  # config.active_job.queue_name_prefix = "plant_clinique_qa"
 
   config.action_mailer.perform_caching = false
 
@@ -119,5 +119,5 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
    # Action mailer for clearance (authentication)
-   config.action_mailer.default_url_options = { host: 'http://plant-clinique.herokuapp.com/' }
+   config.action_mailer.default_url_options = { host: 'http://plant-clinique-test.herokuapp.com/' }
 end
