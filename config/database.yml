@@ -84,3 +84,9 @@ production:
   database: plant_clinique_production
   username: plant_clinique
   password: <%= ENV['PLANT_CLINIQUE_DATABASE_PASSWORD'] %>
+
+
+qa:
+  database: plant_clinique_qa
+  username: plant_clinique
+  password: <%= ENV['PLANT_CLINIQUE_DATABASE_PASSWORD'] %>
