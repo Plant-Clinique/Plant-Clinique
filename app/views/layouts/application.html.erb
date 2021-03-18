@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PlantClinique</title>
+    <title>Plant-Clinique</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,20 +12,20 @@
   </head>
 
   <body style = "background-color: #98FFB3">
-    <nav class="navbar mb-2 bg-warning">
+    <nav class="navbar p-3 mb-4">
       <div class="container-fluid">
         <div class="navbar-header">
           <div class="header">Plant-Clinique</div>
         </div>
-        <ul class="nav navbar-right ">
-          <li><%= link_to "User", users_path, class: "mx-2 " %></li>
-          <li> <%= link_to "UserPlant", user_plants_path , class: "mx-2 "%></li> 
-          <li> <%= link_to "Reminder", reminders_path, class: "mx-2 " %></li>
-          <li> <%= link_to "Post", posts_path, class: "mx-2 " %></li>
-          <li> <%= link_to "Reply", replies_path, class: "mx-2 " %></li>
-          <li> <%= link_to "ChatbotMessage", chatbot_messages_path, class: "mx-2 " %></li>
+        <ul class="nav navbar-right">
+          <li><%= link_to "My Account", users_path, class: "mx-2 " %></li>
+          <!--<li> <%= link_to "UserPlant", user_plants_path , class: "mx-2 "%></li>-->
+          <!-- <li> <%= link_to "Reminder", reminders_path, class: "mx-2 " %></li>-->
+          <!--<li> <%= link_to "Post", posts_path, class: "mx-2 " %></li>-->
+          <!--<li> <%= link_to "Reply", replies_path, class: "mx-2 " %></li>-->
+          <li> <%= link_to "Chatbot", chatbot_messages_path, class: "mx-2 " %></li>
           <% if signed_in? %>
-            <li><%= button_to 'Sign out', sign_out_path, method: :delete, class: "mx-2" %></li>
+            <li><%= link_to 'Sign out', sign_out_path, method: :delete, class: "mx-2" %></li>
           <% else %>
             <li><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></li>
           <% end %>
@@ -34,11 +34,6 @@
       </div>
     </nav>
 
-    <div id="flash">
-      <% flash.each do |key, value| %>
-        <div class="flash <%= key %>"><%= value %></div>
-      <% end %>
-      <%= yield %>
-    </div>
+    <%= yield -%>
   </body>
 </html>
