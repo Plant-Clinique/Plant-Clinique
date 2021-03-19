@@ -1,25 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="card my-5">
+  <div class="card-body">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user_id %>
-</p>
+    <h1 class="text-center"><%= @post.title %></h1>
+    <hr>
+    <p>
+      <a class="text-danger"><%= Post.topics.keys[@post.topic.to_i].capitalize.gsub(/[^0-9A-Za-z]/, ' ') %></a>
+      | By <%= @post.user.username %>
+      | <%= @post.created_at %>
+      | <%= @post.replies.length %> Replies
+    </p>
+    <div class="my-4">
+      <%= simple_format(@post.body) %>
+    </div>
 
-<p>
-  <strong>Topic:</strong>
-  <%= @post.topic %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+    <%= link_to 'Back', posts_path, class: 'btn btn-light' %>
+  </div>
+</div>
