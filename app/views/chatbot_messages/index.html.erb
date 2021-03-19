@@ -31,17 +31,29 @@
     <tr scope="row"> 
       <td colspan="3">
       <%= form_with(model: @chatbot_message) do |form| %>
+
         <%= hidden_field_tag :user_id, current_user.id.to_i %>
         <%= hidden_field_tag :time_sent, Time.now.utc%>
         <%= hidden_field_tag :from_bot, false %>
+       
+        <div class = "row mx-auto">
+          <div class = 'actions text-center button-box col-lg-12'>
+            <% create_options(ChatbotMessage.where(user_id: current_user.id.to_i, from_bot: true).last).each do |option| %>
+              <%= hidden_field_tag :content, option %>
+              <a><%= form.submit option, class: "mt-2 btn btn-primary text-light" %></a>
+            <% end %>
+          </div>
+        </div> 
         <div class="text-field">
           <%= form.text_field :content, class: 'mb-1 form-control'  %>
         </div>
+        
         <div class = "row mx-auto">
           <div class = 'actions text-center'>
             <%= form.submit "Send", class: "mt-2 btn btn-primary text-light" %>
           </div>
         </div>
+
       <% end %>
       </td>
     </tr>

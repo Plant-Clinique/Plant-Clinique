@@ -22,11 +22,12 @@ class ChatbotMessagesController < ApplicationController
 
   # POST /chatbot_messages or /chatbot_messages.json
   def create
-    @chatbot_message = ChatbotMessage.new(chatbot_message_params)
+    @chatbot_message = ChatbotMessage.create(chatbot_message_params)
 
-    @chatbot_message.save
-
-    ChatbotMessage.create(user_id: chatbot_message_params['user_id'], time_sent: Time.now.utc, from_bot: true, content: "What do you mean by #{chatbot_message_params['content']}")
+    ChatbotMessage.create(user_id: chatbot_message_params['user_id'],
+                          time_sent: Time.now.utc,
+                          from_bot: true,
+                          content: helpers.reply_to_user_message(chatbot_message_params['content']))
 
     redirect_to chatbot_messages_url
   end
