@@ -1,25 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div class="card mt-5">
+  <div class="card-body">
+    <%= link_to 'Back', posts_path, class: 'btn btn-light' %>
+    <% if @post.user.id.to_i == current_user.id.to_i %>
+      <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary text-light' %>
+    <% end %>
+    
+    <p class="ml-3" id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user_id %>
-</p>
-
-<p>
-  <strong>Topic:</strong>
-  <%= @post.topic %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+    <h1 class="text-center"><%= @post.title %></h1>
+    <hr>
+    <p>
+      <%= form_tag posts_path, :class=>"badge", :method => 'get' do %>
+        <%= hidden_field_tag :search, @post.topic%>
+        <%= submit_tag(Post.topics.keys[@post.topic.to_i].capitalize.gsub(/[^0-9A-Za-z]/, ' '), :class=>"btn bg-info mr-2 px-5 text-light") %>
+      <% end %>
+      <%= @post.user.username %>
+      | <%= @post.created_at %>
+      | <%= @post.replies.length %> Replies
+    </p>
+    <div class="my-4">
+      <%= simple_format(@post.body) %>
+    </div>
+  </div>
+</div>
+<% if @post.replies.any? %>
+  <% @post.replies.each do |reply| %>
+  <div class="card mt-3 ml-5">
+    <div class="card-body">
+      <p class="font-weight-bold"><%= reply.user.username%></p>
+      <%= reply.body %>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+<div class="card mt-3 ml-5 mb-5">
+  <div class="card-body">
+    <p class="font-weight-bold">New comment</p>
+    <%= form_with(model: [@post, @post.replies.build]) do |form| %>
+      <div class="form-group">
+        <%= form.hidden_field :user_id, value: current_user.id.to_i%>
+        <%= form.label 'Write your comment below' %>
+        <%= form.text_area :body, class: 'form-control' %>
+      </div>
+      <%= form.submit 'Submit', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
