@@ -30,5 +30,8 @@
   <%= @user_plant.description %>
 </p>
 
+<p>
 <%= link_to 'Edit', edit_user_plant_path(@user_plant) %> |
 <%= link_to 'Back', user_plants_path %>
+<button><%= link_to 'My garden',  users_path+"/#{current_user.id}" %></button>
+</p>

@@ -52,7 +52,7 @@ class UserPlantsController < ApplicationController
   def destroy
     @user_plant.destroy
     respond_to do |format|
-      format.html { redirect_to user_plants_url, notice: "User plant was successfully destroyed." }
+      format.html { redirect_to users_url+"/#{current_user.id}", notice: "User plant was successfully destroyed." }
       format.json { head :no_content }
     end
   end
