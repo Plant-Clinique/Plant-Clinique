@@ -12,12 +12,15 @@
 <% else %>
   <% UserPlant.where(user_id: current_user.id.to_i).each do |plant| %>
     <p>
+
       <li><%= "Plant name: #{plant.name}" %></li>
       <li><%= "Plant age: #{plant.age}" %></li>
-      <li><%= "Type #{plant.plant_type}" %></li>
+      <li><%= "Type: #{plant.plant_type}" %></li>
       <li><img src=<%= "#{plant.img_url}" %> alt="Picture for this plant"></li>
       <li><%= "Description: #{plant.description}" %></li>
-      <li><%= link_to 'Destroy', current_user.user_plants.find(plant.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <li><%= link_to 'Destroy', plant, method: :delete, data: { confirm: 'Are you sure?' } %> |
+          <%= link_to 'Edit', edit_user_plant_path(plant) %>
+      </li>
     </p>
   <% end %>
 <% end %>
