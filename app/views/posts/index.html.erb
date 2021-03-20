@@ -1,15 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<h3 class="text-info"><%= link_to 'Topics', posts_path %></h3>
+  <div class="scrolling-wrapper pb-3 mb-5">
+    <% Post.topics.each do |topic, key| %>
+      <%= form_tag posts_path, :class=>"badge", :method => 'get' do %>
+        <%= hidden_field_tag :search, key%>
+        <%= submit_tag(topic, :class=>"btn bg-info mr-2 px-5 text-light") %>
+      <% end %>
+  <% end %>
+</div>
+
+<% if @posts.length != Post.all.length && !@posts.all.empty? %>
+  <h1 class="text-primary"><%= link_to "Posts about #{Post.topics.keys[@posts.first.topic].capitalize.gsub(/[^0-9A-Za-z]/, ' ')}", posts_path %></h1>
+<% elsif @posts.first.nil? %>
+  <h4 class="text-danger">No posts were found for this topic!</h4>
+<% else %>
+  <h1 class="text-primary"><%= link_to "All Posts", posts_path %></h1>
+<% end %>
 <%= link_to 'New Post', new_post_path, class: 'btn btn-primary text-light' %>
 <hr>
-<% @posts.each do |post| %>
-  <div class="card mt-3">
-    <div class="card-body">
-      <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5>
-      <% if post.user.id.to_i == current_user.id.to_i %>
-        <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-primary text-light' %>
-      <% end %>
+
+<div class= "mb-5">
+  <% @posts.each do |post| %>
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5>
+        <% if post.user.id.to_i == current_user.id.to_i %>
+          <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-primary text-light' %>
+        <% end %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

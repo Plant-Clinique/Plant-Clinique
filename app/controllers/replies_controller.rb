@@ -22,15 +22,16 @@ class RepliesController < ApplicationController
 
   # POST /replies or /replies.json
   def create
-    @reply = Reply.new(reply_params)
+    @post = Post.find(params[:post_id])
+    @reply = @post.replies.new(reply_params)
 
     respond_to do |format|
       if @reply.save
-        format.html { redirect_to @reply, notice: "Reply was successfully created." }
+        format.html { redirect_to @post, notice: "Reply was successfully created." }
         format.json { render :show, status: :created, location: @reply }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @reply.errors, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
