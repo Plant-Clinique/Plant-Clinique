@@ -1,33 +1,86 @@
-<p id="notice"><%= notice %></p>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<h1>Chatbot Messages</h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Time sent</th>
-      <th>From bot</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row" style = "height: 480px;">
+<div class = "col-2">
+</div>
 
+<div class="col-sm-8", style="background-color=#DADCD7">
+<div class="chatbody">
+<div class="panel panel-success">
+<div class="panel-heading top-bar">
+      
+<div>
+  <h3 class="text-center">
+    <span class="glyphicon glyphicon-comment"></span> 
+    Plant-Clinique Chatbot
+  </h3>
+</div>
+
+</div>
   <tbody>
     <% @chatbot_messages.each do |chatbot_message| %>
-      <tr>
-        <td><%= chatbot_message.user_id %></td>
-        <td><%= chatbot_message.time_sent %></td>
-        <td><%= chatbot_message.from_bot %></td>
-        <td><%= chatbot_message.content %></td>
-        <td><%= link_to 'Show', chatbot_message %></td>
-        <td><%= link_to 'Edit', edit_chatbot_message_path(chatbot_message) %></td>
-        <td><%= link_to 'Destroy', chatbot_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% if chatbot_message.user_id.to_i == current_user.id.to_i %>
+  
+        <tr>
+          <% if chatbot_message.from_bot == true %>
+            <div class="row msg_container base_sent pr-5">
+            <div class=" avatar">
+              <img src="https://compote.slate.com/images/995b8efe-b37b-4dc5-b9c3-e2d9e8fb2df9.gif?width=1440&rect=1560x1040&offset=0x0" class=" img-responsive" style= "height: 100px; width: 100px; object-fit: cover;" >
+            </div>
+            <div class="col-md-3 col-xs-3">
+            <div class="messages msg_sent">      
+            <td class="th">Farmer Bot</td>
 
-<br>
+          <% else %>
+            <div class="panel-body msg_container base_receive">
+            <div class="col-xs-2 avatar">
+              <img src="https://cdn.prestosports.com/action/cdn/img/mw=160/mh=210/cr=n/d=dzeeh/1p1kggtotj733r29.jpg" style= "margin-left: 0px; height: 100px; width: 100px; object-fit: cover;">
+            </div>
+            <div class="col-md-3 col-xs-3">
+            <div class="messages msg_receive">
+            <td class="td"><%= chatbot_message.user.username.capitalize%></td>
 
-<%= link_to 'New Chatbot Message', new_chatbot_message_path %>
+          <% end %>
+          <td ><%= "sent: " + chatbot_message.content %></td><br>
+          <td class="time_time"><%="@"+chatbot_message.time_sent.to_s %></td>
+        </tr>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+</tbody>
+
+<tr scope="row">
+  <td colspan="3">
+    <%= form_with(model: @chatbot_message) do |form| %>
+      <%= hidden_field_tag :user_id, current_user.id.to_i %>
+      <%= hidden_field_tag :time_sent, Time.now.utc%>
+      <%= hidden_field_tag :from_bot, false %>
+    
+      <div class = "row mx-auto">
+        <div class = 'actions text-center button-box col-lg-12'>
+          <% create_options(ChatbotMessage.where(user_id: current_user.id.to_i, from_bot: true).last).each do |option| %>
+            <%= hidden_field_tag :content, option %>
+            <a><%= form.submit option, class: "mt-2 btn btn-info text-light" %></a>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="text-field container">
+        <%= form.text_field :content, class: 'mb-1 form-control'  %>
+      </div>
+    
+      <div class = "row mx-auto container">
+        <div class = 'actions text-center'>
+          <%= form.submit "Send", class: "mt-2 btn btn-warning text-dark" %>
+        </div>
+      </div>
+  <% end %>
+  </td>
+</tr>
