@@ -5,7 +5,7 @@
     <% Post.topics.each do |topic, key| %>
       <%= form_tag posts_path, :class=>"badge", :method => 'get' do %>
         <%= hidden_field_tag :search, key%>
-        <%= submit_tag(topic, :class=>"btn bg-info mr-2 px-5 text-light") %>
+        <%= submit_tag(topic.capitalize.gsub(/[^0-9A-Za-z]/, ' '), :class=>"btn bg-info mr-2 px-5 text-light") %>
       <% end %>
   <% end %>
 </div>
