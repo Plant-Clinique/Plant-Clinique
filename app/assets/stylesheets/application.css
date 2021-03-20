@@ -23,3 +23,18 @@
   margin: 0;
   padding: 0;
 }
+
+
+/* hoizontally scrolling elements */ 
+  
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+.scrolling-wrapper .card {
+  display: inline-block;
+}
+
+
+/***********************************/ 
