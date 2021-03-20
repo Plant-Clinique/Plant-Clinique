@@ -14,7 +14,7 @@
 <div class="panel panel-success">
 <div class="panel-heading top-bar">
       
-<div class="col-xs-8">
+<div>
   <h3 class="text-center">
     <span class="glyphicon glyphicon-comment"></span> 
     Plant-Clinique Chatbot
@@ -28,25 +28,25 @@
   
         <tr>
           <% if chatbot_message.from_bot == true %>
-            <div class="row msg_container base_sent">
-            <div class="col-md-2 col-xs-2 avatar">
-              <img src="https://compote.slate.com/images/995b8efe-b37b-4dc5-b9c3-e2d9e8fb2df9.gif?width=1440&rect=1560x1040&offset=0x0" class=" img-responsive ">
+            <div class="row msg_container base_sent pr-5">
+            <div class=" avatar">
+              <img src="https://compote.slate.com/images/995b8efe-b37b-4dc5-b9c3-e2d9e8fb2df9.gif?width=1440&rect=1560x1040&offset=0x0" class=" img-responsive" style= "height: 100px; width: 100px; object-fit: cover;" >
             </div>
-            <div class="col-md-10 col-xs-10">
+            <div class="col-md-3 col-xs-3">
             <div class="messages msg_sent">      
             <td class="th">Farmer Bot</td>
 
           <% else %>
             <div class="panel-body msg_container base_receive">
-            <div class="col-md-2 col-xs-2 avatar_2">
-              <img style="clear: right;" src="https://cdn.prestosports.com/action/cdn/img/mw=160/mh=210/cr=n/d=dzeeh/1p1kggtotj733r29.jpg" class=" img-responsive ">
+            <div class="col-xs-1 mr-4 avatar">
+              <img src="https://cdn.prestosports.com/action/cdn/img/mw=160/mh=210/cr=n/d=dzeeh/1p1kggtotj733r29.jpg" style= "margin-left: 0px; height: 100px; width: 100px; object-fit: cover;">
             </div>
-            <div class="col-md-10 col-xs-10">
+            <div class="col-md-3 col-xs-3">
             <div class="messages msg_receive">
             <td class="td"><%= chatbot_message.user.username.capitalize%></td>
 
           <% end %>
-          <td><%= "sent: " + chatbot_message.content %></td><br>
+          <td ><%= "sent: " + chatbot_message.content %></td><br>
           <td class="time_time"><%="@"+chatbot_message.time_sent.to_s %></td>
         </tr>
       </div>
@@ -67,16 +67,16 @@
         <div class = 'actions text-center button-box col-lg-12'>
           <% create_options(ChatbotMessage.where(user_id: current_user.id.to_i, from_bot: true).last).each do |option| %>
             <%= hidden_field_tag :content, option %>
-            <a><%= form.submit option, class: "mt-2 btn btn-warning text-dark" %></a>
+            <a><%= form.submit option, class: "mt-2 btn btn-info text-light" %></a>
           <% end %>
         </div>
       </div>
 
-      <div class="text-field">
+      <div class="text-field container">
         <%= form.text_field :content, class: 'mb-1 form-control'  %>
       </div>
     
-      <div class = "row mx-auto">
+      <div class = "row mx-auto container">
         <div class = 'actions text-center'>
           <%= form.submit "Send", class: "mt-2 btn btn-warning text-dark" %>
         </div>
