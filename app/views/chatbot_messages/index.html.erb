@@ -1,28 +1,3 @@
-<nav class="navbar p-3 mb-4 bg-warning">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <div class="header">Plant-Clinique</div>
-        </div>
-        <ul class="nav navbar-right">
-          <li  ><u><%= link_to "My Account", users_path, class: "mx-2 " %></li>
-          <!--<li> <%= link_to "UserPlant", user_plants_path , class: "mx-2 "%></li>-->
-          <!-- <li> <%= link_to "Reminder", reminders_path, class: "mx-2 " %></li>-->
-          <!--<li> <%= link_to "Post", posts_path, class: "mx-2 " %></li>-->
-          <!--<li> <%= link_to "Reply", replies_path, class: "mx-2 " %></li>-->
-          <li  class ="active"><u><%= link_to "Chatbot", chatbot_messages_path, class: "mx-2 " %></u></li>
-          <% if signed_in? %>
-            <li ><u><%= link_to 'Sign out', sign_out_path, method: :delete, class: "mx-2" %></u></li>
-          <% else %>
-            <li ><u><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></u></li>
-          <% end %>
-        </ul>
-        
-      </div>
-    </nav>
-
-
-
-
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -42,13 +17,37 @@
       
 <div class="col-xs-8">
   <h3 class="text-center">
+  
     <span class="glyphicon glyphicon-comment"></span> 
     Plant-Clinique Chatbot
   </h3>
 </div>
 
 </div>
+
+
   <tbody>
+          <style>
+            /* scroll bar */
+            ::-webkit-scrollbar {
+              width: 10px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+              background: #f1f1f1; 
+            }
+            
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+              background: #888; 
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+              background: #555; 
+            }
+          </style>
     <% @chatbot_messages.each do |chatbot_message| %>
       <% if chatbot_message.user_id.to_i == current_user.id.to_i %>
   
