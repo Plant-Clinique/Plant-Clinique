@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -30,3 +31,95 @@
 
 | <%= link_to 'Edit User Info', edit_user_path(@user) %> 
 <%#= link_to 'Back', users_path %>
+=======
+<!DOCTYPE html>
+<html>
+
+
+  <p id="notice"><%= notice %></p>
+
+
+  <div class="row" style = "height: 200px;">
+    <div class = "col-4">
+    </div>
+    <div class = "col-4 bg-primary">
+      <div class = "row bg-secondary" style = "height: 40px;">
+        <p>
+        <strong>Namez:</strong>
+        <%= @user.username %>
+        </p>
+      </div>
+      <div class = "row bg-warning" style = "height: 40px;">
+        <p>
+          Plants Owned: 0
+        </p>
+      </div>
+      <div class = "row bg-warning" style = "height: 40px;">
+        <p>
+          Unread Messages: 0
+        </p>
+      </div>
+      <div class = "row bg-warning" style = "height: 40px;">
+        <p>
+          Water Notifications: 0
+        </p>
+      </div>
+      <div class = "row bg-warning" style = "height: 40px;">
+        <p>
+          Soil Notifications: 0
+        </p>
+      </div>
+    </div>
+    <div class = "col-4">
+    </div>
+  </div>
+
+
+
+
+  <div class = "row bg-white" style = "height: 200px;">
+    <div class = "col-.25">
+    </div>
+    <div class = "col-4 bg-primary">
+    </div>
+    <div class = "col-.1">
+    </div>
+    <div class = "col-4 bg-secondary">
+    </div>
+    <div class = "col-.1">
+    </div>
+    <div class = "col-4 bg-primary">
+    </div>
+    <div class = "col-.25">
+    </div>
+  </div>
+
+
+
+  <%# UserPlant.where(user_id: current_user.id.to_i).each do |plant| %>
+
+  <% UserPlant.where(user_id: '13'.to_i).each do |plant| %>
+    <p>
+      <li><%= "Plant age: #{plant.age}" %></li>
+      <li><%= "Type #{plant.plant_type}" %></li>
+      <li><img src=<%= "#{plant.img_url}" %> alt="Picture for this plant"></li>
+      <li><%= "Description: #{plant.description}" %></li>
+    </p>
+  <% end %>
+  </div>
+
+
+
+  
+  <div class="row rounded" style = "height: 20px;">
+    <div class = "col-10">
+    </div>
+    <div class = "col-1.5 bg-white"
+      <%= link_to 'Edit', edit_user_path(@user) %> |
+      <%= link_to 'Back', users_path %>
+    </div>
+    <div class = "col-.5">
+    </div>
+  </div>
+</html>
+>>>>>>> Added more html to the user page layout.
