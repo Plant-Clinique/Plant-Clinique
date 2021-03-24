@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :posts do
-    resources :replies
+  resources :replies
   end
   resources :chatbot_messages
   resources :reminders

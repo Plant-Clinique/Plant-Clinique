@@ -118,3 +118,21 @@ th {
     border-radius: 5px 5px 0 0;
 }
 
+.nav a { 
+    color:#fff;
+    display: inline-block;
+    padding:0.5em 0.75em;
+    background: color #666;
+    border-radius: 4x;
+    text-decoration:none;
+}
+
+.nav a:hover {
+    background-color: #000;
+
+}
+
+.active {
+    background-color: red;
+}
+

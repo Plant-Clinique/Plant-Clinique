@@ -9,6 +9,7 @@
 <div class = "col-2">
 </div>
 
+
 <div class="col-sm-8", style="background-color=#DADCD7">
 <div class="chatbody">
 <div class="panel panel-success">
@@ -16,13 +17,37 @@
       
 <div>
   <h3 class="text-center">
+  
     <span class="glyphicon glyphicon-comment"></span> 
     Plant-Clinique Chatbot
   </h3>
 </div>
 
 </div>
+
+
   <tbody>
+          <style>
+            /* scroll bar */
+            ::-webkit-scrollbar {
+              width: 10px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+              background: #f1f1f1; 
+            }
+            
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+              background: #888; 
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+              background: #555; 
+            }
+          </style>
     <% @chatbot_messages.each do |chatbot_message| %>
       <% if chatbot_message.user_id.to_i == current_user.id.to_i %>
   
@@ -38,8 +63,8 @@
 
           <% else %>
             <div class="panel-body msg_container base_receive">
-            <div class="col-xs-2 avatar">
-              <img src="https://cdn.prestosports.com/action/cdn/img/mw=160/mh=210/cr=n/d=dzeeh/1p1kggtotj733r29.jpg" style= "margin-left: 0px; height: 100px; width: 100px; object-fit: cover;">
+            <div class="col-md-2 col-xs-2 avatar_2">
+              <img style="clear: right;" src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png" class=" img-responsive ">
             </div>
             <div class="col-md-3 col-xs-3">
             <div class="messages msg_receive">

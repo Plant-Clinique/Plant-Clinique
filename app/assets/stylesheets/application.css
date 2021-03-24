@@ -23,6 +23,10 @@
   margin: 0;
   padding: 0;
 }
+#nav_bar ul li a.active-page
+{
+  background-color:blue;
+}
 
 
 /* hoizontally scrolling elements */ 
