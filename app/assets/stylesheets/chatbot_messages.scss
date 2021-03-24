@@ -22,7 +22,7 @@ th {
   .msg_container_base{
     position: center;
     margin: 0;
-    padding: 0 10px 10px;
+    // padding: 0 10px 10px;
     max-height:3000px;
     overflow-x:hidden;
   }
@@ -55,7 +55,7 @@ th {
       font-size: 11px;
   }
   .msg_container {
-      padding: 10px;
+      padding: 0px;
       overflow: hidden;
       display: center;
   }
