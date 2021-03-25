@@ -63,74 +63,6 @@
 
 
 
-
-
-
-
-
-
-  <!-- [What you are working on] !!!!!The code for the plant panel stuff-->
-  <!--
-  <div class = "row bg-white" style = "height: 250px;">
-    <div class = "col-1">
-    </div>
-    
-      <% if UserPlant.where(user_id: current_user.id.to_i).empty? %>
-        <p>
-          <strong> You dont have any plant yet, would you like to add some? </strong>
-        </p>
-      <% else %>
-        <% UserPlant.where(user_id: current_user.id.to_i).each do |plant| %>
-          <div class = "col bg-warning">
-
-
-            <div class="card">
-              <img class="card-img-top" src=<%= "#{plant.img_url}" %>  alt="Picture for this plant">
-              <div class="card-body">
-                <h4 class="card-title"> <%="Plant name: #{plant.name}"%> </h4>
-
-                
-                <p class="card-text">
-                  <div class = "row">
-                    <p>
-                      <%= "Plant age: #{plant.age}" %>
-                    <br>
-                      <%= "Type: #{plant.plant_type}" %>
-                    <br>
-                      <%= "Description: #{plant.description}" %>
-                    </p>
-                  </div>
-                  <div class = "row">
-                  </div>
-                </p>
-                <a>
-                <div class="btn btn-primary">
-                  <%= link_to 'Destroy', plant, method: :delete, data: { confirm: 'Are you sure?' } %> 
-                  |
-                  <%= link_to 'Edit', edit_user_plant_path(plant) %>
-                </div>
-              </a>
-                <a href="#" class="btn btn-primary">See Profile</a>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-      
-    <div class = "col-1">
-    </div>
-  </div>
-  -->
-
-
-
-
-
-
-
-
-
-
   <!-- [What you are working on] !!!!!The code for the plant panel stuff-->
   <div class = "card-deck">
     <% if UserPlant.where(user_id: current_user.id.to_i).empty? %>
@@ -163,9 +95,9 @@
               </p>
               <a>
               <div class="btn btn-primary">
-                <%= link_to 'Destroy', plant, method: :delete, data: { confirm: 'Are you sure?' } %> 
+                <%= link_to 'Destroy', plant, method: :delete, class: "text-light", data: { confirm: 'Are you sure?' } %> 
                 |
-                <%= link_to 'Edit', edit_user_plant_path(plant) %>
+                <%= link_to 'Edit', edit_user_plant_path(plant), class: "text-light"%>
               </div>
             </a>
               <a href="#" class="btn btn-primary">See Profile</a>
