@@ -21,6 +21,10 @@ class UsersController < Clearance::UsersController
   def edit
   end
 
+  def current_user_dashboard
+    redirect_to current_user
+  end
+  
   # POST /users or /users.json
   def create
     @user = User.new(user_params)

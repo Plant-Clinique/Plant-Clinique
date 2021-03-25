@@ -4,7 +4,8 @@ require 'json'
 module ChatbotMessagesHelper
   @@commands = { 'hi'=> 'hello',
                 'i have a question'=> 'Which of your plants is it about?',
-                "i'm just checking in"=> 'Cool, choose a plant you want to check in'}
+                "i'm just checking in"=> 'Cool, choose a plant you want to check in',
+                'restart'=> ''}
 
   def reply_to_user_message(user_message_content)
     if not UserPlant.where(user_id: current_user.id, name: user_message_content).empty?
@@ -20,17 +21,17 @@ module ChatbotMessagesHelper
     if chatbot_message
       chatbot_message_content = chatbot_message["content"]  
       if chatbot_message_content.include? "what do you mean by"
-        ["Nevermind", "Let me rephrase"]
+        ["Restart"]
       else
         if chatbot_message_content == @@commands['i have a question'] ||
            chatbot_message_content == @@commands["i'm just checking in"]
           UserPlant.where(user_id: current_user.id).map(&:name)
         else
-          ["I have a question", "I'm just checking in"]
+          ["I have a question", "I'm just checking in", "Restart"]
         end
       end
     else
-      ["I have a question", "I'm just checking in"]
+      ["I have a question", "I'm just checking in", "Restart"]
     end
   end
 end

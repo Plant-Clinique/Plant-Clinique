@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
-  # get "/garden" => "users#show", as: "garden"
 
   resources :posts
   resources :posts do
@@ -22,6 +21,12 @@ Rails.application.routes.draw do
   resources :user_plants
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
-  root "users#index"
+  constraints Clearance::Constraints::SignedIn.new do
+    get '/', to: 'users#current_user_dashboard'
+  end
+  
+  constraints Clearance::Constraints::SignedOut.new do
+    get '/', to: redirect('/sign_in')
+  end
+  
 end
