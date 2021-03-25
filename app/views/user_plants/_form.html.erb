@@ -1,21 +1,18 @@
 <%= form_with(model: user_plant) do |form| %>
-  <% if user.errors.any? %>
+  <% if user_plant.errors.any? %>
     <div id="error_explanation">
       <div class="alert alert-danger">
-        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <h2><%= pluralize(user_plant.errors.count, "error") %> prohibited this user from being saved:</h2>
       </div>
       <ul>
-        <% user.errors.each do |error| %>
+        <% user_plant.errors.each do |error| %>
           <li class='text-danger'><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
+  <%= form.hidden_field :user_id, value: current_user.id.to_i%>
 
   <div class="field">
     <%= form.label :name %>

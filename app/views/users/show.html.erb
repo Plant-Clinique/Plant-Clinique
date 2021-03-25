@@ -1,9 +1,127 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.username %>
-</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <p id="notice"><%= notice %></p>
+
+<!-- Design inspired from https://www.hotjar.com/  template i randomly found-->
+<div class="jumbotron">
+  <div class="container text-center text-lg-left">
+    <div class="row">
+      <div class="col-lg-8">
+          <h1 class="display-4">Welcome to the Garden, 
+            <span class="highlight-word">
+              <strong> <%= @user.username %> </strong>!
+            </span>
+          </h1>
+
+          <div class = "row bg-info" style = "height: 40px;">
+            <p>
+              Plants Owned: 0
+            </p>
+          </div>
+          <div class = "row bg-info" style = "height: 40px;">
+            <p>
+              Unread Messages: 0
+            </p>
+          </div>
+          <div class = "row bg-info" style = "height: 40px;">
+            <p>
+              Water Notifications: 0
+            </p>
+          </div>
+          <div class = "row bg-info" style = "height: 40px;">
+            <p>
+              Soil Notifications: 0
+            </p>
+          </div>
+
+
+          
+          <p class="lead">This page allows you to keep track of the plants in your garden as well as post questions about any gardening issues. :)</p>
+          
+          
+          <span class="text-center d-inline-block">
+            <a class="btn btn-primary btn-lg w-100" href="#" role="button">Have a question?</a>
+            <p class="text-muted">Experts are waiting to answer your questions.</p>
+          </span>
+
+
+        </div>
+      <div class="col-lg-4 align-items-center d-flex">
+        <img src="https://dummyimage.com/1200x800/949494/fff.png" alt="" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+  <!-- [What you are working on] !!!!!The code for the plant panel stuff-->
+  <div class = "card-deck">
+    <% if UserPlant.where(user_id: current_user.id.to_i).empty? %>
+      <p>
+        <strong> You dont have any plant yet, would you like to add some? </strong>
+      </p>
+    <% else %>
+      <% UserPlant.where(user_id: current_user.id.to_i).each do |plant| %>
+        <div class = "col">
+
+
+          <div class="card">
+            <img class="card-img-top" src=<%= "#{plant.img_url}" %>  alt="Picture for this plant">
+            <div class="card-body">
+              <h4 class="card-title"> <%="Plant name: #{plant.name}"%> </h4>
+
+              
+              <p class="card-text">
+                <div class = "row">
+                  <p>
+                    <%= "Plant age: #{plant.age}" %>
+                  <br>
+                    <%= "Type: #{plant.plant_type}" %>
+                  <br>
+                    <%= "Description: #{plant.description}" %>
+                  </p>
+                </div>
+                <div class = "row">
+                </div>
+              </p>
+              <a>
+              <div class="btn btn-primary">
+                <%= link_to 'Destroy', plant, method: :delete, class: "text-light", data: { confirm: 'Are you sure?' } %> 
+                |
+                <%= link_to 'Edit', edit_user_plant_path(plant), class: "text-light"%>
+              </div>
+            </a>
+              <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+  <!-- The code for the bottom row with buttons-->
+  <div class="row rounded" style = "height: 15px;">
+    <div class = "col-10">
+      <button><%= link_to 'Add plant', new_user_plant_path%></button>
+
+      | <%= link_to 'Edit User Info', edit_user_path(@user) %> 
+      | <%= link_to 'Back', users_path %>
+    </div>
+    <div class = "col-1.5 bg-white"
+      
+    </div>
+    <div class = "col-.5">
+    </div>
+  </div>
+
+</html>
