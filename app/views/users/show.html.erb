@@ -11,7 +11,7 @@
       <div class="col-lg-8">
           <h1 class="display-4">Welcome to the Garden, 
             <span class="highlight-word">
-              <strong> <%= @user.username %> </strong>!
+              <strong> <%= current_user.username %> </strong>!
             </span>
           </h1>
 
@@ -115,7 +115,6 @@
       <button><%= link_to 'Add plant', new_user_plant_path%></button>
 
       | <%= link_to 'Edit User Info', edit_user_path(@user) %> 
-      | <%= link_to 'Back', users_path %>
     </div>
     <div class = "col-1.5 bg-white"
       

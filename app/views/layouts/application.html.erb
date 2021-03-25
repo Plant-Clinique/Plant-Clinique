@@ -22,25 +22,16 @@
           <% if signed_in? %>
 
             <li class="nav-link <%= 'active' if current_page?(users_path) %> nav-item">
-              <%= link_to "My Account", users_path, class: "mx-2 " %>
+              <%= link_to "My Account", current_user, class: "mx-2 " %>
             </li>
-
-            <!--<li class="nav-link <%= 'active' if current_page?(users_path) %> nav-item">
-              <%= link_to "UserPlant", user_plants_path , class: "mx-2 "%>
-            </li>-->
 
             <!--<li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item">
               <%= link_to "Reminder", reminders_path, class: "mx-2 " %>
             </li>-->
 
-            <!--<li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
+            <li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
               <%= link_to "Post", posts_path, class: "mx-2 " %>
-            </li>-->
-
-            <!--<li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
-              <%= link_to "Reply", posts_path, class: "mx-2 " %>
-            </li>-->
-
+            </li>
 
             <li class="nav-link <%= 'active' if current_page?(chatbot_messages_path) %> nav-item">
               <%= link_to "Chatbot", chatbot_messages_path, class: "mx-2 " %>
@@ -61,6 +52,7 @@
     <div class="container">
       <%= yield -%>
     </div>
+    <div style="height:100px"></div>
   </body>
 </html>
 
@@ -85,7 +77,7 @@
 
 
         <div class="footer">
-            <p>link to: git, homepage, doccumentation, support, terms of serive, pricacy, cookies, copyright @ pito </p>
+            <p>link to: git, homepage, doccumentation, support, terms of serive, privacy, cookies, copyright @ pito </p>
         </div>
 
         </body>

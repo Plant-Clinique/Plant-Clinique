@@ -27,33 +27,10 @@
 
 
   <tbody>
-          <style>
-            /* scroll bar */
-            ::-webkit-scrollbar {
-              width: 10px;
-            }
-
-            /* Track */
-            ::-webkit-scrollbar-track {
-              background: #f1f1f1; 
-            }
-            
-            /* Handle */
-            ::-webkit-scrollbar-thumb {
-              background: #888; 
-            }
-
-            /* Handle on hover */
-            ::-webkit-scrollbar-thumb:hover {
-              background: #555; 
-            }
-          </style>
-    <% @chatbot_messages.each do |chatbot_message| %>
-      <% if chatbot_message.user_id.to_i == current_user.id.to_i %>
-  
+    <% @chatbot_messages.where(user_id: current_user.id.to_i).each do |chatbot_message| %>  
         <tr>
           <% if chatbot_message.from_bot == true %>
-            <div class="row msg_container base_sent pr-5">
+            <div class="row msg_container base_sent pr-5 ">
             <div class=" avatar">
               <img src="https://compote.slate.com/images/995b8efe-b37b-4dc5-b9c3-e2d9e8fb2df9.gif?width=1440&rect=1560x1040&offset=0x0" class=" img-responsive" style= "height: 100px; width: 100px; object-fit: cover;" >
             </div>
@@ -78,25 +55,29 @@
     </div>
   </div>
   <% end %>
-  <% end %>
 </tbody>
 
 <tr scope="row">
   <td colspan="3">
-    <%= form_with(model: @chatbot_message) do |form| %>
-      <%= hidden_field_tag :user_id, current_user.id.to_i %>
-      <%= hidden_field_tag :time_sent, Time.now.utc%>
-      <%= hidden_field_tag :from_bot, false %>
     
       <div class = "row mx-auto">
         <div class = 'actions text-center button-box col-lg-12'>
-          <% create_options(ChatbotMessage.where(user_id: current_user.id.to_i, from_bot: true).last).each do |option| %>
-            <%= hidden_field_tag :content, option %>
-            <a><%= form.submit option, class: "mt-2 btn btn-info text-light" %></a>
-          <% end %>
+            <% create_options(ChatbotMessage.where(user_id: current_user.id.to_i, from_bot: true).last).each do |option| %>
+              <%= form_with(model: @chatbot_message) do |form| %>
+                <%= form.hidden_field :user_id, value: current_user.id.to_i %>
+                <%= form.hidden_field :time_sent, value: Time.now.utc %>
+                <%= form.hidden_field :from_bot, value: false %>
+                <%= form.hidden_field :content, value: option %>
+                <a><%= form.submit option, class: "mt-2 btn btn-info text-light" %></a>
+             <% end %>
+            <% end %>
         </div>
       </div>
 
+    <%= form_with(model: @chatbot_message) do |form| %>
+      <%= form.hidden_field :user_id, value: current_user.id.to_i %>
+      <%= form.hidden_field :time_sent, value: Time.now.utc %>
+      <%= form.hidden_field :from_bot, value: false %>
       <div class="text-field container">
         <%= form.text_field :content, class: 'mb-1 form-control'  %>
       </div>
@@ -106,6 +87,6 @@
           <%= form.submit "Send", class: "mt-2 btn btn-warning text-dark" %>
         </div>
       </div>
-  <% end %>
+    <% end %>
   </td>
 </tr>
