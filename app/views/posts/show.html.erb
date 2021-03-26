@@ -1,39 +1,39 @@
-<div class="card mt-5">
+<div class="card mt-5 mb-4" style="box-shadow: 0px 10px 10px grey">
   <div class="card-body">
-    <%= link_to 'Back', posts_path, class: 'btn btn-light' %>
+    <%= link_to 'Back', posts_path, class: 'btn btn-dark text-light mr-1' %>
     <% if @post.user.id.to_i == current_user.id.to_i %>
-      <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary text-light' %>
+      <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary mx-1 text-light' %>
+    <% end %>
+    <%= form_tag posts_path, :class=>"badge", :method => 'get' do %>
+      <%= hidden_field_tag :search, @post.topic%>
+      <%= submit_tag(Post.topics.keys[@post.topic.to_i].capitalize.gsub(/[^0-9A-Za-z]/, ' '), :class=>"btn bg-info px-5 text-light") %>
     <% end %>
     
     <p class="ml-3" id="notice"><%= notice %></p>
 
     <h1 class="text-center"><%= @post.title %></h1>
     <hr>
-    <p>
-      <%= form_tag posts_path, :class=>"badge", :method => 'get' do %>
-        <%= hidden_field_tag :search, @post.topic%>
-        <%= submit_tag(Post.topics.keys[@post.topic.to_i].capitalize.gsub(/[^0-9A-Za-z]/, ' '), :class=>"btn bg-info mr-2 px-5 text-light") %>
-      <% end %>
+    <div class="font-weight-bold">
       <%= @post.user.username %>
       | <%= @post.created_at %>
       | <%= @post.replies.length %> Replies
-    </p>
+    </div>
     <div class="my-4">
-      <%= simple_format(@post.body) %>
+      <%= @post.body %>
     </div>
   </div>
 </div>
 <% if @post.replies.any? %>
-  <% @post.replies.each do |reply| %>
-  <div class="card mt-3 ml-5">
+  <% @post.replies.sort_by{|reply| -reply.created_at.to_i}.each do |reply| %>
+  <div class="card mt-3" style="box-shadow: 0px 4px 10px grey">
     <div class="card-body">
-      <p class="font-weight-bold"><%= reply.user.username%></p>
+      <p class="font-weight-bold"><%= reply.user.username%> | <%= reply.created_at%></p>
       <%= reply.body %>
     </div>
   </div>
   <% end %>
 <% end %>
-<div class="card mt-3 ml-5 mb-5">
+<div class="card mt-3 mb-5" style="box-shadow: 0px 4px 10px grey">
   <div class="card-body">
     <p class="font-weight-bold">New comment</p>
     <%= form_with(model: [@post, @post.replies.build]) do |form| %>
