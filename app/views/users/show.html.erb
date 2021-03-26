@@ -43,7 +43,7 @@
           
           <span class="text-center d-inline-block">
             <a class="btn btn-primary btn-lg w-100" href="#" role="button">Have a question?</a>
-            <p class="text-muted">Experts are waiting to answer your questions.</p>
+            <p class="text-muted">Have plant experts answer your questions on our forum.</p>
           </span>
 
 
@@ -71,37 +71,33 @@
       </p>
     <% else %>
       <% UserPlant.where(user_id: current_user.id.to_i).each do |plant| %>
-        <div class = "col">
+        <div class="card">
+          <img class="card-img-top" src=<%= "#{plant.img_url}" %>  alt="Picture for this plant">
+          <div class="card-body">
+            <h4 class="card-title"> <%="Plant name: #{plant.name}"%> </h4>
 
-
-          <div class="card">
-            <img class="card-img-top" src=<%= "#{plant.img_url}" %>  alt="Picture for this plant">
-            <div class="card-body">
-              <h4 class="card-title"> <%="Plant name: #{plant.name}"%> </h4>
-
-              
-              <p class="card-text">
-                <div class = "row">
-                  <p>
-                    <%= "Plant age: #{plant.age}" %>
-                  <br>
-                    <%= "Type: #{plant.plant_type}" %>
-                  <br>
-                    <%= "Description: #{plant.description}" %>
-                  </p>
-                </div>
-                <div class = "row">
-                </div>
-              </p>
-              <a>
-              <div class="btn btn-primary">
-                <%= link_to 'Destroy', plant, method: :delete, class: "text-light", data: { confirm: 'Are you sure?' } %> 
-                |
-                <%= link_to 'Edit', edit_user_plant_path(plant), class: "text-light"%>
+            
+            <p class="card-text">
+              <div class = "row">
+                <p>
+                  <%= "Plant age: #{plant.age}" %>
+                <br>
+                  <%= "Type: #{plant.plant_type}" %>
+                <br>
+                  <%= "Description: #{plant.description}" %>
+                </p>
               </div>
-            </a>
-              <a href="#" class="btn btn-primary">See Profile</a>
+              <div class = "row">
+              </div>
+            </p>
+            <a>
+            <div class="btn btn-primary">
+              <%= link_to 'Destroy', plant, method: :delete, class: "text-light", data: { confirm: 'Are you sure?' } %> 
+              |
+              <%= link_to 'Edit', edit_user_plant_path(plant), class: "text-light"%>
             </div>
+          </a>
+            <a href="#" class="btn btn-primary">See Profile</a>
           </div>
         </div>
       <% end %>
@@ -111,16 +107,14 @@
 
   <!-- The code for the bottom row with buttons-->
   <div class="row rounded" style = "height: 15px;">
-    <div class = "col-10">
+    <div class = "col">
       <button><%= link_to 'Add plant', new_user_plant_path%></button>
 
       | <%= link_to 'Edit User Info', edit_user_path(@user) %> 
     </div>
-    <div class = "col-1.5 bg-white"
-      
-    </div>
-    <div class = "col-.5">
-    </div>
+  </div>
+  
+  <div class="row" style = "height: 100px;">
   </div>
 
 </html>
