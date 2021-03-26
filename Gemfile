@@ -38,6 +38,11 @@ gem "binding_of_caller"
 gem 'rubocop'
 ##################
 
+##################
+# Select boxes
+gem "select2-rails"
+##################
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
