@@ -1,3 +1,23 @@
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+
+function formatState (state) {
+  if (!state.id) {
+    return state.text;
+  }
+  var $state = $(
+    '<span>' + state.text + '</span>'
+  );
+  return $state;
+};
+
+$(".js-example-templating").select2({
+  templateResult: formatState
+});
+</script>
+
 <%= form_with(model: user_plant) do |form| %>
   <% if user_plant.errors.any? %>
     <div id="error_explanation">
@@ -26,7 +46,9 @@
 
   <div class="field">
     <%= form.label :plant_type %>
-    <%= form.text_field :plant_type %>
+    <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
+      <%= form.text_field :plant_type %>
+    </select>
   </div>
 
   <div class="field">
