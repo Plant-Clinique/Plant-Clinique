@@ -3,4 +3,6 @@
 <%= render 'form', user_plant: @user_plant %>
 
 <%= link_to 'Show', @user_plant %> |
-<%= link_to 'Back', current_user %>
+<div class="m-2 submit-field">
+  <%= link_to 'Back', current_user, class: "mt-2 btn btn-dark text-light"  %>
+</div>

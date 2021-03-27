@@ -59,9 +59,9 @@ end
                           content: Faker::Lorem.sentence)
 end
 
-result = JSON.parse(Net::HTTP.get(URI.parse('https://trefle.io/api/v1/plants?token=6j4O7U0FSKM_Te6mN3aFN7TORBk0RYtU_wk5sJgkjbw')))
+result = JSON.parse(Net::HTTP.get(URI.parse('https://trefle.io/api/v1/plants?filter_not%5Bedible_part%5D=null&token=6j4O7U0FSKM_Te6mN3aFN7TORBk0RYtU_wk5sJgkjbw')))
 
-plant_types = result['data'].map{ |plant| plant['common_name'] }
+plant_types = result['data'].map{ |plant| plant['common_name'] }.reject{ |plant| plant == nil }
 plant_types.each do |plant_type|
   PlantType.create(name: plant_type)
 end

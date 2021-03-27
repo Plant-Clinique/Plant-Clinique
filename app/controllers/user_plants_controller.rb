@@ -26,7 +26,7 @@ class UserPlantsController < ApplicationController
 
     respond_to do |format|
       if @user_plant.save
-        format.html { redirect_to @user_plant, notice: "User plant was successfully created." }
+        format.html { redirect_to current_user, notice: "User plant was successfully created." }
         format.json { render :show, status: :created, location: @user_plant }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class UserPlantsController < ApplicationController
   def update
     respond_to do |format|
       if @user_plant.update(user_plant_params)
-        format.html { redirect_to @user_plant, notice: "User plant was successfully updated." }
+        format.html { redirect_to current_user, notice: "User plant was successfully updated." }
         format.json { render :show, status: :ok, location: @user_plant }
       else
         format.html { render :edit, status: :unprocessable_entity }
