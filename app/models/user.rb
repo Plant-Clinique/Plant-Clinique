@@ -6,5 +6,6 @@ class User < ApplicationRecord
     has_many :chatbot_messages
     has_many :replies
     has_many :posts
+    
     validates :username, presence: true, uniqueness: true
 end

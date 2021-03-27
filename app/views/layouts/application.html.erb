@@ -16,7 +16,7 @@
     <nav class="navbar p-3 mb-4 bg-warning">
       <div class="container-fluid">
         <div class="navbar-header">
-          <div class="header">Plant-Clinique</div>
+          <div class="header"> <%= link_to "Plant-Clinique", current_user, class: "mx-2 " %></div>
         </div>
         <ul class="nav navbar-right">
           <% if signed_in? %>
