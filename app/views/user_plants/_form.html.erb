@@ -14,32 +14,32 @@
 
   <%= form.hidden_field :user_id, value: current_user.id.to_i%>
 
-  <div class="field">
+  <div class="m-2 text-field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="m-2 text-field">
     <%= form.label :age %>
     <%= form.text_field :age %>
   </div>
 
-  <div class="field">
+  <div class="m-2 text-field">
     <%= form.label :plant_type %>
-    <%= form.text_field :plant_type %>
+    <%= form.select :plant_type, PlantType.all.map(&:name), :class=>"bg-white" %>
   </div>
 
-  <div class="field">
+  <div class="m-2 text-field">
     <%= form.label :img_url %>
     <%= form.text_field :img_url %>
   </div>
 
-  <div class="field">
+  <div class="m-2 text-field">
     <%= form.label :description %>
     <%= form.text_field :description %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="m-2 submit-field">
+    <%= form.submit "Create new plant", class: "mt-2 btn btn-primary text-light" %>
   </div>
 <% end %>
