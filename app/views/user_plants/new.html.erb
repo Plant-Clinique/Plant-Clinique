@@ -1,5 +1,9 @@
-<h1>New User Plant</h1>
+<div class="bg-white rounded p-3">
+  <h1>New User Plant</h1>
 
-<%= render 'form', user_plant: @user_plant %>
+  <%= render 'form', user_plant: @user_plant %>
 
-<%= link_to 'Back', user_plants_path %>
+  <div class="m-2 submit-field">
+    <%= link_to 'Back', user_plants_path, class: "mt-2 btn btn-dark text-light"  %>
+  </div>
+</div>

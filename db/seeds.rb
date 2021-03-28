@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+require 'net/http'
+require 'json'
 
 User.delete_all
 UserPlant.delete_all
@@ -14,6 +16,7 @@ Reminder.delete_all
 Post.delete_all
 Reply.delete_all
 ChatbotMessage.delete_all
+PlantType.delete_all
 
 10.times do
   User.create(username: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password)
@@ -54,4 +57,11 @@ end
                           time_sent: Faker::Time.forward(days: 30, period: :morning),
                           from_bot: Faker::Boolean.boolean,
                           content: Faker::Lorem.sentence)
+end
+
+result = JSON.parse(Net::HTTP.get(URI.parse('https://trefle.io/api/v1/plants?filter_not%5Bedible_part%5D=null&token=6j4O7U0FSKM_Te6mN3aFN7TORBk0RYtU_wk5sJgkjbw')))
+
+plant_types = result['data'].map{ |plant| plant['common_name'] }.reject{ |plant| plant == nil }
+plant_types.each do |plant_type|
+  PlantType.create(name: plant_type)
 end

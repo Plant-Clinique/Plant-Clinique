@@ -8,7 +8,12 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   </head>
 
 
@@ -33,6 +38,11 @@
               <%= link_to "Post", posts_path, class: "mx-2 " %>
             </li>
 
+            <!--<li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
+              <%= link_to "Reply", posts_path, class: "mx-2 " %>
+            </li>-->
+
+
             <li class="nav-link <%= 'active' if current_page?(chatbot_messages_path) %> nav-item">
               <%= link_to "Chatbot", chatbot_messages_path, class: "mx-2 " %>
             </li>
@@ -53,6 +63,18 @@
       <%= yield -%>
     </div>
     <div style="height:100px"></div>
+    <script>
+      $(function () {
+        $('[data-toggle="popover"]').popover()
+      })
+    </script>
+    <script>  
+      $(function () {
+        $('.example-popover').popover({
+          container: 'body'
+        })
+      })
+    </script>
   </body>
 </html>
 

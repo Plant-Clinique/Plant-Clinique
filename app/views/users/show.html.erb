@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 
+<p id="notice"><%= notice %></p>
 
-  <p id="notice"><%= notice %></p>
+
+
 
 <!-- Design inspired from https://www.hotjar.com/  template i randomly found-->
-<div class="jumbotron">
+<div class="jumbotron bg-white" style="box-shadow: 0px 10px 10px grey">
   <div class="container text-center text-lg-left">
     <div class="row">
       <div class="col-lg-8">
@@ -14,93 +16,116 @@
               <strong> <%= current_user.username %> </strong>!
             </span>
           </h1>
-
-          <div class = "row bg-info" style = "height: 40px;">
-            <p>
-              Plants Owned: 0
-            </p>
+          <div class = "row">
+            <div class = "col">
+              <div class = "row justify-content-center" style = "height: 40px;">
+                <h5>Plants Owned: <span class = "badge badge-secondary">0</span></h5>
+              </div>
+              <div class = "row justify-content-center" style = "height: 40px;">
+                <h5>Unread Messages: <span class = "badge badge-secondary">0</span></h5>
+              </div>
+            </div>
+            <div class = "col">
+              <div class = "row justify-content-center" style = "height: 40px;">
+                <h5>Water Notifications: <span class = "badge badge-secondary">0</span></h5>
+              </div>
+              <div class = "row justify-content-center" style = "height: 40px;">
+                <h5>Soil Notifications: <span class = "badge badge-secondary">0</span></h5>
+              </div>
+            </div>
           </div>
-          <div class = "row bg-info" style = "height: 40px;">
-            <p>
-              Unread Messages: 0
-            </p>
-          </div>
-          <div class = "row bg-info" style = "height: 40px;">
-            <p>
-              Water Notifications: 0
-            </p>
-          </div>
-          <div class = "row bg-info" style = "height: 40px;">
-            <p>
-              Soil Notifications: 0
-            </p>
-          </div>
+          <div class = "row">
 
 
+
+            <span class="text-center d-inline-block">
+              <a class="btn btn-primary btn-lg w-100" href="#" role="button">
+                Have a question?
+              </a>
+              <p class="text-muted">Have plant experts answer your questions on our forum.</p>
+            </span>
+
+            
+            <span class="text-center d-inline-block">
+              <div class = "col">
+                <button type="button" class="btn btn-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
+                  </svg>
+                  <%= link_to 'Add plant', new_user_plant_path, class: "text-light"%>
+                </button>
           
-          <p class="lead">This page allows you to keep track of the plants in your garden as well as post questions about any gardening issues. :)</p>
+                <button type="button" class="btn btn-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
+                  </svg>
+                  <%= link_to 'Edit User Info', edit_user_path(@user), class: "text-light" %> 
+                </button>
+              </div>
+            </span>
+          </div>          
           
-          
-          <span class="text-center d-inline-block">
-            <a class="btn btn-primary btn-lg w-100" href="#" role="button">Have a question?</a>
-            <p class="text-muted">Experts are waiting to answer your questions.</p>
-          </span>
-
 
         </div>
       <div class="col-lg-4 align-items-center d-flex">
-        <img src="https://dummyimage.com/1200x800/949494/fff.png" alt="" class="img-fluid">
+        <%= image_tag ("prabu_front.png") %>
       </div>
     </div>
   </div>
 </div>
 
 
-
-
-
-
-
-
-
   <!-- [What you are working on] !!!!!The code for the plant panel stuff-->
-  <div class = "card-deck">
+  <div class = "row">
     <% if UserPlant.where(user_id: current_user.id.to_i).empty? %>
       <p>
         <strong> You dont have any plant yet, would you like to add some? </strong>
       </p>
     <% else %>
       <% UserPlant.where(user_id: current_user.id.to_i).each do |plant| %>
-        <div class = "col">
-
-
-          <div class="card">
-            <img class="card-img-top" src=<%= "#{plant.img_url}" %>  alt="Picture for this plant">
+        <div class = "col-4">
+          <div class="card text-center border-success mb-3" style="box-shadow: 0px 10px 10px grey">
+            <img class="card-img-top-center img-fluid min-width: 200px !important;" src=<%= "#{plant.img_url}" %>  alt="Picture for this plant" style= "height: 200px; object-fit: cover;">
             <div class="card-body">
-              <h4 class="card-title"> <%="Plant name: #{plant.name}"%> </h4>
-
-              
+              <h4 class="card-title"> <%="#{plant.name}"%> </h4>
               <p class="card-text">
-                <div class = "row">
-                  <p>
-                    <%= "Plant age: #{plant.age}" %>
-                  <br>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <i class="fas fa-clock text-success mx-2"></i>
+                    <%= "Age: #{plant.age}" %>
+                  </li>
+                  <li class="list-group-item">
+                    <i class="fas fa-tree text-success mx-2"></i>
                     <%= "Type: #{plant.plant_type}" %>
-                  <br>
-                    <%= "Description: #{plant.description}" %>
-                  </p>
+                  </li>
+                  <li class="list-group-item">
+                  <i class="fas fa-seedling text-success mx-2"></i>
+                    <%= "Birth: #{plant.created_at}" %>
+                  </li>
+                </ul>    
+                <div class = "row justify-content-center">
+                  <div class = "box">
+                    <p>
+                      <%= "Description: #{plant.description}" %>
+                    <p>
+                  </div>
                 </div>
                 <div class = "row">
                 </div>
               </p>
               <a>
-              <div class="btn btn-primary">
-                <%= link_to 'Destroy', plant, method: :delete, class: "text-light", data: { confirm: 'Are you sure?' } %> 
-                |
-                <%= link_to 'Edit', edit_user_plant_path(plant), class: "text-light"%>
-              </div>
-            </a>
-              <a href="#" class="btn btn-primary">See Profile</a>
+                <div class="btn btn-primary">
+                  <%= link_to 'Destroy', plant, method: :delete, class: "text-light", data: { confirm: 'Are you sure?' } %> 
+                  |
+                  <%= link_to 'Edit', edit_user_plant_path(plant), class: "text-light"%>
+                </div>
+                <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content= "<%= "#{plant.description}"%>">
+                  <i class="fas fa-tree text-success mx-2"></i>
+                </button>
+                <!--Card hover class =  stretched-link -->
+              </a>
             </div>
           </div>
         </div>
@@ -108,19 +133,6 @@
     <% end %>
   </div>
 
-
-  <!-- The code for the bottom row with buttons-->
-  <div class="row rounded" style = "height: 15px;">
-    <div class = "col-10">
-      <button><%= link_to 'Add plant', new_user_plant_path%></button>
-
-      | <%= link_to 'Edit User Info', edit_user_path(@user) %> 
-    </div>
-    <div class = "col-1.5 bg-white"
-      
-    </div>
-    <div class = "col-.5">
-    </div>
+  <div class="row" style = "height: 100px;">
   </div>
-
 </html>
