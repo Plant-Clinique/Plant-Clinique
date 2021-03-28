@@ -3,8 +3,8 @@ class Post < ApplicationRecord
     belongs_to :user
     enum topics: [:bugs, :disease, :color, :watering, :sunlight, :soil_care, :buying_plants, :temperature]
 
-    validates :title, presence: true, length: { minimum: 1, maximum: 100 }
-    validates :body, presence: true, length: { minimum: 1, maximum: 500 }
+    validates :title, presence: true, length: { minimum: 1, maximum: 500 }
+    validates :body, presence: true, length: { minimum: 1, maximum: 3500 }
 
     def self.search(search)
       if search
