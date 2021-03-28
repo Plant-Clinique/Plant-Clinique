@@ -16,6 +16,7 @@
 <div class="panel-heading top-bar">
       
 <div>
+
   <h3 class="text-center">
   
     <span class="glyphicon glyphicon-comment"></span> 
@@ -26,33 +27,69 @@
 </div>
 
 
-  <tbody>
+  <tbody >
+  
     <% @chatbot_messages.where(user_id: current_user.id.to_i).each do |chatbot_message| %>  
-        <tr>
+        <tr >
+<style>
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: brown; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+</style>
+        
+
+        
           <% if chatbot_message.from_bot == true %>
-            <div class="row msg_container base_sent pr-5 ">
-            <div class=" avatar">
-              <img src="https://compote.slate.com/images/995b8efe-b37b-4dc5-b9c3-e2d9e8fb2df9.gif?width=1440&rect=1560x1040&offset=0x0" class=" img-responsive" style= "height: 100px; width: 100px; object-fit: cover;" >
+          
+            <div class="row msg_container base_receive ">
+              <div class=" col-md-2 col-xs-2 ">
+                <img src="https://compote.slate.com/images/995b8efe-b37b-4dc5-b9c3-e2d9e8fb2df9.gif?width=1440&rect=1560x1040&offset=0x0" class=" img-responsive" style= "height: 100px; width: 100px; object-fit: cover;" >
+              </div>
+              <div class="col-md-4 col-xs-3">
+                <div class="messages msg_receive">      
+                  <td class="th">Farmer Bot</td>
+                  <td ><%= "sent: " + chatbot_message.content %></td><br>
+                <td style="color:gray"><%="@"+chatbot_message.time_sent.to_s %></td>
+              </div>
             </div>
-            <div class="col-md-3 col-xs-3">
-            <div class="messages msg_sent">      
-            <td class="th">Farmer Bot</td>
 
           <% else %>
-            <div class="panel-body msg_container base_receive">
-            <div class="col-md-2 col-xs-2 avatar_2">
-              <img style="clear: right;" src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png" class=" img-responsive ">
+            <div class="row msg_container base_sent">
+            
+              <div class="col-md-3 col-xs-3">
+                <div class="messages msg_sent">
+                  <td class="td"><%= chatbot_message.user.username.capitalize%></td>
+                  <td ><%= "sent: " + chatbot_message.content %></td><br>
+                  <td style="color:gray"><%="@"+chatbot_message.time_sent.to_s %></td>
+                </div>
+              </div>
+            <div class="col-md-2 col-xs-2 avatar">
+              <img src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png" class=" img-responsive ">
             </div>
-            <div class="col-md-3 col-xs-3">
-            <div class="messages msg_receive">
-            <td class="td"><%= chatbot_message.user.username.capitalize%></td>
-
+          
           <% end %>
-          <td ><%= "sent: " + chatbot_message.content %></td><br>
-          <td class="time_time"><%="@"+chatbot_message.time_sent.to_s %></td>
+          
+        
         </tr>
-      </div>
-    </div>
+      
   </div>
   <% end %>
 </tbody>
