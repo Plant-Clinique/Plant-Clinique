@@ -20,13 +20,17 @@
   <body style = "background-color: #98FFB3">
     <nav class="navbar p-3 mb-4 bg-warning">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <div class="header"> <%= link_to "Plant-Clinique", current_user, class: "mx-2 " %></div>
+        <div class="navbar-header ">
+          <div class="header">
+          <li class="nav-link header" %>
+          <%= link_to "Plant Clinique", current_user, class: "mx-2 " , style: "color:brown;"%>
+          </li>
+          </div>
         </div>
         <ul class="nav navbar-right">
           <% if signed_in? %>
 
-            <li class="nav-link <%= 'active' if current_page?(users_path) %> nav-item">
+            <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
               <%= link_to "My Account", current_user, class: "mx-2 " %>
             </li>
 
@@ -52,7 +56,7 @@
             </li>
 
           <% else %>
-            <li ><u><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></u></li>
+            <li ><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></li>
           <% end %>
         </ul>
         
@@ -79,28 +83,6 @@
 </html>
 
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-            <style>
-            .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background-color: green;
-            color: white;
-            text-align: center;
-            }
-            </style>
-    </head>
-        <body>
 
 
-        <div class="footer">
-            <p>link to: git, homepage, doccumentation, support, terms of serive, privacy, cookies, copyright @ pito </p>
-        </div>
 
-        </body>
-</html> 
