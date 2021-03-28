@@ -5,3 +5,20 @@
 .active {
     background-color: red;
 }
+
+
+  .box {
+    background-color: #fff;
+    padding: 2em;
+    height: 120px;
+  }
+  
+  .box p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+  }
+
+
+
