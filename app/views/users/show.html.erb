@@ -19,7 +19,7 @@
           <div class = "row">
             <div class = "col">
               <div class = "row justify-content-center" style = "height: 40px;">
-                <h5>Plants Owned: <span class = "badge badge-secondary">0</span></h5>
+                <h5>Plants Owned: <span class = "badge badge-secondary"><%= current_user.user_plants.count%></span></h5>
               </div>
               <div class = "row justify-content-center" style = "height: 40px;">
                 <h5>Unread Messages: <span class = "badge badge-secondary">0</span></h5>
