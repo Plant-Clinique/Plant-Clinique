@@ -12,14 +12,14 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
 
-  resources :posts
+  # resources :posts
   resources :posts do
-  resources :replies
+    resources :replies, only: [:index, :create]
   end
-  resources :chatbot_messages
+  resources :chatbot_messages, except: [:edit, :update, :destroy]
   resources :reminders
-  resources :user_plants
-  resources :users
+  resources :user_plants, except: [:index]
+  resources :users, except: [:index]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   constraints Clearance::Constraints::SignedIn.new do
     get '/', to: 'users#current_user_dashboard'
