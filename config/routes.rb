@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
 
-  # resources :posts
+  mount RailsAdmin::Engine => "/admin", as: "rails_admin"
+
+  resources :posts
   resources :posts do
     resources :replies, only: [:index, :create]
   end
