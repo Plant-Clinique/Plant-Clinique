@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  if Rails.env.development?
-    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  end
-  
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
