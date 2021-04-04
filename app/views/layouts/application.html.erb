@@ -58,8 +58,19 @@
               </a>
             </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
 
+            <!--
             <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
               <%= link_to "My Account", current_user, class: "mx-2 " %>
+            </li>
+            -->
+
+            <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
+              <a href="/">
+                <!--<span class="dot" style="background-image: url('prabu_front.png')"></span>-->
+                  <div class="dot">
+
+                  </div>
+              </a>
             </li>
 
             <li class="nav-link nav-item">
@@ -105,8 +116,20 @@
     context.stroke();
 
     </script>
-    
 
+    <!-- for the chatbot popup -->
+    <div class="row">
+      <% if signed_in? %>
+        <div class=circle>
+          <a href="/chatbot_messages#index">
+            <i class="fa fa-plus" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:red"> </i>
+          </a>
+        </div>
+      <% end %>
+    </div>
+
+  
+  
   
   <footer class="row justify-content-center" style="height: 20px; width: 100%; color: white; background-color:#92B78B; text-align: center;">
     <p style="text-align: center; color: white;left:0; bottom:0;"> 

@@ -1,4 +1,4 @@
-<div class="card mt-5 mb-4" style="box-shadow: 0px 10px 10px grey; background-color: #F9F991">
+<div class="card mt-5 mb-4" style="box-shadow: 0px 10px 10px grey; background-color: #F9F991; border-radius: 20px;">
   <div class="card-body">
     <%= link_to 'Back', posts_path, class: 'btn btn-dark text-light mr-1' %>
     <% if @post.user.id.to_i == current_user.id.to_i %>
@@ -25,11 +25,13 @@
       <%= link_to 'Dislikes', "#", class: 'btn btn-primary text-white ' %> 3
     </div>
 
+    <!--
     <style>
     .emoji {
       font-family: Segoe UI Emoji, Segoe UI Symbol, Quivira, Symbola;
     }
     </style>
+    -->
    
 
     <div class="button-right">
@@ -40,7 +42,7 @@
 </div>
 <% if @post.replies.any? %>
   <% @post.replies.sort_by{|reply| -reply.created_at.to_i}.each do |reply| %>
-  <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background-color: #BAE7AC">
+  <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background-color: #BAE7AC; border-radius: 20px;">
     <div class="card-body">
       <p class="font-weight-bold"><%= reply.user.username%> | <%= reply.created_at%></p>
       <%= reply.body %>
