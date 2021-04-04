@@ -1,40 +1,62 @@
 <p id="notice"><%= notice %></p>
+<body>
 <div class="row">
-  <h3 class="text-info col-1 col-md-2 mt-2"><%= link_to 'Topics', posts_path %></h3>
+  <h2 class="text-info col-1 col-md-2 mt-2"><%= link_to 'Topics: ', posts_path %></h3>
   <div class="scrolling-wrapper col-10 col-md-10 py-1 rounded" >
     <% Post.topics.each do |topic, key| %>
       <%= form_tag posts_path, :class=>"badge", :method => 'get' do %>
         <%= hidden_field_tag :search, key%>
-        <%= submit_tag(topic.capitalize.gsub(/[^0-9A-Za-z]/, ' '), :class=>"btn bg-info mr-2 px-5 text-light") %>
+        <%= submit_tag(topic.capitalize.gsub(/[^0-9A-Za-z]/, ' '), :class=>"btn bg-success mr-2 px-5 text-light") %>
       <% end %>
     <% end %>
   </div>
 </div>
 <br>
 <% if @posts.length != Post.all.length && !@posts.all.empty? %>
-  <h1 class="text-primary"><%= link_to "Posts about #{Post.topics.keys[@posts.first.topic].capitalize.gsub(/[^0-9A-Za-z]/, ' ')}", posts_path %></h1>
+  <h1 class="text-warning"><%= link_to "Posts about #{Post.topics.keys[@posts.first.topic].capitalize.gsub(/[^0-9A-Za-z]/, ' ')}", posts_path %></h1>
 <% elsif @posts.first.nil? %>
   <h4 class="text-danger">No posts were found for this topic!</h4>
 <% else %>
-  <h1 class="text-primary"><%= link_to "All Posts", posts_path %></h1>
+  <h1 class="text-warning"><%= link_to "All Posts", posts_path %></h1>
 <% end %>
 <hr>
-<%= link_to 'New Post', new_post_path, class: 'btn btn-primary text-light' %>
+<%= link_to 'New Post', new_post_path, class: 'btn btn-warning text-dark' %>
+
+<div class="button-right">
+  <%= link_to 'Sort by Newest', new_post_path, class: 'btn btn-primary text-white ' %>
+</div>
+<div class="button-right">
+  <%= link_to 'Sort By Oldest', new_post_path, class: 'btn btn-primary text-white ' %>
+</div>
+<div class="button-right">
+  <%= link_to 'Least Liked', new_post_path, class: 'btn btn-success text-white ' %>
+</div>
+<div class="button-right">
+  <%= link_to 'Most Liked', new_post_path, class: 'btn btn-success text-white ' %>
+</div>
+<div class="button-right">
+  <%= link_to 'Random', new_post_path, class: 'btn btn-info text-white ' %>
+</div>
+
+
+
 <div class= "mb-5">
   <% @posts.sort_by{|post| -post.created_at.to_i}.each do |post| %>
     <div class="card mt-3" style="box-shadow: 0px 4px 10px grey">
       <div class="card-body">
         <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5>
         <p class="card-text font-weight-bold">
-          <%= post.user.username %>
+            <%= post.user.username %>
           | <%= post.created_at %>
           | <%= post.replies.length %> Replies
         </p>
         <% if post.user.id.to_i == current_user.id.to_i %>
-          <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-primary text-light' %>
+          <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning text-dark' %>
         <% end %>
       </div>
     </div>
   <% end %>
 </div>
 <%= paginate @posts %>
+
+</body>
