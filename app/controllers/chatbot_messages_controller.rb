@@ -2,6 +2,11 @@ class ChatbotMessagesController < ApplicationController
   before_action :require_login
   before_action :set_chatbot_message, only: %i[ show edit update destroy ]
 
+  include Wicked::Wizard
+
+  steps :choose_visit_type, :choose_plant, :select_symptoms, :answer_symptoms_questions, :display_possible_treatments
+
+
   # GET /chatbot_messages or /chatbot_messages.json
   def index
     @chatbot_messages = ChatbotMessage.all
@@ -9,6 +14,12 @@ class ChatbotMessagesController < ApplicationController
 
   # GET /chatbot_messages/1 or /chatbot_messages/1.json
   def show
+    @user = current_user
+    # case step
+    # when :choose_visit_type
+      
+    # end
+
   end
 
   # GET /chatbot_messages/new
