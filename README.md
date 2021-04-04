@@ -5,7 +5,7 @@ Repo for us to make and track Plant Clinique features
 * Clearance/Password: New, Create
 * Clearance/Session: Create, New, Destroy
 * User: Create
-    * Password: Create, Edit, Update
+    * Password: Create, Edit, Update </br>
     New, Show, Create, Edit, Update, Destroy (no Index)
 * Post: Index, New, Show, Create, Edit, Update, Destroy (all)
     * Reply: Index, Create
@@ -13,12 +13,61 @@ Repo for us to make and track Plant Clinique features
 * User_plant: New, Show, Create, Edit, Update, Destroy (no Index)
 * Reminder: Index, New, Show, Create, Edit, Update, Destroy (all)
 
-### Constraints
+## Constraints
 * SignedIn:     get root to "users#current_user_dashboard"
 * SignedOut:    get root to "/sign_in" to clearance/session#new
 
 
 # DB Schema
+(🌱: primary key; <u>underlined</u>: foreign key)
+## Schema
+* <strong>User</strong>
+    * user_id: integer 🌱
+    * username: string
+    * email: string
+    * encrypted_password: string 
+    * confirmation_token: string
+    * remember_token: string
+    * admin: boolean 
+* <strong>UserPlant</strong>
+    * plant_id: integer 🌱
+    * <u>user_id: integer</u>
+    * name: string 
+    * age: float 
+    * plant_type: string 
+    * image_url: string 
+    * description: string 
+* <strong>Reminder</strong>
+    * reminder_id: integer 🌱
+    * <u>user_plant_id: integer</u>
+    * <u>user_id: integer</u>
+    * reminder_time: datetime 
+    * description: string 
+    * reminder_type: enum
+* <strong>ChatbotMessage</strong>
+    * chatbot_message_id: integer 🌱
+    * <u>user_id: integer</u>
+    * time_sent: datetime 
+    * from_bot: boolean 
+    * content: string 
+* <strong>Post</strong>
+    * post_id: integer 🌱
+    * <u>user_id: integer</u>
+    * topic: enum 
+    * title: string
+    * body: string
+* <strong>Reply</strong>
+    * reply_id: integer 🌱
+    * <u>user_id: integer</u>
+    * <u>post_id: integer</u>
+    * body: string
+* <strong>PlantType</strong>
+    * plant_type_id: integer 🌱
+    * name: string
+</br>
+## DB Associations
+![DB Associations](/images-readme/DB_associations.png)
+
 
 # App views
 
