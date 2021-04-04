@@ -2,9 +2,7 @@ class ChatbotMessagesController < ApplicationController
   before_action :require_login
   before_action :set_chatbot_message, only: %i[ show edit update destroy ]
 
-  include Wicked::Wizard
 
-  steps :choose_visit_type, :choose_plant, :select_symptoms, :answer_symptoms_questions, :display_possible_treatments
 
 
   # GET /chatbot_messages or /chatbot_messages.json
