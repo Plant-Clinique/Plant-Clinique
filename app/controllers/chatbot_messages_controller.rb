@@ -14,12 +14,6 @@ class ChatbotMessagesController < ApplicationController
 
   # GET /chatbot_messages/1 or /chatbot_messages/1.json
   def show
-    @user = current_user
-    # case step
-    # when :choose_visit_type
-      
-    # end
-
   end
 
   # GET /chatbot_messages/new
