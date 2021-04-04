@@ -2,6 +2,32 @@
 Repo for us to make and track Plant Clinique features
 
 # URL patterns
+* Homepage: `/` 
+    * redirects to ~> `/users/{user_id}` if signed in
+    * redirects to ~> `/sign_in` if signed out
+* Account
+    * Sign in: `/sign_in`
+    * Forgot password: `/passwords/new`
+    * Sign up: `/sign_up`
+* User management
+
+    * User page: `/users/{user_id}`
+    * Edit user info: `/users/{user_id}/edit`
+* Plant
+    * All plants: `/users/{user_id}`
+    * Add plant: `/user_plants/new`
+    * Edit plant info: `/user_plants/{plant_id}/edit`
+    * Delete plant: (in user page) `/users/{user_id}`
+* Post
+    * All posts: `/posts`
+    * Posts of a specific topic: `/posts/search={topic_enum}&commit={topic}`
+    * Read a post: `/posts/{post_id}`
+    * New post: `/posts/new`
+* Visit the chatbot: `/chatbot_messages`
+
+---
+<strong>Question for the TAs</strong>: Should we keep this next section of URL?
+
 * Clearance/Password: New, Create
 * Clearance/Session: Create, New, Destroy
 * User: Create
@@ -19,7 +45,7 @@ Repo for us to make and track Plant Clinique features
 
 
 # DB Schema
-(🌱: primary key; <u>underlined</u>: foreign key)
+(🌱: primary key; <ins>underlined</ins>: foreign key)
 ## Schema
 * <strong>User</strong>
     * user_id: integer 🌱
@@ -31,7 +57,7 @@ Repo for us to make and track Plant Clinique features
     * admin: boolean 
 * <strong>UserPlant</strong>
     * plant_id: integer 🌱
-    * <u>user_id: integer</u>
+    * <ins>user_id: integer</ins>
     * name: string 
     * age: float 
     * plant_type: string 
@@ -39,33 +65,33 @@ Repo for us to make and track Plant Clinique features
     * description: string 
 * <strong>Reminder</strong>
     * reminder_id: integer 🌱
-    * <u>user_plant_id: integer</u>
-    * <u>user_id: integer</u>
+    * <ins>user_plant_id: integer</ins>
+    * <ins>user_id: integer</ins>
     * reminder_time: datetime 
     * description: string 
     * reminder_type: enum
 * <strong>ChatbotMessage</strong>
     * chatbot_message_id: integer 🌱
-    * <u>user_id: integer</u>
+    * <ins>user_id: integer</ins>
     * time_sent: datetime 
     * from_bot: boolean 
     * content: string 
 * <strong>Post</strong>
     * post_id: integer 🌱
-    * <u>user_id: integer</u>
+    * <ins>user_id: integer</ins>
     * topic: enum 
     * title: string
     * body: string
 * <strong>Reply</strong>
     * reply_id: integer 🌱
-    * <u>user_id: integer</u>
-    * <u>post_id: integer</u>
+    * <ins>user_id: integer</ins>
+    * <ins>post_id: integer</ins>
     * body: string
 * <strong>PlantType</strong>
     * plant_type_id: integer 🌱
     * name: string
 </br>
-## DB Associations </br>
+## DB Associations
 <img src="./images-readme/DB_associations.png" title="DB Associations" width="50%">
 
 
