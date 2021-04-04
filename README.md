@@ -65,8 +65,8 @@ Repo for us to make and track Plant Clinique features
     * plant_type_id: integer 🌱
     * name: string
 </br>
-## DB Associations
-![DB Associations](./images-readme/DB_associations.png)
+## DB Associations </br>
+<img src="./images-readme/DB_associations.png" title="DB Associations" width="50%">
 
 
 # App views
