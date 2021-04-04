@@ -90,7 +90,7 @@ Repo for us to make and track Plant Clinique features
 * <strong>PlantType</strong>
     * plant_type_id: integer 🌱
     * name: string
-</br>
+
 ## DB Associations
 <img src="./images-readme/DB_associations.png" title="DB Associations" width="50%">
 
