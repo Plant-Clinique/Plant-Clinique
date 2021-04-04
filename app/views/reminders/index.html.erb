@@ -24,7 +24,7 @@
         <td><%= reminder.reminder_type %></td>
         <td><%= link_to 'Show', reminder %></td>
         <td><%= link_to 'Edit', edit_reminder_path(reminder) %></td>
-        <td><%= link_to 'Destroy', reminder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove', reminder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

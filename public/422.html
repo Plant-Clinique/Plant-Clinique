@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
+    background-color: white;
+    color: green;
     text-align: center;
     font-family: arial, sans-serif;
-    margin: 0;
+    margin: 100px;
   }
 
   .rails-default-error-page div.dialog {
@@ -33,14 +33,14 @@
 
   .rails-default-error-page h1 {
     font-size: 100%;
-    color: #730E15;
+    color: brown;
     line-height: 1.5em;
   }
 
   .rails-default-error-page div.dialog > p {
     margin: 0 0 1em;
     padding: 1em;
-    background-color: #F7F7F7;
+    background-color: #fff;
     border: 1px solid #CCC;
     border-right-color: #999;
     border-left-color: #999;
@@ -50,18 +50,51 @@
     border-top-color: #DADADA;
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+
+    
+  }
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.rails-default-error-page h2 {
+    font-size: 300%;
+    color: black;
+    line-height: 1.5em;
   }
   </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/422.html -->
-  <div class="dialog">
+<body class="center" style="background-color: white;">
+
+  <!-- This file lives in public/404.html -->
+  <div class="rails-default-error-page div.dialog">
     <div>
-      <h1>The change you wanted was rejected.</h1>
-      <p>Maybe you tried to change something you didn't have access to.</p>
+      <h2>CHANGE REJECTED</h2>
+      <h1 style="text-align: center;">Whoops! Seems you don't have access to that. </h1>
+      <p style="text-align: center;"> Click <a href="https://plant-clinique.herokuapp.com/sign_in" style="text-align: center;">here</a> to sign back in.</p>
+
+      <div> 
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/971e48a5-57a0-458b-96b4-ab831d01fe65/dasnqkn-bfe92e6a-59f8-4edb-b091-09b4950353ee.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvOTcxZTQ4YTUtNTdhMC00NThiLTk2YjQtYWI4MzFkMDFmZTY1XC9kYXNucWtuLWJmZTkyZTZhLTU5ZjgtNGVkYi1iMDkxLTA5YjQ5NTAzNTNlZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.R-1OvLyzza-674XRudCBseaEMOJS2h0lNDoFdlKqstI" alt="404 flower" class="center">
+      </div>
+      
+      <p style="text-align: center;"> If you are the application owner check the logs for more information.</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
+ 
 </body>
-</html>

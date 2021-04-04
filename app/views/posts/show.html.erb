@@ -1,12 +1,12 @@
-<div class="card mt-5 mb-4" style="box-shadow: 0px 10px 10px grey">
+<div class="card mt-5 mb-4" style="box-shadow: 0px 10px 10px grey; background-color: #F9F991">
   <div class="card-body">
     <%= link_to 'Back', posts_path, class: 'btn btn-dark text-light mr-1' %>
     <% if @post.user.id.to_i == current_user.id.to_i %>
-      <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary mx-1 text-light' %>
+      <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-warning mx-1 text-dark' %>
     <% end %>
     <%= form_tag posts_path, :class=>"badge", :method => 'get' do %>
       <%= hidden_field_tag :search, @post.topic%>
-      <%= submit_tag(Post.topics.keys[@post.topic.to_i].capitalize.gsub(/[^0-9A-Za-z]/, ' '), :class=>"btn bg-info px-5 text-light") %>
+      <%= submit_tag(Post.topics.keys[@post.topic.to_i].capitalize.gsub(/[^0-9A-Za-z]/, ' '), :class=>"btn bg-success px-5 text-light") %>
     <% end %>
     
     <p class="ml-3" id="notice"><%= notice %></p>
@@ -21,20 +21,35 @@
     <div class="my-4">
       <%= @post.body %>
     </div>
+    <div class="button-right">
+      <%= link_to 'Dislikes', "#", class: 'btn btn-primary text-white ' %> 3
+    </div>
+
+    <div class="button-right">
+      <%= link_to 'Likes', "#", class: 'btn btn-primary text-white ' %> 3
+    </div>
+    
   </div>
 </div>
 <% if @post.replies.any? %>
   <% @post.replies.sort_by{|reply| -reply.created_at.to_i}.each do |reply| %>
-  <div class="card mt-3" style="box-shadow: 0px 4px 10px grey">
+  <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background-color: #BAE7AC">
     <div class="card-body">
       <p class="font-weight-bold"><%= reply.user.username%> | <%= reply.created_at%></p>
       <%= reply.body %>
+      <div class="button-right">
+      <%= link_to 'Dislikes', "#", class: 'btn btn-info text-white ' %> 3
+    </div>
+    
+    <div class="button-right">
+      <%= link_to 'Likes', "#", class: 'btn btn-info text-white ' %> 3
+    </div>
     </div>
   </div>
   <% end %>
 <% end %>
-<div class="card mt-3 mb-5" style="box-shadow: 0px 4px 10px grey">
-  <div class="card-body">
+<div class="card mt-3 mb-5" style="box-shadow: 0px 4px 10px grey; background-color: #BAE7AC">
+  <div class="card-body" >
     <p class="font-weight-bold">New comment</p>
     <%= form_with(model: [@post, @post.replies.build]) do |form| %>
       <div class="form-group">
@@ -42,7 +57,7 @@
         <%= form.label 'Write your comment below' %>
         <%= form.text_area :body, class: 'form-control' %>
       </div>
-      <%= form.submit 'Submit', class: 'btn btn-primary' %>
+      <%= form.submit 'Post Reply', class: 'btn btn-warning' %>
     <% end %>
   </div>
 </div>

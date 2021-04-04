@@ -1,11 +1,6 @@
 th {
     font-family: Georgia, serif;
 }
-  body{
-      height:100px;
-      position: center;
-      bottom: 0px;
-  }
   
   .chat-window{
       bottom:0;
@@ -26,12 +21,7 @@ th {
     max-height:3000px;
     overflow-x:hidden;
   }
-  .top-bar {
-    
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
-  }
+  
   .msg_receive{
       padding-left:0;
       margin-left:0;
@@ -52,7 +42,7 @@ th {
       margin: 0 0 0.2rem 0;
     }
   .messages > time {
-      font-size: 11px;
+      font-size: 5px;
   }
   .msg_container {
       padding: 0px;
@@ -67,9 +57,6 @@ th {
       position: relative;
   }
 
-  .avatar_2{
-    position: absolute;
-}
   .base_receive > .avatar:after {
       content: "";
       position: left;
@@ -103,13 +90,11 @@ th {
       float: right;
   } 
   
+  .nav a:hover {
+    background-color: white;
+}
 
-  .time_time {
-    float: right;
-    color: gray;
-    font-size: small;
-  }
-
+/*didnt do anything*/ 
   .panel{
     margin-bottom: 0px;
 }
@@ -118,27 +103,25 @@ th {
     border-radius: 5px 5px 0 0;
     overflow: auto;
 }
-
-.nav a { 
-    color:#fff;
+table {
+    width: 100%;
+    display:block;
+}
+thead {
     display: inline-block;
-    padding:0.5em 0.75em;
-    background: color #666;
-    border-radius: 4x;
-    text-decoration:none;
+    width: 100%;
+    height: 20px;
+}
+tbody {
+    height: 200px;
+    display: inline-block;
+    width: 100%;
+    overflow: auto;
 }
 
-.nav a:hover {
-    background-color: white;
 
-}
 
-.img-right {
-    position: absolute;
-    right: 0px;
-    height: 100px;
-    width: 100px;
-}
+
 
 
 

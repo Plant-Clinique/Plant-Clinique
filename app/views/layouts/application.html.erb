@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
@@ -13,6 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   </head>
 
@@ -30,17 +30,13 @@
         <ul class="nav navbar-right">
           <% if signed_in? %>
 
-            <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
-              <%= link_to "My Account", current_user, class: "mx-2 " %>
-            </li>
-
-            <!--<li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item">
-              <%= link_to "Reminder", reminders_path, class: "mx-2 " %>
-            </li>-->
-
             <li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
-              <%= link_to "Post", posts_path, class: "mx-2 " %>
+              <%= link_to "Posts", posts_path, class: "mx-2 " %>
             </li>
+
+             <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
+              <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
+            </li> <!-- https://www.gardenista.com/tag/contests-giveaways/ -->
 
             <!--<li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
               <%= link_to "Reply", posts_path, class: "mx-2 " %>
@@ -49,6 +45,21 @@
 
             <li class="nav-link <%= 'active' if current_page?(chatbot_messages_path) %> nav-item">
               <%= link_to "Chatbot", chatbot_messages_path, class: "mx-2 " %>
+            </li>
+
+            <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
+              <%= link_to "Maps/location", "#", class: "mx-2 " %>
+            </li><!-- https://docs.ubuntu.com/landscape/en/api -->
+
+            <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
+              <a href="#" class="notification">
+              <span>Reminders</span>
+              <span class="badge">3</span>
+              </a>
+            </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
+
+            <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
+              <%= link_to "My Account", current_user, class: "mx-2 " %>
             </li>
 
             <li class="nav-link nav-item">
@@ -79,10 +90,110 @@
         })
       })
     </script>
+
+    <!-- suprise cool background JS - maybe for just the home page? 
+
+    <script>
+    var canvas = document.getElementById('myCanvas'); 
+    var context = canvas.getContext('2d'); 
+    context.fillRect(0, 0, 50, 50);
+
+    context.beginPath(); 
+    context.moveTo(0, 0); 
+    context.lineTo(100, 100); 
+    context.lineWidth = 1; 
+    context.strokeStyle = 'rgb(255, 150, 168)'; 
+    context.stroke();
+
+    </script>
+    -->
+
+
+    <%# footer %>
+    <style>
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      height: 20px;
+      width: 100%;
+      color: white;
+      background-color:#92B78B;
+      text-align: center;
+      }
+    </style>
+
+   
+
+  <footer class="footer">
+   <div style="position: absolute; bottom: 20px; right: 16px; color: red;">
+      plus icon here for pop up 
+    </div>
+    <p style="text-align: center; color: white;left:0; bottom:0;"> 
+      &emsp; &emsp;
+      <a href="https://plant-clinique.herokuapp.com/sign_in">
+        Plant-Clinique.com
+      </a> 
+      &emsp;
+      <a href="https://bioonecareercenter.org/jobs?utm_source=google&utm_medium=adwords&gclid=CjwKCAjwgZuDBhBTEiwAXNofRIU9VIuy_4E1BAnJ3PMkr3URiDchCbLkKIaZIXNYOm4whh6FXKz_ZhoCE3YQAvD_BwE">
+        Careers
+      </a> 
+      &emsp;
+      <a href="https://www.pilea.com/post/top-5-blogs-about-houseplants">
+        Blogs
+      </a> 
+      &emsp;
+      <a href="https://assets.cdnpandadoc.com/app/packages/templates/@covers/declaration-of-trust-template-ev1-fed8bf649a.jpg">
+        Documentation
+      </a> 
+      &emsp;
+      <a href="https://i2.wp.com/theconstructor.org/wp-content/uploads/2017/04/hinge-support-in-sydney-harbor-bridge.jpg?fit=564%2C373&ssl=1">
+        Support
+      </a> 
+      &emsp;
+      <a href="https://www.thelongestthread.com/pages/terms-of-service">
+        Terms of Service
+      </a> 
+      &emsp;
+      <a href="https://www.nielsen.com/us/en/legal/privacy-statement/website-privacy-statement/">
+        Privacy
+      </a> 
+      &emsp;
+      <a href="https://www.womensbeanproject.com/recipes/snickerdoodle-cookie-recipe/?gclid=CjwKCAjwgZuDBhBTEiwAXNofRH2Jme4S7BamfD7WNKRPJeqVWUOVK9HEfHHHq06XlKGGbqSB5HwSuRoC3-gQAvD_BwE">
+        Cookies
+      </a> 
+      &emsp;
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        ©Troll.gov
+      </a> 
+      &emsp; &emsp; 
+    </p>
+  </footer>
+  
+
+<%# scroll bar %>
+  <style>
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey; 
+      border-radius: 10px;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: brown; 
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b30000; 
+    }
+  </style>
   </body>
 </html>
-
-
-
-
-
