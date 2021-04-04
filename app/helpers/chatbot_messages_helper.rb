@@ -28,9 +28,8 @@ module ChatbotMessagesHelper
       elsif (chatbot_message_content == @@commands['i have a question'] ||
             chatbot_message_content == @@commands["i'm just checking in"]) &&
             !UserPlant.where(user_id: current_user.id).empty?
-        result = ["Restart"] 
-        result << UserPlant.where(user_id: current_user.id).map(&:name)
-        result
+        users = UserPlant.where(user_id: current_user.id).map(&:name)
+        users << "Result"
       elsif chatbot_message_content == @@commands['restart']
         ["I have a question", "I'm just checking in", "Restart"]
       else
