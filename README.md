@@ -66,7 +66,7 @@ Repo for us to make and track Plant Clinique features
     * name: string
 </br>
 ## DB Associations
-![DB Associations](/images-readme/DB_associations.png)
+![DB Associations](./images-readme/DB_associations.png)
 
 
 # App views
