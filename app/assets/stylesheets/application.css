@@ -52,6 +52,7 @@ body {
   position: relative;
   display: inline-block;
   border-radius: 2px;
+<<<<<<< HEAD
  }
   
  .active {
@@ -69,6 +70,22 @@ body {
   
   }
   
+=======
+}
+
+
+
+  .dot {
+    height: 35px;
+    width: 35px;
+    background-color: red;
+    border-radius: 50%;
+    background: url("prabu_front.png") no-repeat;
+    background-size: cover;
+   
+  }
+
+>>>>>>> f1e8b09 (bigger avatar, my account visible, chatbot popup with more 1.0 UI)
   .chat-icon {
     height: 25px;
     width: 25px;
