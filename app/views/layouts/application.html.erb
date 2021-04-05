@@ -71,15 +71,17 @@
             </li>
             -->
 
-            <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
-              <!--<%= link_to "My Account", current_user, class: "mx-2 " %>-->
-              <a href="/"> 
-                <!--<span class="dot" style="background-image: url('prabu_front.png')"></span>-->
-                  <div class="dot">
-                   
-                  </div>
-              </a>
+            <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item"> 
+              <%= link_to "My Account", current_user %>
             </li>
+
+           <a href="/">
+            <div <%= 'active' if current_page?(current_user) %>>
+              <div class="dot">
+              </div>
+            </div>
+           </a>
+
 
             <li class="nav-link nav-item">
               <%= link_to 'Sign out', sign_out_path, method: :delete, class: "mx-2" %></u></li>
@@ -130,12 +132,11 @@
       <% if signed_in? %>
         <div class=circle>
           <a href="/chatbot_steps">
-            <i class="fa fa-plus" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:red"> </i>
+            <i class="fa fa-plus" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:green; background: yellow; border-radius: 50%;"> </i>
           </a>
         </div>
       <% end %>
     </div>
-
   
   
   
