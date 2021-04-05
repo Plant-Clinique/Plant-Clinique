@@ -90,6 +90,14 @@
               </a>
             </li>
 
+           <a href="/">
+            <div <%= 'active' if current_page?(current_user) %>>
+              <div class="dot">
+              </div>
+            </div>
+           </a>
+
+
             <li class="nav-link nav-item">
               <%= link_to 'Sign out', sign_out_path, method: :delete, class: "mx-2" %></u></li>
             </li>
@@ -139,12 +147,11 @@
       <% if signed_in? %>
         <div class=circle>
           <a href="/chatbot_steps">
-            <i class="fa fa-plus" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:red"> </i>
+            <i class="fa fa-plus" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:green; background: yellow; border-radius: 50%;"> </i>
           </a>
         </div>
       <% end %>
     </div>
-
   
   
   

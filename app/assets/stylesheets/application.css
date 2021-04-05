@@ -63,19 +63,27 @@
   border-radius: 2px;
 }
 
-.circle
-  {
-    border-radius: 50%;
-    width: 200px;
-    height: 200px; 
-  }
+
 
   .dot {
+    height: 35px;
+    width: 35px;
+    background-color: red;
+    border-radius: 50%;
+    background: url("prabu_front.png") no-repeat;
+    background-size: cover;
+   
+  }
+
+  .chat-icon {
     height: 25px;
     width: 25px;
     background-color: red;
     border-radius: 100%;
     display: inline-block;
+    background: url("..\app\assets\images\chat-icon.webp") no-repeat;
+    background-size: cover;
+   
   }
 
   body {
