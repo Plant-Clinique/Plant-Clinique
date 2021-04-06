@@ -8,7 +8,7 @@
   <div class="container text-center text-lg-left">
     <div class="row">
       <div class="col-lg-8">
-          <h1 class="display-4">Welcome to the Garden, 
+          <h1 class="display-4" style="text-align:center;">Welcome to the Garden, 
             <span class="highlight-word">
               <strong> <%= current_user.username %>!</strong>
             </span>
@@ -121,7 +121,7 @@
                 <div class="btn btn-warning">
                   <%= link_to 'Remove', plant, method: :delete, class: "text-dark", data: { confirm: 'Are you sure?' } %> 
                   |
-                  <%= link_to 'Edit', edit_user_plant_path(plant), class: "text-dark"%>
+                  <%= link_to 'Edit', edit_user_plant_path(plant), class: 'text-dark'%>
                 </div>
                 <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content= "<%= "#{plant.description}"%>">
                   <i class="fas fa-tree text-success mx-2"></i>
