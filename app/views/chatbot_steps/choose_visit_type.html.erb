@@ -1,1 +1,124 @@
-CHOOSE VISIT TYPE
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="row" style = "height: 480px;">
+<div class = "col-2">
+</div>
+
+
+<div class="col-sm-8", style="background-color=#DADCD7">
+<div class="chatbody">
+<div class="panel panel-success">
+<div class="panel-heading top-bar">
+      
+<div>
+
+  <h3 class="text-center">
+  
+    <span class="glyphicon glyphicon-comment"></span> 
+    Plant-Clinique Chatbot
+  </h3>
+</div>
+
+</div>
+
+
+  <tbody >
+  
+        <tr >
+<style>
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: brown; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+</style>
+        
+
+        
+          
+            <div class="row msg_container base_receive ">
+              <div class=" col-md-2 col-xs-2 ">
+                <img src="https://compote.slate.com/images/995b8efe-b37b-4dc5-b9c3-e2d9e8fb2df9.gif?width=1440&rect=1560x1040&offset=0x0" class=" img-responsive" style= "height: 100px; width: 100px; object-fit: cover;" >
+              </div>
+              <div class="col-md-4 col-xs-3">
+                <div class="messages msg_receive">      
+                  <td class="th">Farmer Bot</td>
+                  <td ><%= "sent: " + @bot_message.content %></td><br>
+                <td style="color:gray"><%=@bot_message.time_sent.to_s %></td>
+              </div>
+            </div>
+
+            <div class="row msg_container base_sent">
+            
+              <div class="col-md-3 col-xs-3">
+                <div class="messages msg_sent">
+                  <td class="td">.</td>
+                  <td >.</td><br>
+                  <td style="color:gray">.</td>
+                </div>
+              </div>
+            <div class="col-md-2 col-xs-2 avatar">
+              <img src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png" class=" img-responsive ">
+            </div>
+          
+          
+        
+        </tr>
+      
+  </div>
+</tbody>
+
+<tr scope="row">
+  <td colspan="3">
+    
+      <div class = "row mx-auto">
+        <div class = 'actions text-center button-box col-lg-12'>
+            <% create_options(ChatbotMessage.where(user_id: current_user.id.to_i, from_bot: true).last).each do |option| %>
+              <%= form_with(model: @chatbot_message) do |form| %>
+                <%= form.hidden_field :user_id, value: current_user.id.to_i %>
+                <%= form.hidden_field :time_sent, value: Time.now.utc %>
+                <%= form.hidden_field :from_bot, value: false %>
+                <%= form.hidden_field :content, value: option %>
+                <a><%= form.submit option, class: "mt-2 btn btn-info text-light" %></a>
+             <% end %>
+            <% end %>
+        </div>
+      </div>
+
+    <%= form_with(model: @chatbot_message) do |form| %>
+      <%= form.hidden_field :user_id, value: current_user.id.to_i %>
+      <%= form.hidden_field :time_sent, value: Time.now.utc %>
+      <%= form.hidden_field :from_bot, value: false %>
+      <div class="text-field container">
+        <%= form.text_field :content, class: 'mb-1 form-control'  %>
+      </div>
+    
+      <div class = "row mx-auto container">
+        <div class = 'actions text-center'>
+          <%= form.submit "Send", class: "mt-2 btn btn-warning text-dark" %>
+        </div>
+      </div>
+    <% end %>
+  </td>
+</tr>
