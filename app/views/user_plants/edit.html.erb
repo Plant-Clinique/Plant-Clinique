@@ -1,4 +1,5 @@
-<div class="bg-white rounded p-3">
+<div class="bg-white rounded p-3" style="background-image: url('../app/assets/images/PC_icon.png');
+      background-size: cover;width: 100%;height: 110%;display: inline-block;background-position: center; background-repeat: no-repeat; background-attachment:fixed;">
   <h1>Editing User Plant</h1>
 
   <%= render 'form', user_plant: @user_plant %>
@@ -7,9 +8,7 @@
     <%= link_to 'Back', current_user, class: "mt-2 btn btn-dark text-light"  %>
   </div>
 
-  <div>
-    <img src=@user_plant.img>
-  </div>
+
 </div>
 
 <div class = "row" style = "height: 450px;"></div>
