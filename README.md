@@ -21,6 +21,15 @@ Repo for us to make and track Plant Clinique features
 # DB Schema
 
 # App views
+* My Account 
+* Chatbot: 
+* Posts: This page is robust because posts can be filed by a different enum topic, and because a post can have many replies. The URL patterns above demonstrate the many functionalities, but this is our basic forum. 
+* Login/Sign Up/Logout: The Login is basic with a place for your email and password. The sign up has a space for you username, user email, and password. The Log out takes you back to the log in. 
+* application.html.erb (header, footer, scrollbar): this is the code where we implemented the navbar, the footer, and the scroll bar. The scroll bar is just some CSS. The footer will have links to helpful areas. The navbar has links to the other pages, including a login and log out 
+* What's next 
+    * Reminders/Notifications: The navbar for this will be a simple link like the others however this will have an additional badge to show the current unread notifications. This pages functionalily will be based around the URL patterns outlined above. There will also be a clock on right with a calendar date so that the user knows what time they are putting into their reminder. We will also use a gem to email you if a reminder has been pending for a day. 
+    * Maps: This page will show you a local view of the area around you, marking parks, hiking locations, etc with a tree icon and a dollar icon over stores that sell/deal with plants. 
+
 
 # Dependencies (APIs, Gem, Libraries)
 ## APIs
