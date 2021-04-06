@@ -10,7 +10,10 @@
       <div class="col-lg-8">
           <h1 class="display-4" style="text-align:center;">Welcome to the Garden, 
             <span class="highlight-word">
-              <strong> <%= current_user.username %>!</strong>
+              <strong> <%= current_user.username %>!</strong> 
+              <!-- if current_user.is_verified?>
+                <img src="..\app\assets\images\pro_account.jpeg" class=" img-responsive" style= "height: 100px; width: 100px; object-fit: cover;" >
+              < end > -->
             </span>
             <li class="nav-link <%= 'active' if current_page?(chatbot_messages_path) %> nav-item">
             </li>
