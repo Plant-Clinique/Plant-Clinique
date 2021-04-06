@@ -96,20 +96,20 @@ Repo for us to make and track Plant Clinique features
 
 
 # App views
-* My Account: Will welcome you to the app, show any notifications you have, and more. You can ask a question, edit your own info, and add a plant to your "garden". Your garden will be cards of plants below your user information. These will be able to be edited, removed, and in the chatbot you will be prompted to ask about these.  
+* My Account: This page will welcome you to the app, show you any plant related notifications you have, and more. If you have a question you can easily access the public forum, edit your own account info, and add a plant to your "garden". Your garden will be a collection of the plants you own, visually indicated below your user information. These plant cards can be edited, removed, and play a role in the chatbot feature. 
 -pic here-
-* Chatbot: The chatbot uses a multiple choice questionairre to ascertain information for the user. These different options will grow. There is also a plus sign on all pages (when logged in) in the bottom right corner for an instant jump to the chatbot aside from the navbar. 
+* Chatbot: The chatbot uses a multiple choice questionnaire to ascertain information for the user. The chatbot is displayed on a single page that resembles facebook messanger, where incoming messages from the bot are on the left. After the bot responds to the user it displays optional replies using bootsrap buttons. There is also a plus sign on all pages (when logged in) in the bottom right corner for an instant jump to the chatbot. 
 -pic here-
-* Posts: This page is robust because posts can be filed by a different enum topic, and because a post can have many replies. The URL patterns above demonstrate the many functionalities, but this is our basic forum. Currently we have used data from the Faker gem to populate posts (Faker::Movies::Ghostbusters.quote). All of the posts you post are editable, and all the comments you post are editable.  
+* Posts: This page is robust because posts can be filed by a different enum topic, and because a post can have many replies. The URL patterns above demonstrate the many functionalities, but this is our basic forum. Currently we have used data from the Faker gem to populate posts (Faker::Movies::Ghostbusters.quote). Posts and comments you submit are editable.  
 -pic here-
-* Login/Sign Up/Logout: The Login is basic with a place for your email and password. The sign up has a space for you username, user email, and password. The Log out takes you back to the log in. 
+* Login/Sign Up/Logout: The Login is basic with a place for your email and password. The sign up has a space for your username, email, and password. The Logout takes you back to the log in page. These pages were customized to have a simple design that includes our logo.
 -pic here-
-* application.html.erb (header, footer, scrollbar): this is the code where we implemented the navbar, the footer, and the scroll bar. The scroll bar is just some CSS. The footer will have links to helpful areas. The navbar has links to the other pages, including a login and log out 
+* application.html.erb (header, footer, scrollbar): This is the code where we implemented the navbar, the footer, and the scroll bar. The scroll bar was implemented using CSS. The footer was implemented using bootsrap and includes links to helpful areas. The bootsrap navbar helps the user with accessibility and has links to all the pages of our app, including the login and logout. 
 -pic here-
 * What's next 
-    * Reminders/Notifications: The navbar for this will be a simple link like the others however this will have an additional badge to show the current unread notifications. This pages functionalily will be based around the URL patterns outlined above. There will also be a clock on right with a calendar date so that the user knows what time they are putting into their reminder. We will also use a gem to email you if a reminder has been pending for a day. 
+    * Reminders/Notifications: This will be implemented both in the navbar and the user page, as a badge indicating the number of notifications. The reminder page's functionalily will be based around the URL patterns outlined above. There will also be a clock on right with a calendar date so that the user knows what time they are putting into their reminder. We will also use a gem to email you if a reminder has been pending for a day. 
     * Maps: This page will show you a local view of the area around you, marking parks, hiking locations, etc with a tree icon and a dollar icon over stores that sell/deal with plants. 
-    * Weekly Contest: a 7 day period where different plants are admitted to it and verified users vote on best plant that week (will remain up until new plant voted on)
+    * Weekly Contest: a 7 day period where different plants are admitted to a contest and verified users vote on best plant that week (will remain up until new plant voted on)
 
 # Dependencies (APIs, Gem, Libraries)
 ## APIs
