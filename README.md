@@ -97,10 +97,15 @@ Repo for us to make and track Plant Clinique features
 
 # App views
 * My Account: Will welcome you to the app, show any notifications you have, and more. You can ask a question, edit your own info, and add a plant to your "garden". Your garden will be cards of plants below your user information. These will be able to be edited, removed, and in the chatbot you will be prompted to ask about these.  
+-pic here-
 * Chatbot: The chatbot uses a multiple choice questionairre to ascertain information for the user. These different options will grow. There is also a plus sign on all pages (when logged in) in the bottom right corner for an instant jump to the chatbot aside from the navbar. 
+-pic here-
 * Posts: This page is robust because posts can be filed by a different enum topic, and because a post can have many replies. The URL patterns above demonstrate the many functionalities, but this is our basic forum. Currently we have used data from the Faker gem to populate posts (Faker::Movies::Ghostbusters.quote). All of the posts you post are editable, and all the comments you post are editable.  
+-pic here-
 * Login/Sign Up/Logout: The Login is basic with a place for your email and password. The sign up has a space for you username, user email, and password. The Log out takes you back to the log in. 
+-pic here-
 * application.html.erb (header, footer, scrollbar): this is the code where we implemented the navbar, the footer, and the scroll bar. The scroll bar is just some CSS. The footer will have links to helpful areas. The navbar has links to the other pages, including a login and log out 
+-pic here-
 * What's next 
     * Reminders/Notifications: The navbar for this will be a simple link like the others however this will have an additional badge to show the current unread notifications. This pages functionalily will be based around the URL patterns outlined above. There will also be a clock on right with a calendar date so that the user knows what time they are putting into their reminder. We will also use a gem to email you if a reminder has been pending for a day. 
     * Maps: This page will show you a local view of the area around you, marking parks, hiking locations, etc with a tree icon and a dollar icon over stores that sell/deal with plants. 
