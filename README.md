@@ -96,16 +96,29 @@ Repo for us to make and track Plant Clinique features
 
 
 # App views
-* My Account: This page will welcome you to the app, show you any plant related notifications you have, and more. If you have a question you can easily access the public forum, edit your own account info, and add a plant to your "garden". Your garden will be a collection of the plants you own, visually indicated below your user information. These plant cards can be edited, removed, and play a role in the chatbot feature. 
--pic here-
-* Chatbot: The chatbot uses a multiple choice questionnaire to ascertain information for the user. The chatbot is displayed on a single page that resembles facebook messanger, where incoming messages from the bot are on the left. After the bot responds to the user it displays optional replies using bootsrap buttons. There is also a plus sign on all pages (when logged in) in the bottom right corner for an instant jump to the chatbot. 
--pic here-
-* Posts: This page is robust because posts can be filed by a different enum topic, and because a post can have many replies. The URL patterns above demonstrate the many functionalities, but this is our basic forum. Currently we have used data from the Faker gem to populate posts (Faker::Movies::Ghostbusters.quote). Posts and comments you submit are editable.  
--pic here-
+
+
 * Login/Sign Up/Logout: The Login is basic with a place for your email and password. The sign up has a space for your username, email, and password. The Logout takes you back to the log in page. These pages were customized to have a simple design that includes our logo.
--pic here-
+
+<img src="./images-readme/6.png" title="DB Associations" width="50%">
+
+
+
+* My Account: This page will welcome you to the app, show you any plant related notifications you have, and more. If you have a question you can easily access the public forum, edit your own account info, and add a plant to your "garden". Your garden will be a collection of the plants you own, visually indicated below your user information. These plant cards can be edited, removed, and play a role in the chatbot feature. 
+
+<img src="./images-readme/1.png" title="DB Associations" width="50%">
+
+* Chatbot: The chatbot uses a multiple choice questionnaire to ascertain information for the user. The chatbot is displayed on a single page that resembles facebook messanger, where incoming messages from the bot are on the left. After the bot responds to the user it displays optional replies using bootsrap buttons. There is also a plus sign on all pages (when logged in) in the bottom right corner for an instant jump to the chatbot.
+
+<img src="./images-readme/3.png" title="DB Associations" width="50%">
+
+* Posts: This page is robust because posts can be filed by a different enum topic, and because a post can have many replies. The URL patterns above demonstrate the many functionalities, but this is our basic forum. Currently we have used data from the Faker gem to populate posts (Faker::Movies::Ghostbusters.quote). Posts and comments you submit are editable.  
+
+<img src="./images-readme/5.png" title="DB Associations" width="50%">
+
+
 * application.html.erb (header, footer, scrollbar): This is the code where we implemented the navbar, the footer, and the scroll bar. The scroll bar was implemented using CSS. The footer was implemented using bootsrap and includes links to helpful areas. The bootsrap navbar helps the user with accessibility and has links to all the pages of our app, including the login and logout. 
--pic here-
+
 * What's next 
     * Reminders/Notifications: This will be implemented both in the navbar and the user page, as a badge indicating the number of notifications. The reminder page's functionalily will be based around the URL patterns outlined above. There will also be a clock on right with a calendar date so that the user knows what time they are putting into their reminder. We will also use a gem to email you if a reminder has been pending for a day. 
     * Maps: This page will show you a local view of the area around you, marking parks, hiking locations, etc with a tree icon and a dollar icon over stores that sell/deal with plants. 
