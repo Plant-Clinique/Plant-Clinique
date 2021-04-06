@@ -56,12 +56,14 @@
 
             <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
               <%= link_to "Maps/location", "#", class: "mx-2 " %>
-            </li><!-- https://docs.ubuntu.com/landscape/en/api -->
+            </li><!-- https://docs.ubuntu.com/landscape/en/api mapbox api from pito --> 
 
             <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
               <a href="#" class="notification">
               <span>Reminders</span>
-              <span class="badge">3</span>
+              <!-- if reminders.unread? -->
+                <span class="badge">3</span> <!--reminders.unread.length-->
+              <!--  end // also dinos to send to emails --> 
               </a>
             </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
 
@@ -132,7 +134,7 @@
       <% if signed_in? %>
         <div class=circle>
           <a href="/chatbot_steps">
-            <i class="fa fa-plus" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:green; background: yellow; border-radius: 50%;"> </i>
+            <i class="fa fa-plus" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:#42ba96; background: #ffc107; border-radius: 50%;"> </i>
           </a>
         </div>
       <% end %>
