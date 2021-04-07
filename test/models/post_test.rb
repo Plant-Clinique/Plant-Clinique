@@ -21,7 +21,7 @@ def setup
     assert_not @post.valid?
   end
   test "body should not be longer than 3500 characters" do
-    @post.body= "a" * 3501
+    @post.body = "a" * 3501
     assert_not @post.valid?
   end
 end
