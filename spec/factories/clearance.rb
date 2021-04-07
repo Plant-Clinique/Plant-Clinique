@@ -7,5 +7,9 @@ FactoryBot.define do
     email
     username { "username" }
     password { "password" }
+    
+    factory :admin do
+      admin { true }
+    end
   end
 end
