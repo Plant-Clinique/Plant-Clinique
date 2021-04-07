@@ -13,6 +13,24 @@
  *= require_tree .
  *= require_self
  */
+ .bg {
+  /* The image used */
+  background-image: url('Logo.png');
+  background-size: contain;
+  display: inline-block;
+  position: relative;
+
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-color: #ffffff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+}
 
  .header {
   text-align: center;
