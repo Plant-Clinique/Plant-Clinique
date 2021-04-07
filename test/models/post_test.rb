@@ -1,7 +1,7 @@
 require "test_helper"
 
 class PostTest < ActiveSupport::TestCase
-def setup
+  def setup
     User.create!(username: "one", email: "two@one.com", password:"three")
     @post= Post.new(user_id: User.first.id, title: "hello", body: "world")
   end
