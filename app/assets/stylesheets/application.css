@@ -32,6 +32,10 @@
   position: absolute;
 }
 
+.light body {
+  background-color: #98FFB3;
+}
+
  .header {
   text-align: center;
   color: brown;

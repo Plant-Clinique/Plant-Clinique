@@ -1,26 +1,20 @@
 <!DOCTYPE html>
 <html>
-
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 <div class="row">
   <div class = "col-2" >
   </div>
-  <div class="col-sm-8" >
+  <div class="col-sm-8" style="background-color:white;">
     <div class="chatbody msg_container_base" >
-      <div class="panel panel-success"  >
-        <div class="panel-heading top-bar" >     
-          <div> 
-            <h3 class="text-center">
-              <span class="glyphicon glyphicon-comment">
-                Plant-Clinique Chatbot
+            <h3 class="text-center" style="background-color: #D5F7C4; font-family: 'Lucida Console', 'Courier New', monospace; height: 50px;">
+              <span class="glyphicon glyphicon-comment"> <i class="fa fa-comment-o" aria-hidden="true"></i>
+                Plant Clinique Chatbot
               </span> 
             </h3>
-          </div>
-        </div>
         <tbody >
           <% @chatbot_messages.where(user_id: current_user.id.to_i).each do |chatbot_message| %>  
             <tr >
@@ -89,7 +83,6 @@
           </td>
         </tr>
       </div>
-    </div>
   </div>
 </div>
 
