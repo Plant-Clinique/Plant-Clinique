@@ -143,9 +143,9 @@ Our application, Plant-Clinique, is a web-based application with the main goal o
 
 # Paper Prototypes
 
-<img src="./images-readme/Proto2.jpg" title="DB Associations" width="50%">
+<img src="./images-readme/Proto2.jpg" title="DB Associations" width="100%">
 
-<img src="./images-readme/Proto1.jpg" title="DB Associations" width="50%">
+<img src="./images-readme/Proto1.jpg" title="DB Associations" width="100%">
 
 # Dependencies (APIs, Gem, Libraries)
 
