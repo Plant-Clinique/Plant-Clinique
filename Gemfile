@@ -23,6 +23,7 @@ gem 'clearance'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem "rails_admin"
+gem 'active_record-events'
 
 ##################
 # Better debugging
