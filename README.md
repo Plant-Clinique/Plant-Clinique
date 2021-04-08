@@ -140,6 +140,13 @@ Our application, Plant-Clinique, is a web-based application with the main goal o
 - <strong>Maps</strong>: This page will show you a local view of the area around you, marking parks, hiking locations, etc with a tree icon and a dollar icon over stores that sell/deal with plants.
 - <strong>Weekly Contest</strong>: a 7 day period where different plants are admitted to a contest and verified users vote on best plant that week (will remain up until new plant voted on)
 
+
+# Paper Prototypes
+
+<img src="./images-readme/Proto2.jpg" title="DB Associations" width="50%">
+
+<img src="./images-readme/Proto1.jpg" title="DB Associations" width="50%">
+
 # Dependencies (APIs, Gem, Libraries)
 
 (🌟: particularly interesting)
