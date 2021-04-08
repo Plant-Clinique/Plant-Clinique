@@ -147,6 +147,17 @@ Our application, Plant-Clinique, is a web-based application with the main goal o
 
 <img src="./images-readme/Proto1.jpg" title="DB Associations" width="100%">
 
+# Testing
+To run the unit test for models, do
+
+`rails test:models`
+
+
+To run integration tests for Clearance and RailsAdmin, do
+
+`rails spec`
+
+
 # Dependencies (APIs, Gem, Libraries)
 
 (🌟: particularly interesting)
