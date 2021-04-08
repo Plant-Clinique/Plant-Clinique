@@ -171,6 +171,16 @@ To run integration tests for Clearance and RailsAdmin, do
 ## Gems
 - [Clearance](https://github.com/thoughtbot/clearance) 🌟: Currently used for authenticating/authorizing users and things like remembering them and validating their login/signup data. We're working on finalizing the forgot-password feature using this gem, as well. 
 - [binding_of_caller](https://github.com/banister/binding_of_caller): Currently used in development to aid in debugging. It allows us to evaluate code to check the state of our objects whenever we hit an error directly in the browser.
+- [RailsAdmin](https://github.com/sferik/rails_admin): Currently used in development, test, QA, and production. To make a new RailsAdmin you have to create it in the console like (below). To use it, sign in with admin user and go to `/admin`
+  ```
+  ~ rails c
+  > new_admin = User.where(username: "osamah").first
+  => #<User id: 37, username: "osamah", created_at: "2021-04-03 20:58:02.7221...
+  > new_admin.admin = true
+  => true
+  > new_admin.save
+  => true
+  ```
 - [rubocop](https://github.com/rubocop/rubocop): Currently used for our backend team to check code style. We also have it set up in a GitHub workflow action ([check here](https://github.com/Plant-Clinique/Plant-Clinique/blob/473db669e95584defb644bd3e156ca7bab2a36cc/.github/workflows/rails.yml#L50)) to easily see what the linter thinks about the code in the pull request (e.g. [see how it evaluated for this PR](https://github.com/Plant-Clinique/Plant-Clinique/runs/2108178436?check_suite_focus=true)).
 - [Kaminari](https://github.com/kaminari/kaminari) 🌟: Currently used for paginating the posts page every 7 posts. We didn't like how we had to scroll way down to see all posts because then we would have to scroll all the way back to get to the topics pills; this solved the problem.
 - [RSpec](https://github.com/rspec/rspec-rails) 🌟: Currently used for [integration tests](https://github.com/Plant-Clinique/Plant-Clinique/tree/main/spec/features), which as you can see in that link we've done for Clearance (signing in, signing up, and signing out), and RailsAdmin (visitor is admin, visitor is not admin).
