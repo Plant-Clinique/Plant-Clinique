@@ -48,7 +48,19 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <div class="collapse navbar-collapse" id="collapsibleNavbar"></div>
+  <body style="background-color: #98FFB3">
+    <nav class="navbar p-3 mb-4 bg-warning">
+      <div class="container-fluid">
+        <div class="navbar-header ">
+          <div class="header">
+          <li class="nav-link header" %>
+          <i class="fa fa-leaf" aria-hidden="true"></i>
+          <%= link_to "Plant Clinique", current_user, class: "mx-2 " , style: "color:brown;"%>
+          <i class="fa fa-leaf" aria-hidden="true"></i>
+          </li>
+          </div>
+        </div>
         <ul class="nav navbar-right">
           <% if signed_in? %>
 

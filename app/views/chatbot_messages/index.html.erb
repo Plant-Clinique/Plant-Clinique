@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><script src="//netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+=======
+<script src="//netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+>>>>>>> 7a5082b (added icons, removed some old boostraps - currently have chatbot error)
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -8,7 +12,7 @@
 <div class="row">
   <div class = "col-2" >
   </div>
-  <div class="col-sm-8" >
+  <div class="col-sm-8" style="background-color:white;">
     <div class="chatbody msg_container_base" >
       <div class="bg-white"  >
         <div class="card-top">     
@@ -19,8 +23,6 @@
                 Plant-Clinique Chatbot
               </span> 
             </h3>
-          </div>
-        </div>
         <tbody >
         <tbody >
           <% @chatbot_messages.where(user_id: current_user.id.to_i).each do |chatbot_message| %>  
@@ -89,7 +91,6 @@
           </td>
         </tr>
       </div>
-    </div>
   </div>
 </div>
 
