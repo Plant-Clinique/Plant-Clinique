@@ -25,6 +25,7 @@ gem 'clearance'
 # gem 'bcrypt', '~> 3.1.7'
 # /admin page in app
 gem "rails_admin"
+gem 'active_record-events'
 # pagination for forum, etc.
 gem 'kaminari'
 
