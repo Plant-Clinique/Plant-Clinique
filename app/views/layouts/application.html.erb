@@ -24,13 +24,15 @@
   </head>
 
 
-  <body style = "background-color: #98FFB3">
+  <body style="background-color: #98FFB3">
     <nav class="navbar p-3 mb-4 bg-warning">
       <div class="container-fluid">
         <div class="navbar-header ">
           <div class="header">
           <li class="nav-link header" %>
+          <i class="fa fa-leaf" aria-hidden="true"></i>
           <%= link_to "Plant Clinique", current_user, class: "mx-2 " , style: "color:brown;"%>
+          <i class="fa fa-leaf" aria-hidden="true"></i>
           </li>
           </div>
         </div>
@@ -38,11 +40,11 @@
           <% if signed_in? %>
 
             <li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
-              <%= link_to "Posts", posts_path, class: "mx-2 " %>
+              <i class="fa fa-comments" aria-hidden="true"></i><%= link_to "Posts", posts_path, class: "mx-2 " %>
             </li>
 
              <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
-              <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
+              <i class="fa fa-trophy" aria-hidden="true"></i> <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
             </li> <!-- https://www.gardenista.com/tag/contests-giveaways/ -->
 
             <!--<li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
@@ -51,15 +53,20 @@
 
 
             <li class="nav-link <%= 'active' if current_page?(chatbot_messages_path) %> nav-item">
+<<<<<<< HEAD
               <%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
+=======
+              <i class="fa fa-desktop" aria-hidden="true"></i><%= link_to "Chatbot", chatbot_messages_path, class: "mx-2 " %>
+>>>>>>> 7a5082b (added icons, removed some old boostraps - currently have chatbot error)
             </li>
 
             <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
-              <%= link_to "Maps/location", "#", class: "mx-2 " %>
+              <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", "#", class: "mx-2 " %>
             </li><!-- https://docs.ubuntu.com/landscape/en/api mapbox api from pito --> 
 
             <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
               <a href="#" class="notification">
+              <i class="fa fa-bell" aria-hidden="true"></i>
               <span>Reminders</span>
               <!-- if reminders.unread? -->
                 <span class="badge">3</span> <!--reminders.unread.length-->
@@ -74,23 +81,21 @@
             -->
 
             <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item"> 
-              <%= link_to "My Account", current_user %>
+              <i class="fa fa-user" aria-hidden="true"></i> <%= link_to "My Account", current_user %> 
             </li>
 
            <a href="/">
             <div <%= 'active' if current_page?(current_user) %>>
-              <div class="dot">
-              </div>
+              <div class="dot"></div>
             </div>
            </a>
 
-
             <li class="nav-link nav-item">
-              <%= link_to 'Sign out', sign_out_path, method: :delete, class: "mx-2" %></u></li>
+              <i class="fa fa-sign-out" aria-hidden="true"></i><%= link_to 'Sign out', sign_out_path, method: :delete, class: "mx-2" %></u></li>
             </li>
 
           <% else %>
-            <li ><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></li>
+            <i class="fa fa-sign-in" aria-hidden="true"></i> <li ><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></li>
           <% end %>
         </ul>
         
@@ -133,8 +138,8 @@
     <div class="row">
       <% if signed_in? %>
         <div class=circle>
-          <a href="/chatbot_steps">
-            <i class="fa fa-plus" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:#42ba96; background: #ffc107; border-radius: 50%;"> </i>
+         <a href="/chatbot_steps">
+            <i class="fa fa-desktop" aria-hidden="true" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:#42ba96; "> </i>
           </a>
         </div>
       <% end %>
