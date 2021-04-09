@@ -59,7 +59,7 @@ Our application, Plant-Clinique, is a web-based application with the main goal o
 ## Constraints
 
 - SignedIn: GET `/` ~> "users#current_user_dashboard"
-- SignedOut: GET `/` ~> "/sign_in" to clearance/session#new
+- SignedOut: GET `/` ~> `/sign_in` to "clearance/session#new"
 
 # DB Schema
 
