@@ -40,23 +40,24 @@
 }
 
 body {
-  background-color: red;
+  background-color: brown;
 }
 
 
 
  .header {
   text-align: center;
-  color: green;
+  color: white;
   font-size: 30px;
   font-weight: bold;
   font-family: 'Brush Script MT', cursive;
-  color: white;
 
  }
  .body {
   margin: 0;
   padding: 0;
+  background-color: red;
+
 }
 
 /* hoizontally scrolling elements */ 
