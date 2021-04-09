@@ -2,5 +2,4 @@
 
 <%= render 'form', reply: @reply %>
 
-<%= link_to 'Show', @reply %> |
-<%= link_to 'Back', replies_path %>
+<%= link_to 'Back', Post.where(id: @reply.post_id).first %>
