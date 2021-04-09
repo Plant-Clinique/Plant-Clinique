@@ -3,8 +3,25 @@
 
 <p id="notice"><%= notice %></p>
 
-<button type="button" onclick="switch_style('application_dark.css');return false;" name="theme" value="Dark Mode" id="Dark">Dark Mode</button>
-<button type="button" onclick="switch_style('application.css');return false;" name="theme" value="Light Mode" id="Light">Light Mode</button>
+<link id="pagestyle" rel="stylesheet" type="text/css" href="css/show/application.css" media="screen"/>
+
+
+<script type="text/javascript">
+    function swapStyleSheet(pagesheet, headsheet){
+        document.getElementById('pagestyle').setAttribute('href',pagesheet);
+        document.getElementById('headstyle').setAttribute('href',headsheet);
+    }
+</script>
+
+<button onClick="swapStyleSheet('css/show/application_dark.css','css/show/application.css')">
+  Dark Theme
+</button>
+
+<button onClick="swapStyleSheet('css/show/application.css','css/show/application_dark.css')">
+  Light Theme
+</button>
+
+<div class="row" style = "height: 10px;"> </div>
 
 <!-- Design inspired from https://www.hotjar.com/  template i randomly found-->
 <div class="jumbotron bg-white" style="box-shadow: 0px 10px 10px grey; border-radius: 70px;">
@@ -141,6 +158,6 @@
     <% end %>
   </div>
 
-  <div class="row" style = "height: 100px;">
+  <div class="row" style = "height: 350px;">
   </div>
 </html>

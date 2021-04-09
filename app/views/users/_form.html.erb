@@ -12,30 +12,33 @@
     </div>
   <% end %>
 
-  <div class="m-2 text-field">
-    <%= form.label :username %>
-    <%= form.text_field :username, class: 'mb-1 form-control'  %>
-  </div>
+  <div class="card my-5" >
 
-  <div class="m-2 email-field">
-    <%= form.label :email %>
-    <%= form.text_field :email, type: 'email', class: 'mb-1 form-control'  %>
-  </div>
 
-  <div class="m-2 password-field">
-    <%= form.label :password %>
-    <%= form.password_field :password, class: 'mb-1 form-control'  %>
-  </div>
-
-  <div class = "m-2 row">
-    <div class = 'text-center'>
-      <%= form.submit "Create my account", class: "mt-2 btn btn-warning" %>
+    <div class="m-2 text-field">
+      <%= form.label :username %>
+      <%= form.text_field :username, class: 'mb-1 form-control'  %>
     </div>
-  </div>
 
-  <div class="m-2 mb-4 other-links">
-    <%= link_to 'Back', sign_in_path %>
-  </div>
+    <div class="m-2 email-field">
+      <%= form.label :email %>
+      <%= form.text_field :email, type: 'email', class: 'mb-1 form-control'  %>
+    </div>
 
-        
+    <div class="m-2 password-field">
+      <%= form.label :password %>
+      <%= form.password_field :password, class: 'mb-1 form-control'  %>
+    </div>
+
+    <div class = "m-2 row">
+      <div class = 'text-center'>
+        <%= form.submit "Create my account", class: "mt-2 btn btn-warning" %>
+      </div>
+    </div>
+
+    <div class="m-2 mb-4 other-links">
+      <%= link_to 'Back', sign_in_path %>
+    </div>
+
+  </div>
 <% end %>
