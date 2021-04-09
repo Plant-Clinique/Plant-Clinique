@@ -9,6 +9,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -61,8 +63,8 @@
             </li>-->
 
 
-            <li class="nav-link <%= 'active' if current_page?(chatbot_messages_path) %> nav-item">
-              <i class="fa fa-desktop" aria-hidden="true"></i><%= link_to "Chatbot", chatbot_messages_path, class: "mx-2 " %>
+            <li class="nav-link <%= 'active' if current_page?(chatbot_steps_path) %> nav-item">
+              <i class="fa fa-desktop" aria-hidden="true"></i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
             </li>
 
             <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
