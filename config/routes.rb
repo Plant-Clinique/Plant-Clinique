@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :posts do
-    resources :replies, only: [:index, :create]
+    resources :replies, only: [:index, :create, :edit]
   end
   resources :chatbot_messages, except: [:edit, :update, :destroy]
   resources :reminders

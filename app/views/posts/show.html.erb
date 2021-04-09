@@ -38,9 +38,7 @@
     <div class="card-body">
       <div class="button-right-up">
         <% if reply.user.id.to_i == current_user.id.to_i %>
-            <a href="/replies#edit">  <!-- edit_reply_path(reply)// should have remove in here-->
-              <div class='btn btn-warning mx-1 text-dark'> Edit </div>
-            </a>
+          <%= link_to 'Edit', edit_reply_path(reply), class: 'btn btn-warning mx-1 text-dark'%>
         <% end %>
       </div>
       <p class="font-weight-bold"><%= reply.user.username%> | <%= reply.created_at%></p>
