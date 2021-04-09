@@ -13,23 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+  background-color: #98FFB3;
+}
+
  .bg {
   /* The image used */
   background-image: url('Logo.png');
   background-size: contain;
   display: inline-block;
-  position: relative;
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment:fixed;
 
 
   /* Full height */
-  height: 100%;
 
   /* Center and scale the image nicely */
   background-color: #ffffff;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
 }
 
 .light body {
