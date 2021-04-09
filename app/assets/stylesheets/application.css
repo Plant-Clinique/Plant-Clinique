@@ -18,26 +18,6 @@
   background-color: #98FFB3;
 }
 
- .bg {
-  /* The image used */
-  background-image: url('Logo.png');
-  background-size: contain;
-  display: inline-block;
-  position: absolute;
-
-  width: 100%;
-  height: 100%;
-  display: inline-block;
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-attachment:fixed;
-
-
-  /* Full height */
-
-  /* Center and scale the image nicely */
-  background-color: #ffffff;
-}
 
 .light body {
   background-color: #98FFB3;
@@ -45,7 +25,7 @@
 
  .header {
   text-align: center;
-  color: brown;
+  color: white !important ;
   font-size: 30px;
   font-weight: bold;
   font-family: 'Brush Script MT', cursive;
