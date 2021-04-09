@@ -125,7 +125,7 @@ Our application, Plant-Clinique, is a web-based application with the main goal o
 
 <img src="./images-readme/1.png" title="DB Associations" width="50%">
 
-- <strong>Chatbot</strong>: The chatbot uses a multiple choice questionnaire to ascertain information for the user. The chatbot is displayed on a single page that resembles facebook messanger, where incoming messages from the bot are on the left. After the bot responds to the user it displays optional replies using bootsrap buttons. There is also a plus sign on all pages (when logged in) in the bottom right corner for an instant jump to the chatbot.
+- <strong>Chatbot</strong>: The chatbot uses a multiple choice questionnaire to ascertain information for the user. The chatbot is displayed on a single page that resembles Facebook messenger, where incoming messages from the bot are on the left. After the bot responds to the user it displays optional replies using bootsrap buttons. There is also a plus sign on all pages (when logged in) in the bottom right corner for an instant jump to the chatbot.
 
 <img src="./images-readme/3.png" title="DB Associations" width="50%">
 
