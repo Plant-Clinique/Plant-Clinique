@@ -6,9 +6,7 @@
         <h1 class='text-center'  style="color:Black;"> Editing Reply</h1>
 
         <%= render 'form', reply: @reply %>
-        <div style="color:yellow"> 
-            <%= link_to 'Back', Post.where(id: @reply.post_id).first %>
-        </div>
+        <%= link_to 'Back', Post.where(id: @reply.post_id).first %>
 
         </div>
     </div>
