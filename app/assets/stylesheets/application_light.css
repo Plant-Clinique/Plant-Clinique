@@ -15,16 +15,15 @@
  */
 
 
-
  body {
-  background-color: gray !important;
+  background-color: rgb(155, 229, 155) !important;
   margin: 0;
   padding: 0;
 }
 
  .header {
   text-align: center;
-  color: brown;
+  color: white !important ;
   font-size: 30px;
   font-weight: bold;
   font-family: 'Brush Script MT', cursive;
@@ -48,7 +47,7 @@
   top: -10px;
   right: -10px;
   border-radius: 50%;
-  background: darkred;
+  background: red;
   color: white;
 }
 
@@ -61,13 +60,14 @@
 }
 
 .active {
-  background-color: brown;
+  background-color: lightgreen;
   border-radius: 10px;
 }
 
   .dot {
     height: 35px;
     width: 35px;
+    background-color: red;
     border-radius: 50%;
     background: url("prabu_front.png") no-repeat;
     background-size: cover;
@@ -77,6 +77,7 @@
   .chat-icon {
     height: 25px;
     width: 25px;
+    background-color: red;
     border-radius: 50%;
     display: inline-block;
     background: url("..\app\assets\images\chat-icon.webp") no-repeat;
@@ -136,12 +137,11 @@
 
 
 .fa-desktop {
-  position: fixed; bottom: 8px; right: 16px;font-size:48px;color:black;
+  position: fixed; bottom: 8px; right: 16px;font-size:48px;color:#42ba96;
 }
 
-
 .fa-leaf {
-  color:brown;
+  color:green;
 }
   
 .footer-back {
