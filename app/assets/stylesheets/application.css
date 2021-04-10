@@ -14,13 +14,12 @@
  *= require_self
  */
 
- body {
-  background-color: #98FFB3;
-}
 
 
-.light body {
-  background-color: #98FFB3;
+body {
+  background-color: lightgreen !important;
+  margin: 0;
+  padding: 0;
 }
 
  .header {
@@ -31,10 +30,6 @@
   font-family: 'Brush Script MT', cursive;
 
  }
- .body {
-  margin: 0;
-  padding: 0;
-}
 
 /* hoizontally scrolling elements */ 
   
@@ -46,13 +41,6 @@
 .scrolling-wrapper .card {
   display: inline-block;
 }
-
-
-/***********************************/ 
-
-
-
-
 
 /*************/
 .notification .badge {
@@ -72,7 +60,10 @@
   border-radius: 2px;
 }
 
-
+.active {
+  background-color: lightgreen;
+  border-radius: 10px;
+}
 
   .dot {
     height: 35px;
@@ -95,13 +86,7 @@
    
   }
 
-  body {
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-  /*
- *  STYLE 6
- */
+  /* Scroll Bar */
 
 #style-6::-webkit-scrollbar-track
 {
@@ -118,7 +103,7 @@
 {
 	background-color: #F90;	
 	background-image: -webkit-linear-gradient(45deg,
-	                                          rgba(255, 255, 255, .2) 25%,
+	                      rgba(255, 255, 255, .2) 25%,
 											  transparent 25%,
 											  transparent 50%,
 											  rgba(255, 255, 255, .2) 50%,
@@ -151,5 +136,20 @@
   background: #b30000; 
 }
 
+
+.fa-desktop {
+  position: fixed; bottom: 8px; right: 16px;font-size:48px;color:#42ba96;
+}
+
+.fa-leaf {
+  color:green;
+}
   
+.footer-back {
+  height: 20px; width: 100%; color: white; background-color:#92B78B; text-align: center;
+}
+
+.mx-2 {
+  color:brown;
+}
   

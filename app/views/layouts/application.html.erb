@@ -15,6 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     
     <!-- Select2 CSS -->
@@ -35,15 +36,15 @@
   </head>
 
 
-  <body style="background-color: #98FFB3;">
+  <body >
     <nav class="navbar p-3 mb-4 bg-warning">
       <div class="container-fluid">
         <div class="navbar-header ">
           <div class="header">
           <li class="nav-link header" %>
-          <i class="fa fa-leaf" aria-hidden="true"></i>
+          <i class="fa fa-leaf" aria-hidden="true" ></i>
           <%= link_to "Plant Clinique", current_user, class: "mx-2 " , style: "color:brown;"%>
-          <i class="fa fa-leaf" aria-hidden="true"></i>
+          <i class="fa fa-leaf" aria-hidden="true" ></i>
           </li>
           </div>
         </div>
@@ -62,9 +63,8 @@
               <%= link_to "Reply", posts_path, class: "mx-2 " %>
             </li>-->
 
-
             <li class="nav-link <%= 'active' if current_page?(chatbot_steps_path) %> nav-item">
-              <i class="fa fa-desktop" aria-hidden="true"></i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
+              <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
             </li>
 
             <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
@@ -77,7 +77,7 @@
               <span>Reminders</span>
               <!-- if reminders.unread? -->
                 <span class="badge">3</span> <!--reminders.unread.length-->
-              <!--  end // also dinos to send to emails --> 
+              <!--  end // also to emails --> 
               </a>
             </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
 
@@ -153,15 +153,14 @@
         <div class=circle>
          <a href="/chatbot_steps">
             <i class="fa fa-desktop" aria-hidden="true" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:#42ba96; "> </i>
-          </a>
-        </div>
+        </a>
       <% end %>
     </div>
   
   
   
-  <footer class="row justify-content-center" style="height: 20px; width: 100%; color: white; background-color:#92B78B; text-align: center;">
-    <p style="text-align: center; color: white;left:0; bottom:0;"> 
+  <footer class="row justify-content-center footer-back">
+    <p style="text-align: center;left:0; bottom:0;"> 
       &emsp; &emsp;
       <a href="https://plant-clinique.herokuapp.com/sign_in">
         Plant-Clinique.com
