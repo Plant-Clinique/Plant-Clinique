@@ -17,6 +17,8 @@ class ChatbotStepsController < ApplicationController
     when :choose_plant
       @user_plants = UserPlant.where(user_id: current_user.id)
     when :select_symptoms
+      @symptom_assessment = SymptomAssessment.new()
+      @question
     end
     render_wizard
   end

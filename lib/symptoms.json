@@ -1,0 +1,118 @@
+{
+  "symptoms": [
+    {
+      "id": 1,
+      "description": "Seeds having trouble emerging from soil",
+      "causes": [
+        {
+          "check": "soil_humidity",
+          "check_type": "less",
+          "description": "The soil is too dry. You're not watering it enough.",
+          "likelihood": 10
+        },
+        {
+          "check": "soil_humidity",
+          "check_type": "more",
+          "description": "The soil is too wet. You're overwatering it.",
+          "likelihood": 9
+        },
+        {
+          "check": "maximum_temperature",
+          "check_type": "more",
+          "description": "Conditions are too warm.",
+          "likelihood": 8
+        },
+        {
+          "check": "minimum_temperature",
+          "check_type": "less",
+          "description": "Conditions are too cold.",
+          "likelihood": 7
+        },
+        {
+          "check": "maximum_seed_age",
+          "check_type": "more",
+          "description": "Your seeds may be too old. Seeds can last a maximum of 2 to 5 years depedning on the plant and storage temperature.",
+          "likelihood": 6
+        },
+        {
+          "check": "maximum_root_depth",
+          "check_type": "more",
+          "description": "Your seeds are planted way too deep in the soil.",
+          "likelihood": 5
+        },
+        {
+          "check": "minimum_root_depth",
+          "check_type": "less",
+          "description": "Your seeds are planted shallow in the soil.",
+          "likelihood": 4
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "description": "Seedlings not growing",
+      "causes": [
+        {
+          "check": "light",
+          "check_type": "less",
+          "description": "Your plant doesn't have enough sunlight.",
+          "likelihood": 10
+        },
+        {
+          "check": "soil_nutriments",
+          "check_type": "less",
+          "description": "Your plant is lacking nutrients. Please use more fertilizer.",
+          "likelihood": 9
+        },
+        {
+          "check": "minimum_temperature",
+          "check_type": "less",
+          "description": "Conditions are too cold.",
+          "likelihood": 8
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "description": "Seedlings look distorted (swollen, twisted)",
+      "causes": [
+        {
+          "check": null,
+          "check_type": null,
+          "description": "Mite feeding injury.",
+          "likelihood": 10
+        },
+        {
+          "check": null,
+          "check_type": null,
+          "description": "Herbicide in soil.",
+          "likelihood": 9
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "description": "General yellowing of plant",
+      "causes": [
+        {
+          "check": "maximum_temperature",
+          "check_type": "more",
+          "description": "Conditions are too warm.",
+          "likelihood": 10
+        },
+        {
+          "check": "light",
+          "check_type": "more",
+          "description": "Sunlight is too intense.",
+          "likelihood": 9
+        },
+        {
+          "check": null,
+          "check_type": null,
+          "description": "It's time to move the plant out from the pot and into the ground. Check this tutorial for how to: https://homeguides.sfgate.com/steps-transplanting-plant-pot-ground-103265.html",
+          "likelihood": 8
+        }
+      ]
+    }
+  ]
+}

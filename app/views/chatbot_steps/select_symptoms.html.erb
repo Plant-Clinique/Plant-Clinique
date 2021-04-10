@@ -1,27 +1,85 @@
+<!DOCTYPE html>
+<html>
 
-  
-<div class="row bg-light rounded p-3">
-  <div class="col">
-    <%= button_to 'Go back', wizard_path(:choose_plant), {class: "btn btn-dark btn-sm", method: "get"}%>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="row">
+  <div class = "col-2" >
   </div>
-  <div class="col-6 pb-5">
-    <h2 class="text-center p-4">
-      Symptom Assessment
-    </h2>
-    <!-- Buttons take to the next step (check steps over at app/controllers/chatbot_steps_controller.rb) -->
-    <%= "You chose #{@plant}"%>
-    <% question %>
-    <% @options.each do |option| %>
-      <%= form_with(model: @chatbot_message,url: next_wizard_path, method: :put) do |form| %>
-        <%= form.hidden_field :user_id, value: current_user.id.to_i %>
-        <%= form.hidden_field :time_sent, value: Time.now.utc %>
-        <%= form.hidden_field :from_bot, value: false %>
-        <%= form.hidden_field :plant_id, value: option.id %>
-        <a><%= form.submit option.name, class: "mt-2 btn btn-info text-light" %></a>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="col">
-    
+  <div class="col-sm-8" >
+    <div class="chatbody msg_container_base" >
+      <div class="panel panel-success"  >
+        <div class="panel-heading top-bar" >     
+          <div> 
+            <h3 class="text-center">
+              <span class="glyphicon glyphicon-comment">
+                Plant-Clinique Chatbot
+              </span> 
+            </h3>
+          </div>
+        </div>
+        <tbody >
+            <tr >
+                <div class="row msg_container base_receive ">
+                  <div class=" col-md-2 col-xs-2 ">
+                    <img src="https://compote.slate.com/images/995b8efe-b37b-4dc5-b9c3-e2d9e8fb2df9.gif?width=1440&rect=1560x1040&offset=0x0" class=" img-responsive" style= "height: 100px; width: 100px; object-fit: cover;" >
+                  </div>
+
+                  <div class="col-md-4 col-xs-3">
+                    <div class="messages msg_receive">      
+                      <td class="th">Farmer Bot</td>
+                      <td ><%= @question %></td><br>
+                    </div>
+                  </div>
+                </div>
+
+            </tr>
+        </tbody>
+        <tr scope="row">
+          <td colspan="3">
+            <div class = "row mx-auto" >
+              <div class = 'actions text-center button-box col-lg-12'>
+                  <% create_options(ChatbotMessage.where(user_id: current_user.id.to_i, from_bot: true).last).each do |option| %>
+                    <%= form_with(model: @chatbot_message) do |form| %>
+                      <%= form.hidden_field :user_id, value: current_user.id.to_i %>
+                      <%= form.hidden_field :time_sent, value: Time.now.utc %>
+                      <%= form.hidden_field :from_bot, value: false %>
+                      <%= form.hidden_field :content, value: option %>
+                      <a><%= form.submit option, class: "mt-2 btn btn-success text-light" %></a>
+                    <% end %>
+                  <% end %>
+              </div>
+            </div>
+            <%= form_with(model: @chatbot_message) do |form| %>
+              <%= form.hidden_field :user_id, value: current_user.id.to_i %>
+              <%= form.hidden_field :time_sent, value: Time.now.utc %>
+              <%= form.hidden_field :from_bot, value: false %>
+
+              <div class="text-field container">
+                <%= form.text_field :content, class: 'mb-1 form-control'  %>
+              </div>
+        
+              <div class = "row mx-auto container">
+                <div class = 'actions text-center'>
+                  <%= form.submit "Send", class: "mt-2 btn btn-warning text-dark" %>
+                </div>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+      </div>
+    </div>
   </div>
 </div>
+
+<div class = "row" style = "height: 44px;">
+</div>
+
+
+
+</html>
+
+
