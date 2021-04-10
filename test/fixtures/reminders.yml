@@ -1,15 +1,18 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# If you get an error, it could be the form of the tick_time (changing from reminder_time)
 one:
   user_plant_id: 1
   user_id: 1
-  reminder_time: 2021-03-06 16:40:23
+  tick_time: 16:40:23
+  interval: 4
   description: MyString
   reminder_type: 1
 
 two:
   user_plant_id: 1
   user_id: 1
-  reminder_time: 2021-03-06 16:40:23
+  tick_time: 16:40:23
+  interval: 5
   description: MyString
   reminder_type: 1

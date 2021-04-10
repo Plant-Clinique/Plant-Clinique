@@ -37,9 +37,10 @@
           <div class = "row justify-content-center">
 
             <span class="text-center d-inline-block">
-              <a class="btn btn-warning btn-lg w-100 text-dark" href="#" role="button">
+              <a class="btn btn-warning btn-lg w-100 text-dark" href=<%= chatbot_messages_path %> role="button">
                 Have a question?
               </a>
+              <!-- Turn link buttons to buttons-->
               <p class="text-muted">Have plant experts answer your questions on our forum.</p>
             </span>
             
@@ -51,6 +52,13 @@
                     <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
                   </svg>
                   <%= link_to 'Add plant', new_user_plant_path, class: "text-dark"%>
+                </button>
+
+                <!--
+                TODO: Make pretty
+                -->
+                <button>
+                <%= link_to 'Add reminder', new_reminder_path, class: "text-dark"%>
                 </button>
           
                 <button type="button" class="btn btn-warning">
