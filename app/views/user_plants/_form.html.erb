@@ -1,3 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#div1 {
+  width: 350px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+</style>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+
+
+
+
 <%= form_with(model: user_plant) do |form| %>
   <% if user_plant.errors.any? %>
     <div id="error_explanation">
@@ -45,3 +78,9 @@
     <%= form.submit "Save", class: "mt-2 btn btn-warning text-dark" %>
   </div>
 <% end %>
+
+
+
+
+
+</body>
