@@ -1,7 +1,7 @@
 {
   "symptoms": [
     {
-      "id": 1,
+      "id": 0,
       "description": "Seeds having trouble emerging from soil",
       "causes": [
         {
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": 1,
       "description": "Seedlings not growing",
       "causes": [
         {
@@ -73,7 +73,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 2,
       "description": "Seedlings look distorted (swollen, twisted)",
       "causes": [
         {
@@ -91,7 +91,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 3,
       "description": "General yellowing of plant",
       "causes": [
         {
