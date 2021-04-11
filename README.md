@@ -1,6 +1,7 @@
 # Plant-Clinique
 
 [Link to Plant-Clinique Staging App](http://plant-clinique-test.herokuapp.com/)
+
 [Link to Plant-Clinique App](http://plant-clinique.herokuapp.com/)
 
 # Introduction
