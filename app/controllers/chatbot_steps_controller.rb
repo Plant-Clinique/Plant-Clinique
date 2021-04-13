@@ -24,11 +24,11 @@ class ChatbotStepsController < ApplicationController
     case step
     when :choose_visit_type
       @prompt = "Please choose your visit type."
-      @bot_message = ChatbotMessage.create(user_id: current_user.id,
-                                          time_sent: Time.now.utc,
-                                          from_bot: true,
-                                          content: @prompt)
     when :choose_plant
+      @bot_message = ChatbotMessage.create(user_id: current_user.id,
+        time_sent: Time.now.utc,
+        from_bot: true,
+        content: "Please choose your visit type.")
       @prompt = "Which plant do you want to check in today?"
       @user_message = ChatbotMessage.create(user_id: current_user.id,
         time_sent: Time.now.utc,
