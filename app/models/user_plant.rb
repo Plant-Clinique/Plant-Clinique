@@ -4,4 +4,5 @@ class UserPlant < ApplicationRecord
 
     validates :name, presence: true, length: { maximum: 100 }
     validates :age, numericality: true
+    validates :plant_type, presence: true
 end

@@ -59,9 +59,16 @@ end
                           content: Faker::Lorem.sentence)
 end
 
-result = JSON.parse(Net::HTTP.get(URI.parse('https://trefle.io/api/v1/plants?filter_not%5Bedible_part%5D=null&token=6j4O7U0FSKM_Te6mN3aFN7TORBk0RYtU_wk5sJgkjbw')))
-
-plant_types = result['data'].map{ |plant| plant['common_name'] }.reject{ |plant| plant == nil }
-plant_types.each do |plant_type|
-  PlantType.create(name: plant_type)
+1.upto(8) do |page|
+  plants = JSON
+                .parse(
+                  Net::HTTP.get(
+                    URI.parse(
+                      "https://trefle.io/api/v1/plants?page=#{page}&filter[edible_parts]=fruits&filter[vegetable]=true&token=6j4O7U0FSKM_Te6mN3aFN7TORBk0RYtU_wk5sJgkjbw"
+                    )
+                  )
+                )['data'].reject{ |plant| plant['common_name'] == nil }
+  plants.each do |plant|
+    PlantType.create(name: plant['common_name'], trefle_id: plant['id'])
+  end
 end

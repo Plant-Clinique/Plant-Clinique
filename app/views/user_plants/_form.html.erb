@@ -26,7 +26,7 @@
 
   <div class="m-2 text-field">
     <%= form.label :plant_type %>
-    <%= form.select :plant_type, PlantType.all.map(&:name), :class=>"bg-white" %>
+    <%= form.select(:plant_type, options_for_select(PlantType.all.map{|plant| [plant.name, plant.trefle_id]}), {:include_blank => "Select a plant type"}, {:class => 'bg-white'})%>
   </div>
 
   <div class="m-2 text-field">
