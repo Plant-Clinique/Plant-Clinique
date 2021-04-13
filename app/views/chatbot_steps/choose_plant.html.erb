@@ -9,7 +9,6 @@
       Which plant do you want to check in today?
     </h2>
     <!-- Buttons take to the next step (check steps over at app/controllers/chatbot_steps_controller.rb) -->
-    <%= "You chose #{@plant}"%>
     <% @user_plants.each do |option| %>
       <%= form_with(model: @chatbot_message,url: next_wizard_path, method: :put) do |form| %>
         <%= form.hidden_field :user_id, value: current_user.id.to_i %>
