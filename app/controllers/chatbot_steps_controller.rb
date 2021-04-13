@@ -23,19 +23,28 @@ class ChatbotStepsController < ApplicationController
   def show
     case step
     when :choose_visit_type
-      # @bot_message = ChatbotMessage.create(user_id: current_user.id,
-      #                                     time_sent: Time.now.utc,
-      #                                     from_bot: true,
-      #                                     content: "hello user!")
-      # @chatbot_message = ChatbotMessage.new
+      @prompt = "Please choose your visit type."
+      @bot_message = ChatbotMessage.create(user_id: current_user.id,
+                                          time_sent: Time.now.utc,
+                                          from_bot: true,
+                                          content: @prompt)
     when :choose_plant
-      @plant = UserPlant.where(user_id: current_user.id, id: params[:plant_id].to_i).first
-    when :select_symptoms
-      @symptoms = @symptom_assessor.get_symptom_select_options
-    when :answer_symptoms_questions
-      @question = @symptom_assessor.get_question_using_cause(@symptom_causes[0])
+      @prompt = "Which plant do you want to check in today?"
+      @user_message = ChatbotMessage.create(user_id: current_user.id,
+        time_sent: Time.now.utc,
+        from_bot: false,
+        content: "Symptom assessment")
+      @bot_message = ChatbotMessage.create(user_id: current_user.id,
+        time_sent: Time.now.utc,
+        from_bot: true,
+        content: @prompt)
     when :display_possible_treatments
       @possible_treatments = params[:possible_treatments]
+      @prompt = "Below are some possible treatments:"
+      @bot_message = ChatbotMessage.create(user_id: current_user.id,
+        time_sent: Time.now.utc,
+        from_bot: true,
+        content: "#{@prompt}\n#{@possible_treatments}")
     end
 
     render_wizard
@@ -46,18 +55,25 @@ class ChatbotStepsController < ApplicationController
     @question_number = 0
     @possible_treatments = []
     case step
-    when :choose_plant
-      @plant = UserPlant.where(user_id: current_user.id, id: params[:plant_id].to_i).first
     when :select_symptoms
       @plant = UserPlant.where(user_id: current_user.id, id: params[:plant_id].to_i).first
       @symptom_assessor = SymptomAssessor.new(@plant.plant_type)
       @symptoms = @symptom_assessor.get_symptom_select_options
+      @prompt = "What symptom does #{@plant.name.titleize} have?"
+      @user_message = ChatbotMessage.create(user_id: current_user.id,
+        time_sent: Time.now.utc,
+        from_bot: false,
+        content: params[:content])
+      @bot_message = ChatbotMessage.create(user_id: current_user.id,
+        time_sent: Time.now.utc,
+        from_bot: true,
+        content: @prompt)
     when :answer_symptoms_questions
       @plant = UserPlant.where(user_id: current_user.id, id: params[:plant_id].to_i).first
       @symptom_assessor = SymptomAssessor.new(@plant.plant_type)
       @symptom_id = params[:symptom_id].to_i
       @symptom_causes = @symptom_assessor.get_symptom_causes(@symptom_id)
-
+      
       if params[:question_number]
         @question_number = params[:question_number].to_i 
       else
@@ -90,8 +106,20 @@ class ChatbotStepsController < ApplicationController
       else
         jump_to(:display_possible_treatments, possible_treatments: @possible_treatments)
       end
-    when :display_possible_treatments
-      @possible_treatments = JSON.parse(params[:possible_treatments])
+      if params[:content]
+        @user_message = ChatbotMessage.create(user_id: current_user.id,
+          time_sent: Time.now.utc,
+          from_bot: false,
+          content: params[:content])
+      end
+      @user_message = ChatbotMessage.create(user_id: current_user.id,
+        time_sent: Time.now.utc,
+        from_bot: false,
+        content: params[:symptom_question_response])
+      @bot_message = ChatbotMessage.create(user_id: current_user.id,
+        time_sent: Time.now.utc,
+        from_bot: true,
+        content: @question)
     end
     render_wizard
   end
