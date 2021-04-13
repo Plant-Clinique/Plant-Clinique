@@ -39,7 +39,11 @@ class ChatbotStepsController < ApplicationController
         from_bot: true,
         content: @prompt)
     when :display_possible_treatments
-      @possible_treatments = params[:possible_treatments]
+      if params[:possible_treatments]
+        @possible_treatments = params[:possible_treatments]
+      else
+        @possible_treatments = "No possible treatments found. Feel free to ask about this in a forum!"
+      end
       @prompt = "Below are some possible treatments:"
       @bot_message = ChatbotMessage.create(user_id: current_user.id,
         time_sent: Time.now.utc,

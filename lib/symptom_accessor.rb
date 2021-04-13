@@ -85,7 +85,7 @@ class SymptomAssessor
 
     api_ideal_for_plant_type = CHECK_TARGET[field].call(plant_data)
     if check_type
-      if CHECK_TYPE[check_type].call(api_ideal_for_plant_type, user_plant_estimate)
+      if api_ideal_for_plant_type and CHECK_TYPE[check_type].call(api_ideal_for_plant_type, user_plant_estimate)
         return diagnosis
       end
     end
