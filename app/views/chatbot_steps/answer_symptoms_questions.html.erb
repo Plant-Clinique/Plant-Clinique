@@ -15,6 +15,7 @@
         <%= form.hidden_field :symptom_id, value: @symptom_id %>
         <%= form.hidden_field :plant_id, value: @plant.id %>
         <%= form.hidden_field :question_number, value: @question_number%>
+        <%= form.hidden_field :possible_treatments, value: @possible_treatments.to_s%>
         <%= form.text_field :symptom_question_response%>
         <a><%= form.submit "Submit", class: "mt-2 btn btn-info text-light" %></a>
     <% end %>

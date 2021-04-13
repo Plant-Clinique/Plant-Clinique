@@ -1,4 +1,5 @@
 require './lib/symptom_accessor'
+require 'json'
 
 class ChatbotStepsController < ApplicationController
   before_action :require_login
@@ -33,6 +34,8 @@ class ChatbotStepsController < ApplicationController
       @symptoms = @symptom_assessor.get_symptom_select_options
     when :answer_symptoms_questions
       @question = @symptom_assessor.get_question_using_cause(@symptom_causes[0])
+    when :display_possible_treatments
+      @possible_treatments = params[:possible_treatments]
     end
 
     render_wizard
@@ -41,6 +44,7 @@ class ChatbotStepsController < ApplicationController
 
   def update
     @question_number = 0
+    @possible_treatments = []
     case step
     when :choose_plant
       @plant = UserPlant.where(user_id: current_user.id, id: params[:plant_id].to_i).first
@@ -60,17 +64,34 @@ class ChatbotStepsController < ApplicationController
         @question_number = 0
       end
 
-      if params[:symptom_question_response]
-        diagnosis = @symptom_assessor.get_diagnosis(@plant.plant_type,@symptom_id,@question_number-1, params[:symptom_question_response].to_i)
-        @possible_treatments.append()
+      if params[:possible_treatments]
+        @possible_treatments = JSON.parse(params[:possible_treatments])
+      else
+        @possible_treatments = []
       end
 
-      if @question_number <= @symptom_causes.length
+      if params[:symptom_question_response]
+        diagnosis = @symptom_assessor.get_diagnosis(@plant.plant_type,@symptom_id,@question_number-1, params[:symptom_question_response].to_i)
+        if diagnosis
+          @possible_treatments.append(diagnosis)
+        end
+      end
+
+      if @question_number < @symptom_causes.length
         @question = @symptom_assessor.get_question_using_cause(@symptom_causes[@question_number])
+        if !@question
+          if @possible_treatments.empty?
+            diagnosis = @symptom_assessor.get_questionless_diagnosis(@symptom_id,@question_number)
+            @possible_treatments.append(diagnosis)
+          end
+          jump_to(:display_possible_treatments, possible_treatments: @possible_treatments)
+        end
         @question_number += 1
       else
-        jump_to(:display_possible_treatments)
+        jump_to(:display_possible_treatments, possible_treatments: @possible_treatments)
       end
+    when :display_possible_treatments
+      @possible_treatments = JSON.parse(params[:possible_treatments])
     end
     render_wizard
   end

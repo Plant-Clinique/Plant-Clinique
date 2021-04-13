@@ -64,6 +64,12 @@ class SymptomAssessor
     CHECK_QUESTION[cause_info['check']]
   end
 
+  def get_questionless_diagnosis(symptom_id, cause_id)
+    cause_info = get_symptom_causes(symptom_id)[cause_id]
+    diagnosis = cause_info['description']
+    return diagnosis
+  end
+
   def get_diagnosis(plant_trefle_id, symptom_id, cause_id, user_plant_estimate)
     cause_info = get_symptom_causes(symptom_id)[cause_id]
     field = cause_info['check']
@@ -83,6 +89,7 @@ class SymptomAssessor
         return diagnosis
       end
     end
+    return nil
   end
 
 end
