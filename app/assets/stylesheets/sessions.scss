@@ -11,3 +11,37 @@
 				    1px -1px 0 yellow,
 				    -1px -1px 0 yellow;
 }
+
+
+.bg {
+	/* The image used */
+	background-image: url('Logo.png');
+	background-size: contain;
+	display: inline-block;
+	position: absolute;
+  
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	background-position: center; 
+	background-repeat: no-repeat; 
+	background-attachment:fixed;
+  
+  
+	/* Full height */
+  
+	/* Center and scale the image nicely */
+	background-color: #ffffff;
+  }
+
+  .button {
+	background-color: #ffc107; /* Green */
+	border: none;
+	color: white;
+	padding-bottom: 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+  }
+

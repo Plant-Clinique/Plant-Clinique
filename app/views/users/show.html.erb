@@ -3,14 +3,38 @@
 
 <p id="notice"><%= notice %></p>
 
+<link id="pagestyle" rel="stylesheet" type="text/css" href="css/show/application.css" media="screen"/>
+
+<script type="text/javascript">
+    function swapStyleSheet(pagesheet, headsheet){
+        document.getElementById('pagestyle').setAttribute('href',pagesheet);
+        document.getElementById('headstyle').setAttribute('href',headsheet);
+    }
+</script>
+
+<button type="button" ><!--onClick="swapStyleSheet('css/show/application_dark.css','css/show/application.css')">-->
+  <link rel="stylesheet" href="application_dark.css">
+  Dark Theme
+</button>
+
+<button type="button" ><!--onClick="swapStyleSheet('css/show/application.css','css/show/application_dark.css')">-->
+  <link rel="stylesheet" href="application.css">
+  Light Theme
+</button>
+
+<div class="row" style = "height: 10px;"> </div>
+
 <!-- Design inspired from https://www.hotjar.com/  template i randomly found-->
 <div class="jumbotron bg-white" style="box-shadow: 0px 10px 10px grey; border-radius: 70px;">
   <div class="container text-center text-lg-left">
     <div class="row">
       <div class="col-lg-8">
-          <h1 class="display-4">Welcome to the Garden, 
+          <h1 class="display-4" style="text-align:center;">Welcome to the Garden, 
             <span class="highlight-word">
-              <strong> <%= current_user.username %>!</strong>
+              <strong> <%= current_user.username %>!</strong> 
+              <!-- if current_user.is_verified?>
+                <img src="..\app\assets\images\pro_account.jpeg" class=" img-responsive" style= "height: 100px; width: 100px; object-fit: cover;" >
+              < end > -->
             </span>
             <li class="nav-link <%= 'active' if current_page?(chatbot_messages_path) %> nav-item">
             </li>
@@ -34,39 +58,29 @@
             </div>
           </div>
           
-          <div class = "row justify-content-center">
+          <div class = "row justify-content-center" >
 
-            <span class="text-center d-inline-block">
+            <span class="text-center d-inline-block " >
               <a class="btn btn-warning btn-lg w-100 text-dark" href="#" role="button">
                 Have a question?
               </a>
               <p class="text-muted">Have plant experts answer your questions on our forum.</p>
             </span>
             
-            <span class="text-center d-inline-block ">
+             <span class="text-center d-inline-block ">
               <div class = "col">
-                <button type="button" class="btn btn-warning">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
-                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
-                  </svg>
-                  <%= link_to 'Add plant', new_user_plant_path, class: "text-dark"%>
-                </button>
-          
-                <button type="button" class="btn btn-warning">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
-                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
-                  </svg>
-                  <%= link_to 'Edit User Info', edit_user_path(@user), class: "text-dark" %> 
-                </button>
 
-                <button type="button" class="btn btn-warning">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
-                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
-                  </svg>
-                  <%= link_to 'Milestones', "/", class: "text-dark" %> 
+                <div class="button-right">
+                  <%= link_to 'Add plant', new_user_plant_path, class: 'btn btn-warning text-dark ' %> 
+                </div>
+
+                <div class="button-right">
+                  <%= link_to 'Edit User Info', edit_user_path(@user), class: 'btn btn-warning text-dark ' %> 
+                </div>
+        
+                <div class="button-right">
+                  <%= link_to 'Milestones', "/", class: 'btn btn-warning text-dark ' %> 
+                </div>
                 </button>
               </div>
             </span>
@@ -74,8 +88,8 @@
           </div>            
 
         </div>
-      <div class="col-lg-4 align-items-center d-flex">
-        <%= image_tag ("prabu_front.png") %>
+      <div class="col-lg-4 d-flex" >
+        <%= image_tag ("prabu_front.png"), style: "border-radius: 50%px;" %>
       </div>
       
     </div>
@@ -126,7 +140,7 @@
                 <div class="btn btn-warning">
                   <%= link_to 'Remove', plant, method: :delete, class: "text-dark", data: { confirm: 'Are you sure?' } %> 
                   |
-                  <%= link_to 'Edit', edit_user_plant_path(plant), class: "text-dark"%>
+                  <%= link_to 'Edit', edit_user_plant_path(plant), class: 'text-dark'%>
                 </div>
                 <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content= "<%= "#{plant.description}"%>">
                   <i class="fas fa-tree text-success mx-2"></i>
@@ -140,6 +154,6 @@
     <% end %>
   </div>
 
-  <div class="row" style = "height: 100px;">
+  <div class="row" style = "height: 350px;">
   </div>
 </html>
