@@ -29,8 +29,6 @@ function drop(ev) {
 
 
 
-
-
 <%= form_with(model: user_plant) do |form| %>
   <% if user_plant.errors.any? %>
     <div id="error_explanation">
@@ -78,9 +76,6 @@ function drop(ev) {
     <%= form.submit "Save", class: "mt-2 btn btn-warning text-dark" %>
   </div>
 <% end %>
-
-
-
 
 
 </body>
