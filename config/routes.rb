@@ -34,5 +34,4 @@ Rails.application.routes.draw do
   constraints Clearance::Constraints::SignedOut.new do
     get '/', to: redirect('/sign_in')
   end
-  
 end

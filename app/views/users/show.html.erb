@@ -60,6 +60,7 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
           
           <div class = "row justify-content-center" >
 
@@ -88,6 +89,39 @@
               </div>
             </span>
           </div>            
+=======
+          <div class = "row justify-content-center">
+            <span class="text-center d-inline-block">
+              <%= button_to 'Have a question?', new_post_path, method: :get, class: "btn btn-warning btn-lg w-100 text-dark"%>
+              <p class="text-muted">Have plant experts answer your questions on our forum.</p>
+            </span>
+          </div>            
+          <div class = "row justify-content-center">
+              <div class = "col-md-auto">
+                <div class = "row">
+                  <%= button_to new_user_plant_path, method: :get, class: "btn btn-warning text-dark" do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 20 20">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
+                  </svg> Add Plant
+                  <% end %>
+                  <%= button_to edit_user_path(@user), method: :get, class: "btn btn-warning text-dark" do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 20 20">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
+                  </svg> Edit User Info
+                  <% end %>
+                  <%= button_to "/", method: :get, class: "btn btn-warning text-dark" do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 20 20">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
+                  </svg> Milestones
+                  <% end %>
+                </div>
+              </div>
+            
+          </div> 
+>>>>>>> 675ce3c (prabu button changes)
         </div>
       <div class="col-lg-4 align-items-center d-flex">
         <%= image_tag @user.gravatar_url(:email => @user.email)%>
