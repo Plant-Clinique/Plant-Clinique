@@ -1,17 +1,5 @@
-<div class = "container bg-leaves" style = "height: 600px;">
-    <div class = "row" style = "height: 50px;">
-    </div>
-    <div class = "row justify-content-center">
-        <h1 class = "text-center" style = "color:yellow;">Update User Information</h1>
-    </div>
-    <div class = "container">
+<h1>Editing User</h1>
 
-        <%= render 'form', user: @user %>
+<%= render 'form', user: @user %>
 
-        <%#= link_to 'Back', current_user %>
-    </div>
-    <div class = "row" style = "100px;">
-    </div>
-</div>
-<div style="height:700px;"> </div>
-
+<%= link_to 'Back', current_user %>

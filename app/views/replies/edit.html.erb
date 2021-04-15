@@ -1,15 +1,6 @@
-<div>
-    <div class="row" style = "height: 330px;">
-    <div class = "col-3"></div>
-        <div class="col-md-6 bg-editL" style="height: 600px; background-color: green; ">
-        <div class = "row text-center" style = "height: 50px;"></div>
-        <h1 class='text-center'  style="color:Black;"> Editing Reply</h1>
+<h1>Editing Reply</h1>
 
-        <%= render 'form', reply: @reply %>
-        <%= link_to 'Back', Post.where(id: @reply.post_id).first, class: "mt-2 btn btn-warning"%>
+<%= render 'form', reply: @reply %>
 
-        </div>
-    </div>
-</div>
-
-<div style="height:355px;"> </div>
+<%= link_to 'Show', @reply %> |
+<%= link_to 'Back', replies_path %>
