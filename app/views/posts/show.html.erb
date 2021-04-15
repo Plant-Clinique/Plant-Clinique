@@ -17,6 +17,7 @@
         <%= @post.user.username %>
       | <%= @post.created_at %>
       | <%= @post.replies.length %> Replies
+      <%= "| edited at: #{@post.edited_at}" if @post.edited?%>
     </div>
     <div class="my-4">
       <%= @post.body %>

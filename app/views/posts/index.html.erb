@@ -42,13 +42,14 @@
 
 <div class= "mb-5">
   <% @posts.sort_by{|post| -post.created_at.to_i}.each do |post| %>
-    <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background: #EFF69B;">
+    <div class="post-back card mt-3" >
       <div class="card-body">
         <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5>
         <p class="card-text font-weight-bold">
             <%= post.user.username %>
           | <%= post.created_at %>
           | <%= post.replies.length %> Replies
+          <%= "| Edited" if post.edited?%>
         </p>
         
       </div>
@@ -59,5 +60,5 @@
 
 </body>
 
-<div style="height:500px;"> </div>
+<div class="post-bottom"> </div>
 

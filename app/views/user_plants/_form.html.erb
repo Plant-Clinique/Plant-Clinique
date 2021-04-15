@@ -1,3 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#div1 {
+  width: 350px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+</style>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+
+
 <%= form_with(model: user_plant) do |form| %>
   <% if user_plant.errors.any? %>
     <div id="error_explanation">
@@ -24,16 +55,18 @@
     <%= form.text_field :age %>
   </div>
 
-  <div class="m-2 text-field">
+  <div class="m-2 text-field" style="width:30%;">
     <%= form.label :plant_type %>
-    <%= form.select :plant_type, PlantType.all.map(&:name), :class=>"bg-white" %>
+    <%= form.select(:plant_type, options_for_select(PlantType.all.map{|plant| [plant.name, plant.trefle_id]}), {:include_blank => "Select a plant type"}, {:class => 'bg-white js-states text-field', :id => 'single'})%>
   </div>
 
-  <div class="m-2 text-field">
-    <%= form.label :img_url %>
-    <%= form.text_field :img_url %>
-  </div>
 
+  <script>
+    $("#single").select2({
+        placeholder: "Select a plant type",
+        allowClear: true
+    });
+  </script>
   <div class="m-2 text-field">
     <%= form.label :description %>
     <%= form.text_field :description %>
@@ -43,3 +76,6 @@
     <%= form.submit "Save", class: "mt-2 btn btn-warning text-dark" %>
   </div>
 <% end %>
+
+
+</body>

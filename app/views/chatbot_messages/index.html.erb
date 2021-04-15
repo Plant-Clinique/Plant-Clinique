@@ -34,7 +34,7 @@
                     <div class="messages msg_receive">      
                       <td class="th">Farmer Bot</td>
                       <td ><%= "sent: " + chatbot_message.content %></td><br>
-                      <td style="color:gray; font:small;"><%="@"+chatbot_message.time_sent.to_s %></td>
+                      <td ><%="@"+chatbot_message.time_sent.to_s %></td>
                     </div>
                   </div>
                 </div>
@@ -44,7 +44,7 @@
                     <div class="messages msg_sent">
                       <td class="td"><%= chatbot_message.user.username.capitalize%></td>
                       <td ><%= "sent: " + chatbot_message.content %></td><br>
-                      <td style="color:gray; font:small;"><%="@"+chatbot_message.time_sent.to_s %></td>
+                      <td ><%="@"+chatbot_message.time_sent.to_s %></td>
                     </div>
                   </div>
 
