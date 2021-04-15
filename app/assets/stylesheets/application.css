@@ -58,22 +58,6 @@
   position: relative;
   display: inline-block;
   border-radius: 2px;
-<<<<<<< HEAD
-}
-
-
-
-  .dot {
-    height: 35px;
-    width: 35px;
-    background-color: red;
-    border-radius: 50%;
-    background: url("prabu_front.png") no-repeat;
-    background-size: cover;
-   
-  }
-
-=======
  }
   
  .active {
@@ -90,7 +74,6 @@
   
   }
   
->>>>>>> 302f275bcb078b045abfcb0c6a87ed1143689dd0
   .chat-icon {
     height: 25px;
     width: 25px;
@@ -155,9 +138,6 @@
   position: fixed; bottom: 8px; right: 16px;font-size:48px;color:black;
  }
   
-<<<<<<< HEAD
-  
-=======
   
  .fa-leaf {
   color:brown;
@@ -172,4 +152,3 @@
   
  
  
->>>>>>> 302f275bcb078b045abfcb0c6a87ed1143689dd0
