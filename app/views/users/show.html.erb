@@ -13,11 +13,13 @@
     }
 </script>
 
-<button onClick="swapStyleSheet('css/show/application_dark.css','css/show/application.css')">
+<button type="button" ><!--onClick="swapStyleSheet('css/show/application_dark.css','css/show/application.css')">-->
+  <link rel="stylesheet" href="application_dark.css">
   Dark Theme
 </button>
 
-<button onClick="swapStyleSheet('css/show/application.css','css/show/application_dark.css')">
+<button type="button" ><!--onClick="swapStyleSheet('css/show/application.css','css/show/application_dark.css')">-->
+  <link rel="stylesheet" href="application.css">
   Light Theme
 </button>
 
@@ -88,8 +90,8 @@
             
           </div> 
         </div>
-      <div class="col-lg-4 align-items-center d-flex">
-        <%= image_tag ("prabu_front.png") %>
+      <div class="col-lg-4 d-flex" >
+        <%= image_tag ("prabu_front.png"), style: "border-radius: 50%px;" %>
       </div>
       
     </div>

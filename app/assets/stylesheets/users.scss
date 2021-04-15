@@ -31,6 +31,8 @@
 }
 
 
+
+
   .box {
     background-color: #fff;
     padding: 2em;
@@ -51,5 +53,13 @@
     font-size: 18px;
   }
 
+  .center {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
+  }
     
+ 

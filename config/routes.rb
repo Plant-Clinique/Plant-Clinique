@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
-
+  
+  resources :chatbot_steps
+  
   resources :users, only: [:create] do
     resource :password,
       controller: "clearance/passwords",
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :replies, only: [:index, :create, :edit]
   end
+  resources :replies, only: [:edit, :show]
   resources :chatbot_messages, except: [:edit, :update, :destroy]
   resources :reminders
   resources :user_plants, except: [:index]
