@@ -3,21 +3,16 @@
   <head>
     <title>Plant-Clinique</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="app/assets/stylesheets/application.css">
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     
     <!-- Select2 CSS -->
@@ -26,19 +21,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Select2 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-
-    <link rel="stylesheet" href="app/assets/stylesheets/application.css">
   </head>
 
-  <body >
+
+  <body style = "background-color: #98FFB3">
     <nav class="navbar p-3 mb-4 bg-warning">
       <div class="container-fluid">
         <div class="navbar-header ">
           <div class="header">
           <li class="nav-link header" %>
-          <i class="fa fa-leaf" aria-hidden="true" ></i>
           <%= link_to "Plant Clinique", current_user, class: "mx-2 " , style: "color:brown;"%>
-          <i class="fa fa-leaf" aria-hidden="true" ></i>
           </li>
           </div>
         </div>
@@ -46,32 +38,30 @@
           <% if signed_in? %>
 
             <li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
-              <i class="fa fa-comments" aria-hidden="true"></i><%= link_to "Posts", posts_path, class: "mx-2 " %>
+              <%= link_to "Posts", posts_path, class: "mx-2 " %>
             </li>
 
              <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
-              <i class="fa fa-trophy" aria-hidden="true"></i> <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
+              <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
             </li> <!-- https://www.gardenista.com/tag/contests-giveaways/ -->
 
             <!--<li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
               <%= link_to "Reply", posts_path, class: "mx-2 " %>
             </li>-->
 
-            <li class="nav-link <%= 'active' if current_page?(chatbot_steps_path) %> nav-item">
-              <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
+
+            <li class="nav-link <%= 'active' if current_page?(chatbot_messages_path) %> nav-item">
+              <%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
             </li>
 
             <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
-              <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", "#", class: "mx-2 " %>
-            </li><!-- https://docs.ubuntu.com/landscape/en/api mapbox api from pito --> 
+              <%= link_to "Maps/location", "#", class: "mx-2 " %>
+            </li><!-- https://docs.ubuntu.com/landscape/en/api -->
 
             <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
               <a href="#" class="notification">
-              <i class="fa fa-bell" aria-hidden="true"></i>
               <span>Reminders</span>
-              <!-- if reminders.unread? -->
-                <span class="badge">3</span> <!--reminders.unread.length-->
-              <!--  end // also to emails --> 
+              <span class="badge">3</span>
               </a>
             </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
 
@@ -81,22 +71,22 @@
             </li>
             -->
 
-            <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item"> 
-              <i class="fa fa-user" aria-hidden="true"></i> <%= link_to "My Account", current_user %> 
+            <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
+              <!--<%= link_to "My Account", current_user, class: "mx-2 " %>-->
+              <a href="/"> 
+                <!--<span class="dot" style="background-image: url('prabu_front.png')"></span>-->
+                  <div class="dot">
+                   
+                  </div>
+              </a>
             </li>
 
-           <a href="/">
-            <div <%= 'active' if current_page?(current_user) %>>
-              <div class="dot"></div>
-            </div>
-           </a>
-
             <li class="nav-link nav-item">
-              <i class="fa fa-sign-out" aria-hidden="true"></i><%= link_to 'Sign out', sign_out_path, method: :delete, class: "mx-2" %></u></li>
+              <%= link_to 'Sign out', sign_out_path, method: :delete, class: "mx-2" %></u></li>
             </li>
 
           <% else %>
-            <i class="fa fa-sign-in" aria-hidden="true"></i> <li ><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></li>
+            <li ><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></li>
           <% end %>
         </ul>
         
@@ -139,16 +129,18 @@
     <div class="row">
       <% if signed_in? %>
         <div class=circle>
-         <a href="/chatbot_steps">
-            <i class="fa fa-desktop" aria-hidden="true" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:#42ba96; "> </i>
-        </a>
+          <a href="/chatbot_steps">
+            <i class="fa fa-plus" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:red"> </i>
+          </a>
+        </div>
       <% end %>
     </div>
+
   
   
   
-  <footer class="row justify-content-center footer-back">
-    <p style="text-align: center;left:0; bottom:0;"> 
+  <footer class="row justify-content-center" style="height: 20px; width: 100%; color: white; background-color:#92B78B; text-align: center;">
+    <p style="text-align: center; color: white;left:0; bottom:0;"> 
       &emsp; &emsp;
       <a href="https://plant-clinique.herokuapp.com/sign_in">
         Plant-Clinique.com

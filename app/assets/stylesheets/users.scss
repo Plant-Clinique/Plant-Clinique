@@ -2,30 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
-
-.bg-leaves {
-  /* The image used */
-  background-image: url('sign_up_background.jpg');
-  background-size: cover;
-  display: inline-block;
-  position: absolute;
-
-  width: 100%;
-  height: 100%;
-  display: inline-block;
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-attachment:fixed;
-
-
-  /* Full height */
-
-  /* Center and scale the image nicely */
-  background-color: #ffffff;
+.active {
+  background-color: lightgreen;
+  border-radius: 10px;
 }
-
-
 
 
   .box {
@@ -48,13 +28,5 @@
     font-size: 18px;
   }
 
-  .center {
-    margin: 0;
-    position: absolute;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
 
-  }
     
- 
