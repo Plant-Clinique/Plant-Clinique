@@ -3,7 +3,6 @@
   <head>
     <title>Plant-Clinique</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="app/assets/stylesheets/application.css">
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -38,17 +37,18 @@
   </head>
 
   <body >
-    <nav class="navbar p-3 mb-4 bg-warning">
-      <div class="container-fluid">
-        <div class="navbar-header ">
-          <div class="header">
-          <li class="nav-link header" %>
-          <i class="fa fa-leaf" aria-hidden="true" ></i>
-          <%= link_to "Plant Clinique", current_user, class: "mx-2 " , style: "color:brown;"%>
-          <i class="fa fa-leaf" aria-hidden="true" ></i>
-          </li>
-          </div>
-        </div>
+    <nav class="navbar p-3 mb-4 bg-warning navbar-expand-md">
+      <li class="nav-link header" %>
+          <i class="fa fa-leaf" style="color:green;" aria-hidden="true" ></i>
+            <%= link_to "Plant Clinique", current_user, class: "mx-2 " , style: "color: brown; font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
+          <i class="fa fa-leaf" style="color:green;"aria-hidden="true" ></i>
+      </li>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="nav navbar-right">
           <% if signed_in? %>
 
@@ -56,7 +56,7 @@
               <i class="fa fa-comments" aria-hidden="true"></i><%= link_to "Posts", posts_path, class: "mx-2 " %>
             </li>
 
-             <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
+            <!--<li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
               <i class="fa fa-trophy" aria-hidden="true"></i> <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
             </li> <!-- https://www.gardenista.com/tag/contests-giveaways/ -->
 
@@ -64,7 +64,7 @@
               <%= link_to "Reply", posts_path, class: "mx-2 " %>
             </li>-->
 
-            <li class="nav-link <%= 'active' if current_page?(chatbot_steps_path) %> nav-item">
+            <li class="nav-link <%= 'active' if current_page?(chatbot_steps_path)%> nav-item">
               <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
             </li>
 
@@ -119,6 +119,7 @@
     <div class="container">
       <%= yield -%>
     </div>
+    <!-- >
     <script>
       $(function () {
         $('[data-toggle="popover"]').popover()
@@ -131,9 +132,10 @@
         })
       })
     </script>
+    idk who put the script in but it doesnt work-->
 
     <!-- suprise cool background JS - maybe for just the home page? -->
-
+  <!--
     <script>
     var canvas = document.getElementById('myCanvas'); 
     var context = canvas.getContext('2d'); 
@@ -147,6 +149,7 @@
     context.stroke();
 
     </script>
+  -->
 
     <!-- for the chatbot popup -->
     <div class="row">
@@ -200,6 +203,7 @@
       </a> 
       &emsp; &emsp; 
     </p>
+
   </footer>
   </body>
 </html>
