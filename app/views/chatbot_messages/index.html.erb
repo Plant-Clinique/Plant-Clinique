@@ -11,7 +11,7 @@
   <div class="col-sm-8" >
     <div class="chatbody msg_container_base" >
       <div class="bg-white"  >
-        <div class="card-top">     
+        <div class="card" style = 'background-color: #C8EEB4;'>     
           <div class = "card-body"> 
             <h3 class="text-center">
               <span>
@@ -26,7 +26,7 @@
           <% @chatbot_messages.where(user_id: current_user.id.to_i).each do |chatbot_message| %>  
             <tr >
               <% if chatbot_message.from_bot == true %>      
-                <div class="row msg_container base_receive">
+                <div class="row msg_container base_receive" style="overflow: hidden">
                   <div class=" col-md-2 col-xs-2 ">
                     <img src="https://compote.slate.com/images/995b8efe-b37b-4dc5-b9c3-e2d9e8fb2df9.gif?width=1440&rect=1560x1040&offset=0x0" class=" img-responsive" style= "height: 100px; width: 100px; object-fit: cover;" >
                   </div>
@@ -39,7 +39,7 @@
                   </div>
                 </div>
               <% else %>
-                <div class="row msg_container base_sent">
+                <div class="row msg_container base_sent" style="overflow: hidden">
                   <div class="col-md-3 col-xs-3">
                     <div class="messages msg_sent">
                       <td class="td"><%= chatbot_message.user.username.capitalize%></td>
@@ -93,7 +93,7 @@
   </div>
 </div>
 
-<div class = "row-chatbottom"></div>
+<div class = "row" style = "height: 450px;"></div>
 
 </html>
 

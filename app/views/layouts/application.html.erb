@@ -15,6 +15,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -39,8 +41,20 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+<!-- old -->
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
+  <body style="background-color: #98FFB3;">
+    <nav class="navbar p-3 mb-4 bg-warning">
+      <div class="container-fluid">
+        <div class="navbar-header ">
+          <div class="header">
+          <li class="nav-link header" %>
+          <i class="fa fa-leaf" aria-hidden="true" ></i>
+          <%= link_to "Plant Clinique", current_user, class: "mx-2 " , style: "color:brown;"%>
+          <i class="fa fa-leaf" aria-hidden="true" ></i>
+          </li>
+          </div>
+        </div>
         <ul class="nav navbar-right">
           <% if signed_in? %>
 
@@ -141,9 +155,10 @@
     <div class="row">
       <% if signed_in? %>
         <div class=circle>
-         <a href="/chatbot_steps">
+          <a href="/chatbot_steps">
             <i class="fa fa-desktop" aria-hidden="true" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:#42ba96; "> </i>
-        </a>
+          </a>
+        </div>
       <% end %>
     </div>
   
