@@ -74,11 +74,8 @@
     height: 25px;
     width: 25px;
     background-color: red;
-    border-radius: 50%;
+    border-radius: 100%;
     display: inline-block;
-    background: url("prabu_front.png") no-repeat;
-    background-size: cover;
-   
   }
 
   body {

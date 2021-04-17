@@ -74,9 +74,9 @@
             <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
               <!--<%= link_to "My Account", current_user, class: "mx-2 " %>-->
               <a href="/"> 
-                <!--<span class="dot" style="background-image: url('prabu_front.png')"></span>-->
+                <!--<span style="background-image: url('prabu_front.png')"></span>-->
                   <div class="dot">
-                   
+                    <%= image_tag @user.gravatar_url(:email => @user.email)%>
                   </div>
               </a>
             </li>
