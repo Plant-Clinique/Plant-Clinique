@@ -193,6 +193,13 @@ overflow-x: hidden;
   height:300px;
 }
 
+a:link {
+  color: green;
+}
+
+a:visited {
+  color: black;
+}
   
  
  
