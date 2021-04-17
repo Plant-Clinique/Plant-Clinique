@@ -190,7 +190,7 @@ overflow-x: hidden;
 }
 
 .bottom-layer {
-  height:300px;
+  height:400px;
 }
 
 a:link {
@@ -201,5 +201,20 @@ a:visited {
   color: black;
 }
   
+* {
+  box-sizing: border-box;
+}
+@media screen and (max-width:400px) {
+
+  .verticalscroll{
+  width: 100%;
+  display: block;
+  }
+  
+  .horizontalscroll{
+  height: 100%;
+  display: none;
+  }
  
  
+}

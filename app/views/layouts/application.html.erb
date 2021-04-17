@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Plant-Clinique</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,6 +15,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+    <meta charset="utf-8">
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -37,14 +41,14 @@
   </head>
 
   <body >
-    <nav class="navbar p-3 mb-4 bg-warning">
+    <nav class="navbar p-3 mb-4 bg-warning ">
       <div class="container-fluid">
         <div class="navbar-header ">
           <div class="header">
           <li class="nav-link header" %>
-<i class="fa fa-leaf" style="color:green;" aria-hidden="true" ></i>
-            <%= link_to "Plant Clinique", current_user, class: "mx-2 " , style: "color: brown; font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
-          <i class="fa fa-leaf" style="color:green;"aria-hidden="true" ></i>
+            <i class="fa fa-leaf" style="color:green;" aria-hidden="true" ></i>
+              <%= link_to "Plant Clinique", current_user, class: "mx-2 " , style: "color: brown; font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
+            <i class="fa fa-leaf" style="color:green;"aria-hidden="true" ></i>
           </li>
           </div>
         </div>
@@ -122,11 +126,11 @@
               </a>
             </li>
 
-           <a href="/">
+           
             <div <%= 'active' if current_page?(current_user) %>>
               <div class="dot"></div>
             </div>
-           </a>
+          
 
             <li class="nav-link nav-item">
               <i class="fa fa-sign-out" aria-hidden="true"></i> <%= link_to 'Sign out', sign_out_path, method: :delete %>
