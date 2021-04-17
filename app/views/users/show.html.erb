@@ -27,11 +27,11 @@
 <div class="row" style = "height: 10px;"> </div>
 
 <!-- Design inspired from https://www.hotjar.com/  template i randomly found-->
-<div class="jumbotron bg-white" style="box-shadow: 0px 10px 10px grey; border-radius: 70px;">
+<div class="jumbotron bg-white" style="box-shadow: 0px 10px 10px grey; border-radius: 70px; border: 3px solid green">
   <div class="container text-center text-lg-left">
     <div class="row">
       <div class="col-lg-8">
-          <h1 class="display-4" style="text-align:center;">Welcome to the Garden, 
+          <h1 class="display-4" style="text-align:center;  font-family: 'Trebuchet MS', sans-serif;">Your Garden, 
             <span class="highlight-word">
               <strong> <%= current_user.username %>!</strong> 
               <!-- if current_user.is_verified?>
@@ -87,7 +87,7 @@
           </div> 
         </div>
       <div class="col-lg-4 d-flex" >
-        <%= image_tag ("prabu_front.png"), style: "border-radius: 50%px;" %>
+        <%= image_tag ("prabu_front.png"),style: "border-radius: 50%; border: 5px solid brown;"%>
       </div>
       
     </div>
@@ -105,7 +105,7 @@
     <% else %>
       <% UserPlant.where(user_id: current_user.id.to_i).each do |plant| %>
         <div class = "col-4" >
-          <div class="card text-center border-success mb-3" style="box-shadow: 0px 10px 10px grey; border-radius: 20px;">
+          <div class="card text-center border-success mb-3" style="box-shadow: 0px 10px 10px grey; border-radius: 20px; ">
             <img class="card-img-top-center img-fluid min-width: 200px !important;" src=<%= "#{plant.img_url}" %>  alt="Picture for this plant" style= "height: 200px; object-fit: cover; border-radius: 20px 20px 0px 0px;">
             <div class="card-body" >
               <h4 class="card-title"> <%="#{plant.name}"%> </h4>
@@ -135,18 +135,14 @@
                 </div>
               </p>
               <a>
-              <div class = "row justify-content-center" style="text-align: center">
-                  <%= button_to plant, method: :delete, class: "btn btn-warning text-dark space", data: { confirm: 'Are you sure?' } do %>
-                    Remove
-                  <% end %>
-                  <%= button_to edit_user_plant_path(plant),  class: "btn btn-warning text-dark space" do %>
-                    Edit
-                  <% end %>
-                  <button type="button" class="btn btn-secondary space"  data-container="body" data-toggle="popover" data-placement="top" data-content= "<%= "#{plant.description}"%>">
-                    <i class="fas fa-tree text-success " ></i>
-                  </button>
-              </div>
-                
+                <div class="btn btn-warning">
+                  <%= link_to 'Remove', plant, method: :delete, class: "text-dark", data: { confirm: 'Are you sure?' } %> 
+                  |
+                  <%= link_to 'Edit', edit_user_plant_path(plant), class: "text-dark"%>
+                </div>
+                <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content= "<%= "#{plant.description}"%>">
+                  <i class="fas fa-tree text-success mx-2"></i>
+                </button>
                 <!--Card hover class =  stretched-link -->
               </a>
             </div>

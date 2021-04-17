@@ -76,7 +76,13 @@
               <%= link_to "Reply", posts_path, class: "mx-2 " %>
             </li>-->
 
-            <li class="nav-link <%= 'active' if current_page?(chatbot_steps_path)%> nav-item">
+            <li class="nav-link
+             <%= 'active' if current_page?("/chatbot_steps/choose_visit_type")%> 
+             <%= 'active' if current_page?("/chatbot_steps/answer_symptom_questions")%>
+             <%= 'active' if current_page?("/chatbot_steps/choose_plant")%>
+             <%= 'active' if current_page?("/chatbot_steps/display_possible_treatments")%>
+             <%= 'active' if current_page?("/chatbot_steps/select_symptoms")%>
+             nav-item">
               <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
             </li>
 
