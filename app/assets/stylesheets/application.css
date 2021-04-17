@@ -18,25 +18,13 @@ body {
   background-color: #ADEBA9 !important;
   margin: 0;
   padding: 0;
+  min-width:600px;
  }
   
  .header {
   text-align: center;
+ }
   
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 
  body {
   background-color: #98FFB3;
@@ -188,6 +176,22 @@ overflow-x: hidden;
  .mx-2 {
   color:brown;
  }
+
+ /* hoizontally scrolling elements */ 
+  
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+.scrolling-wrapper .card {
+  display: inline-block;
+}
+
+.bottom-layer {
+  height:300px;
+}
+
   
  
  

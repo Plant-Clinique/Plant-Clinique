@@ -1,11 +1,13 @@
- <div class="row" style="height: 100px;"> </div>
+<div class="row" style="height: 100px;"> </div>
 
   
-<div class="row bg-white" style="border-radius: 50px; text-align: center;" >
-  <div class="col">
+<div class="row bg-white" style="border-radius: 50px; text-align: center; height: 350px; border: 3px solid green; " >
+ <div class="col vertical-center">
+    <%= button_to 'Restart', wizard_path(:choose_visit_type), {class: "btn btn-dark btn-sm", method: "get"}%>
   </div>
+
   <div class="col-9 pb-5 bg-r-plant">
-    <h2 class="text-center p-4" style="color:yellow;">
+    <h2 class="text-center p-4" style="text-shadow: 2px 2px yellow;">
       <%= @prompt %>
     </h2>
     <!-- Buttons take to the next step (check steps over at app/controllers/chatbot_steps_controller.rb) -->
@@ -21,9 +23,7 @@
       <% end %>
     <% end %>
   </div>
-  <div class="col">
-    
-  </div>
+  <div class="col"></div>
 </div>
 
- <div class="row" style="height: 200px;"> </div>
+<div class="row" style="height: 200px;"> </div>

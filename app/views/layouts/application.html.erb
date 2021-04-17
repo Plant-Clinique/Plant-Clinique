@@ -31,17 +31,23 @@
   </head>
 
   <body >
-    <nav class="navbar p-3 mb-4 bg-warning navbar-expand-md">
-      <li class="nav-link header" %>
-          <i class="fa fa-leaf" style="color:green;" aria-hidden="true" ></i>
+    <nav class="navbar p-3 mb-4 bg-warning">
+      <div class="container-fluid">
+        <div class="navbar-header ">
+          <div class="header">
+          <li class="nav-link header" %>
+<i class="fa fa-leaf" style="color:green;" aria-hidden="true" ></i>
             <%= link_to "Plant Clinique", current_user, class: "mx-2 " , style: "color: brown; font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
           <i class="fa fa-leaf" style="color:green;"aria-hidden="true" ></i>
-      </li>
+          </li>
+          </div>
+        </div>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                
+    <!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-<!-- old -->
+ old 
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
   <body style="background-color: #98FFB3;">
     <nav class="navbar p-3 mb-4 bg-warning">
@@ -54,7 +60,7 @@
           <i class="fa fa-leaf" aria-hidden="true" ></i>
           </li>
           </div>
-        </div>
+        </div> -->
         <ul class="nav navbar-right">
           <% if signed_in? %>
 
@@ -64,9 +70,9 @@
 
             <!--<li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
               <i class="fa fa-trophy" aria-hidden="true"></i> <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
-            </li> <!-- https://www.gardenista.com/tag/contests-giveaways/ -->
+            </li>  https://www.gardenista.com/tag/contests-giveaways/ 
 
-            <!--<li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
+            <li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
               <%= link_to "Reply", posts_path, class: "mx-2 " %>
             </li>-->
 
@@ -83,7 +89,7 @@
               <i class="fa fa-bell" aria-hidden="true"></i>
               <span>Reminders</span>
               <!-- if reminders.unread? -->
-                <span class="badge">3</span> <!--reminders.unread.length-->
+              <span class="badge">3</span> <!--reminders.unread.length-->
               <!--  end // also to emails --> 
               </a>
             </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
@@ -105,7 +111,7 @@
            </a>
 
             <li class="nav-link nav-item">
-              <i class="fa fa-sign-out" aria-hidden="true"></i><%= link_to 'Sign out', sign_out_path, method: :delete, class: "mx-2" %></u></li>
+              <i class="fa fa-sign-out" aria-hidden="true"></i> <%= link_to 'Sign out', sign_out_path, method: :delete %>
             </li>
 
           <% else %>
@@ -164,7 +170,7 @@
   
   
   
-  <footer class="row justify-content-center footer-back">
+  <footer class="row justify-content-center " style="height: 20px; width: 100%; color: white; background-color:#92B78B; text-align: center;">
     <p style="text-align: center;left:0; bottom:0;"> 
       &emsp; &emsp;
       <a href="https://plant-clinique.herokuapp.com/sign_in">
