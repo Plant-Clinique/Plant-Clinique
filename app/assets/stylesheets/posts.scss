@@ -17,3 +17,62 @@
   .post-card {
       background-color: #F7DC6F;
   }
+
+  .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown a:hover {background-color: #ddd;}
+  
+  .show {display: inline;}
+
+  .bg-drop {
+    /* The image used */
+    background-image: url('dropplant.png');
+    background-size: cover;
+    display: inline-block;
+    
+    width: 100%;
+    height: 100%;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment:fixed;
+    position: absolute;
+
+    
+    /* Full height */
+    
+    /* Center and scale the image nicely */
+    background-color: #ffffff;
+    }
