@@ -51,7 +51,9 @@
           | <%= post.replies.length %> Replies
           <%= "| Edited" if post.edited?%>
         </p>
-        
+        <% if post.user.id.to_i == current_user.id.to_i %>
+          <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning text-dark' %>
+        <% end %>
       </div>
     </div>
   <% end %>
@@ -60,5 +62,5 @@
 
 </body>
 
-<div class="post-bottom"> </div>
+<div class="bottom-layer"></div>
 

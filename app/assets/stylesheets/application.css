@@ -18,11 +18,29 @@ body {
   background-color: #ADEBA9 !important;
   margin: 0;
   padding: 0;
+  min-width:600px;
  }
   
  .header {
   text-align: center;
+ }
   
+
+ body {
+  background-color: #98FFB3;
+}
+
+
+.light body {
+  background-color: #98FFB3;
+}
+
+ .header {
+  text-align: center;
+  color: white !important ;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Brush Script MT', cursive;
   
  }
   
@@ -159,6 +177,22 @@ overflow-x: hidden;
  .mx-2 {
   color:brown;
  }
+
+ /* hoizontally scrolling elements */ 
+  
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+.scrolling-wrapper .card {
+  display: inline-block;
+}
+
+.bottom-layer {
+  height:300px;
+}
+
   
  
  

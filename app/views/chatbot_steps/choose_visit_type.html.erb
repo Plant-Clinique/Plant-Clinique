@@ -1,12 +1,13 @@
-  
+<div class="row" style="height: 100px;"> </div>
 
- <div class="row" style="height: 100px;"> </div>
-<div class="row bg-white  p-3 " style="border-radius: 25%;     border: 3px solid green; 
-">
-  <div class="col" > </div>
-  <div class="col-9 pb-5 ">
-    <h2 class="text-center p-4" style="text-shadow: 2px 2px yellow;
-">
+<div class="row bg-white" style="border-radius: 50px; text-align: center; height: 350px; border: 3px solid green; " >
+
+  <div class="col vertical-center">
+    <%= button_to 'Restart', wizard_path(:choose_visit_type), {class: "btn btn-dark btn-sm", method: "get"}%>
+  </div>
+
+  <div class="col-9 pb-5 bg-r-plant">
+    <h2 class="text-center p-4" style="text-shadow: 2px 2px yellow;">
       Hi, <%= current_user.username %>!
       <br>    
       <%= @prompt %>
@@ -25,10 +26,10 @@
       </div>
     </div>
   </div>
-  <div class="col">
-    
-  </div>
+  <div class="col"></div>
 </div>
 
-<div style="height:400px;"></div>
+<div style="height:200px;"></div>
+
+
 
