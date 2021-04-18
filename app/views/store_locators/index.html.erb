@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class='bg-light text-center rounded' style="height:500px;">
-  <h2 class='pt-2 px-2'>Search for florists by choosing a location or allowing location access.</h2>
+  <h2 class='pt-2 px-2'>Search for plant stores by choosing a location or allowing location access.</h2>
   <div id='map' class='p-3 centered' style="height:80%;width:100%;"></div>
 </div> 
 <script>
@@ -27,7 +27,7 @@
       accessToken: mapboxgl.accessToken, // Set the access token
       mapboxgl: mapboxgl, // Set the mapbox-gl instance
       zoom: 12, // Set the zoom level for geocoding results
-      placeholder: "Search for florists", // This placeholder text will display in the search bar
+      placeholder: "Search for plant stores", // This placeholder text will display in the search bar
       bbox: [ -73.69750177040083, 41.796247795148815, -69.71313359288317, 42.84056170969422] // Set a bounding box
     });
     // Add the geocoder to the map
@@ -50,6 +50,23 @@
         map.getSource('tilequery').setData(data);
       })
     });
+
+    geolocate.on('geolocate', function(data) {
+      let point = data.result.center; // Capture the result coordinates
+      marker.setLngLat(point).addTo(map); // Add the marker to the map at the result coordinates
+      let tileset = 'osamah7.7euhsy8k'; // replace this with the ID of the tileset you created
+      let radius = 3000; // 1609 meters is roughly equal to one mile
+      let limit = 50; // The maximum amount of results to return
+      let query = 'https://api.mapbox.com/v4/' + tileset + '/tilequery/' + point[0] + ',' + point[1] + '.json?radius=' + radius + '&limit= ' + limit + ' &access_token=' + mapboxgl.accessToken;
+    
+      $.ajax({ // Make the API call
+        method: 'GET',
+        url: query,
+      }).done(function(data) { // Use the response to populate the 'tilequery' source
+        map.getSource('tilequery').setData(data);
+      })
+    });
+
     map.addSource('tilequery', { // Add a new source to the map style: https://docs.mapbox.com/mapbox-gl-js/api/#map#addsource
       type: "geojson",
       data: {
