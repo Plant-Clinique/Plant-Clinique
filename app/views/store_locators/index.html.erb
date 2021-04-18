@@ -52,8 +52,8 @@
       })
     });
 
-    geolocate.on('geolocate', function(data) {
-      let point = data.coords; // Capture the result coordinates
+    geolocate.on('geolocate', function(position) {
+      let point = [position.coords.longitude, position.coords.latitude]; // Capture the result coordinates
       marker.setLngLat(point).addTo(map); // Add the marker to the map at the result coordinates
       let tileset = 'osamah7.7euhsy8k'; // replace this with the ID of the tileset you created
       let radius = 3000; // 1609 meters is roughly equal to one mile
