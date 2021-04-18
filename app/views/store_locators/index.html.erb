@@ -12,14 +12,15 @@
     center: [-71.25905434334308, 42.36490609061847], // Starting position [lng, lat]
     zoom: 9 // Starting zoom level
   });
-  map.addControl(
-    new mapboxgl.GeolocateControl({
+
+  let geolocate = new mapboxgl.GeolocateControl({
       positionOptions: {
         enableHighAccuracy: true
       },
-      trackUserLocation: true
-    })
-  );
+    trackUserLocation: true
+  });
+
+  map.addControl(geolocate);
 
   map.on('load', function() {
     
