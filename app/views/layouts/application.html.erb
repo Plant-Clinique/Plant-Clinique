@@ -2,17 +2,25 @@
 <html>
   <head>
     <title>Plant-Clinique</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+    <meta charset="utf-8">
     
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     
     <!-- Select2 CSS -->
@@ -32,45 +40,73 @@
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
   </head>
 
+  <body >
+    <nav class="navbar p-3 mb-4 bg-warning ">
+      <div class="container-fluid">
+        <div class="navbar-header ">
+          <div class="header">
+          <li class="nav-link header" %>
+            <i class="fa fa-leaf" style="color:green;" aria-hidden="true" ></i>
+              <%= link_to "Plant-Clinique", current_user, class: "mx-2 " , style: "color: brown; font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
+            <i class="fa fa-leaf" style="color:green;"aria-hidden="true" ></i>
+          </li>
+          </div>
+        </div>
 
-  <body style = "background-color: #98FFB3">
+                
+    <!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+ old 
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+  <body style="background-color: #98FFB3;">
     <nav class="navbar p-3 mb-4 bg-warning">
       <div class="container-fluid">
         <div class="navbar-header ">
           <div class="header">
           <li class="nav-link header" %>
+          <i class="fa fa-leaf" aria-hidden="true"></i>
           <%= link_to "Plant Clinique", current_user, class: "mx-2 " , style: "color:brown;"%>
+          <i class="fa fa-leaf" aria-hidden="true"></i>
           </li>
           </div>
-        </div>
+        </div> -->
         <ul class="nav navbar-right">
           <% if signed_in? %>
 
             <li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
-              <%= link_to "Posts", posts_path, class: "mx-2 " %>
+              <i class="fa fa-comments" aria-hidden="true"></i><%= link_to "Posts", posts_path, class: "mx-2 " %>
             </li>
 
-             <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
-              <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
-            </li> <!-- https://www.gardenista.com/tag/contests-giveaways/ -->
+            <!--<li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
+              <i class="fa fa-trophy" aria-hidden="true"></i> <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
+            </li>  https://www.gardenista.com/tag/contests-giveaways/ 
 
-            <!--<li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
+            <li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
               <%= link_to "Reply", posts_path, class: "mx-2 " %>
             </li>-->
 
-
-            <li class="nav-link <%= 'active' if current_page?(chatbot_messages_path) %> nav-item">
-              <%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
+            <li class="nav-link
+             <%= 'active' if current_page?("/chatbot_steps/choose_visit_type")%> 
+             <%= 'active' if current_page?("/chatbot_steps/answer_symptom_questions")%>
+             <%= 'active' if current_page?("/chatbot_steps/choose_plant")%>
+             <%= 'active' if current_page?("/chatbot_steps/display_possible_treatments")%>
+             <%= 'active' if current_page?("/chatbot_steps/select_symptoms")%>
+             nav-item">
+              <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
             </li>
 
-            <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
-              <%= link_to "Maps/location", store_locators_path, class: "mx-2 " %>
-            </li><!-- https://docs.ubuntu.com/landscape/en/api -->
+            <li class="nav-link <%= 'active' if current_page?(store_locators_path) %> nav-item">
+              <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", store_locators_path, class: "mx-2 " %>
+            </li><!-- https://docs.ubuntu.com/landscape/en/api mapbox api from pito --> 
 
             <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
               <a href="#" class="notification">
+              <i class="fa fa-bell" aria-hidden="true"></i>
               <span>Reminders</span>
-              <span class="badge">3</span>
+              <!-- if reminders.unread? -->
+              <span class="badge">3</span> <!--reminders.unread.length-->
+              <!--  end // also to emails --> 
               </a>
             </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
 
@@ -90,12 +126,18 @@
               </a>
             </li>
 
+           
+            <div <%= 'active' if current_page?(current_user) %>>
+              <div class="dot"></div>
+            </div>
+          
+
             <li class="nav-link nav-item">
-              <%= link_to 'Sign out', sign_out_path, method: :delete, class: "mx-2" %></u></li>
+              <i class="fa fa-sign-out" aria-hidden="true"></i> <%= link_to 'Sign out', sign_out_path, method: :delete %>
             </li>
 
           <% else %>
-            <li ><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></li>
+            <i class="fa fa-sign-in" aria-hidden="true"></i> <li ><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></li>
           <% end %>
         </ul>
         
@@ -105,6 +147,7 @@
     <div class="container">
       <%= yield -%>
     </div>
+    <!-- >
     <script>
       $(function () {
         $('[data-toggle="popover"]').popover()
@@ -117,9 +160,10 @@
         })
       })
     </script>
+    idk who put the script in but it doesnt work-->
 
     <!-- suprise cool background JS - maybe for just the home page? -->
-
+  <!--
     <script>
     var canvas = document.getElementById('myCanvas'); 
     var context = canvas.getContext('2d'); 
@@ -133,23 +177,22 @@
     context.stroke();
 
     </script>
+  -->
 
     <!-- for the chatbot popup -->
     <div class="row">
       <% if signed_in? %>
         <div class=circle>
-          <a href="/chatbot_steps">
-            <i class="fa fa-plus" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:red"> </i>
-          </a>
-        </div>
+         <a href="/chatbot_steps">
+            <i class="fa fa-desktop" aria-hidden="true" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:#42ba96; "> </i>
+        </a>
       <% end %>
     </div>
-
   
   
   
-  <footer class="row justify-content-center" style="height: 20px; width: 100%; color: white; background-color:#92B78B; text-align: center;">
-    <p style="text-align: center; color: white;left:0; bottom:0;"> 
+  <footer class="row justify-content-center " style="height: 20px; width: 100%; color: white; background-color:#92B78B; text-align: center;">
+    <p style="text-align: center;left:0; bottom:0;"> 
       &emsp; &emsp;
       <a href="https://plant-clinique.herokuapp.com/sign_in">
         Plant-Clinique.com
@@ -188,6 +231,7 @@
       </a> 
       &emsp; &emsp; 
     </p>
+
   </footer>
   </body>
 </html>

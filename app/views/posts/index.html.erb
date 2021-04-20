@@ -1,4 +1,6 @@
+<html>
 <p id="notice"><%= notice %></p>
+
 <body>
 <div class="row">
   <h2 class="text-info col-1 col-md-2 mt-2"><%= link_to 'Topics: ', posts_path %></h3>
@@ -12,6 +14,10 @@
   </div>
 </div>
 <br>
+
+
+
+
 <% if @posts.length != Post.all.length && !@posts.all.empty? %>
   <h1 class="text-warning"><%= link_to "Posts about #{Post.topics.keys[@posts.first.topic].capitalize.gsub(/[^0-9A-Za-z]/, ' ')}", posts_path %></h1>
 <% elsif @posts.first.nil? %>
@@ -19,30 +25,29 @@
 <% else %>
   <h1 class="text-warning"><%= link_to "All Posts", posts_path %></h1>
 <% end %>
+
+<div class="dropdown ">
+  <button onclick="myFunction()" class="dropbtn button-right" style="margin: auto;width: 20%;border: 3px solid green;padding: 10px;">
+    Sort By
+  </button>
+
+  <div id="myDropdown" class="dropdown-content button-right">
+    <a href="#"> Newest </a>
+    <a href="#"> Oldest </a>
+    <a href="#"> Most Liked </a>
+    <a href="#"> Least Liked </a>
+    <a href="#"> Random </a>
+  </div>
+</div>
+
 <hr>
 <%= link_to 'New Post', new_post_path, class: 'btn btn-warning text-dark' %>
-
-<div class="button-right">
-  <%= link_to 'Sort by Newest', new_post_path, class: 'btn btn-primary text-white ' %>
-</div>
-<div class="button-right">
-  <%= link_to 'Sort By Oldest', new_post_path, class: 'btn btn-primary text-white ' %>
-</div>
-<div class="button-right">
-  <%= link_to 'Least Liked', new_post_path, class: 'btn btn-success text-white ' %>
-</div>
-<div class="button-right">
-  <%= link_to 'Most Liked', new_post_path, class: 'btn btn-success text-white ' %>
-</div>
-<div class="button-right">
-  <%= link_to 'Random', new_post_path, class: 'btn btn-info text-white ' %>
-</div>
 
 
 
 <div class= "mb-5">
   <% @posts.sort_by{|post| -post.created_at.to_i}.each do |post| %>
-    <div class="card mt-3" style="box-shadow: 0px 4px 10px grey">
+    <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background: #EFF69B;">
       <div class="card-body">
         <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5>
         <p class="card-text font-weight-bold">
@@ -57,7 +62,32 @@
       </div>
     </div>
   <% end %>
+  
 </div>
+
 <%= paginate @posts %>
 
+
+
 </body>
+
+<div class="bottom-layer"></div>
+<script>
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</html>

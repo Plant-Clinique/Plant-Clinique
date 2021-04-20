@@ -1,9 +1,29 @@
-<div class="bg-white rounded p-3">
-  <h1>Editing User Plant</h1>
+<div>
+  <div class="row" style = "height: 430px;">
+    <div class = "col-3">
+    </div>
 
-  <%= render 'form', user_plant: @user_plant %>
+    <div class="col-md-6 bg-editl" style="height: 600px; background-color: green; border: 5px solid green; border-radius: 25px;">
 
-  <div class="m-2 submit-field">
-    <%= link_to 'Back', current_user, class: "mt-2 btn btn-dark text-light"  %>
+      <div class = "row text-center" style = "height: 50px;">
+      </div>
+
+      <h1 class='text-center'  style="color:yellow;">Edit User Plant</h1>
+
+      <%= render 'form', user_plant: @user_plant %>
+
+  <div>
+    <img src=@user_plant.img>
+  </div>
+
+      <div class="m-2 submit-field">
+        <%= link_to 'Back', current_user, class: "mt-2 btn btn-dark text-light"  %>
+      </div>
+
+    </div>
   </div>
 </div>
+
+<div style="height:255px;"> </div>
+
+
