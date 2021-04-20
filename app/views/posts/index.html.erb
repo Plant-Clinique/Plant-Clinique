@@ -17,6 +17,7 @@
 
 
 
+
 <% if @posts.length != Post.all.length && !@posts.all.empty? %>
   <h1 class="text-warning"><%= link_to "Posts about #{Post.topics.keys[@posts.first.topic].capitalize.gsub(/[^0-9A-Za-z]/, ' ')}", posts_path %></h1>
 <% elsif @posts.first.nil? %>
@@ -24,6 +25,20 @@
 <% else %>
   <h1 class="text-warning"><%= link_to "All Posts", posts_path %></h1>
 <% end %>
+
+<div class="dropdown ">
+  <button onclick="myFunction()" class="dropbtn button-right" style="margin: auto;width: 20%;border: 3px solid green;padding: 10px;">
+    Sort By
+  </button>
+
+  <div id="myDropdown" class="dropdown-content button-right">
+    <a href="#"> Newest </a>
+    <a href="#"> Oldest </a>
+    <a href="#"> Most Liked </a>
+    <a href="#"> Least Liked </a>
+    <a href="#"> Random </a>
+  </div>
+</div>
 
 <hr>
 <%= link_to 'New Post', new_post_path, class: 'btn btn-warning text-dark' %>
@@ -52,20 +67,7 @@
 
 <%= paginate @posts %>
 
-<div class="dropdown ">
-  <button onclick="myFunction()" class="dropbtn " style="margin: auto;
-  width: 20%;
-  border: 3px solid green;
-  padding: 10px;">Sort By</button>
-  <div id="myDropdown" class="dropdown-content">
-  <a href="#"> Newest </a>
-  <a href="#"> Oldest </a>
-  <a href="#"> Most Liked </a>
-  <a href="#"> Least Liked </a>
-  <a href="#"> Random </a>
 
-  </div>
-</div>
 
 </body>
 
