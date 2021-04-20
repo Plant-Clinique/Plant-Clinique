@@ -96,8 +96,8 @@
               <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
             </li>
 
-            <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
-              <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", "#", class: "mx-2 " %>
+            <li class="nav-link <%= 'active' if current_page?(store_locators_path) %> nav-item">
+              <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", store_locators_path, class: "mx-2 " %>
             </li><!-- https://docs.ubuntu.com/landscape/en/api mapbox api from pito --> 
 
             <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
