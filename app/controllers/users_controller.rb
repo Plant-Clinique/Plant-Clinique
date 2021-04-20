@@ -19,6 +19,9 @@ class UsersController < Clearance::UsersController
 
   # GET /users/1/edit
   def edit
+    puts "Sending email..."
+    UserMailer.with(user: User.first).sample_email.deliver_now()
+    puts "Done!"
   end
 
   def current_user_dashboard

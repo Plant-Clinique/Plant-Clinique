@@ -118,6 +118,17 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
+  # Action mailer for automatic mailing
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => "plant.clinique1@gmail.com",
+    :password             => "plantvszombie420",
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+
    # Action mailer for clearance (authentication)
    config.action_mailer.default_url_options = { host: 'http://plant-clinique.herokuapp.com/' }
 end
