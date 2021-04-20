@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  resources :store_locators
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
-
+  
+  resources :chatbot_steps
+  
   resources :users, only: [:create] do
     resource :password,
       controller: "clearance/passwords",

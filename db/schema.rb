@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_04_10_193524) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "trefle_id"
   end
 
   create_table "posts", force: :cascade do |t|

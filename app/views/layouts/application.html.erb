@@ -14,6 +14,22 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    
+    <!-- Select2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <meta charset='utf-8' />
+    <!-- Import Mapbox GL JS -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Import jQuery -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <!-- Map gecoder -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
   </head>
 
 
@@ -44,11 +60,11 @@
 
 
             <li class="nav-link <%= 'active' if current_page?(chatbot_messages_path) %> nav-item">
-              <%= link_to "Chatbot", chatbot_messages_path, class: "mx-2 " %>
+              <%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
             </li>
 
             <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
-              <%= link_to "Maps/location", "#", class: "mx-2 " %>
+              <%= link_to "Maps/location", store_locators_path, class: "mx-2 " %>
             </li><!-- https://docs.ubuntu.com/landscape/en/api -->
 
             <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
@@ -67,9 +83,9 @@
             <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
               <!--<%= link_to "My Account", current_user, class: "mx-2 " %>-->
               <a href="/"> 
-                <!--<span class="dot" style="background-image: url('prabu_front.png')"></span>-->
+                <!--<span style="background-image: url('prabu_front.png')"></span>-->
                   <div class="dot">
-                   
+                    <%= image_tag current_user.gravatar_url(:email => current_user.email)%>
                   </div>
               </a>
             </li>
@@ -122,7 +138,7 @@
     <div class="row">
       <% if signed_in? %>
         <div class=circle>
-          <a href="/chatbot_messages#index">
+          <a href="/chatbot_steps">
             <i class="fa fa-plus" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:red"> </i>
           </a>
         </div>

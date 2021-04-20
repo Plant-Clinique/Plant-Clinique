@@ -28,6 +28,8 @@ gem "rails_admin"
 gem 'active_record-events'
 # pagination for forum, etc.
 gem 'kaminari'
+# form wizard for chatbot
+gem 'wicked'
 
 ##################
 # Better debugging
@@ -83,3 +85,5 @@ gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dab
 gem "rails-controller-testing", "~> 1.0"
 
 gem "factory_bot_rails", "~> 6.1"
+
+gem 'gravtastic'

@@ -1,0 +1,26 @@
+  
+<div class="row bg-light rounded p-3">
+  <div class="col">
+  </div>
+  <div class="col-9 pb-5">
+    <h2 class="text-center p-4">
+      <%= @question %>
+    </h2>
+    <!-- Buttons take to the next step (check steps over at app/controllers/chatbot_steps_controller.rb) -->
+    <%= form_with(model: @chatbot_message,url: wizard_path, method: :put) do |form| %>
+        <%= form.hidden_field :user_id, value: current_user.id.to_i %>
+        <%= form.hidden_field :time_sent, value: Time.now.utc %>
+        <%= form.hidden_field :from_bot, value: false %>
+        <%= form.hidden_field :symptom_id, value: @symptom_id %>
+        <%= form.hidden_field :plant_id, value: @plant.id %>
+        <%= form.hidden_field :question_number, value: @question_number%>
+        <%= form.hidden_field :possible_treatments, value: @possible_treatments.to_s%>
+        <%= form.text_field :symptom_question_response%>
+        <a><%= form.submit "Submit", class: "mt-2 btn btn-info text-light" %></a>
+    <% end %>
+  </div>
+  <div class="col">
+    
+  </div>
+</div>
+

@@ -24,16 +24,18 @@
     <%= form.text_field :age %>
   </div>
 
-  <div class="m-2 text-field">
+  <div class="m-2 text-field" style="width:30%;">
     <%= form.label :plant_type %>
-    <%= form.select :plant_type, PlantType.all.map(&:name), :class=>"bg-white" %>
+    <%= form.select(:plant_type, options_for_select(PlantType.all.map{|plant| [plant.name, plant.trefle_id]}), {:include_blank => "Select a plant type"}, {:class => 'bg-white js-states text-field', :id => 'single'})%>
   </div>
 
-  <div class="m-2 text-field">
-    <%= form.label :img_url %>
-    <%= form.text_field :img_url %>
-  </div>
 
+  <script>
+    $("#single").select2({
+        placeholder: "Select a plant type",
+        allowClear: true
+    });
+  </script>
   <div class="m-2 text-field">
     <%= form.label :description %>
     <%= form.text_field :description %>
