@@ -18,6 +18,20 @@ Reply.delete_all
 ChatbotMessage.delete_all
 PlantType.delete_all
 
+1.upto(8) do |page|
+  plants = JSON
+                .parse(
+                  Net::HTTP.get(
+                    URI.parse(
+                      "https://trefle.io/api/v1/plants?page=#{page}&filter[edible_parts]=fruits&filter[vegetable]=true&token=6j4O7U0FSKM_Te6mN3aFN7TORBk0RYtU_wk5sJgkjbw"
+                    )
+                  )
+                )['data'].reject{ |plant| plant['common_name'] == nil }
+  plants.each do |plant|
+    PlantType.create(name: plant['common_name'], trefle_id: plant['id'])
+  end
+end
+
 10.times do
   User.create(username: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password)
 end
@@ -26,7 +40,7 @@ end
   UserPlant.create( user_id: User.all.sample.id,
                     name: Faker::Creature::Dog.name,
                     age: Faker::Number.within(range: 1..48),
-                    plant_type: Faker::Food.vegetables,
+                    plant_type: PlantType.all.sample.trefle_id,
                     img_url: Faker::Internet.url,
                     description: Faker::Movies::HarryPotter.quote)
 end
@@ -57,18 +71,4 @@ end
                           time_sent: Faker::Time.forward(days: 30, period: :morning),
                           from_bot: Faker::Boolean.boolean,
                           content: Faker::Lorem.sentence)
-end
-
-1.upto(8) do |page|
-  plants = JSON
-                .parse(
-                  Net::HTTP.get(
-                    URI.parse(
-                      "https://trefle.io/api/v1/plants?page=#{page}&filter[edible_parts]=fruits&filter[vegetable]=true&token=6j4O7U0FSKM_Te6mN3aFN7TORBk0RYtU_wk5sJgkjbw"
-                    )
-                  )
-                )['data'].reject{ |plant| plant['common_name'] == nil }
-  plants.each do |plant|
-    PlantType.create(name: plant['common_name'], trefle_id: plant['id'])
-  end
 end
