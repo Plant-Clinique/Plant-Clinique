@@ -47,8 +47,13 @@
 
 <div class= "mb-5">
   <% @posts.sort_by{|post| -post.created_at.to_i}.each do |post| %>
+<<<<<<< HEAD
     <div class="card mt-3" style="box-shadow: 0px 4px 10px grey">
       <div class="card-body post-card">
+=======
+    <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background: #EFF69B;">
+      <div class="card-body">
+>>>>>>> aee3c0b4ab6d33d2589c2d7082358ec1bb3ee757
         <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5>
         <p class="card-text font-weight-bold">
             <%= post.user.username %>

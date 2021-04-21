@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  include Gravtastic
+  gravtastic
+  
   include Clearance::User
 
     has_many :user_plants

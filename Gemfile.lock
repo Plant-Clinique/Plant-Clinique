@@ -131,6 +131,7 @@ GEM
       rake
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gravtastic (3.2.6)
     haml (5.2.1)
       temple (>= 0.8.0)
       tilt
@@ -355,6 +356,7 @@ DEPENDENCIES
   clearance
   factory_bot_rails (~> 6.1)
   faker
+  gravtastic
   hirb
   jbuilder (~> 2.7)
   kaminari
