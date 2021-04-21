@@ -15,35 +15,42 @@
 </div>
 <br>
 
+<div class="row">
+  <div class="col-6">
+      <div class="dropdown ">
+        <button onclick="myFunction()" class="dropbtn " style="margin: auto;width: 20%;border: 3px solid green;padding: 10px;">
+          Sort By 
+        </button>
 
-
-
-<% if @posts.length != Post.all.length && !@posts.all.empty? %>
-  <h1 class="text-warning"><%= link_to "Posts about #{Post.topics.keys[@posts.first.topic].capitalize.gsub(/[^0-9A-Za-z]/, ' ')}", posts_path %></h1>
-<% elsif @posts.first.nil? %>
-  <h4 class="text-danger">No posts were found for this topic!</h4>
-<% else %>
-  <h1 class="text-warning"><%= link_to "All Posts", posts_path %></h1>
-<% end %>
-
-<div class="dropdown ">
-  <button onclick="myFunction()" class="dropbtn button-right" style="margin: auto;width: 20%;border: 3px solid green;padding: 10px;">
-    Sort By
-  </button>
-
-  <div id="myDropdown" class="dropdown-content button-right">
-    <a href="#"> Newest </a>
-    <a href="#"> Oldest </a>
-    <a href="#"> Most Liked </a>
-    <a href="#"> Least Liked </a>
-    <a href="#"> Random </a>
+        <div id="myDropdown" class="dropdown-content ">
+          <a href="#"> Newest </a>
+          <a href="#"> Oldest </a>
+          <a href="#"> Most Liked </a>
+          <a href="#"> Least Liked </a>
+          <a href="#"> Random </a>
+        </div>
+      </div>
+  </div>
+  <div class="col-6">
+    <% if @posts.length != Post.all.length && !@posts.all.empty? %>
+    <h1 class="text-dark p-right" >
+      Posts about: 
+      <i><%= link_to " #{Post.topics.keys[@posts.first.topic].capitalize.gsub(/[^0-9A-Za-z]/, ' ')}", posts_path, class: "text-warning" %></i>
+      <i class="fa fa-tree" style="color:green;" aria-hidden="true"></i>
+    </h1>
+    <% elsif @posts.first.nil? %>
+      <h4 class="text-danger " style="text-align: right;">No posts were found for this topic!</h4>
+    <% else %>
+      <h1 class="text-warning " style="text-align: right;"><%= link_to "All Posts", posts_path %></h1>
+    <% end %>
   </div>
 </div>
 
+
 <hr>
+
+
 <%= link_to 'New Post', new_post_path, class: 'btn btn-warning text-dark' %>
-
-
 
 <div class= "mb-5">
   <% @posts.sort_by{|post| -post.created_at.to_i}.each do |post| %>
