@@ -18,9 +18,9 @@
 
 
 
-<% if @posts.length != Post.all.length && !@posts.all.empty? %>
-  <h1 class="text-warning"><%= link_to "Posts about #{Post.topics.keys[@posts.first.topic].capitalize.gsub(/[^0-9A-Za-z]/, ' ')}", posts_path %></h1>
-<% elsif @posts.first.nil? %>
+<% if @all_posts.length != Post.all.length && !@all_posts.all.empty? %>
+  <h1 class="text-warning"><%= link_to "Posts about #{Post.topics.keys[@all_posts.first.topic].capitalize.gsub(/[^0-9A-Za-z]/, ' ')}", posts_path %></h1>
+<% elsif @all_posts.first.nil? %>
   <h4 class="text-danger">No posts were found for this topic!</h4>
 <% else %>
   <h1 class="text-warning"><%= link_to "All Posts", posts_path %></h1>
