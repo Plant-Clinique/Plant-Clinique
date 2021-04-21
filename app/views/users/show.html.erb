@@ -3,11 +3,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<<<<<<< HEAD
-<!--
-=======
 <!-->
->>>>>>> aee3c0b4ab6d33d2589c2d7082358ec1bb3ee757
 <link id="pagestyle" rel="stylesheet" type="text/css" href="css/show/application.css" media="screen"/>
 
 
@@ -17,10 +13,7 @@
         document.getElementById('headstyle').setAttribute('href',headsheet);
     }
 </script>
-<<<<<<< HEAD
-=======
 -->
->>>>>>> aee3c0b4ab6d33d2589c2d7082358ec1bb3ee757
 
 <!--<button type="button" ><!--onClick="swapStyleSheet('css/show/application_dark.css','css/show/application.css')">
   <link rel="stylesheet" href="application_dark.css">
@@ -39,11 +32,7 @@
   <div class="container text-center text-lg-left">
     <div class="row">
       <div class="col-lg-8">
-<<<<<<< HEAD
-          <h1 class="display-4" style="text-align:center;  font-family: 'Trebuchet MS', sans-serif;">Your Garden, 
-=======
           <h1 class="display-4" style="text-align:center;">Welcome to the Garden, 
->>>>>>> aee3c0b4ab6d33d2589c2d7082358ec1bb3ee757
             <span class="highlight-word">
               <strong> <%= current_user.username %>!</strong> 
               <!-- if current_user.is_verified?>
@@ -71,7 +60,6 @@
               </div>
             </div>
           </div>
-<<<<<<< HEAD
 
           <div class = "row justify-content-center">
             <span class="text-center d-inline-block">
@@ -99,41 +87,8 @@
             
           </div> 
         </div>
-      <div class="col-lg-4 d-flex" >
-        <%= image_tag ("prabu_front.png"),style: "border-radius: 50%; border: 5px solid brown;"%>
-=======
-          
-          <div class = "row justify-content-center" >
-
-            <span class="text-center d-inline-block " >
-              <a class="btn btn-warning btn-lg w-100 text-dark" href="#" role="button">
-                Have a question?
-              </a>
-              <p class="text-muted">Have plant experts answer your questions on our forum.</p>
-            </span>
-            
-             <span class="text-center d-inline-block ">
-              <div class = "col">
-
-                <div class="button-right">
-                  <%= link_to 'Add plant', new_user_plant_path, class: 'btn btn-warning text-dark ' %> 
-                </div>
-
-                <div class="button-right">
-                  <%= link_to 'Edit User Info', edit_user_path(@user), class: 'btn btn-warning text-dark ' %> 
-                </div>
-        
-                <div class="button-right">
-                  <%= link_to 'Milestones', "/", class: 'btn btn-warning text-dark ' %> 
-                </div>
-                </button>
-              </div>
-            </span>
-          </div>            
-        </div>
       <div class="col-lg-4 align-items-center d-flex">
         <%= image_tag @user.gravatar_url(:email => @user.email)%>
->>>>>>> aee3c0b4ab6d33d2589c2d7082358ec1bb3ee757
       </div>
     </div>
   </div>

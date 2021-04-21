@@ -29,13 +29,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Select2 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-<<<<<<< HEAD
-
-  </head>
-
-  <body >
-    <nav class="navbar p-3 mb-4 bg-warning ">
-=======
     <meta charset='utf-8' />
     <!-- Import Mapbox GL JS -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
@@ -68,29 +61,16 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
   <body style="background-color: #98FFB3;">
     <nav class="navbar p-3 mb-4 bg-warning">
->>>>>>> aee3c0b4ab6d33d2589c2d7082358ec1bb3ee757
       <div class="container-fluid">
         <div class="navbar-header ">
           <div class="header">
           <li class="nav-link header" %>
-<<<<<<< HEAD
-            <i class="fa fa-leaf" style="color:green;" aria-hidden="true" ></i>
-              <%= link_to "Plant-Clinique", current_user, class: "mx-2 " , style: "color: brown; font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
-            <i class="fa fa-leaf" style="color:green;"aria-hidden="true" ></i>
-          </li>
-          </div>
-        </div>
-
-                
-
-=======
           <i class="fa fa-leaf" aria-hidden="true"></i>
           <%= link_to "Plant Clinique", current_user, class: "mx-2 " , style: "color:brown;"%>
           <i class="fa fa-leaf" aria-hidden="true"></i>
           </li>
           </div>
         </div> -->
->>>>>>> aee3c0b4ab6d33d2589c2d7082358ec1bb3ee757
         <ul class="nav navbar-right">
           <% if signed_in? %>
 
@@ -116,13 +96,8 @@
               <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
             </li>
 
-<<<<<<< HEAD
-            <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
-              <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", "#", class: "mx-2 " %>
-=======
             <li class="nav-link <%= 'active' if current_page?(store_locators_path) %> nav-item">
               <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", store_locators_path, class: "mx-2 " %>
->>>>>>> aee3c0b4ab6d33d2589c2d7082358ec1bb3ee757
             </li><!-- https://docs.ubuntu.com/landscape/en/api mapbox api from pito --> 
 
             <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
@@ -141,10 +116,6 @@
             </li>
             -->
 
-<<<<<<< HEAD
-            <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item"> 
-              <i class="fa fa-user" aria-hidden="true"></i> <%= link_to "My Account", current_user %> 
-=======
             <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
               <!--<%= link_to "My Account", current_user, class: "mx-2 " %>-->
               <a href="/"> 
@@ -153,7 +124,6 @@
                     <%= image_tag current_user.gravatar_url(:email => current_user.email)%>
                   </div>
               </a>
->>>>>>> aee3c0b4ab6d33d2589c2d7082358ec1bb3ee757
             </li>
 
            
@@ -213,16 +183,10 @@
     <div class="row">
       <% if signed_in? %>
         <div class=circle>
-<<<<<<< HEAD
           <a href="/chatbot_steps">
             <i class="fa fa-desktop" aria-hidden="true" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:#42ba96; "> </i>
           </a>
         </div>
-=======
-         <a href="/chatbot_steps">
-            <i class="fa fa-desktop" aria-hidden="true" style="position: fixed; bottom: 8px; right: 16px;font-size:48px;color:#42ba96; "> </i>
-        </a>
->>>>>>> aee3c0b4ab6d33d2589c2d7082358ec1bb3ee757
       <% end %>
     </div>
   
