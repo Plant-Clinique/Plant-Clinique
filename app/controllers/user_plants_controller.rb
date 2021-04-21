@@ -78,7 +78,11 @@ class UserPlantsController < ApplicationController
                                   )
                                 )
                               )['hits']
-      pictures.sample["largeImageURL"]
+      if pictures.empty?
+        "https://cdn.pixabay.com/photo/2019/06/17/08/24/pastel-4279379_960_720.jpg"
+      else
+        pictures.sample["largeImageURL"]
+      end
     end
 
     # Use callbacks to share common setup or constraints between actions.
