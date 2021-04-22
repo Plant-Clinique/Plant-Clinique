@@ -82,10 +82,11 @@ body {
     height: 35px;
     width: 35px;
     border-radius: 50%;
-    background: url("prabu_front.png") no-repeat;
-    background-size: cover;
+    
+
   
   }
+
   
   .chat-icon {
     height: 25px;
