@@ -20,10 +20,10 @@
   </div>
   
   <div class="m-2 mb-4 other-links">
-    <%= link_to t(".forgot_password"), new_password_path %>
+    <%= link_to t(".forgot_password"), new_password_path, class: "mt-2 btn btn-warning" %>
     <br>
     <% if Clearance.configuration.allow_sign_up? %>
-      <%= link_to t(".sign_up"), sign_up_path %>
+      <%= link_to t(".sign_up"), sign_up_path, class: "mt-2 btn btn-warning" %>
     <% end %>
   </div>
 

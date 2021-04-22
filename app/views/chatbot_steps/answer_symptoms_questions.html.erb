@@ -1,8 +1,10 @@
-  
-<div class="row bg-light rounded p-3">
-  <div class="col">
+   <div class="row" style="height: 100px;"> </div>
+
+<div class="row bg-white" style="border-radius: 50px; text-align: center; height: 350px; border: 3px solid green; " >
+  <div class="col vertical-center">
+    <%= button_to 'Restart', wizard_path(:choose_visit_type), {class: "btn btn-dark btn-sm", method: "get"}%>
   </div>
-  <div class="col-9 pb-5">
+  <div class="col-9 pb-5 bg-r-plant" style="text-shadow: 2px 2px yellow;">
     <h2 class="text-center p-4">
       <%= @question %>
     </h2>
@@ -19,8 +21,8 @@
         <a><%= form.submit "Submit", class: "mt-2 btn btn-info text-light" %></a>
     <% end %>
   </div>
-  <div class="col">
-    
-  </div>
+  <div class="col"></div>
 </div>
+
+ <div class="bottom-layer"></div>
 

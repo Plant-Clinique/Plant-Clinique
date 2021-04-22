@@ -1,30 +1,35 @@
-  
-<div class="row bg-light rounded p-3">
-  <div class="col">
-    
+<div class="row" style="height: 100px;"> </div>
+
+<div class="row bg-white" style="border-radius: 50px; text-align: center; height: 350px; border: 3px solid green; " >
+
+  <div class="col vertical-center">
+    <%= button_to 'Restart', wizard_path(:choose_visit_type), {class: "btn btn-dark btn-sm", method: "get"}%>
   </div>
-  <div class="col-9 pb-5">
-    <h2 class="text-center p-4">
+
+  <div class="col-9 pb-5 bg-r-plant">
+    <h2 class="text-center p-4" style="text-shadow: 2px 2px yellow;">
       Hi, <%= current_user.username %>!
       <br>    
       <%= @prompt %>
     </h2>
     <!-- Buttons take to the next step (check steps over at app/controllers/chatbot_steps_controller.rb) -->
-    <div class="row">
+    <div class="row ">
       <div class="col">
-        <%= button_to 'Symptom Assessment', wizard_path(:choose_plant), {class: "btn btn-primary btn-lg btn-block", method: "get"}%>
+        <%= button_to 'Symptom Assessment', wizard_path(:choose_plant), {class: "btn btn-warning btn-lg btn-block", method: "get"}%>
       </div>
       <div class="col">
-        <%= button_to 'Check History', chatbot_messages_path, {class: "btn btn-primary btn-lg btn-block", method: "get"} %>
+        <%= button_to 'Check History', chatbot_messages_path, {class: "btn btn-warning btn-lg btn-block", method: "get"} %>
       </div>
       <div class="col">
         <!-- Replace :choose_plant with the correct path when you enable this button -->
-        <%= button_to 'General Question', wizard_path(:choose_plant), {class: "btn btn-primary btn-lg btn-block", method: "get", disabled: true} %>
+        <%= button_to 'General Question', wizard_path(:choose_plant), {class: "btn btn-warning btn-lg btn-block", method: "get", disabled: true} %>
       </div>
     </div>
   </div>
-  <div class="col">
-    
-  </div>
+  <div class="col"></div>
 </div>
+
+<div class="bottom-layer"></div>
+
+
 

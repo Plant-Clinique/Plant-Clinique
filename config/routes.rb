@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :replies, only: [:index, :create]
   end
+  resources :replies, only: [:edit, :show]
   resources :chatbot_messages, except: [:edit, :update, :destroy]
   resources :reminders
   resources :user_plants, except: [:index]
@@ -33,5 +34,4 @@ Rails.application.routes.draw do
   constraints Clearance::Constraints::SignedOut.new do
     get '/', to: redirect('/sign_in')
   end
-  
 end
