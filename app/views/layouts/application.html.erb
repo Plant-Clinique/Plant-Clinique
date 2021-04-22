@@ -40,8 +40,10 @@
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
   </head>
 
+
+
   <body >
-    <nav class="navbar p-3 mb-4 bg-warning ">
+    <nav class="navbar p-3 mb-4 bg-warning target">
       <div class="container-fluid">
         <div class="navbar-header ">
           <div class="header">
@@ -143,6 +145,27 @@
         
       </div>
     </nav>
+
+    <div class="pos-f-t">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-warning p-4">
+          <h4>
+            <i class="fa fa-leaf" style="color:green;" aria-hidden="true" ></i>
+              <%= link_to "Plant-Clinique", current_user, class: "mx-2 " , style: "color: brown; font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
+            <i class="fa fa-leaf" style="color:green;"aria-hidden="true" ></i>
+          </h4>
+          <span class="text-muted">
+            Extend the page to see your menu options.
+          </span>
+            
+        </div>
+      </div>
+      <nav class="navbar navbar-dark bg-warning">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+    </div>
     
     <div class="container">
       <%= yield -%>
@@ -235,4 +258,29 @@
 
   </footer>
   </body>
+
+   <script>
+  $(window).resize(function() {
+
+  if ($(this).width() < 1000) {
+
+    $('.target').hide(); /* hide uncollapsed navbar version */ 
+    $('.pos-f-t').show(); /* show collapsed */
+
+  } else {
+
+    $('.pos-f-t').hide(); /* hide collapsed */ 
+    
+    /*
+    --------- 
+    just have to write the code for the dropdown for the collapsed v
+    */
+
+
+    $('.target').show(); /* show uncollapsed */
+
+    }
+
+});
+</script>
 </html>
