@@ -203,7 +203,9 @@ a:visited {
 * {
   box-sizing: border-box;
 }
-@media screen and (max-width:400px) {
+
+/* should be minimum length here */
+@media screen and (min-width:800px) { 
 
   .verticalscroll{
   width: 100%;
