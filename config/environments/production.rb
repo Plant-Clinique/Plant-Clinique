@@ -128,7 +128,7 @@ Rails.application.configure do
     :authentication       => "plain",
     :enable_starttls_auto => true
   }
-
    # Action mailer for clearance (authentication)
    config.action_mailer.default_url_options = { host: 'http://plant-clinique.herokuapp.com/' }
+   
 end

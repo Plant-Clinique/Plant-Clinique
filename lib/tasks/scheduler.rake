@@ -6,8 +6,13 @@ task :update_feed => :environment do
 end
 
 task :send_email => :environment do
-  puts "Sending email..."
-  UserMailer.with(user: User.first).sample_email.deliver_now()
+  puts "Starting email sending task"
+  
+  Reminder.all.each do |reminder|
+    puts "Sending email"
+    UserMailer.with(reminder: Reminder.last).sample_email.deliver_now
+    puts "Email sent"
+  end
   puts "Done!"
 end
 
