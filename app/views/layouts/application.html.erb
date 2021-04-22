@@ -19,7 +19,6 @@
 
     <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <meta charset="utf-8">
-    
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     
@@ -186,8 +185,7 @@
     </div>
   
   
-  
-  <footer class="row justify-content-center " style="height: 20px; width: 100%; color: white; background-color:#92B78B; text-align: center;">
+  <footer class="row justify-content-center plant-item" style="height: 20px; width: 100%; color: white; background-color:#92B78B; text-align: center;">
     <p style="text-align: center;left:0; bottom:0;"> 
       &emsp; &emsp;
       <a href="https://plant-clinique.herokuapp.com/sign_in">
@@ -230,5 +228,19 @@
 
   </footer>
   </body>
-  
+   <script>
+  $(window).resize(function() {
+
+  if ($(this).width() < 1000) {
+
+    $('.plant-item').hide();
+
+  } else {
+
+    $('.plant-item').show();
+
+    }
+
+});
+</script>
 </html>
