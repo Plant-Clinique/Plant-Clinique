@@ -75,11 +75,11 @@
         </div> -->
         <ul class="nav navbar-right">
           <% if signed_in? %>
-
-            <li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
-              <i class="fa fa-comments" aria-hidden="true"></i><%= link_to "Posts", posts_path, class: "mx-2 " %>
-            </li>
-
+            <span>
+              <li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
+                <i class="fa fa-comments" aria-hidden="true"></i><%= link_to "Posts", posts_path, class: "mx-2 " %>
+              </li>
+            </span>
             <!--<li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
               <i class="fa fa-trophy" aria-hidden="true"></i> <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
             </li>  https://www.gardenista.com/tag/contests-giveaways/ 
@@ -87,59 +87,63 @@
             <li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
               <%= link_to "Reply", posts_path, class: "mx-2 " %>
             </li>-->
-
-            <li class="nav-link
-             <%= 'active' if current_page?("/chatbot_steps/choose_visit_type")%> 
-             <%= 'active' if current_page?("/chatbot_steps/answer_symptom_questions")%>
-             <%= 'active' if current_page?("/chatbot_steps/choose_plant")%>
-             <%= 'active' if current_page?("/chatbot_steps/display_possible_treatments")%>
-             <%= 'active' if current_page?("/chatbot_steps/select_symptoms")%>
-             nav-item">
-              <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
-            </li>
-
-            <li class="nav-link <%= 'active' if current_page?(store_locators_path) %> nav-item">
-              <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", store_locators_path, class: "mx-2 " %>
-            </li><!-- https://docs.ubuntu.com/landscape/en/api mapbox api from pito --> 
-
-            <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
-              <a href="#" class="notification">
-              <i class="fa fa-bell" aria-hidden="true"></i>
-              <span>Reminders</span>
-              <!-- if reminders.unread? -->
-              <span class="badge">3</span> <!--reminders.unread.length-->
-              <!--  end // also to emails --> 
-              </a>
-            </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
-
+            <span>
+              <li class="nav-link
+              <%= 'active' if current_page?("/chatbot_steps/choose_visit_type")%> 
+              <%= 'active' if current_page?("/chatbot_steps/answer_symptom_questions")%>
+              <%= 'active' if current_page?("/chatbot_steps/choose_plant")%>
+              <%= 'active' if current_page?("/chatbot_steps/display_possible_treatments")%>
+              <%= 'active' if current_page?("/chatbot_steps/select_symptoms")%>
+              nav-item">
+                <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
+              </li>
+            </span>
+            <span>
+              <li class="nav-link <%= 'active' if current_page?(store_locators_path) %> nav-item">
+                <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", store_locators_path, class: "mx-2 " %>
+              </li><!-- https://docs.ubuntu.com/landscape/en/api mapbox api from pito --> 
+            </span>
+            <span>
+              <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
+                <a href="#" class="notification">
+                <i class="fa fa-bell" aria-hidden="true"></i>
+                <span>Reminders</span>
+                <!-- if reminders.unread? -->
+                <span class="badge">3</span> <!--reminders.unread.length-->
+                <!--  end // also to emails --> 
+                </a>
+              </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
+            </span>
             <!--
             <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
               <%= link_to "My Account", current_user, class: "mx-2 " %>
             </li>
             -->
-
-            <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
-              <!--<%= link_to "My Account", current_user, class: "mx-2 " %>-->
-              <a href="/"> 
-                <!--<span style="background-image: url('prabu_front.png')"></span>-->
-                  <div class="dot">
-                    <%= image_tag current_user.gravatar_url(:email => current_user.email)%>
-                  </div>
-              </a>
-            </li>
-
-           
-            <div <%= 'active' if current_page?(current_user) %>>
-              <div class="dot"></div>
-            </div>
-          
-
+            <span>
+              <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
+                <!--<%= link_to "My Account", current_user, class: "mx-2 " %>-->
+                <a href="/"> 
+                  <!--<span style="background-image: url('prabu_front.png')"></span>-->
+                    <div class="dot">
+                      <%= image_tag current_user.gravatar_url(:email => current_user.email)%>
+                    </div>
+                </a>
+              </li>
+            </span>
+            <span>  
+              <div <%= 'active' if current_page?(current_user) %>>
+                <div class="dot"></div>
+              </div>
+            </span>
+          <span>
             <li class="nav-link nav-item">
               <i class="fa fa-sign-out" aria-hidden="true"></i> <%= link_to 'Sign out', sign_out_path, method: :delete %>
             </li>
-
+          </span>
           <% else %>
+          <span>
             <i class="fa fa-sign-in" aria-hidden="true"></i> <li ><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></li>
+          </span>
           <% end %>
         </ul>
         
