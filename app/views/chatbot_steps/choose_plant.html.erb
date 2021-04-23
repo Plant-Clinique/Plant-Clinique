@@ -1,29 +1,38 @@
- <div class="row" style="height: 100px;"> </div>
-
-  
+<div class="row" style="height: 100px;"> </div>
 <div class="row bg-white" style="border-radius: 50px; text-align: center; height: 350px;border: 3px solid green;" >
-<div class="col vertical-center" style="padding: 20px;">
-    <%= button_to 'Restart', wizard_path(:choose_visit_type), {class: "btn btn-dark btn-sm", method: "get"}%>
+  <div class="col vertical-center" style="padding: 20px;">
+      <%= button_to 'Restart', wizard_path(:choose_visit_type), {class: "btn btn-dark btn-sm", method: "get"}%>
   </div>
-    <div class="col-8 pb-5 bg-r-plant container" >
-    <h2 class="text-center p-4" style="text-shadow: 2px 2px yellow;">
-      Which plant do you want to check in today?
-    </h2>
-    <!-- Buttons take to the next step (check steps over at app/controllers/chatbot_steps_controller.rb) -->
-    <% @user_plants.each do |option| %>
-      <%= form_with(model: @chatbot_message,url: next_wizard_path, method: :put) do |form| %>
-        <%= form.hidden_field :user_id, value: current_user.id.to_i %>
-        <%= form.hidden_field :time_sent, value: Time.now.utc %>
-        <%= form.hidden_field :from_bot, value: false %>
-        <%= form.hidden_field :plant_id, value: option.id %>
-        <%= form.hidden_field :content, value: option.name%>
-        <a><%= form.submit option.name, class: "mt-2 btn btn-info text-light" %></a>
-      <% end %>
-    <% end %>
-    <br>
-    <%= link_to 'Add new plant', new_user_plant_path, class: "mt-2 btn btn-warning"  %>
-  </div>
-  <div class="col"></div>
+    <div class="col-8 bg-r-plant container" >
+      <div class="row">
+      <h2 class=" p-4" style="text-shadow: 2px 2px yellow; text-align: center;">
+        Which plant do you want to check in today?
+      </h2>
+      </div>
+      <div class="row col button-group">
+      <!-- Buttons take to the next step (check steps over at app/controllers/chatbot_steps_controller.rb) -->
+        <% @user_plants.each do |option| %>
+        <div class="col">
+          <%= form_with(model: @chatbot_message,url: next_wizard_path, method: :put) do |form| %>
+            <%= form.hidden_field :user_id, value: current_user.id.to_i %>
+            <%= form.hidden_field :time_sent, value: Time.now.utc %>
+            <%= form.hidden_field :from_bot, value: false %>
+            <%= form.hidden_field :plant_id, value: option.id %>
+            <%= form.hidden_field :content, value: option.name%>
+            </div>
+            <a><%= form.submit option.name, class: "mt-2 btn btn-info text-light button-group", 
+            style: "padding-right:10px;" %></a>
+          <% end %>
+        <% end %>
+        <br>
+      </div>
+      <div class="row" style="height:40px;"></div>
+      <div class="row col-md-10">
+        <%= link_to 'Add new plant', new_user_plant_path, class: "mt-2 btn btn-warning", 
+        style: "position: absolute; top: 60%; left: 50%;"  %>
+      </div>
+    </div>
+    <div class="col"></div>
 </div>
 
 <div class="bottom-layer"></div>
