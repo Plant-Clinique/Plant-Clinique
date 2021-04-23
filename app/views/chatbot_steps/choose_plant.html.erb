@@ -12,16 +12,15 @@
       <div class="row col button-group">
       <!-- Buttons take to the next step (check steps over at app/controllers/chatbot_steps_controller.rb) -->
         <% @user_plants.each do |option| %>
-        <div class="col">
+        
           <%= form_with(model: @chatbot_message,url: next_wizard_path, method: :put) do |form| %>
             <%= form.hidden_field :user_id, value: current_user.id.to_i %>
             <%= form.hidden_field :time_sent, value: Time.now.utc %>
             <%= form.hidden_field :from_bot, value: false %>
             <%= form.hidden_field :plant_id, value: option.id %>
             <%= form.hidden_field :content, value: option.name%>
-            </div>
             <a><%= form.submit option.name, class: "mt-2 btn btn-info text-light button-group", 
-            style: "padding-right:10px;" %></a>
+            style: "padding-right:10px; padding-left: 10px;display: flex;margin: 0 5px;" %></a>
           <% end %>
         <% end %>
         <br>
