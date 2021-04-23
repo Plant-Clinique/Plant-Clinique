@@ -116,7 +116,10 @@
             </span>
             <span>
               <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
-                <i class="fa fa-bell" aria-hidden="true"></i><%= link_to "Notifications", "/", class: "mx-2 " %>
+                <a href='#' class="notification">
+                <i class="fa fa-bell" aria-hidden="true"></i>
+                <span> Notifications</span>
+                <span class="badge" style="background: red;">3</span>
               </li>
             </span>
             <span>
