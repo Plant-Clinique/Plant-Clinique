@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
     def sample_email
         @reminder = params[:reminder]
         puts("Reminder: #{@reminder.inspect}")
-        email = "codabof360@laraskey.com" # test email
+        email = "taromka10@gmail.com" # test email
         puts("on tick day: #{on_tick_day?}")
         puts("already sent: #{already_sent?}")
         puts("after tick time: #{after_tick_time?}")
