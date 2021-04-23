@@ -7,4 +7,14 @@ class Reminder < ApplicationRecord
     def self.reminder_enums
         return reminder_types.keys.zip(reminder_types.values)
     end
+
+    def self.reminder_type_str(type_num)
+        reverse_types = {}
+        reminder_types.each do |str, num|
+            reverse_types[num] = str
+        end
+        puts reverse_types.inspect
+        result = reverse_types[type_num]
+        return result[0, result.index('_reminder')]
+    end
 end

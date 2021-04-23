@@ -64,7 +64,7 @@
           <div class = "row justify-content-center" >
 
             <span class="text-center d-inline-block " >
-              <a class="btn btn-warning btn-lg w-100 text-dark" href="#" role="button">
+              <a class="btn btn-warning btn-lg w-100 text-dark" href=<%= chatbot_messages_path %> role="button">
                 Have a question?
               </a>
               <!-- Turn link buttons to buttons-->
@@ -78,6 +78,14 @@
                   <%= link_to 'Add plant', new_user_plant_path, class: 'btn btn-warning text-dark ' %> 
                 </div>
 
+                <div>
+                  <%= link_to 'Add reminder', new_reminder_path, class: "btn btn-warning text-dark"%>
+                </div>
+
+                <div>
+                  <%= link_to 'All reminders', reminders_path, class: "btn btn-warning text-dark"%>
+                </div>
+
                 <div class="button-right">
                   <%= link_to 'Edit User Info', edit_user_path(@user), class: 'btn btn-warning text-dark ' %> 
                 </div>
@@ -85,7 +93,6 @@
                 <div class="button-right">
                   <%= link_to 'Milestones', "/", class: 'btn btn-warning text-dark ' %> 
                 </div>
-                </button>
               </div>
             </span>
           </div>            

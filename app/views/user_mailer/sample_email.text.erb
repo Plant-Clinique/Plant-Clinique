@@ -1,9 +1,12 @@
-Welcome to example.com, <%= @user.username %>
+Plant-Clinique notification
 ===============================================
+Hi, <%= @reminder.user.username %>
 
-You have successfully signed up to example.com,
-your username is: <%= @user.username %>.
+Here's a friendly reminder from Plant-Clinique to <%= Reminder.reminder_type_str(@reminder.reminder_type) %> your plant: <%= @reminder.user_plant.name %>
 
-To login to the site, just follow this link: <%= @url %>.
+Description: <%= @reminder.description %>
 
-Thanks for joining and have a great day!
+For more information, visit your garden at <%="http://plant-clinique-test.herokuapp.com/"%>
+
+Have a great day!
+Plant-Clinique
