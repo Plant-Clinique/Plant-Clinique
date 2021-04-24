@@ -15,9 +15,9 @@ class Reply < ApplicationRecord
           notification.user = User.find(self.post.user_id)
           notification.target = self
           notification.second_target = self.post
-          cable_ready["timeline"].insert_adjacent_html(
+          cable_ready["notifications_#{notification.user.id}"].text_content(
             selector: "#notification-unread-count",
-            value: (Notification.unread_count(notification.user.id).to_i + 1)
+            text: (Notification.unread_count(notification.user.id).to_i + 1)
           )
           cable_ready.broadcast
         end
