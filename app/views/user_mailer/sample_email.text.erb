@@ -1,0 +1,12 @@
+Plant-Clinique notification
+===============================================
+Hi, <%= @reminder.user.username %>
+
+Here's a friendly reminder from Plant-Clinique to <%= Reminder.reminder_type_str(@reminder.reminder_type) %> your plant: <%= @reminder.user_plant.name %>
+
+Description: <%= @reminder.description %>
+
+For more information, visit your garden at <%="http://plant-clinique-test.herokuapp.com/"%>
+
+Have a great day!
+Plant-Clinique
