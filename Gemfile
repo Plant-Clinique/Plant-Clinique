@@ -89,5 +89,3 @@ gem "factory_bot_rails", "~> 6.1"
 gem 'gravtastic'
 
 gem "notifications", "~> 1.1"
-
-gem "cable_ready", "~> 4.5"

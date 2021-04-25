@@ -111,7 +111,7 @@
               <span>Notifications</span>
 >>>>>>> 7afde1f (Working notifications)
               <!-- if reminders.unread? -->
-              <span id= "notification-unread-count" class="badge"><%= Notification.unread_count(current_user.id).to_i %></span> <!--reminders.unread.length-->
+              <span class="badge"><%= Notification.unread_count(current_user.id).to_i %></span> <!--reminders.unread.length-->
               <!--  end // also to emails --> 
               </a>
             </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
