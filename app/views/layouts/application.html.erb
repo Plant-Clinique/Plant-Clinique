@@ -21,13 +21,7 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    
-    <!-- Select2 CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Select2 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+  
     <meta charset='utf-8' />
     <!-- Import Mapbox GL JS -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
@@ -37,6 +31,12 @@
     <!-- Map gecoder -->
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
+    <!-- Select2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
   </head>
 
   <body >
@@ -99,17 +99,10 @@
               <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", main_app.store_locators_path, class: "mx-2 " %>
             </li><!-- https://docs.ubuntu.com/landscape/en/api mapbox api from pito --> 
 
-<<<<<<< HEAD
-            <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
-              <a href="#" class="notification">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              <span>Reminders</span>
-=======
             <li class="nav-link <%= 'active' if current_page?(notifications_path) %> nav-item"> 
               <a href="<%= notifications_path %>" class="notification">
               <i class="fa fa-bell" aria-hidden="true"></i>
               <span>Notifications</span>
->>>>>>> 7afde1f (Working notifications)
               <!-- if reminders.unread? -->
               <span class="badge"><%= Notification.unread_count(current_user.id).to_i %></span> <!--reminders.unread.length-->
               <!--  end // also to emails --> 
