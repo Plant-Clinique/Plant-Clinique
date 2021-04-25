@@ -4,14 +4,14 @@ class UserMailer < ApplicationMailer
     def sample_email
         @reminder = params[:reminder]
         puts("Reminder: #{@reminder.inspect}")
-        email = "taromka10@gmail.com" # test email
+        # email = "taromka10@gmail.com" # test email
         puts("on tick day: #{on_tick_day?}")
         puts("already sent: #{already_sent?}")
         puts("after tick time: #{after_tick_time?}")
 
         # send email if on the correct day and after tick_time
         if on_tick_day? and not already_sent? and after_tick_time?
-            mail(to: email, subject: "Your Plant-Clinique's friendly reminder")
+            mail(to: reminder.user.email, subject: "Your Plant-Clinique's friendly reminder")
             # update email_time
             @reminder.touch(:email_time)
         end
