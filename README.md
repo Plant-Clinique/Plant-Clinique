@@ -89,7 +89,7 @@ Our application, Plant-Clinique, is a web-based application with the main goal o
   - reminder_id: integer 🌱
   - <ins>user_plant_id: integer</ins>
   - <ins>user_id: integer</ins>
-  - reminder_time: datetime
+  - tick_time: time
   - description: string
   - reminder_type: enum
 - <strong>ChatbotMessage</strong>
