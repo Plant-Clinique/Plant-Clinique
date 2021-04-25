@@ -79,6 +79,10 @@
                   <%= button_to edit_user_path(@user), method: :get, class: "btn btn-warning text-dark space" do %>
                     Edit User Info
                   <% end %>
+
+                  <%= link_to 'Add reminder', new_reminder_path, class: "btn btn-warning text-dark"%>
+                  <%= link_to 'All reminders', reminders_path, class: "btn btn-warning text-dark"%>
+
                   <%= button_to "/", method: :get, class: "btn btn-warning text-dark space" do %>
                    Milestones
                   <% end %>
