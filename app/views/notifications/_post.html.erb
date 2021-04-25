@@ -1,6 +1,6 @@
 <div class='bg-light rounded p-3'>
   <div>
-    <%= notification.actor.username %> commented "<%= notification.target.body.truncate(10, separator: ' ') %>" on 
+    <%= notification.actor.username %> commented "<%= notification.target.body.truncate(30, separator: ' ') %>" on 
     <%= link_to notification.second_target.title, main_app.post_path(notification.second_target)%>
   </div>
 </div>
