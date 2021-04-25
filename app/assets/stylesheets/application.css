@@ -90,8 +90,7 @@ body {
   .chat-icon {
     height: 25px;
     width: 25px;
-    background-color: red;
-    border-radius: 100%;
+    border-radius: 50%;
     display: inline-block;
     background: url("..\app\assets\images\chat-icon.webp") no-repeat;
     background-size: cover;
