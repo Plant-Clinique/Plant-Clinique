@@ -25,3 +25,12 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
+
+  .button-group {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-right:10px;
+    padding-left:10px;
+  }

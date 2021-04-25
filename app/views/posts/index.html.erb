@@ -74,11 +74,13 @@
 
 <%= paginate @posts %>
 
-
-
 </body>
 
-<div class="bottom-layer"></div>
+<div class="post-bottom"></div>
+<%if @posts.first.nil? %>
+  <div class="post-bottom-2"></div>
+<%end%>
+
 <script>
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");

@@ -19,7 +19,6 @@
 
     <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <meta charset="utf-8">
-    
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     
@@ -87,11 +86,11 @@
             </li>-->
 
             <li class="nav-link
-             <%= 'active' if current_page?("/chatbot_steps/choose_visit_type")%> 
-             <%= 'active' if current_page?("/chatbot_steps/answer_symptom_questions")%>
-             <%= 'active' if current_page?("/chatbot_steps/choose_plant")%>
-             <%= 'active' if current_page?("/chatbot_steps/display_possible_treatments")%>
-             <%= 'active' if current_page?("/chatbot_steps/select_symptoms")%>
+              <%= 'active' if current_page?("/chatbot_steps/choose_visit_type")%> 
+              <%= 'active' if current_page?("/chatbot_steps/answer_symptom_questions")%>
+              <%= 'active' if current_page?("/chatbot_steps/choose_plant")%>
+              <%= 'active' if current_page?("/chatbot_steps/display_possible_treatments")%>
+              <%= 'active' if current_page?("/chatbot_steps/select_symptoms")%>
              nav-item">
               <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
             </li>
@@ -102,7 +101,7 @@
 
             <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
               <a href="#" class="notification">
-              <i class="fa fa-bell" aria-hidden="true"></i>
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
               <span>Reminders</span>
               <!-- if reminders.unread? -->
               <span class="badge">3</span> <!--reminders.unread.length-->
@@ -110,30 +109,25 @@
               </a>
             </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
 
-            <!--
+            
             <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
-              <%= link_to "My Account", current_user, class: "mx-2 " %>
+              <div class="row">
+                <div class="col-8">
+                  <i class="fa fa-user" aria-hidden="true"></i><%= link_to "My Account", current_user, class: "mx-2 "  %>
+                </div>
+            
+                  <!--<%= link_to "My Account", current_user, class: "mx-2 " %>-->
+                  <a href="/"> 
+                    <!--<span style="background-image: url('prabu_front.png')"></span>-->
+                      <div class="dot">
+                        <%= image_tag current_user.gravatar_url(:email => current_user.email)%>
+                      </div>
+                  </a>
+              </div>
             </li>
-            -->
-
-            <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
-              <!--<%= link_to "My Account", current_user, class: "mx-2 " %>-->
-              <a href="/"> 
-                <!--<span style="background-image: url('prabu_front.png')"></span>-->
-                  <div class="dot">
-                    <%= image_tag current_user.gravatar_url(:email => current_user.email)%>
-                  </div>
-              </a>
-            </li>
-
-           
-            <div <%= 'active' if current_page?(current_user) %>>
-              <div class="dot"></div>
-            </div>
-          
 
             <li class="nav-link nav-item">
-              <i class="fa fa-sign-out" aria-hidden="true"></i> <%= link_to 'Sign out', sign_out_path, method: :delete %>
+              <i class="fa fa-sign-out" aria-hidden="true"></i> <%= link_to 'Sign out', sign_out_path, class: "mx-2 ", method: :delete %>
             </li>
 
           <% else %>
@@ -191,8 +185,7 @@
     </div>
   
   
-  
-  <footer class="row justify-content-center " style="height: 20px; width: 100%; color: white; background-color:#92B78B; text-align: center;">
+  <footer class="row justify-content-center plant-item" style="height: 20px; width: 100%; color: white; background-color:#92B78B; text-align: center;">
     <p style="text-align: center;left:0; bottom:0;"> 
       &emsp; &emsp;
       <a href="https://plant-clinique.herokuapp.com/sign_in">
@@ -235,4 +228,19 @@
 
   </footer>
   </body>
+   <script>
+  $(window).resize(function() {
+
+  if ($(this).width() < 1000) {
+
+    $('.plant-item').hide();
+
+  } else {
+
+    $('.plant-item').show();
+
+    }
+
+});
+</script>
 </html>
