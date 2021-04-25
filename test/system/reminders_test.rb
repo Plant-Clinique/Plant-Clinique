@@ -15,7 +15,8 @@ class RemindersTest < ApplicationSystemTestCase
     click_on "New Reminder"
 
     fill_in "Description", with: @reminder.description
-    fill_in "Reminder time", with: @reminder.reminder_time
+    fill_in "Tick time", with: @reminder.tick_time
+    fill_in "Interval", with: @reminder.interval
     fill_in "Type", with: @reminder.type
     fill_in "User", with: @reminder.user_id
     fill_in "User plant", with: @reminder.user_plant_id
@@ -30,7 +31,8 @@ class RemindersTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Description", with: @reminder.description
-    fill_in "Reminder time", with: @reminder.reminder_time
+    fill_in "Tick time", with: @reminder.tick_time
+    fill_in "Interval", with: @reminder.interval
     fill_in "Type", with: @reminder.type
     fill_in "User", with: @reminder.user_id
     fill_in "User plant", with: @reminder.user_plant_id
