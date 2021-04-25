@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+<canvas></canvas>
+<main >
 
-<main>
-  <div >
+  <div id="myCanvas">
     <div class="row" style = "height: 500px;">
       <div class = "col-3">
       </div>
@@ -27,8 +28,10 @@
 
 <div class = "row" style = "height: 450px;"></div>
 
-<!--
+
 <script>
+
+window.onload = function() {
   var canvas = document.getElementById('myCanvas'); 
   var context = canvas.getContext('2d'); 
   context.fillRect(0, 0, 50, 50);
@@ -38,9 +41,11 @@
   context.lineWidth = 1; 
   context.strokeStyle = 'rgb(21, 128, 19)'; 
   context.stroke();
+}
+  
 </script>
 
 </html>
 
--->
+
 
