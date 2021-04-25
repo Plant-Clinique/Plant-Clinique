@@ -1,0 +1,12 @@
+<%= cache(['notifications', Notifications::VERSION, notification]) do %>
+<div id="notification-<%= notification.id %>"
+     data-id="<%= notification.id %>"
+     class="media notification notification-<%= notification.notify_type %><%= ' unread' unless notification.read? %>">
+  <div class="media-body">
+    <%= render partial: "/notifications/#{notification.notify_type}", locals: { notification: notification } %>
+  </div>
+  <div class>
+    <%= time_ago_in_words notification.created_at %>
+  </div>
+</div>
+<% end %>

@@ -46,7 +46,7 @@
           <div class="header">
           <li class="nav-link header" %>
             <i class="fa fa-leaf" style="color:green;" aria-hidden="true" ></i>
-              <%= link_to "Plant-Clinique", current_user, class: "mx-2 " , style: "color: brown; font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
+              <%= link_to "Plant-Clinique", "/", class: "mx-2 " , style: "color: brown; font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
             <i class="fa fa-leaf" style="color:green;"aria-hidden="true" ></i>
           </li>
           </div>
@@ -65,7 +65,7 @@
           <div class="header">
           <li class="nav-link header" %>
           <i class="fa fa-leaf" aria-hidden="true"></i>
-          <%= link_to "Plant Clinique", current_user, class: "mx-2 " , style: "color:brown;"%>
+          <%= link_to "Plant Clinique", "/", class: "mx-2 " , style: "color:brown;"%>
           <i class="fa fa-leaf" aria-hidden="true"></i>
           </li>
           </div>
@@ -73,16 +73,16 @@
         <ul class="nav navbar-right">
           <% if signed_in? %>
 
-            <li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
-              <i class="fa fa-comments" aria-hidden="true"></i><%= link_to "Posts", posts_path, class: "mx-2 " %>
+            <li class="nav-link <%= 'active' if current_page?(main_app.posts_path) %> nav-item">
+              <i class="fa fa-comments" aria-hidden="true"></i><%= link_to "Posts", main_app.posts_path, class: "mx-2 " %>
             </li>
 
             <!--<li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
               <i class="fa fa-trophy" aria-hidden="true"></i> <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
             </li>  https://www.gardenista.com/tag/contests-giveaways/ 
 
-            <li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
-              <%= link_to "Reply", posts_path, class: "mx-2 " %>
+            <li class="nav-link <%= 'active' if current_page?(main_app.posts_path) %> nav-item">
+              <%= link_to "Reply", main_app.posts_path, class: "mx-2 " %>
             </li>-->
 
             <li class="nav-link
@@ -92,19 +92,26 @@
               <%= 'active' if current_page?("/chatbot_steps/display_possible_treatments")%>
               <%= 'active' if current_page?("/chatbot_steps/select_symptoms")%>
              nav-item">
-              <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
+              <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", main_app.chatbot_steps_path, class: "mx-2 " %>
             </li>
 
-            <li class="nav-link <%= 'active' if current_page?(store_locators_path) %> nav-item">
-              <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", store_locators_path, class: "mx-2 " %>
+            <li class="nav-link <%= 'active' if current_page?(main_app.store_locators_path) %> nav-item">
+              <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", main_app.store_locators_path, class: "mx-2 " %>
             </li><!-- https://docs.ubuntu.com/landscape/en/api mapbox api from pito --> 
 
+<<<<<<< HEAD
             <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
               <a href="#" class="notification">
               <i class="fa fa-clock-o" aria-hidden="true"></i>
               <span>Reminders</span>
+=======
+            <li class="nav-link <%= 'active' if current_page?(notifications_path) %> nav-item"> 
+              <a href="<%= notifications_path %>" class="notification">
+              <i class="fa fa-bell" aria-hidden="true"></i>
+              <span>Notifications</span>
+>>>>>>> 7afde1f (Working notifications)
               <!-- if reminders.unread? -->
-              <span class="badge">3</span> <!--reminders.unread.length-->
+              <span class="badge"><%= Notification.unread_count(current_user.id).to_i %></span> <!--reminders.unread.length-->
               <!--  end // also to emails --> 
               </a>
             </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
@@ -131,7 +138,7 @@
             </li>
 
           <% else %>
-            <i class="fa fa-sign-in" aria-hidden="true"></i> <li ><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></li>
+            <i class="fa fa-sign-in" aria-hidden="true"></i> <li ><%= link_to 'Sign in', main_app.sign_in_path, class: "mx-2 " %></li>
           <% end %>
         </ul>
         

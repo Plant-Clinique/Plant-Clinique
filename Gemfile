@@ -87,3 +87,5 @@ gem "rails-controller-testing", "~> 1.0"
 gem "factory_bot_rails", "~> 6.1"
 
 gem 'gravtastic'
+
+gem "notifications", "~> 1.1"
