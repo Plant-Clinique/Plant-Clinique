@@ -3,7 +3,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<!-->
+<!--
 <link id="pagestyle" rel="stylesheet" type="text/css" href="css/show/application.css" media="screen"/>
 
 
@@ -15,12 +15,12 @@
 </script>
 -->
 
-<!--<button type="button" ><!--onClick="swapStyleSheet('css/show/application_dark.css','css/show/application.css')">
+<!--<button type="button" >onClick="swapStyleSheet('css/show/application_dark.css','css/show/application.css')">
   <link rel="stylesheet" href="application_dark.css">
   Dark Theme
 </button>
 
-<button type="button" ><!--onClick="swapStyleSheet('css/show/application.css','css/show/application_dark.css')">
+<button type="button" ><onClick="swapStyleSheet('css/show/application.css','css/show/application_dark.css')">
   <link rel="stylesheet" href="application.css">
   Light Theme
 </button>-->
@@ -79,6 +79,10 @@
                   <%= button_to edit_user_path(@user), method: :get, class: "btn btn-warning text-dark space" do %>
                     Edit User Info
                   <% end %>
+
+                  <%= link_to 'Add reminder', new_reminder_path, class: "btn btn-warning text-dark"%>
+                  <%= link_to 'All reminders', reminders_path, class: "btn btn-warning text-dark"%>
+
                   <%= button_to "/", method: :get, class: "btn btn-warning text-dark space" do %>
                    Milestones
                   <% end %>
@@ -87,22 +91,34 @@
             
           </div> 
         </div>
-      <div class="col-lg-4 align-items-center d-flex">
+      <div class="col-lg-4 align-items-center d-flex" style="position: relative;">
         <%= image_tag @user.gravatar_url(:email => @user.email)%>
       </div>
     </div>
   </div>
 </div>
 
+
+
+
+
+
+
+
+
   <!-- [What you are working on] !!!!!The code for the plant panel stuff-->
-  <div class = "row">
+  <div class = "row plant-item">
+
     <% if UserPlant.where(user_id: current_user.id.to_i).empty? %>
       <p>
         <strong> You dont have any plant yet, would you like to add some? </strong>
       </p>
+
     <% else %>
       <% UserPlant.where(user_id: current_user.id.to_i).each do |plant| %>
-        <div class = "col-4" >
+        <div class = "plant-item col-4 " >
+
+
           <div class="card text-center border-success mb-3" style="box-shadow: 0px 10px 10px grey; border-radius: 20px; ">
             <img class="card-img-top-center img-fluid min-width: 200px !important;" src=<%= "#{plant.img_url}" %>  alt="Picture for this plant" style= "height: 200px; object-fit: cover; border-radius: 20px 20px 0px 0px;">
             <div class="card-body" >
@@ -129,8 +145,7 @@
                     <p>
                   </div>
                 </div>
-                <div class = "row">
-                </div>
+                <div class = "row"></div>
               </p>
               <a>
                 <div class="btn btn-warning">
@@ -150,6 +165,21 @@
     <% end %>
   </div>
 
-  <div class="row" style = "height: 350px;">
-  </div>
+  <div class="row" style = "height: 350px;"></div>
+
+  <script>
+  $(window).resize(function() {
+
+  if ($(this).width() < 1024) {
+
+    $('.plant-item').hide();
+
+  } else {
+
+    $('.plant-item').show();
+
+    }
+
+});
+</script>
 </html>

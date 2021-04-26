@@ -17,7 +17,7 @@ class RemindersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create reminder" do
     assert_difference('Reminder.count') do
-      post reminders_url, params: { reminder: { description: @reminder.description, reminder_time: @reminder.reminder_time, type: @reminder.type, user_id: @reminder.user_id, user_plant_id: @reminder.user_plant_id } }
+      post reminders_url, params: { reminder: { description: @reminder.description, tick_time: @reminder.tick_time, interval: @reminer.interval, type: @reminder.type, user_id: @reminder.user_id, user_plant_id: @reminder.user_plant_id } }
     end
 
     assert_redirected_to reminder_url(Reminder.last)
@@ -34,7 +34,7 @@ class RemindersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update reminder" do
-    patch reminder_url(@reminder), params: { reminder: { description: @reminder.description, reminder_time: @reminder.reminder_time, type: @reminder.type, user_id: @reminder.user_id, user_plant_id: @reminder.user_plant_id } }
+    patch reminder_url(@reminder), params: { reminder: { description: @reminder.description, tick_time: @reminder.tick_time, interval: @reminer.interval, type: @reminder.type, user_id: @reminder.user_id, user_plant_id: @reminder.user_plant_id } }
     assert_redirected_to reminder_url(@reminder)
   end
 

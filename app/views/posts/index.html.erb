@@ -18,7 +18,8 @@
 <div class="row">
   <div class="col-6">
       <div class="dropdown ">
-        <button onclick="myFunction()" class="dropbtn " style="margin: auto;width: 20%;border:2px solid brown;padding: 10px;">
+
+        <button onclick="myFunction()" class="dropbtn " style="margin: auto;width: 20%;border: 3px solid green;padding: 10px;">
           Sort By 
         </button>
 
@@ -74,11 +75,13 @@
 
 <%= paginate @posts %>
 
-
-
 </body>
 
-<div class="bottom-layer"></div>
+<div class="post-bottom"></div>
+<%if @posts.first.nil? %>
+  <div class="post-bottom-2"></div>
+<%end%>
+
 <script>
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
