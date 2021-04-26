@@ -89,3 +89,7 @@ gem "factory_bot_rails", "~> 6.1"
 gem 'gravtastic'
 
 gem "notifications", "~> 1.1"
+
+gem "redis", "~> 4.2"
+gem "cable_ready", "~> 4.5"
+gem "stimulus_reflex", "~> 3.4"
