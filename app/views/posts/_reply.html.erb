@@ -1,0 +1,18 @@
+<div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background-color: #BAE7AC; border-radius: 20px;">
+  <div class="card-body">
+    <div class="button-right-up">
+      <% if reply.user.id.to_i == current_user.id.to_i %>
+        <%= link_to 'Edit', edit_reply_path(reply), class: 'btn btn-warning mx-1 text-dark'%>
+      <% end %>
+    </div>
+    <p class="font-weight-bold"><%= reply.user.username%> | <%= reply.created_at%></p>
+      
+    <%= reply.body %>
+    <div class="button-right">
+    <%= link_to 'Dislikes', "#", class: 'btn btn-info text-white ' %> 3
+  </div>
+  <div class="button-right">
+    <%= link_to 'Likes', "#", class: 'btn btn-info text-white ' %> 3
+  </div>
+  </div>
+</div>
