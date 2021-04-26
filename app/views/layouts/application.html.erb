@@ -72,10 +72,11 @@
         </div> -->
         <ul class="nav navbar-right">
           <% if signed_in? %>
-
+          <span>
             <li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
               <i class="fa fa-comments" aria-hidden="true"></i><%= link_to "Posts", posts_path, class: "mx-2 " %>
             </li>
+          </span>
 
             <!--<li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
               <i class="fa fa-trophy" aria-hidden="true"></i> <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
@@ -84,7 +85,7 @@
             <li class="nav-link <%= 'active' if current_page?(posts_path) %> nav-item">
               <%= link_to "Reply", posts_path, class: "mx-2 " %>
             </li>-->
-
+          <span>
             <li class="nav-link
               <%= 'active' if current_page?("/chatbot_steps/choose_visit_type")%> 
               <%= 'active' if current_page?("/chatbot_steps/answer_symptom_questions")%>
@@ -94,11 +95,13 @@
              nav-item">
               <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
             </li>
-
+          </span>
+          <span>
             <li class="nav-link <%= 'active' if current_page?(store_locators_path) %> nav-item">
               <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", store_locators_path, class: "mx-2 " %>
             </li><!-- https://docs.ubuntu.com/landscape/en/api mapbox api from pito --> 
-
+          </span>
+          <span>
             <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
               <a href="#" class="notification">
               <i class="fa fa-clock-o" aria-hidden="true"></i>
@@ -108,8 +111,8 @@
               <!--  end // also to emails --> 
               </a>
             </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
-
-            
+          </span>
+          <span>
             <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
               <div class="row">
                 <div class="col-8">
@@ -125,11 +128,12 @@
                   </a>
               </div>
             </li>
-
+          </span>
+          <span>
             <li class="nav-link nav-item">
               <i class="fa fa-sign-out" aria-hidden="true"></i> <%= link_to 'Sign out', sign_out_path, class: "mx-2 ", method: :delete %>
             </li>
-
+          </span>
           <% else %>
             <i class="fa fa-sign-in" aria-hidden="true"></i> <li ><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></li>
           <% end %>
