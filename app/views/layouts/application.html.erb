@@ -19,6 +19,7 @@
 
     <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <meta charset="utf-8">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <!-- Select2 CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
@@ -80,9 +81,11 @@
         <ul class="nav navbar-right">
           <% if signed_in? %>
 
+          <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.posts_path) %> nav-item">
               <i class="fa fa-comments" aria-hidden="true"></i><%= link_to "Posts", main_app.posts_path, class: "mx-2 " %>
             </li>
+          </span>
 
             <!--<li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
               <i class="fa fa-trophy" aria-hidden="true"></i> <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
@@ -91,7 +94,7 @@
             <li class="nav-link <%= 'active' if current_page?(main_app.posts_path) %> nav-item">
               <%= link_to "Reply", main_app.posts_path, class: "mx-2 " %>
             </li>-->
-
+          <span>
             <li class="nav-link
               <%= 'active' if current_page?("/chatbot_steps/choose_visit_type")%> 
               <%= 'active' if current_page?("/chatbot_steps/answer_symptom_questions")%>
@@ -101,7 +104,8 @@
              nav-item">
               <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", main_app.chatbot_steps_path, class: "mx-2 " %>
             </li>
-
+          </span>
+          <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.store_locators_path) %> nav-item">
               <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", main_app.store_locators_path, class: "mx-2 " %>
             </li><!-- https://docs.ubuntu.com/landscape/en/api mapbox api from pito --> 
@@ -115,8 +119,8 @@
               <!--  end // also to emails --> 
               </a>
             </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
-
-            
+          </span>
+          <span>
             <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
               <div class="row">
                 <div class="col-8">
@@ -132,11 +136,12 @@
                   </a>
               </div>
             </li>
-
+          </span>
+          <span>
             <li class="nav-link nav-item">
               <i class="fa fa-sign-out" aria-hidden="true"></i> <%= link_to 'Sign out', sign_out_path, class: "mx-2 ", method: :delete %>
             </li>
-
+          </span>
           <% else %>
             <i class="fa fa-sign-in" aria-hidden="true"></i> <li ><%= link_to 'Sign in', main_app.sign_in_path, class: "mx-2 " %></li>
           <% end %>
