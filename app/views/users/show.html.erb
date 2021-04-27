@@ -80,12 +80,14 @@
                     Edit User Info
                   <% end %>
 
-                  <%= link_to 'Add reminder', new_reminder_path, class: "btn btn-warning text-dark"%>
-                  <%= link_to 'All reminders', reminders_path, class: "btn btn-warning text-dark"%>
-
-                  <%= button_to "/", method: :get, class: "btn btn-warning text-dark space" do %>
-                   Milestones
+                  <%= button_to new_reminder_path, method: :get, class: "btn btn-warning text-dark space" do %>
+                    Add Reminder
                   <% end %>
+
+                  <%= button_to reminders_path, method: :get, class: "btn btn-warning text-dark space" do %>
+                    All Reminders
+                  <% end %>
+
                 </div>
               </div>
             
