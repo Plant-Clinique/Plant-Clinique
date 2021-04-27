@@ -1,6 +1,17 @@
-<h1>Editing Reminder</h1>
+<div >
+  <div class="row" style = "height: 430px;">
+    <div class = "col-3">
+    </div>
+    <div class="col-md-6 bg-rem" style="height: 600px; background-color: green; border: 5px solid green; border-radius: 25px;">
+      <div class = "row text-center" style = "height: 50px;"> </div>
+      <h1 class='text-center'  style="color:yellow;"> Editing Reminder </h1>
+            <%= render 'form', reminder: @reminder %>
+       <button class="bg-warning"> 
+            <%= link_to 'Show', @reminder %> |
+            <%= link_to 'Back', reminders_path %> 
+        </button>
+    </div>
+  </div>
+</div>
 
-<%= render 'form', reminder: @reminder %>
-
-<%= link_to 'Show', @reminder %> |
-<%= link_to 'Back', reminders_path %>
+<div style="height:555px;"> </div>

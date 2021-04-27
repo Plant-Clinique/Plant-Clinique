@@ -26,27 +26,27 @@
 -->
 
   <div class="field">
-    <%= form.label :Choose_your_plant %>
+    <%= form.label :Choose_your_plant, style: "color:yellow;"%>
     <%= form.select :user_plant_id, @user_plant_dropdown %>
   </div>
 
   <div class="field">
-    <%= form.label :tick_time %>
+    <%= form.label :tick_time, style: "color:yellow;" %>
     <%= form.time_select :tick_time %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label :description, style: "color:yellow;" %>
     <%= form.text_field :description %>
   </div>
 
   <div class="field">
-    <%= form.label :type %>
+    <%= form.label :type, style: "color:yellow;" %>
     <%= form.select :reminder_type, @reminder_dropdown_list %>
   </div>
 
   <div class="field">
-    <%= form.label :interval %>
+    <%= form.label :interval, style: "color:yellow;" %>
     <%= form.number_field :interval %>
   </div>
 
