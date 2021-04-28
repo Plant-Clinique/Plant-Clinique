@@ -80,6 +80,7 @@
                 <i class="fa fa-comments" aria-hidden="true"></i><%= link_to "Posts", posts_path, class: "mx-2 " %>
               </li>
             </span>
+
             <!--<li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
               <i class="fa fa-trophy" aria-hidden="true"></i> <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
             </li>  https://www.gardenista.com/tag/contests-giveaways/ 
@@ -98,11 +99,13 @@
                 <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
               </li>
             </span>
+
             <span>
               <li class="nav-link <%= 'active' if current_page?(store_locators_path) %> nav-item">
                 <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", store_locators_path, class: "mx-2 " %>
               </li>
             </span>
+
             <span>
               <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
                 <a href="#" class="notification">
@@ -114,6 +117,7 @@
                 </a>
               </li>
             </span>
+
             <span>
               <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
                 <a href='#' class="notification">
@@ -122,10 +126,16 @@
                 <span class="badge" style="background: red;">3</span>
               </li>
             </span>
+
             <span>
               <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
-                <!--<%= link_to "My Account", current_user, class: "mx-2 " %>-->
-                <a href="/"> 
+                <i class="fa fa-user" aria-hidden="true"></i> <%= link_to "My Account", current_user, class: "mx-2 " %>
+              </li>
+            </span>
+
+            <span>
+              <li class="nav-link  nav-item">
+                <a href= current_user > 
                   <!--<span style="background-image: url('prabu_front.png')"></span>-->
                     <div class="dot">
                       <%= image_tag current_user.gravatar_url(:email => current_user.email)%>
@@ -133,23 +143,20 @@
                 </a>
               </li>
             </span>
-            <span>  
-              <div <%= 'active' if current_page?(current_user) %>>
-                <div class="dot"></div>
-              </div>
+
+            <span>
+              <li class="nav-link nav-item">
+                <i class="fa fa-sign-out" aria-hidden="true"></i> <%= link_to 'Sign out', sign_out_path, method: :delete %>
+              </li>
             </span>
-          <span>
-            <li class="nav-link nav-item">
-              <i class="fa fa-sign-out" aria-hidden="true"></i> <%= link_to 'Sign out', sign_out_path, method: :delete %>
-            </li>
-          </span>
+
           <% else %>
-          <span>
-            <i class="fa fa-sign-in" aria-hidden="true"></i> <li ><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></li>
-          </span>
+            <span>
+              <i class="fa fa-sign-in" aria-hidden="true"></i> <li ><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></li>
+            </span>
+
           <% end %>
         </ul>
-        
       </div>
     </nav>
 
@@ -268,12 +275,8 @@
 
    <script>
   $(window).resize(function() {
-
-    $('.collapsed-nav').hide(); /* hide collapsed */ 
-    $('.uncollapsed').show(); /* show uncollapsed */
   
-
-  if ($(this).width() < 1000) {
+  if ($(this).width() < 1200) {
 
     $('.uncollapsed').hide(); /* hide uncollapsed navbar version */ 
     $('.collapsed-nav').show(); /* show collapsed */
@@ -286,5 +289,15 @@
     }
 
 });
+</script>
+<script>
+if ($(this).width() < 1200) {
+  $('.uncollapsed').hide(); /* hide uncollapsed navbar version */ 
+  $('.collapsed-nav').show(); /* show collapsed */
+}
+else  {
+  $('.collapsed-nav').hide(); /* hide collapsed */ 
+  $('.uncollapsed').show(); /* show uncollapsed */
+}
 </script>
 </html>
