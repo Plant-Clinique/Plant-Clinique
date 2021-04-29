@@ -62,27 +62,9 @@
           </div>
         </div>
 
-                
-    <!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
- old 
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-  <body style="background-color: #98FFB3;">
-    <nav class="navbar p-3 mb-4 bg-warning">
-      <div class="container-fluid">
-        <div class="navbar-header ">
-          <div class="header">
-          <li class="nav-link header" %>
-          <i class="fa fa-leaf" aria-hidden="true"></i>
-          <%= link_to "Plant Clinique", "/", class: "mx-2 " , style: "color:brown;"%>
-          <i class="fa fa-leaf" aria-hidden="true"></i>
-          </li>
-          </div>
-        </div> -->
+              
         <ul class="nav navbar-right">
           <% if signed_in? %>
-
 
           <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.posts_path) %> nav-item">
@@ -90,91 +72,25 @@
             </li>
           </span>
 
-            <!--<li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
-              <i class="fa fa-trophy" aria-hidden="true"></i> <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
-            </li>  https://www.gardenista.com/tag/contests-giveaways/ 
-
-            <li class="nav-link <%= 'active' if current_page?(main_app.posts_path) %> nav-item">
-              <%= link_to "Reply", main_app.posts_path, class: "mx-2 " %>
-            </li>-->
-
           <span>
             <li class="nav-link
-              <%= 'active' if current_page?("/chatbot_steps/choose_visit_type")%> 
-              <%= 'active' if current_page?("/chatbot_steps/answer_symptom_questions")%>
-              <%= 'active' if current_page?("/chatbot_steps/choose_plant")%>
-              <%= 'active' if current_page?("/chatbot_steps/display_possible_treatments")%>
-              <%= 'active' if current_page?("/chatbot_steps/select_symptoms")%>
+                <%= 'active' if current_page?("/chatbot_steps/choose_visit_type")%> 
+                <%= 'active' if current_page?("/chatbot_steps/answer_symptom_questions")%>
+                <%= 'active' if current_page?("/chatbot_steps/choose_plant")%>
+                <%= 'active' if current_page?("/chatbot_steps/display_possible_treatments")%>
+                <%= 'active' if current_page?("/chatbot_steps/select_symptoms")%>
               nav-item">
-                <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", chatbot_steps_path, class: "mx-2 " %>
-              </li>
-            </span>
-
-            <span>
-              <li class="nav-link <%= 'active' if current_page?(store_locators_path) %> nav-item">
-                <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", store_locators_path, class: "mx-2 " %>
-              </li>
-            </span>
-
-            <span>
-              <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
-                <a href="#" class="notification">
-                <i class="fa fa-clock" aria-hidden="true"></i>
-                <span>Reminders</span>
-                <!-- if reminders.unread? -->
-                <span class="badge">3</span> <!--reminders.unread.length-->
-                <!--  end // also to emails --> 
-                </a>
-              </li>
-            </span>
-
-            <span>
-              <li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
-                <a href='#' class="notification">
-                <i class="fa fa-bell" aria-hidden="true"></i>
-                <span> Notifications</span>
-                <span class="badge" style="background: red;">3</span>
-              </li>
-            </span>
-
-            <span>
-              <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
-                <i class="fa fa-user" aria-hidden="true"></i> <%= link_to "My Account", current_user, class: "mx-2 " %>
-              </li>
-            </span>
-
-            <span>
-              <li class="nav-link  nav-item">
-                <a href= current_user > 
-                  <!--<span style="background-image: url('prabu_front.png')"></span>-->
-                    <div class="dot">
-                      <%= image_tag current_user.gravatar_url(:email => current_user.email)%>
-                    </div>
-                </a>
-              </li>
-            </span>
-
-            <span>
-              <li class="nav-link nav-item">
-                <i class="fa fa-sign-out" aria-hidden="true"></i> <%= link_to 'Sign out', sign_out_path, method: :delete %>
-              </li>
-            </span>
-
-          <% else %>
-            <span>
-              <i class="fa fa-sign-in" aria-hidden="true"></i> <li ><%= link_to 'Sign in', sign_in_path, class: "mx-2 " %></li>
-            </span>
-
-             nav-item">
               <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", main_app.chatbot_steps_path, class: "mx-2 " %>
             </li>
           </span>
+
           <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.store_locators_path) %> nav-item">
               <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", main_app.store_locators_path, class: "mx-2 " %>
-            </li><!-- https://docs.ubuntu.com/landscape/en/api mapbox api from pito --> 
-      </span>
-      <span
+            </li>
+          </span>
+
+          <span>
             <li class="nav-link <%= 'active' if current_page?(notifications_path) %> nav-item"> 
               <a href="<%= notifications_path %>" class="notification">
               <i class="fa fa-bell" aria-hidden="true"></i>
@@ -183,22 +99,31 @@
               <span class="badge"><%= Notification.unread_count(current_user.id).to_i %></span> <!--reminders.unread.length-->
               <!--  end // also to emails --> 
               </a>
-            </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
+            </li>
           </span>
+
+          <span>
+              <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
+                <a href="#" class="notification">
+                <i class="fa fa-clock" aria-hidden="true"></i>
+                <span>Reminders</span>
+                <!-- if reminders.unread? -->
+                <span class="badge" style="background-color: red;">3</span> <!--reminders.unread.length-->
+                <!--  end // also to emails --> 
+                </a>
+              </li>
+          </span>
+
+
           <span>
             <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
               <div class="row">
                 <div class="col-8">
                   <i class="fa fa-user" aria-hidden="true"></i><%= link_to "My Account", current_user, class: "mx-2 "  %>
                 </div>
-            
-                  <!--<%= link_to "My Account", current_user, class: "mx-2 " %>-->
-                  <a href="/"> 
-                    <!--<span style="background-image: url('prabu_front.png')"></span>-->
-                      <div class="dot">
-                        <%= image_tag current_user.gravatar_url(:email => current_user.email)%>
-                      </div>
-                  </a>
+                <div class="dot">
+                  <%= image_tag current_user.gravatar_url(:email => current_user.email)%>
+                </div>
               </div>
             </li>
           </span>
@@ -208,7 +133,9 @@
             </li>
           </span>
           <% else %>
+          <span>
             <i class="fa fa-sign-in" aria-hidden="true"></i> <li ><%= link_to 'Sign in', main_app.sign_in_path, class: "mx-2 " %></li>
+          </span>
           <% end %>
         </ul>
       </div>
