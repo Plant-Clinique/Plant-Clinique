@@ -47,8 +47,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
   </head>
 
+
+
   <body >
-    <nav class="navbar p-3 mb-4 bg-warning ">
+    <nav class="navbar p-3 mb-4 bg-warning uncollapsed">
       <div class="container-fluid">
         <div class="navbar-header ">
           <div class="header">
@@ -60,24 +62,7 @@
           </div>
         </div>
 
-                
-    <!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
- old 
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-  <body style="background-color: #98FFB3;">
-    <nav class="navbar p-3 mb-4 bg-warning">
-      <div class="container-fluid">
-        <div class="navbar-header ">
-          <div class="header">
-          <li class="nav-link header" %>
-          <i class="fa fa-leaf" aria-hidden="true"></i>
-          <%= link_to "Plant Clinique", "/", class: "mx-2 " , style: "color:brown;"%>
-          <i class="fa fa-leaf" aria-hidden="true"></i>
-          </li>
-          </div>
-        </div> -->
+              
         <ul class="nav navbar-right">
           <% if signed_in? %>
 
@@ -87,29 +72,25 @@
             </li>
           </span>
 
-            <!--<li class="nav-link <%= 'active' if current_page?("/") %> nav-item">
-              <i class="fa fa-trophy" aria-hidden="true"></i> <%= link_to "Weekly Contest", "#", class: "mx-2 " %>
-            </li>  https://www.gardenista.com/tag/contests-giveaways/ 
-
-            <li class="nav-link <%= 'active' if current_page?(main_app.posts_path) %> nav-item">
-              <%= link_to "Reply", main_app.posts_path, class: "mx-2 " %>
-            </li>-->
           <span>
             <li class="nav-link
-              <%= 'active' if current_page?("/chatbot_steps/choose_visit_type")%> 
-              <%= 'active' if current_page?("/chatbot_steps/answer_symptom_questions")%>
-              <%= 'active' if current_page?("/chatbot_steps/choose_plant")%>
-              <%= 'active' if current_page?("/chatbot_steps/display_possible_treatments")%>
-              <%= 'active' if current_page?("/chatbot_steps/select_symptoms")%>
-             nav-item">
+                <%= 'active' if current_page?("/chatbot_steps/choose_visit_type")%> 
+                <%= 'active' if current_page?("/chatbot_steps/answer_symptom_questions")%>
+                <%= 'active' if current_page?("/chatbot_steps/choose_plant")%>
+                <%= 'active' if current_page?("/chatbot_steps/display_possible_treatments")%>
+                <%= 'active' if current_page?("/chatbot_steps/select_symptoms")%>
+              nav-item">
               <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", main_app.chatbot_steps_path, class: "mx-2 " %>
             </li>
           </span>
+
           <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.store_locators_path) %> nav-item">
               <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", main_app.store_locators_path, class: "mx-2 " %>
-            </li><!-- https://docs.ubuntu.com/landscape/en/api mapbox api from pito --> 
+            </li>
+          </span>
 
+          <span>
             <li class="nav-link <%= 'active' if current_page?(notifications_path) %> nav-item"> 
               <a href="<%= notifications_path %>" class="notification">
               <i class="fa fa-bell" aria-hidden="true"></i>
@@ -118,22 +99,31 @@
               <span class="badge"><%= Notification.unread_count(current_user.id).to_i %></span> <!--reminders.unread.length-->
               <!--  end // also to emails --> 
               </a>
-            </li><!-- https://github.com/joneilloine/example-code/blob/master/JavaScript/ext-2.0.2/air/samples/tasks/reminder.html -->
+            </li>
           </span>
+
+          <span>
+              <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
+                <a href="#" class="notification">
+                <i class="fa fa-clock" aria-hidden="true"></i>
+                <span>Reminders</span>
+                <!-- if reminders.unread? -->
+                <span class="badge" style="background-color: red;">3</span> <!--reminders.unread.length-->
+                <!--  end // also to emails --> 
+                </a>
+              </li>
+          </span>
+
+
           <span>
             <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
               <div class="row">
                 <div class="col-8">
                   <i class="fa fa-user" aria-hidden="true"></i><%= link_to "My Account", current_user, class: "mx-2 "  %>
                 </div>
-            
-                  <!--<%= link_to "My Account", current_user, class: "mx-2 " %>-->
-                  <a href="/"> 
-                    <!--<span style="background-image: url('prabu_front.png')"></span>-->
-                      <div class="dot">
-                        <%= image_tag current_user.gravatar_url(:email => current_user.email)%>
-                      </div>
-                  </a>
+                <div class="dot">
+                  <%= image_tag current_user.gravatar_url(:email => current_user.email)%>
+                </div>
               </div>
             </li>
           </span>
@@ -143,12 +133,34 @@
             </li>
           </span>
           <% else %>
+          <span>
             <i class="fa fa-sign-in" aria-hidden="true"></i> <li ><%= link_to 'Sign in', main_app.sign_in_path, class: "mx-2 " %></li>
+          </span>
           <% end %>
         </ul>
-        
       </div>
     </nav>
+
+    <div class="collapsed-nav">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-warning p-4">
+          <h4>
+            <i class="fa fa-leaf" style="color:green;" aria-hidden="true" ></i>
+              <%= link_to "Plant-Clinique", current_user, class: "mx-2 " , style: "color: brown; font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
+            <i class="fa fa-leaf" style="color:green;"aria-hidden="true" ></i>
+          </h4>
+          <span class="text-muted">
+            Extend the page to see your menu options.
+          </span>
+            
+        </div>
+      </div>
+      <nav class="navbar navbar-dark bg-warning">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+    </div>
     
     <div class="container">
       <%= yield -%>
@@ -240,19 +252,34 @@
 
   </footer>
   </body>
+
    <script>
   $(window).resize(function() {
+  
+  if ($(this).width() < 1200) {
 
-  if ($(this).width() < 1000) {
-
-    $('.plant-item').hide();
+    $('.uncollapsed').hide(); /* hide uncollapsed navbar version */ 
+    $('.collapsed-nav').show(); /* show collapsed */
 
   } else {
 
-    $('.plant-item').show();
+    $('.collapsed-nav').hide(); /* hide collapsed */ 
+    $('.uncollapsed').show(); /* show uncollapsed */
+
 
     }
 
 });
 </script>
+<script>
+if ($(this).width() < 1200) {
+  $('.uncollapsed').hide(); /* hide uncollapsed navbar version */ 
+  $('.collapsed-nav').show(); /* show collapsed */
+}
+else  {
+  $('.collapsed-nav').hide(); /* hide collapsed */ 
+  $('.uncollapsed').show(); /* show uncollapsed */
+}
+</script>
+
 </html>
