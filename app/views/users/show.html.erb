@@ -80,8 +80,10 @@
                     Edit User Info
                   <% end %>
 
+
                   <%= link_to 'Add reminder', new_reminder_path, class: "btn btn-warning text-dark"%>
                   <%= link_to 'All reminders', reminders_path, class: "btn btn-warning text-dark"%>
+
 
                   <%= button_to "/", method: :get, class: "btn btn-warning text-dark space" do %>
                    Milestones
@@ -116,6 +118,7 @@
 
     <% else %>
       <% UserPlant.where(user_id: current_user.id.to_i).each do |plant| %>
+
         <div class = "plant-item col-4 " >
           <div class="card text-center border-success mb-3" style="box-shadow: 0px 10px 10px grey; border-radius: 20px; ">
             <img class="card-img-top-center img-fluid min-width: 200px !important;" src=<%= "#{plant.img_url}" %>  alt="Picture for this plant" style= "height: 200px; object-fit: cover; border-radius: 20px 20px 0px 0px;">

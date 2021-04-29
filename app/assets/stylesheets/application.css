@@ -60,9 +60,11 @@ body {
   top: -10px;
   right: -10px;
   border-radius: 50%;
-  background: red;
+  background: blue;
   color: white;
  }
+
+ 
   
  .notification {
   color: black;
