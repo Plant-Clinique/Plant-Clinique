@@ -1,6 +1,8 @@
-<div class='bg-light rounded p-3'>
-  <div>
+<!-- each notification block -->
+<div class='bg-success rounded p-3'>
+  <div style="color: white;">
     <%= notification.actor.username %> commented "<%= notification.target.body.truncate(30, separator: ' ') %>" on 
     <%= link_to notification.second_target.title, main_app.post_path(notification.second_target)%>
   </div>
 </div>
+
