@@ -1,7 +1,10 @@
 require "test_helper"
 
 class PlantTypeTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @plant_type= PlantType.new(name: "Rice")
+  end
+  test "should be valid" do
+    assert @plant_type.valid?
+  end
 end

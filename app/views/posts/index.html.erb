@@ -1,39 +1,118 @@
+<html>
 <p id="notice"><%= notice %></p>
+
+<body>
 <div class="row">
-  <h3 class="text-info col-1 col-md-2 mt-2"><%= link_to 'Topics', posts_path %></h3>
+  <h2 class="col-2" style="padding: 10px;"><%= link_to 'Topics: ', posts_path %></h2>
   <div class="scrolling-wrapper col-10 col-md-10 py-1 rounded" >
     <% Post.topics.each do |topic, key| %>
       <%= form_tag posts_path, :class=>"badge", :method => 'get' do %>
         <%= hidden_field_tag :search, key%>
-        <%= submit_tag(topic.capitalize.gsub(/[^0-9A-Za-z]/, ' '), :class=>"btn bg-info mr-2 px-5 text-light") %>
+        <%= submit_tag(topic.capitalize.gsub(/[^0-9A-Za-z]/, ' '), :class=>"btn bg-success mr-2 px-5 text-light") %>
       <% end %>
     <% end %>
   </div>
 </div>
 <br>
-<% if @posts.length != Post.all.length && !@posts.all.empty? %>
-  <h1 class="text-primary"><%= link_to "Posts about #{Post.topics.keys[@posts.first.topic].capitalize.gsub(/[^0-9A-Za-z]/, ' ')}", posts_path %></h1>
-<% elsif @posts.first.nil? %>
-  <h4 class="text-danger">No posts were found for this topic!</h4>
-<% else %>
-  <h1 class="text-primary"><%= link_to "All Posts", posts_path %></h1>
-<% end %>
+
+<div class="row">
+  <div class="col-6">
+      <div class="dropdown ">
+
+        <button onclick="myFunction()" class="dropbtn " style="margin: auto;width: 20%;border: 3px solid green;padding: 10px;">
+          Sort By 
+        </button>
+
+        <div id="myDropdown" class="dropdown-content ">
+          <a href="#"> Newest </a>
+          <a href="#"> Oldest </a>
+          <a href="#"> Most Liked </a>
+          <a href="#"> Least Liked </a>
+          <a href="#"> Random </a>
+        </div>
+      </div>
+  </div>
+  <div class="col-6">
+    <% if @posts.length != Post.all.length && !@posts.all.empty? %>
+    <h1 class="text-dark p-right" >
+      Posts about: 
+      <i><%= link_to " #{Post.topics.keys[@posts.first.topic].capitalize.gsub(/[^0-9A-Za-z]/, ' ')}", posts_path, class: "text-warning" %></i>
+      <i class="fa fa-tree" style="color:green;" aria-hidden="true"></i>
+    </h1>
+    <% elsif @posts.first.nil? %>
+      <h4 class="text-danger " style="text-align: right;">No posts were found for this topic!</h4>
+    <% else %>
+      <h1 class="text-warning " style="text-align: right;"><%= link_to "All Posts", posts_path %></h1>
+    <% end %>
+  </div>
+</div>
+
+
 <hr>
-<%= link_to 'New Post', new_post_path, class: 'btn btn-primary text-light' %>
+
+
+<%= link_to 'New Post', new_post_path, class: 'btn btn-warning text-dark' %>
+
 <div class= "mb-5">
   <% @posts.sort_by{|post| -post.created_at.to_i}.each do |post| %>
-    <div class="card mt-3" style="box-shadow: 0px 4px 10px grey">
+    <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background: #EFF69B;">
       <div class="card-body">
         <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5>
         <p class="card-text font-weight-bold">
-          <%= post.user.username %>
+            <%= post.user.username %>
           | <%= post.created_at %>
           | <%= post.replies.length %> Replies
+          <%= "| Edited" if post.edited?%>
         </p>
         <% if post.user.id.to_i == current_user.id.to_i %>
-          <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-primary text-light' %>
+          <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning text-dark' %>
         <% end %>
       </div>
     </div>
   <% end %>
+  
 </div>
+
+<%= paginate @posts %>
+
+</body>
+
+<div class="post-bottom"></div>
+<%if @posts.first.nil? %>
+  <div class="post-bottom-2"></div>
+<%end%>
+
+<script>
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+<script >
+  $(window).resize(function() {
+
+  if ($(this).width() < 1024) {
+
+    $('.dropdown').hide();
+
+  } else {
+
+    $('.dropdown').show();
+
+    }
+
+});
+</script>
+</html>

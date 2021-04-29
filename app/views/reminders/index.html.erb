@@ -1,35 +1,197 @@
 <p id="notice"><%= notice %></p>
+<html>
+<div class="row" style="text-align: center;">
+  <h1> My Reminders <i class="fa fa-calendar-check" aria-hidden="true"></i></h1>
+  <div class="row" style="height:10px;"></div>
+  
+</div>
+<p>The current Date and Time: <span id="datetime"></span></p>
 
-<h1>Reminders</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User plant</th>
-      <th>User</th>
-      <th>Reminder time</th>
-      <th>Description</th>
-      <th>Rminder Type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<canvas id="canvas" width="250" height="150" class="clock" style="position: absolute; right: 0px; top: 125px;"></canvas>
 
-  <tbody>
-    <% @reminders.each do |reminder| %>
-      <tr>
-        <td><%= reminder.user_plant_id %></td>
-        <td><%= reminder.user_id %></td>
-        <td><%= reminder.reminder_time %></td>
-        <td><%= reminder.description %></td>
-        <td><%= reminder.reminder_type %></td>
-        <td><%= link_to 'Show', reminder %></td>
-        <td><%= link_to 'Edit', edit_reminder_path(reminder) %></td>
-        <td><%= link_to 'Destroy', reminder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+<div class="row">
+  <div class="col-6">
+      <div class="dropdown ">
+
+        <button onclick="myFunction()" class="dropbtn " style="margin: auto;width: 30%;border: 3px solid green;padding: 10px;">
+          Sort By Type
+        </button>
+
+        <div id="myDropdown" class="dropdown-content ">
+          <a href="#"> Water </a>
+          <a href="#"> Soil </a>
+          <a href="#"> Sun </a>
+        </div>
+      </div>
+  </div>
+
+  <div class="col-6">
+    <% if @reminders.first.nil? %>
+      <h4 class="text-danger " style="text-align: right;"> You have no reminders </h4>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
+  
+</div>
 
-<%= link_to 'New Reminder', new_reminder_path %>
+<hr>
+
+<div class="new" style="margin: 5px;">
+      <%= link_to 'New Reminder', new_reminder_path, class: "btn btn-warning"%>
+  </div>
+
+<div class= "mb-5">
+  <% @reminders.sort_by{|reminder| -reminder.created_at.to_i}.each do |reminder| %>
+    <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background: #EFF69B;">
+      <div class="card-body">
+        <h5 class="card-title">My Reminder about: <%= link_to reminder.user_plant.name, reminder %></h5>
+        <p class="card-text font-weight-bold">
+            <%= reminder.description %>
+          <!--<= "| Edited" if reminder edited?>-->
+        </p>
+        <%= link_to 'Details', reminder, class: "btn btn-success btn-sm button-right", style: "margin-left :5px; color:white;"%>
+        <%= link_to 'Edit', edit_reminder_path(reminder), class: "btn btn-success btn-sm button-right", style: "margin-left :5px;color:white;"%>
+        <%= link_to 'Remove', reminder, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success btn-sm button-right", style: "margin-left :5px;color:white;"%>
+
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<!-- <= paginate @reminders > -->
+
+<div style="height:600px;"></div>
+
+
+<!-- dropdown script -->
+<script>
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+<!-- hide with smaller window script -->
+<script >
+  $(window).resize(function() {
+
+  if ($(this).width() < 1024) {
+
+    $('.dropdown').hide();
+    $('.new').hide();
+    $('.clock').hide();
+
+  } else {
+
+    $('.dropdown').show();
+    $('.new').show();
+    $('.clock').show();
+
+    }
+
+});
+
+</script>
+<!-- clock script -->
+
+<script>
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.90
+setInterval(drawClock, 1000);
+
+function drawClock() {
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  drawTime(ctx, radius);
+}
+
+function drawFace(ctx, radius) {
+  var grad;
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, 2*Math.PI);
+  ctx.fillStyle = 'white';
+  ctx.fill();
+  grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+  grad.addColorStop(0, '#333');
+  grad.addColorStop(0.5, 'white');
+  grad.addColorStop(1, '#333');
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = radius*0.1;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+  ctx.fillStyle = '#333';
+  ctx.fill();
+}
+
+function drawNumbers(ctx, radius) {
+  var ang;
+  var num;
+  ctx.font = radius*0.15 + "px arial";
+  ctx.textBaseline="middle";
+  ctx.textAlign="center";
+  for(num = 1; num < 13; num++){
+    ang = num * Math.PI / 6;
+    ctx.rotate(ang);
+    ctx.translate(0, -radius*0.85);
+    ctx.rotate(-ang);
+    ctx.fillText(num.toString(), 0, 0);
+    ctx.rotate(ang);
+    ctx.translate(0, radius*0.85);
+    ctx.rotate(-ang);
+  }
+}
+
+function drawTime(ctx, radius){
+    var now = new Date();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    //hour
+    hour=hour%12;
+    hour=(hour*Math.PI/6)+
+    (minute*Math.PI/(6*60))+
+    (second*Math.PI/(360*60));
+    drawHand(ctx, hour, radius*0.5, radius*0.07);
+    //minute
+    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    drawHand(ctx, minute, radius*0.8, radius*0.07);
+    // second
+    second=(second*Math.PI/30);
+    drawHand(ctx, second, radius*0.9, radius*0.02);
+}
+
+function drawHand(ctx, pos, length, width) {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.moveTo(0,0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+}
+</script>
+<!-- date script -->
+<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+</script>
+
+</html>

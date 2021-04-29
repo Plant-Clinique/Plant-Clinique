@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_03_181429) do
+ActiveRecord::Schema.define(version: 2021_04_24_160044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,10 +24,28 @@ ActiveRecord::Schema.define(version: 2021_04_03_181429) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "actor_id"
+    t.string "notify_type", null: false
+    t.string "target_type"
+    t.bigint "target_id"
+    t.string "second_target_type"
+    t.bigint "second_target_id"
+    t.string "third_target_type"
+    t.bigint "third_target_id"
+    t.datetime "read_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "notify_type"], name: "index_notifications_on_user_id_and_notify_type"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "plant_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "trefle_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -37,16 +55,19 @@ ActiveRecord::Schema.define(version: 2021_04_03_181429) do
     t.string "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "edited_at"
   end
 
   create_table "reminders", force: :cascade do |t|
     t.integer "user_plant_id"
     t.integer "user_id"
-    t.datetime "reminder_time"
     t.string "description"
     t.integer "reminder_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "interval"
+    t.time "tick_time"
+    t.datetime "email_time"
   end
 
   create_table "replies", force: :cascade do |t|

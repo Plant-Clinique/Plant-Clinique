@@ -1,0 +1,17 @@
+<%= form_with(model: store_locator) do |form| %>
+  <% if store_locator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(store_locator.errors.count, "error") %> prohibited this store_locator from being saved:</h2>
+
+      <ul>
+        <% store_locator.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

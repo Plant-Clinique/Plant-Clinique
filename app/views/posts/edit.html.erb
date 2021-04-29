@@ -1,14 +1,16 @@
-<div class="card my-5">
-  <div class="card-body">
+<div class="card my-5 bg" style="box-shadow: 0px 4px 10px grey; border: 5px solid green; border-radius: 25px;">
+  <div class="card-body" >
     <h1>Edit Post</h1>
 
     <%= render 'form', post: @post %>
 
     <div class="mt-2">
-      <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger mr-2 text-light' %>
+      <%= link_to 'Remove', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger mr-2 text-light' %>
     </div>
     <div class="mt-2">
-      <%= link_to 'Back', @post, class: 'btn btn-light' %>
+      <%= link_to 'Back', @post, class: 'btn btn-success mr-2 text-light' %>
     </div>
   </div>
 </div>
+
+<div style="height:150px;"> </div>

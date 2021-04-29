@@ -1,0 +1,29 @@
+<div class="row" style="height: 100px;"> </div>
+
+  
+<div class="row bg-white" style="border-radius: 50px; text-align: center; height: 350px; border: 3px solid green; " >
+ <div class="col vertical-center" style="padding: 20px;">
+    <%= button_to 'Restart', wizard_path(:choose_visit_type), {class: "btn btn-dark btn-sm", method: "get"}%>
+  </div>
+
+  <div class="col-9 pb-5 bg-r-plant">
+    <h2 class="text-center p-4" style="text-shadow: 2px 2px yellow;">
+      <%= @prompt %>
+    </h2>
+    <!-- Buttons take to the next step (check steps over at app/controllers/chatbot_steps_controller.rb) -->
+    <% @symptoms.each do |symptom| %>
+      <%= form_with(model: @chatbot_message,url: next_wizard_path, method: :put) do |form| %>
+        <%= form.hidden_field :user_id, value: current_user.id.to_i %>
+        <%= form.hidden_field :time_sent, value: Time.now.utc %>
+        <%= form.hidden_field :from_bot, value: false %>
+        <%= form.hidden_field :symptom_id, value: symptom[1] %>
+        <%= form.hidden_field :plant_id, value: @plant.id %>
+        <%= form.hidden_field :content, value: symptom[0]%>
+        <a><%= form.submit symptom[0], class: "mt-2 btn btn-info text-light" %></a>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col"></div>
+</div>
+
+<div class="bottom-layer"></div>

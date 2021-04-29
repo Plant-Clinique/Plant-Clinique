@@ -3,92 +3,118 @@
 
 <p id="notice"><%= notice %></p>
 
+<!--
+<link id="pagestyle" rel="stylesheet" type="text/css" href="css/show/application.css" media="screen"/>
 
 
+<script type="text/javascript">
+    function swapStyleSheet(pagesheet, headsheet){
+        document.getElementById('pagestyle').setAttribute('href',pagesheet);
+        document.getElementById('headstyle').setAttribute('href',headsheet);
+    }
+</script>
+-->
+
+<!--<button type="button" >onClick="swapStyleSheet('css/show/application_dark.css','css/show/application.css')">
+  <link rel="stylesheet" href="application_dark.css">
+  Dark Theme
+</button>
+
+<button type="button" ><onClick="swapStyleSheet('css/show/application.css','css/show/application_dark.css')">
+  <link rel="stylesheet" href="application.css">
+  Light Theme
+</button>-->
+
+<div class="row" style = "height: 10px;"> </div>
 
 <!-- Design inspired from https://www.hotjar.com/  template i randomly found-->
-<div class="jumbotron bg-white" style="box-shadow: 0px 10px 10px grey">
+<div class="jumbotron bg-white leaf-background" style="box-shadow: 0px 10px 10px grey; border-radius: 70px; border: 3px solid green">
   <div class="container text-center text-lg-left">
     <div class="row">
       <div class="col-lg-8">
-          <h1 class="display-4">Welcome to the Garden, 
+          <h1 class="display-4" style="text-align:center;">Welcome to the Garden, 
             <span class="highlight-word">
-              <strong> <%= current_user.username %> </strong>!
+              <strong> <%= current_user.username %>!</strong> 
+              <!-- if current_user.is_verified?>
+                <img src="..\app\assets\images\pro_account.jpeg" class=" img-responsive" style= "height: 100px; width: 100px; object-fit: cover;" >
+              < end > -->
             </span>
           </h1>
           <div class = "row">
+
             <div class = "col">
-              <div class = "row justify-content-center" style = "height: 40px;">
+              <div class = "row justify-content-center" style = "height: 50px; font-size: large;">
                 <h5>Plants Owned: <span class = "badge badge-secondary"><%= current_user.user_plants.count%></span></h5>
               </div>
-              <div class = "row justify-content-center" style = "height: 40px;">
+              <div class = "row justify-content-center" style = "height: 50px; font-size: large;">
                 <h5>Unread Messages: <span class = "badge badge-secondary">0</span></h5>
               </div>
             </div>
+
             <div class = "col">
-              <div class = "row justify-content-center" style = "height: 40px;">
+              <div class = "row justify-content-center" style = "height: 50px; font-size: large;">
                 <h5>Water Notifications: <span class = "badge badge-secondary">0</span></h5>
               </div>
-              <div class = "row justify-content-center" style = "height: 40px;">
+              <div class = "row justify-content-center" style = "height: 50px;font-size: large;">
                 <h5>Soil Notifications: <span class = "badge badge-secondary">0</span></h5>
               </div>
             </div>
           </div>
-          <div class = "row">
 
-
-
+          <div class = "row justify-content-center">
             <span class="text-center d-inline-block">
-              <a class="btn btn-primary btn-lg w-100" href="#" role="button">
-                Have a question?
-              </a>
+              <%= button_to 'Have a question?', new_post_path, method: :get, class: "btn btn-warning btn-lg w-100 text-dark"%>
               <p class="text-muted">Have plant experts answer your questions on our forum.</p>
             </span>
+          </div>            
+          <div class = "row justify-content-center" style="text-align: center">
+              <div class = "col-md-auto">
+                <div class = "row">
+                  <%= button_to new_user_plant_path, method: :get, class: "btn btn-warning text-dark space" do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 20 20">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
+                  </svg> Add Plant
+                  <% end %>
+                  <%= button_to edit_user_path(@user), method: :get, class: "btn btn-warning text-dark space" do %>
+                    Edit User Info
+                  <% end %>
 
-            
-            <span class="text-center d-inline-block">
-              <div class = "col">
-                <button type="button" class="btn btn-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
-                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
-                  </svg>
-                  <%= link_to 'Add plant', new_user_plant_path, class: "text-light"%>
-                </button>
-          
-                <button type="button" class="btn btn-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
-                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
-                  </svg>
-                  <%= link_to 'Edit User Info', edit_user_path(@user), class: "text-light" %> 
-                </button>
+                  <%= button_to new_reminder_path, method: :get, class: "btn btn-warning text-dark space" do %>
+                    Add Reminder
+                  <% end %>
+
+                  <%= button_to reminders_path, method: :get, class: "btn btn-warning text-dark space" do %>
+                    All Reminders
+                  <% end %>
+
+                </div>
               </div>
-            </span>
-          </div>          
-          
-
+            
+          </div> 
         </div>
-      <div class="col-lg-4 align-items-center d-flex">
-        <%= image_tag ("prabu_front.png") %>
+      <div class="col-lg-4 align-items-center d-flex" style="position: relative;">
+        <%= image_tag @user.gravatar_url(:email => @user.email)%>
       </div>
     </div>
   </div>
 </div>
 
-
   <!-- [What you are working on] !!!!!The code for the plant panel stuff-->
-  <div class = "row">
+  <div class = "row plant-item">
+
     <% if UserPlant.where(user_id: current_user.id.to_i).empty? %>
       <p>
         <strong> You dont have any plant yet, would you like to add some? </strong>
       </p>
+
     <% else %>
       <% UserPlant.where(user_id: current_user.id.to_i).each do |plant| %>
-        <div class = "col-4">
-          <div class="card text-center border-success mb-3" style="box-shadow: 0px 10px 10px grey">
-            <img class="card-img-top-center img-fluid min-width: 200px !important;" src=<%= "#{plant.img_url}" %>  alt="Picture for this plant" style= "height: 200px; object-fit: cover;">
-            <div class="card-body">
+
+        <div class = "plant-item col-4 " >
+          <div class="card text-center border-success mb-3" style="box-shadow: 0px 10px 10px grey; border-radius: 20px; ">
+            <img class="card-img-top-center img-fluid min-width: 200px !important;" src=<%= "#{plant.img_url}" %>  alt="Picture for this plant" style= "height: 200px; object-fit: cover; border-radius: 20px 20px 0px 0px;">
+            <div class="card-body" >
               <h4 class="card-title"> <%="#{plant.name}"%> </h4>
               <p class="card-text">
                 <ul class="list-group list-group-flush">
@@ -106,20 +132,19 @@
                   </li>
                 </ul>    
                 <div class = "row justify-content-center">
-                  <div class = "box">
+                  <div class = "box" style="overflow:hidden;">
                     <p>
                       <%= "Description: #{plant.description}" %>
                     <p>
                   </div>
                 </div>
-                <div class = "row">
-                </div>
+                <div class = "row"></div>
               </p>
               <a>
-                <div class="btn btn-primary">
-                  <%= link_to 'Destroy', plant, method: :delete, class: "text-light", data: { confirm: 'Are you sure?' } %> 
+                <div class="btn btn-warning">
+                  <%= link_to 'Remove', plant, method: :delete, class: "text-dark", data: { confirm: 'Are you sure?' } %> 
                   |
-                  <%= link_to 'Edit', edit_user_plant_path(plant), class: "text-light"%>
+                  <%= link_to 'Edit', edit_user_plant_path(plant), class: 'text-dark'%>
                 </div>
                 <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content= "<%= "#{plant.description}"%>">
                   <i class="fas fa-tree text-success mx-2"></i>
@@ -133,6 +158,21 @@
     <% end %>
   </div>
 
-  <div class="row" style = "height: 100px;">
-  </div>
+  <div class="row" style = "height: 350px;"></div>
+
+  <script>
+  $(window).resize(function() {
+
+  if ($(this).width() < 1024) {
+
+    $('.plant-item').hide();
+
+  } else {
+
+    $('.plant-item').show();
+
+    }
+
+});
+</script>
 </html>

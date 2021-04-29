@@ -1,3 +1,49 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#example5{
+    position: text-center;
+	color: brown;
+	font-size: 40px;
+	text-shadow:    -1px 1px 2px yellow,
+				    1px 1px 2px yellow,
+				    1px -1px 0 yellow,
+				    -1px -1px 0 yellow;
+}
+
+
+.bg {
+	/* The image used */
+	background-image: url('Logo.png');
+	background-size: contain;
+	display: inline-block;
+	position: absolute;
+	border-radius: 10px;
+	border: solid green;
+  
+	max-width: 100%;
+	height: auto;
+	display: inline-block;
+	background-position: center; 
+	background-repeat: no-repeat; 
+	background-attachment:fixed;
+  
+  
+	/* Full height */
+  
+	/* Center and scale the image nicely */
+	background-color: #ffffff;
+  }
+
+  .button {
+	background-color: #ffc107; /* Green */
+	border: none;
+	color: white;
+	padding-bottom: 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+  }
+
