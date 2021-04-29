@@ -39,21 +39,21 @@
 <hr>
 
 <div class="new" style="margin: 5px;">
-      <%= button_to 'New Reminder', new_reminder_path, class: "btn btn-warning"%>
+      <%= link_to 'New Reminder', new_reminder_path, class: "btn btn-warning"%>
   </div>
 
 <div class= "mb-5">
   <% @reminders.sort_by{|reminder| -reminder.created_at.to_i}.each do |reminder| %>
     <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background: #EFF69B;">
       <div class="card-body">
-        <h5 class="card-title">My Reminder about: <%= link_to reminder.user_plant.id, reminder %></h5>
+        <h5 class="card-title">My Reminder about: <%= link_to reminder.user_plant.name, reminder %></h5>
         <p class="card-text font-weight-bold">
             <%= reminder.description %>
           <!--<= "| Edited" if reminder edited?>-->
         </p>
-        <%= button_to 'Details', reminder, class: "btn btn-success btn-sm button-right", style: "margin-left :5px;"%>
-        <%= button_to 'Edit', edit_reminder_path(reminder), class: "btn btn-success btn-sm button-right", style: "margin-left :5px;"%>
-        <%= button_to 'Remove', reminder, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success btn-sm button-right", style: "margin-left :5px;"%>
+        <%= link_to 'Details', reminder, class: "btn btn-success btn-sm button-right", style: "margin-left :5px; color:white;"%>
+        <%= link_to 'Edit', edit_reminder_path(reminder), class: "btn btn-success btn-sm button-right", style: "margin-left :5px;color:white;"%>
+        <%= link_to 'Remove', reminder, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success btn-sm button-right", style: "margin-left :5px;color:white;"%>
 
       </div>
     </div>
