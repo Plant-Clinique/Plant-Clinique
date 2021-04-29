@@ -93,8 +93,8 @@
           <span>
             <li class="nav-link <%= 'active' if current_page?(notifications_path) %> nav-item"> 
               <a href="<%= notifications_path %>" class="notification">
-              <i class="fa fa-bell" aria-hidden="true"></i>
-              <span>Notifications</span>
+              <i class="fa fa-bell" style="color:black;" aria-hidden="true"></i>
+              <span style="color:black;">Notifications</span>
               <!-- if reminders.unread? -->
               <span class="badge"><%= Notification.unread_count(current_user.id).to_i %></span> <!--reminders.unread.length-->
               <!--  end // also to emails --> 
@@ -103,8 +103,8 @@
           </span>
 
           <span>
-              <li class="nav-link <%= 'active' if current_page?(reminders_path) %> nav-item"> 
-                <a href="#" class="notification">
+              <li class="nav-link <%= 'active' if current_page?(main_app.reminders_path) %> nav-item"> 
+                <a href="<%= main_app.reminders_path %>" class="notification">
                 <i class="fa fa-clock" aria-hidden="true"></i>
                 <span>Reminders</span>
                 <!-- if reminders.unread? -->
@@ -116,10 +116,10 @@
 
 
           <span>
-            <li class="nav-link <%= 'active' if current_page?(current_user) %> nav-item">
+            <li class="nav-link <%= 'active' if current_page?(main_app.user_path(current_user.id)) %> nav-item">
               <div class="row">
                 <div class="col-8">
-                  <i class="fa fa-user" aria-hidden="true"></i><%= link_to "My Account", current_user, class: "mx-2 "  %>
+                  <i class="fa fa-user" aria-hidden="true"></i><%= link_to "My Account", main_app.user_path(current_user.id), class: "mx-2 "  %>
                 </div>
                 <div class="dot">
                   <%= image_tag current_user.gravatar_url(:email => current_user.email)%>
@@ -129,7 +129,7 @@
           </span>
           <span>
             <li class="nav-link nav-item">
-              <i class="fa fa-sign-out" aria-hidden="true"></i> <%= link_to 'Sign out', sign_out_path, class: "mx-2 ", method: :delete %>
+              <i class="fa fa-sign-out" aria-hidden="true"></i> <%= link_to 'Sign out', main_app.sign_out_path, class: "mx-2 ", method: :delete %>
             </li>
           </span>
           <% else %>
@@ -146,7 +146,7 @@
         <div class="bg-warning p-4">
           <h4>
             <i class="fa fa-leaf" style="color:green;" aria-hidden="true" ></i>
-              <%= link_to "Plant-Clinique", current_user, class: "mx-2 " , style: "color: brown; font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
+              <%= link_to "Plant-Clinique", main_app.user_path(current_user.id), class: "mx-2 " , style: "color: brown; font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
             <i class="fa fa-leaf" style="color:green;"aria-hidden="true" ></i>
           </h4>
           <span class="text-muted">
