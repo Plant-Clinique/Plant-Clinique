@@ -1,11 +1,11 @@
 .notifications {
   padding: 10px;
   margin: 20px;
-  border: 1px solid #eee;
+  border: 1px solid green;
   border-radius: 3px;
+  background-color: blanchedalmond;
 
   .heading {
-    border-bottom: 1px solid #eee;
     padding: 5px;
     margin-bottom: 10px;
   }
@@ -18,7 +18,8 @@
     .group-title {
       padding: 5px 0;
       color: #999;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid green;
+      text-align: center;
     }
   }
 
@@ -55,6 +56,15 @@
       min-width: 100px;
       color: #AAA;
       font-size: 13px;
+      padding: 10px;
+      text-align: center;
     }
   }
+}
+
+.center {
+  text-align: center;
+  color:green;
+  width: 50%;
+  margin: auto;
 }
