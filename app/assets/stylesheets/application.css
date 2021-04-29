@@ -84,10 +84,11 @@ body {
     height: 35px;
     width: 35px;
     border-radius: 50%;
-    background: url("prabu_front.png") no-repeat;
-    background-size: cover;
+    
+
   
   }
+
   
   .chat-icon {
     height: 25px;
@@ -205,7 +206,11 @@ a:visited {
 * {
   box-sizing: border-box;
 }
-@media screen and (max-width:400px) {
+
+
+/* should be minimum length here */
+@media screen and (min-width:800px) { 
+
 
   .verticalscroll{
   width: 100%;
@@ -219,3 +224,15 @@ a:visited {
  
  
 }
+
+/* one min solution
+body{
+  min-width:1000px;        
+  width: auto !important;  
+  width:1000px;            
+}
+
+
+body {  min-width:800px; }
+*/
+

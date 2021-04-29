@@ -38,6 +38,10 @@ class ChatbotStepsController < ApplicationController
         time_sent: Time.now.utc,
         from_bot: true,
         content: @prompt)
+    when :select_symptoms
+      jump_to(:choose_plant)
+    when :answer_symptoms_questions
+      jump_to(:choose_plant)
     when :display_possible_treatments
       if params[:possible_treatments]
         @possible_treatments = params[:possible_treatments]
