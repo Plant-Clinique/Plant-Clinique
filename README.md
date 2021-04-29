@@ -121,29 +121,43 @@ Our application, Plant-Clinique, is a web-based application with the main goal o
 
 - <strong>Login/Sign Up/Logout</strong>: The Login is basic with a place for your email and password. The sign up has a space for your username, email, and password. The Logout takes you back to the log in page. These pages were customized to have a simple design that includes our logo.
 
-<img src="./images-readme/6.png" title="DB Associations" width="50%">
+<img src="./images-readme/newlogin.png" title="login" width="50%">
+<img src="./images-readme/newsignup.png" title="signup" width="50%">
+
 
 - <strong>My Account</strong>: This page will welcome you to the app, show you any plant related notifications you have, and more. If you have a question you can easily access the public forum, edit your own account info, and add a plant to your "garden". Your garden will be a collection of the plants you own, visually indicated below your user information. These plant cards can be edited, removed, and play a role in the chatbot feature.
 
-<img src="./images-readme/1.png" title="DB Associations" width="50%">
+<img src="./images-readme/newaccount.png" title="account page" width="50%">
+<img src="./images-readme/newaccountpart2.png" title="plant view" width="50%">
 
 - <strong>Chatbot</strong>: The chatbot uses a multiple choice questionnaire to ascertain information for the user. The chatbot is displayed on a single page that resembles Facebook messenger, where incoming messages from the bot are on the left. After the bot responds to the user it displays optional replies using bootsrap buttons. There is also a plus sign on all pages (when logged in) in the bottom right corner for an instant jump to the chatbot.
 
-<img src="./images-readme/3.png" title="DB Associations" width="50%">
+<img src="./images-readme/newchat.png" title="chatbot" width="50%">
+
 
 - <strong>Forum Posts</strong>: This page is robust because posts can be filed by a different enum topic, and because a post can have many replies. The URL patterns above demonstrate the many functionalities, but this is our basic forum. Currently we have used data from the Faker gem to populate posts (Faker::Movies::Ghostbusters.quote). Posts and comments you submit are editable.
 
-<img src="./images-readme/5.png" title="DB Associations" width="50%">
+
+<img src="./images-readme/newpost.png" title="posts" width="50%">
 
 - application.html.erb (header, footer, scrollbar): This is the code where we implemented the navbar, the footer, and the scroll bar. The scroll bar was implemented using CSS. The footer was implemented using bootsrap and includes links to helpful areas. The bootsrap navbar helps the user with accessibility and has links to all the pages of our app, including the login and logout.
 
-## What's next
-- <strong>Reminders/Notifications</strong>: This will be implemented both in the navbar and the user page, as a badge indicating the number of notifications. The reminder page's functionalily will be based around the URL patterns outlined above. There will also be a clock on right with a calendar date so that the user knows what time they are putting into their reminder. We will also use a gem to email you if a reminder has been pending for a day.
-- <strong>Maps</strong>: This page will show you a local view of the area around you, marking parks, hiking locations, etc with a tree icon and a dollar icon over stores that sell/deal with plants.
-- <strong>Weekly Contest</strong>: a 7 day period where different plants are admitted to a contest and verified users vote on best plant that week (will remain up until new plant voted on)
+- Reminders: This allows users to put in and store reminders for their plants. There is also be a clock on right with a calendar date so that the user knows what time they are putting into their reminder. 
+
+<img src="./images-readme/newreminders.png" title="reminders" width="50%">
 
 
-# Paper Prototypes
+- Notifications: This allows the user to check on posts that have been interacted with, with an option to clear them all out at any point 
+
+<img src="./images-readme/newnotifications.png" title="notifications" width="50%">
+
+
+- Maps: This page shows you a local view of the area around you and you can search for local plant stores.
+
+<img src="./images-readme/newmaps.png" title="maps" width="50%">
+
+
+# Original Paper Prototypes
 
 <img src="./images-readme/Proto2.jpg" title="DB Associations" width="100%">
 
