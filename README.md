@@ -210,3 +210,60 @@ To run integration tests for Clearance and RailsAdmin, do
 ## More
 - [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler): Planning to use this to help us with sending reminders to users. 
 - [Twilio](https://www.twilio.com/blog/2017/12/send-sms-ruby-rails-5-coffee.html): Planning to use this to send the reminders to users through sms.
+
+# Stage 4 Deliverables 
+
+## Prabu:
+- Gravatars
+- UI Fixups: buttons, error pages, responsiveness, chatbot ui
+
+## Eric:
+- UI updates: 
+  - Upgrading post top have a sorting button, adding responsiveness 
+  - Creating the reminders, Maps, and the notifications UI
+  - Script work in navbar, account page, and reminders
+  - Updating the login and sign up buttons 
+  - Creating the chatbot steps UI 
+  - Added responsiveness and collapsibility in navbar 
+
+## Osamah:
+- Chatbot v2.0: uses Wicked gem to create unique step by step chatbot conversations where users must answer questions about their plants’ condition, and the chatbot will estimate possible treatments using the Trefle API and this [Penn State University study](https://extension.psu.edu/preventing-diagnosing-and-correcting-common-houseplant-problems) that I translated into this [json file](https://github.com/Plant-Clinique/Plant-Clinique/blob/main/lib/assets/symptoms.json) ([demo video](https://drive.google.com/file/d/1bjiX44d5YHKiJzlv_T8YpAqp5OnaoLRW/view)).
+- Store Locator: a searchable Mapbox map with user location access and stores where users can buy plants ([demo video](https://drive.google.com/file/d/1MPTDjMQ-K9o4QrbaCHNZxzw7idhPqC0d/preview)).
+- Plant type searchable select box using Select2 jQuery plugin and Trefle API data.
+- Plant image generated for new plants automatically using Pixabay API.
+- Users now get notifications when someone replies to their posts using the “notifications” gem.
+
+## Roman:
+- User page backend
+- Fixed a few routing bugs
+  - Disabled some unsafe routes
+- Create front-backend connections to create reminders
+- Automatically send email as reminders to users using Heroku Scheduler
+
+## <strong>Going Forward for the final deliverable: </strong>
+
+## Prabu:
+- Working on reminders UI using Wicked gem
+  - Fetched water information using trefle api
+  - Working on implementation of backend code with Wicked frontend implementation
+- Working on building a machine learning model for “Help user pick a plant” feature
+  - Finished data retrieval from trefle api
+  - Working on model design and implementation
+  - Working on model integration with app
+
+## Eric:
+- UI clean ups / updates / etc 
+- Interesting script to make the pages more engaging/responsible 
+- https://www.maissan.net/articles/simulating-vines attempt something like this 
+
+## Osamah:
+- General bug fixes
+- Clean up smelly backend code in views
+- Add sorting for posts and reminders
+- Add like/dislike button
+- Bonus: add something that helps users choose plants
+
+## Roman:
+- Showing the right time zones for users
+- Make sure users can’t access “/users” or other user’s data
+- Work with Prabu on the ML model
