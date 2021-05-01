@@ -5,10 +5,11 @@
 <div class="row">
   <h2 class="col-2" style="padding: 10px;"><%= link_to 'Topics: ', posts_path %></h2>
   <div class="scrolling-wrapper col-10 col-md-10 py-1 rounded" >
-    <% Post.topics.each do |topic, key| %>
+    <% @topics.each do |topic, key| %>
       <%= form_tag posts_path, :class=>"badge", :method => 'get' do %>
         <%= hidden_field_tag :search, key%>
-        <%= submit_tag(topic.capitalize.gsub(/[^0-9A-Za-z]/, ' '), :class=>"btn bg-success mr-2 px-5 text-light") %>
+        <%= hidden_field_tag :order, @current_order%>
+        <%= submit_tag(get_topic_in_display_format(topic), :class=>"btn bg-success mr-2 px-5 text-light") %>
       <% end %>
     <% end %>
   </div>
@@ -19,27 +20,32 @@
   <div class="col-6">
       <div class="dropdown ">
 
-        <button onclick="myFunction()" class="dropbtn " style="margin: auto;width: 20%;border: 3px solid green;padding: 10px;">
+        <button onclick="myFunction()" class="rounded dropbtn " style="margin: auto;width: 20%;border: 3px solid green;padding: 10px;">
           Sort By 
         </button>
 
-        <div id="myDropdown" class="dropdown-content ">
-          <a href="#"> Newest </a>
-          <a href="#"> Oldest </a>
-          <a href="#"> Most Liked </a>
-          <a href="#"> Least Liked </a>
-          <a href="#"> Random </a>
+        <div id="myDropdown" class="rounded dropdown-content">
+          <% @orders.each do |order| %>
+            <%= form_tag posts_path, :method => 'get' do %>
+              <%= hidden_field_tag :order, order%>
+              <% if @current_topic %>
+                <%= hidden_field_tag :search, @current_topic %>
+              <% end %>
+              <%= submit_tag(order, class: "dropdown-content-button") %>
+            <% end %>
+          <% end %>
         </div>
+      <a class='pl-3 text-muted'> Currently sorting by <%= @current_order %> </a>
       </div>
   </div>
   <div class="col-6">
-    <% if @posts.length != Post.all.length && !@posts.all.empty? %>
-    <h1 class="text-dark p-right" >
-      Posts about: 
-      <i><%= link_to " #{Post.topics.keys[@posts.first.topic].capitalize.gsub(/[^0-9A-Za-z]/, ' ')}", posts_path, class: "text-warning" %></i>
-      <i class="fa fa-tree" style="color:green;" aria-hidden="true"></i>
-    </h1>
-    <% elsif @posts.first.nil? %>
+    <% if not_all_posts_are_displayed %>
+      <h1 class="text-dark p-right" >
+        Posts about: 
+        <i><%= link_to get_current_topic, posts_path, class: "text-warning" %></i>
+        <i class="fa fa-tree" style="color:green;" aria-hidden="true"></i>
+      </h1>
+    <% elsif no_posts_in_this_topic %>
       <h4 class="text-danger " style="text-align: right;">No posts were found for this topic!</h4>
     <% else %>
       <h1 class="text-warning " style="text-align: right;"><%= link_to "All Posts", posts_path %></h1>
@@ -54,7 +60,7 @@
 <%= link_to 'New Post', new_post_path, class: 'btn btn-warning text-dark' %>
 
 <div class= "mb-5">
-  <% @posts.sort_by{|post| -post.created_at.to_i}.each do |post| %>
+  <% @current_page_posts.each do |post| %>
     <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background: #EFF69B;">
       <div class="card-body">
         <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5>
@@ -64,7 +70,7 @@
           | <%= post.replies.length %> Replies
           <%= "| Edited" if post.edited?%>
         </p>
-        <% if post.user.id.to_i == current_user.id.to_i %>
+        <% if post.user.id == current_user.id %>
           <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning text-dark' %>
         <% end %>
       </div>
@@ -73,12 +79,12 @@
   
 </div>
 
-<%= paginate @posts %>
+<%= paginate @current_page_posts %>
 
 </body>
 
 <div class="post-bottom"></div>
-<%if @posts.first.nil? %>
+<%if @current_page_posts.first.nil? %>
   <div class="post-bottom-2"></div>
 <%end%>
 
