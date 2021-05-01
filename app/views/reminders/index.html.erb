@@ -15,15 +15,22 @@
   <div class="col-6">
       <div class="dropdown ">
 
-        <button onclick="myFunction()" class="dropbtn " style="margin: auto;width: 30%;border: 3px solid green;padding: 10px;">
-          Sort By Type
+        <button onclick="myFunction()" class="rounded dropbtn " style="margin: auto;width: 30%;border: 3px solid green;padding: 10px;">
+          View By Type
         </button>
 
-        <div id="myDropdown" class="dropdown-content ">
-          <a href="#"> Water </a>
-          <a href="#"> Soil </a>
-          <a href="#"> Sun </a>
+        <div id="myDropdown" class="rounded dropdown-content">
+          <% @reminder_dropdown_list.each do |reminder_type| %>
+            <%= form_tag reminders_path, :method => 'get' do %>
+              <%= hidden_field_tag :reminder_type, reminder_type%>
+              <%= submit_tag(reminder_type, class: "dropdown-content-button") %>
+            <% end %>
+          <% end %>
+          <%= form_tag reminders_path, :method => 'get' do %>
+            <%= submit_tag("All", class: "dropdown-content-button") %>
+          <% end %>
         </div>
+        <a class='pl-3 text-muted'> Currently viewing <%= @current_category %> </a>
       </div>
   </div>
 
@@ -43,7 +50,7 @@
   </div>
 
 <div class= "mb-5">
-  <% @reminders.sort_by{|reminder| -reminder.created_at.to_i}.each do |reminder| %>
+  <% @reminders.each do |reminder| %>
     <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background: #EFF69B;">
       <div class="card-body">
         <h5 class="card-title">My Reminder about: <%= link_to reminder.user_plant.name, reminder %></h5>
