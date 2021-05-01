@@ -1,10 +1,14 @@
+require './lib/reminders_utils'
+
 class RemindersController < ApplicationController
   before_action :require_login
   before_action :set_reminder, only: %i[ show edit update destroy ]
 
   # GET /reminders or /reminders.json
   def index
-    @reminders = Reminder.where(user_id: current_user)
+    @current_category = params[:reminder_type] || "All"
+    @reminders = RemindersUtils.reminders_by_category(current_user, params[:reminder_type])
+    @reminder_dropdown_list = reminder_type_dropdown.map{ |reminder_type| reminder_type[0].titleize }
   end
 
   # GET /reminders/1 or /reminders/1.json
