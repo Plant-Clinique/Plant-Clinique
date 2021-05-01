@@ -15,23 +15,16 @@
 
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+    <%= form.hidden_field :user_id, value: reply.user_id %>
   </div>
 
   <div class="field" >
-    <%= form.label :post_id %>
-    <%= form.number_field :post_id %>
+    <%= form.hidden_field :post_id, value: reply.post_id %>
   </div>
 
   <div class="field" >
     <%= form.label :body %>
     <%= form.text_field :body %>
-  </div>
-
-  <div class="field" >
-    <%= form.label :created_at %>
-    <%= form.datetime_select :created_at %>
   </div>
 
   <div class="actions" >
