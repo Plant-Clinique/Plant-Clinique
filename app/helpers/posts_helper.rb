@@ -14,4 +14,8 @@ module PostsHelper
   def get_current_topic
     get_topic_in_display_format(@topics.keys[@current_page_posts.first.topic])
   end
+
+  def get_topic_from_id(topic_id)
+    get_topic_in_display_format(Post.topics.keys[topic_id])
+  end
 end

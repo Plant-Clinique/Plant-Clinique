@@ -17,6 +17,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    @topics = Post.topics
   end
 
   # GET /posts/new

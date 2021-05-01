@@ -20,11 +20,11 @@
   <div class="col-6">
       <div class="dropdown ">
 
-        <button onclick="myFunction()" class="dropbtn " style="margin: auto;width: 20%;border: 3px solid green;padding: 10px;">
+        <button onclick="myFunction()" class="rounded dropbtn " style="margin: auto;width: 20%;border: 3px solid green;padding: 10px;">
           Sort By 
         </button>
 
-        <div id="myDropdown" class="dropdown-content">
+        <div id="myDropdown" class="rounded dropdown-content">
           <% @orders.each do |order| %>
             <%= form_tag posts_path, :method => 'get' do %>
               <%= hidden_field_tag :order, order%>
@@ -70,7 +70,7 @@
           | <%= post.replies.length %> Replies
           <%= "| Edited" if post.edited?%>
         </p>
-        <% if post.user.id.to_i == current_user.id.to_i %>
+        <% if post.user.id == current_user.id %>
           <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning text-dark' %>
         <% end %>
       </div>
