@@ -6,8 +6,10 @@
       <div class = "row text-center" style = "height: 50px;"> </div>
       <h1 class='text-center'  style="color:yellow;"> Editing Reminder </h1>
             <%= render 'form', reminder: @reminder %>
-       <button class="bg-warning"> 
-            <%= link_to 'Show', @reminder %> |
+       <button class="bg-warning btn rounded"> 
+            <%= link_to 'Save', @reminder %>
+        </button>
+        <button class="bg-warning btn rounded"> 
             <%= link_to 'Back', reminders_path %> 
         </button>
     </div>

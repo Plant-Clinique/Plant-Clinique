@@ -36,8 +36,10 @@
               <strong>Reminder Type:</strong>
               <%= @reminder.reminder_type %>
             </p>
-       <button class="bg-warning"> 
-            <%= link_to 'Edit', edit_reminder_path(@reminder) %> |
+        <button class="bg-warning btn rounded"> 
+            <%= link_to 'Edit', edit_reminder_path(@reminder) %>
+        </button>
+        <button class="bg-warning btn rounded"> 
             <%= link_to 'Back', reminders_path %> 
         </button>
     </div>
