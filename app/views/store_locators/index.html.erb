@@ -9,16 +9,15 @@
 
 <script>
   mapboxgl.accessToken = 'pk.eyJ1Ijoib3NhbWFoNyIsImEiOiJja25rcnMzNHUwYnlsMnBuMXoxNTRtaXF1In0.eTGxtcx1aQ-6fiv4pdDqQw'; // set the access token
-  delete map;
   
-  var map = new mapboxgl.Map({
+  let map = new mapboxgl.Map({
     container: 'map', // The container ID
     style: 'mapbox://styles/osamah7/cknmfhbhy0zfv17qzounel1b6', // The map style to use
     center: [-71.25905434334308, 42.36490609061847], // Starting position [lng, lat]
     zoom: 9 // Starting zoom level
   });
 
-  var geolocate = new mapboxgl.GeolocateControl({
+  let geolocate = new mapboxgl.GeolocateControl({
       positionOptions: {
         enableHighAccuracy: true
       },
@@ -29,7 +28,7 @@
 
   map.on('load', function() {
     
-    var geocoder = new MapboxGeocoder({ // Initialize the geocoder
+    let geocoder = new MapboxGeocoder({ // Initialize the geocoder
       accessToken: mapboxgl.accessToken, // Set the access token
       mapboxgl: mapboxgl, // Set the mapbox-gl instance
       zoom: 12, // Set the zoom level for geocoding results
@@ -39,15 +38,15 @@
     // Add the geocoder to the map
     map.addControl(geocoder, 'top-left'); // Add the search box to the top left
 
-    var marker = new mapboxgl.Marker({'color': '#008000'}) // Create a new green marker
+    let marker = new mapboxgl.Marker({'color': '#008000'}) // Create a new green marker
 
     geocoder.on('result', function(data) { // When the geocoder returns a result
-      var point = data.result.center; // Capture the result coordinates
+      let point = data.result.center; // Capture the result coordinates
       marker.setLngLat(point).addTo(map); // Add the marker to the map at the result coordinates
-      var tileset = 'osamah7.7euhsy8k'; // replace this with the ID of the tileset you created
-      var radius = 3000; // 1609 meters is roughly equal to one mile
-      var limit = 50; // The maximum amount of results to return
-      var query = 'https://api.mapbox.com/v4/' + tileset + '/tilequery/' + point[0] + ',' + point[1] + '.json?radius=' + radius + '&limit= ' + limit + ' &access_token=' + mapboxgl.accessToken;
+      let tileset = 'osamah7.7euhsy8k'; // replace this with the ID of the tileset you created
+      let radius = 3000; // 1609 meters is roughly equal to one mile
+      let limit = 50; // The maximum amount of results to return
+      let query = 'https://api.mapbox.com/v4/' + tileset + '/tilequery/' + point[0] + ',' + point[1] + '.json?radius=' + radius + '&limit= ' + limit + ' &access_token=' + mapboxgl.accessToken;
     
       $.ajax({ // Make the API call
         method: 'GET',
@@ -58,12 +57,12 @@
     });
 
     geolocate.on('geolocate', function(position) {
-      var point = [position.coords.longitude, position.coords.latitude]; // Capture the result coordinates
+      let point = [position.coords.longitude, position.coords.latitude]; // Capture the result coordinates
       marker.setLngLat(point).addTo(map); // Add the marker to the map at the result coordinates
-      var tileset = 'osamah7.7euhsy8k'; // replace this with the ID of the tileset you created
-      var radius = 3000; // 1609 meters is roughly equal to one mile
-      var limit = 50; // The maximum amount of results to return
-      var query = 'https://api.mapbox.com/v4/' + tileset + '/tilequery/' + point[0] + ',' + point[1] + '.json?radius=' + radius + '&limit= ' + limit + ' &access_token=' + mapboxgl.accessToken;
+      let tileset = 'osamah7.7euhsy8k'; // replace this with the ID of the tileset you created
+      let radius = 3000; // 1609 meters is roughly equal to one mile
+      let limit = 50; // The maximum amount of results to return
+      let query = 'https://api.mapbox.com/v4/' + tileset + '/tilequery/' + point[0] + ',' + point[1] + '.json?radius=' + radius + '&limit= ' + limit + ' &access_token=' + mapboxgl.accessToken;
     
       $.ajax({ // Make the API call
         method: 'GET',
@@ -109,7 +108,7 @@
         ]
       }
     });
-    var popup = new mapboxgl.Popup; // Initialize a new popup
+    let popup = new mapboxgl.Popup; // Initialize a new popup
 
     map.on('mouseenter', 'tilequery-points', function(e) {
       map.getCanvas().style.cursor = 'pointer';
@@ -118,17 +117,17 @@
     map.on('click', 'tilequery-points', function(e) {
       map.getCanvas().style.cursor = ''; // When the cursor enters a feature, set it to a pointer
 
-      var title = '<h5>' + e.features[0].properties.STORE_NAME + '</h5>'; // Set the store name
-      var storeType = '<h6> Store type: ' + e.features[0].properties.STORE_TYPE + '</h6>'; // Set the store type
+      let title = '<h5>' + e.features[0].properties.STORE_NAME + '</h5>'; // Set the store name
+      let storeType = '<h6> Store type: ' + e.features[0].properties.STORE_TYPE + '</h6>'; // Set the store type
 
-      var lon = e.features[0].properties.longitude;
-      var lat = e.features[0].properties.latitude;
+      let lon = e.features[0].properties.longitude;
+      let lat = e.features[0].properties.latitude;
 
-      var obj = JSON.parse(e.features[0].properties.tilequery); // Get the feature's tilequery object (https://docs.mapbox.com/api/maps/#response-retrieve-features-from-vector-tiles)
-      var distance = '<p>' + (obj.distance / 1609.344).toFixed(2) + ' mi. from location' + '</p>'; // Take the distance property, convert it to miles, and truncate it at 2 decimal places
+      let obj = JSON.parse(e.features[0].properties.tilequery); // Get the feature's tilequery object (https://docs.mapbox.com/api/maps/#response-retrieve-features-from-vector-tiles)
+      let distance = '<p>' + (obj.distance / 1609.344).toFixed(2) + ' mi. from location' + '</p>'; // Take the distance property, convert it to miles, and truncate it at 2 decimal places
       
-      var coordinates = new mapboxgl.LngLat(lon, lat); // Create a new LngLat object (https://docs.mapbox.com/mapbox-gl-js/api/#lnglatlike)
-      var content = title + storeType + distance; // All the HTML elements
+      let coordinates = new mapboxgl.LngLat(lon, lat); // Create a new LngLat object (https://docs.mapbox.com/mapbox-gl-js/api/#lnglatlike)
+      let content = title + storeType + distance; // All the HTML elements
 
       popup.setLngLat(coordinates) // Set the popup at the given coordinates
         .setHTML(content) // Set the popup contents equal to the HTML elements you created

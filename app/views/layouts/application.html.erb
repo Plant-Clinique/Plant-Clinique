@@ -86,7 +86,7 @@
 
           <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.store_locators_path) %> nav-item">
-              <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", main_app.store_locators_path, class: "mx-2 " %>
+              <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", main_app.store_locators_path, method: :get, class: "mx-2 " %>
             </li>
           </span>
 
