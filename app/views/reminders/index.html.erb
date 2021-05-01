@@ -34,12 +34,6 @@
       </div>
   </div>
 
-  <div class="col-6">
-    <% if @reminders.first.nil? %>
-      <h4 class="text-danger " style="text-align: right;"> You have no reminders </h4>
-    <% end %>
-  </div>
-
   
 </div>
 
@@ -50,6 +44,9 @@
   </div>
 
 <div class= "mb-5">
+  <% if @reminders.first.nil? %>
+    <h4 class="text-danger pt-4"> You have no reminders </h4>
+  <% end %>
   <% @reminders.each do |reminder| %>
     <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background: #EFF69B;">
       <div class="card-body">
