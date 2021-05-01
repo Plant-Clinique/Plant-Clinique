@@ -1,11 +1,18 @@
+require './lib/posts_utils'
+
 class PostsController < ApplicationController
   before_action :require_login
   before_action :set_post, only: %i[ show edit update destroy ]
-
+  
   # GET /posts or /posts.json
   def index
-    @all_posts = Post.search(params[:search])
-    @posts = @all_posts.page(params[:page])
+    @orders = PostsUtils::ORDERS
+    @all_posts = Post.all
+    @current_topic = params[:search]
+    @current_order = params[:order] || @orders[0]
+    @all_topic_posts = Post.search(params[:search])
+    @current_page_posts = PostsUtils.posts_sort(@all_topic_posts.page(params[:page]), params[:order])
+    @topics = Post.topics
   end
 
   # GET /posts/1 or /posts/1.json
