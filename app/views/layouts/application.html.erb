@@ -86,7 +86,7 @@
 
           <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.store_locators_path) %> nav-item">
-              <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", main_app.store_locators_path, class: "mx-2 " %>
+              <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", main_app.store_locators_path, method: :get, class: "mx-2 " %>
             </li>
           </span>
 
@@ -108,7 +108,7 @@
                 <i class="fa fa-clock" aria-hidden="true"></i>
                 <span>Reminders</span>
                 <!-- if reminders.unread? -->
-                <span class="badge" style="background-color: red;">3</span> <!--reminders.unread.length-->
+                <span class="badge" style="background-color: red;"><%= Reminder.where(user_id: current_user).length %></span> <!--reminders.unread.length-->
                 <!--  end // also to emails --> 
                 </a>
               </li>
