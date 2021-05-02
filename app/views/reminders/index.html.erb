@@ -44,7 +44,7 @@
 
 <div class= "mb-5">
   <% @reminders.sort_by{|reminder| -reminder.created_at.to_i}.each do |reminder| %>
-    <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background: #EFF69B;">
+    <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background: white;">
       <div class="card-body">
         <h5 class="card-title">My Reminder about: <%= link_to reminder.user_plant.name, reminder %></h5>
         <p class="card-text font-weight-bold">
@@ -84,6 +84,7 @@ window.onclick = function(event) {
   }
 }
 </script>
+
 <!-- hide with smaller window script -->
 <script >
   $(window).resize(function() {

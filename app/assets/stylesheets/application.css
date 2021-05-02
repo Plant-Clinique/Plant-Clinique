@@ -31,10 +31,6 @@ body {
 }
 
 
-.light body {
-  background-color: #98FFB3;
-}
-
  .header {
   text-align: center;
   color: white !important ;
@@ -50,6 +46,7 @@ body {
   overflow-y: hidden;
   white-space: nowrap;
  }
+
  .scrolling-wrapper .card {
   display: inline-block;
  }
@@ -60,18 +57,16 @@ body {
   top: -10px;
   right: -10px;
   border-radius: 50%;
-  background: blue;
+  background: red;
   color: white;
  }
-
- 
   
  .notification {
-  color: black;
   text-decoration: none;
   position: relative;
   display: inline-block;
   border-radius: 2px;
+  color:white;
  }
   
  .active {
@@ -223,6 +218,14 @@ a:visited {
   }
  
  
+}
+
+a { 
+  color: #222; 
+}
+
+li {
+  color: #222; 
 }
 
 /* one min solution

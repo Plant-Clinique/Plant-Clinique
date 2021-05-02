@@ -28,6 +28,8 @@
 	background-position: center; 
 	background-repeat: no-repeat; 
 	background-attachment:fixed;
+
+	z-index: 2;
   
   
 	/* Full height */
@@ -46,4 +48,66 @@
 	display: inline-block;
 	font-size: 16px;
   }
+
+  /* leaves */
+
+  .page{
+	width: 90%;
+	height: 100%;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	
+
+}
+.anim span{
+	display: inline-block;
+	height: 75px;
+	width: 75px;
+	margin: -280px 40px 54px  -34px;
+	background:url("http://premiumcoding.com/CSSTricks/fallingLeaves/leaf.png");
+	animation: anim 10s infinite  linear;
+}
+.anim span:nth-child(7n) {
+	animation-delay: 2.5s;
+}
+.anim span:nth-child(7n-1) {
+	animation-delay: 1.0s;
+}
+.anim span:nth-child(7n-2) {
+	animation-delay: 3.5s;
+}
+.anim span:nth-child(7n-3) {
+	animation-delay: 5.0s;
+}
+.anim span:nth-child(7n-4) {
+	animation-delay: 1.5s;
+}
+.anim span:nth-child(7n-5) {
+	animation-delay: 7.0s;
+}
+.anim span:nth-child(7n-6) {
+	animation-delay: 9.5s;
+}
+
+@keyframes anim{
+	0% {
+		width: 75px;
+		height: 75px;
+		opacity: 1;                    
+		transform: translate(0, 0px) rotateZ(0deg);
+	}
+	75% {
+		width: 75px;
+		height: 75px;
+		opacity: 1;
+		transform: translate(100px, 900px) rotateZ(270deg); 
+	}
+	100% {
+		width: 75px;
+		height: 75px;
+		opacity: 0;                   
+		transform: translate(150px, 900px) rotateZ(360deg);
+	}
+}
 

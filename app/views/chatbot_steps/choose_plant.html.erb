@@ -20,8 +20,8 @@
             <%= form.hidden_field :from_bot, value: false %>
             <%= form.hidden_field :plant_id, value: option.id %>
             <%= form.hidden_field :content, value: option.name%>
-            <a><%= form.submit option.name, class: "mt-2 btn btn-info text-light button-group", 
-            style: "padding-right:10px; padding-left: 10px;display: flex;margin: 0 5px;" %></a>
+            <%= form.submit option.name, class: "mt-2 btn btn-info text-light button-group", 
+            style: "padding-right:10px; padding-left: 10px;display: flex;margin: 0 5px;" %>
           <% end %>
         <% end %>
         <br>
@@ -35,4 +35,4 @@
     <div class="col"></div>
 </div>
 
-<div class="bottom-layer"></div>
+ <div style="height: 500px"></div>

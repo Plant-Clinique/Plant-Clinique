@@ -47,6 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
   </head>
 
+<canvas id="myCanvas" width="250" height="150"  style="position: absolute; right: 0px; top: 125px;"></canvas>
 
 
   <body >
@@ -68,7 +69,10 @@
 
           <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.posts_path) %> nav-item">
-              <i class="fa fa-comments" aria-hidden="true"></i><%= link_to "Posts", main_app.posts_path, class: "mx-2 " %>
+              <%= button_to main_app.posts_path, method: :get, class: "btn-info text-light " do %> 
+              <i class="fa fa-comments" aria-hidden="true"></i>
+                Posts
+              <% end %>
             </li>
           </span>
 
@@ -80,58 +84,70 @@
                 <%= 'active' if current_page?("/chatbot_steps/display_possible_treatments")%>
                 <%= 'active' if current_page?("/chatbot_steps/select_symptoms")%>
               nav-item">
-              <i class="fa fa-laptop" aria-hidden="true"> </i><%= link_to "Chatbot", main_app.chatbot_steps_path, class: "mx-2 " %>
+              <%= button_to main_app.chatbot_steps_path, method: :get, class: "btn-info text-light " do %> 
+              <i class="fa fa-laptop" aria-hidden="true"> </i>
+                Chatbot
+              <% end %>
             </li>
           </span>
-
+                  
           <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.store_locators_path) %> nav-item">
-              <i class="fa fa-map" aria-hidden="true"></i> <%= link_to "Maps", main_app.store_locators_path, class: "mx-2 " %>
+             <%= button_to main_app.store_locators_path, method: :get, class: "btn-info text-light " do %> 
+              <i class="fa fa-map" aria-hidden="true"></i> 
+                Maps
+              <% end %>
             </li>
           </span>
 
           <span>
             <li class="nav-link <%= 'active' if current_page?(notifications_path) %> nav-item"> 
-              <a href="<%= notifications_path %>" class="notification">
-              <i class="fa fa-bell" style="color:black;" aria-hidden="true"></i>
-              <span style="color:black;">Notifications</span>
+              <%= button_to notifications_path, method: :get, class: "btn-info text-light notification " do %> 
+              <i class="fa fa-bell" aria-hidden="true"></i>
+              <span>Notifications</span>
               <!-- if reminders.unread? -->
-              <span class="badge"><%= Notification.unread_count(current_user.id).to_i %></span> <!--reminders.unread.length-->
+              <span class="badge"><%= Notification.unread_count(current_user.id).to_i %></span> 
               <!--  end // also to emails --> 
-              </a>
+              <% end %>
             </li>
           </span>
 
           <span>
               <li class="nav-link <%= 'active' if current_page?(main_app.reminders_path) %> nav-item"> 
-                <a href="<%= main_app.reminders_path %>" class="notification">
+                <%= button_to main_app.reminders_path, method: :get, class: "btn-info text-light notification " do %> 
                 <i class="fa fa-clock" aria-hidden="true"></i>
                 <span>Reminders</span>
                 <!-- if reminders.unread? -->
-                <span class="badge" style="background-color: red;">3</span> <!--reminders.unread.length-->
+                <span class="badge" style="background-color: blue;">3</span> <!--reminders.unread.length-->
                 <!--  end // also to emails --> 
-                </a>
+                <% end %>
               </li>
           </span>
 
-
           <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.user_path(current_user.id)) %> nav-item">
-              <div class="row">
-                <div class="col-8">
-                  <i class="fa fa-user" aria-hidden="true"></i><%= link_to "My Account", main_app.user_path(current_user.id), class: "mx-2 "  %>
-                </div>
-                <div class="dot">
-                  <%= image_tag current_user.gravatar_url(:email => current_user.email)%>
-                </div>
-              </div>
+              <%= button_to main_app.user_path(current_user.id), method: :get, class: "btn-info text-light " do %> 
+                <i class="fa fa-user" aria-hidden="true"></i>
+                My Account
+              <% end %>
             </li>
           </span>
+
+          <div class="dot" style="display: inline-block; justify-content: center; align-items: center;">
+              <a href=  "/"> <!-- "main_app.user_path(current_user.id)" -->
+                <%= image_tag current_user.gravatar_url(:email => current_user.email), style: "border-radius: 50%; "%>
+              </a>
+          </div>
+
           <span>
             <li class="nav-link nav-item">
-              <i class="fa fa-sign-out" aria-hidden="true"></i> <%= link_to 'Sign out', main_app.sign_out_path, class: "mx-2 ", method: :delete %>
+              <%= button_to main_app.sign_out_path,method: :delete, class: "btn-primary text-light " do %> 
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                Sign Out
+              <% end %>
             </li>
           </span>
+
           <% else %>
           <span>
             <i class="fa fa-sign-in" aria-hidden="true"></i> <li ><%= link_to 'Sign in', main_app.sign_in_path, class: "mx-2 " %></li>
@@ -166,39 +182,8 @@
     <div class="container">
       <%= yield -%>
     </div>
-    <!-- >
-    <script>
-      $(function () {
-        $('[data-toggle="popover"]').popover()
-      })
-    </script>
-    <script>  
-      $(function () {
-        $('.example-popover').popover({
-          container: 'body'
-        })
-      })
-    </script>
-    idk who put the script in but it doesnt work-->
 
-    <!-- suprise cool background JS - maybe for just the home page? -->
-  <!--
-    <script>
-    var canvas = document.getElementById('myCanvas'); 
-    var context = canvas.getContext('2d'); 
-    context.fillRect(0, 0, 50, 50);
-
-    context.beginPath(); 
-    context.moveTo(0, 0); 
-    context.lineTo(100, 100); 
-    context.lineWidth = 1; 
-    context.strokeStyle = 'rgb(255, 150, 168)'; 
-    context.stroke();
-
-    </script>
-  -->
-
-    <!-- for the chatbot popup -->
+    <!-- for the chatbot popup 
     <div class="row">
       <% if signed_in? %>
         <div class=circle>
@@ -208,7 +193,7 @@
         </div>
       <% end %>
     </div>
-  
+    -->
   
   <footer class="row justify-content-center plant-item" style="height: 20px; width: 100%; color: white; background-color:#92B78B; text-align: center;">
     <p style="text-align: center;left:0; bottom:0;"> 
@@ -275,6 +260,10 @@ else  {
   $('.collapsed-nav').hide(); /* hide collapsed */ 
   $('.uncollapsed').show(); /* show uncollapsed */
 }
+</script>
+
+<script>
+console.log('welcome to the plant-clinique log')
 </script>
 
 </html>

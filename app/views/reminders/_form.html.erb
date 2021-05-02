@@ -26,31 +26,31 @@
 -->
 
   <div class="field">
-    <%= form.label :Choose_your_plant, style: "color:yellow;"%>
+    <%= form.label :Choose_your_plant, style: "color:yellow; font-size: 18px;"%>
     <%= form.select :user_plant_id, @user_plant_dropdown %>
   </div>
 
   <div class="field">
-    <%= form.label :tick_time, style: "color:yellow;" %>
+    <%= form.label :tick_time, style: "color:yellow; font-size: 18px;" %>
     <%= form.time_select :tick_time %>
   </div>
 
   <div class="field">
-    <%= form.label :description, style: "color:yellow;" %>
+    <%= form.label :description, style: "color:yellow; font-size: 18px;" %>
     <%= form.text_field :description %>
   </div>
 
   <div class="field">
-    <%= form.label :type, style: "color:yellow;" %>
+    <%= form.label :type, style: "color:yellow; font-size: 18px;" %>
     <%= form.select :reminder_type, @reminder_dropdown_list %>
   </div>
 
   <div class="field">
-    <%= form.label :interval, style: "color:yellow;" %>
+    <%= form.label :interval, style: "color:yellow; font-size: 18px;" %>
     <%= form.number_field :interval %>
   </div>
 
-  <div class="actions "  >
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit%> <!-- , class: "btn btn-warning"-->
   </div>
 <% end %>
