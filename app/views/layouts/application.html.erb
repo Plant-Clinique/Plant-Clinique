@@ -47,18 +47,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
   </head>
 
-<canvas id="myCanvas" width="250" height="150"  style="position: absolute; right: 0px; top: 125px;"></canvas>
 
 
   <body >
-    <nav class="navbar p-3 mb-4 bg-warning uncollapsed">
+    <nav class="navbar p-3 mb-4 bg-pc-green uncollapsed" style="z-index: 1;">
       <div class="container-fluid">
         <div class="navbar-header ">
           <div class="header">
           <li class="nav-link header" %>
-            <i class="fa fa-leaf" style="color:green;" aria-hidden="true" ></i>
-              <%= link_to "Plant-Clinique", "/", class: "mx-2 " , style: "color: brown; font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
-            <i class="fa fa-leaf" style="color:green;"aria-hidden="true" ></i>
+            <i class="fa fa-leaf" style="color:#9AE19D;" aria-hidden="true" ></i>
+              <%= link_to "Plant-Clinique", "/", class: "mx-2 " , style: "color: white; font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
+            <i class="fa fa-leaf" style="color:#9AE19D;"aria-hidden="true" ></i>
           </li>
           </div>
         </div>
@@ -69,7 +68,7 @@
 
           <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.posts_path) %> nav-item">
-              <%= button_to main_app.posts_path, method: :get, class: "btn-info text-light " do %> 
+              <%= button_to main_app.posts_path, method: :get, class: "btn-pc text-dark " do %> 
               <i class="fa fa-comments" aria-hidden="true"></i>
                 Posts
               <% end %>
@@ -84,7 +83,7 @@
                 <%= 'active' if current_page?("/chatbot_steps/display_possible_treatments")%>
                 <%= 'active' if current_page?("/chatbot_steps/select_symptoms")%>
               nav-item">
-              <%= button_to main_app.chatbot_steps_path, method: :get, class: "btn-info text-light " do %> 
+              <%= button_to main_app.chatbot_steps_path, method: :get, class: "btn-pc text-dark " do %> 
               <i class="fa fa-laptop" aria-hidden="true"> </i>
                 Chatbot
               <% end %>
@@ -93,7 +92,7 @@
                   
           <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.store_locators_path) %> nav-item">
-             <%= button_to main_app.store_locators_path, method: :get, class: "btn-info text-light " do %> 
+             <%= button_to main_app.store_locators_path, method: :get, class: "btn-pc text-dark " do %> 
               <i class="fa fa-map" aria-hidden="true"></i> 
                 Maps
               <% end %>
@@ -102,7 +101,7 @@
 
           <span>
             <li class="nav-link <%= 'active' if current_page?(notifications_path) %> nav-item"> 
-              <%= button_to notifications_path, method: :get, class: "btn-info text-light notification " do %> 
+              <%= button_to notifications_path, method: :get, class: "btn-pc text-dark notification " do %> 
               <i class="fa fa-bell" aria-hidden="true"></i>
               <span>Notifications</span>
               <!-- if reminders.unread? -->
@@ -114,7 +113,7 @@
 
           <span>
               <li class="nav-link <%= 'active' if current_page?(main_app.reminders_path) %> nav-item"> 
-                <%= button_to main_app.reminders_path, method: :get, class: "btn-info text-light notification " do %> 
+                <%= button_to main_app.reminders_path, method: :get, class: "btn-pc text-dark notification " do %> 
                 <i class="fa fa-clock" aria-hidden="true"></i>
                 <span>Reminders</span>
                 <!-- if reminders.unread? -->
@@ -126,7 +125,7 @@
 
           <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.user_path(current_user.id)) %> nav-item">
-              <%= button_to main_app.user_path(current_user.id), method: :get, class: "btn-info text-light " do %> 
+              <%= button_to main_app.user_path(current_user.id), method: :get, class: "btn-pc text-dark text-light " do %> 
                 <i class="fa fa-user" aria-hidden="true"></i>
                 My Account
               <% end %>

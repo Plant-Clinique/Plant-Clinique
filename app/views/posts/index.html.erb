@@ -4,7 +4,7 @@
 <body>
 <div class="row">
   <h2 class="col-2" style="padding: 10px;">
-    <%= button_to posts_path, method: :get, class: "btn btn-warning text-dark space", style: "font-size: 30px;" do %>
+    <%= button_to posts_path, method: :get, class: "btn btn-dark text-light space", style: "font-size: 30px;" do %>
       Topics:
     <% end %>
   </h2>
@@ -40,7 +40,7 @@
     <% if @posts.length != Post.all.length && !@posts.all.empty? %>
     <h1 class="text-dark p-right" >
       Posts about: 
-      <i><%= link_to " #{Post.topics.keys[@posts.first.topic].capitalize.gsub(/[^0-9A-Za-z]/, ' ')}", posts_path, class: "text-warning" %></i>
+      <i><%= link_to " #{Post.topics.keys[@posts.first.topic].capitalize.gsub(/[^0-9A-Za-z]/, ' ')}", posts_path, style: "color: #537A5A" %></i>
       <i class="fa fa-tree" style="color:green;" aria-hidden="true"></i>
     </h1>
     <% elsif @posts.first.nil? %>
@@ -55,7 +55,7 @@
 <hr>
 
 
-<%= link_to 'New Post', new_post_path, class: 'btn btn-warning text-dark' %>
+<%= link_to 'New Post', new_post_path, class: 'btn btn-secondary text-light' %>
 
 <div class= "mb-5">
   <% @posts.sort_by{|post| -post.created_at.to_i}.each do |post| %>

@@ -15,11 +15,22 @@
 */
  
 body {
-  background-color: #ADEBA9 !important;
+  background-color: lightgray !important;
   margin: 0;
   padding: 0;
   min-width:600px;
  }
+
+ .bg-pc-green{
+   background-color: #537A5A;
+ }
+
+.btn-pc {
+background-color: #9AE19D;
+}
+
+
+ 
   
  .header {
   text-align: center;
@@ -70,7 +81,7 @@ body {
  }
   
  .active {
-  background-color: green;
+  background-color: #9AE19D;
   border-radius: 10px;
   color:white;
  }
@@ -114,7 +125,7 @@ overflow-x: hidden;
   
  #style-6::-webkit-scrollbar-thumb
  {
-  background-color: #F90;
+  background-color: #474A48;
   background-image: -webkit-linear-gradient(45deg,
                         rgba(255, 255, 255, .2) 25%,
                         transparent 25%,
@@ -144,7 +155,7 @@ overflow-x: hidden;
  }
  /* Handle */
  ::-webkit-scrollbar-thumb {
-  background-color: brown; 
+  background-color: #474A48; 
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%,transparent 25%,transparent 50%,rgba(255, 255, 255, .2) 50%,
                         rgba(255, 255, 255, .2) 75%,transparent 75%,transparent);
                         overflow-y: scroll;
@@ -153,7 +164,7 @@ overflow-x: hidden;
   
  /* Handle on hover */
  ::-webkit-scrollbar-thumb:hover {
-  background: #b30000;
+  background: #474A48;
   overflow-y: scroll;
 overflow-x: hidden;
  }

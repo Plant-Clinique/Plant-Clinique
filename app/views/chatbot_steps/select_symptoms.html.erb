@@ -19,7 +19,7 @@
         <%= form.hidden_field :symptom_id, value: symptom[1] %>
         <%= form.hidden_field :plant_id, value: @plant.id %>
         <%= form.hidden_field :content, value: symptom[0]%>
-        <%= form.submit symptom[0], class: "mt-2 btn btn-info text-light" %>
+        <%= form.submit symptom[0], class: "mt-2 btn text-light",  style: "background-color: #537A5A" %>
       <% end %>
     <% end %>
   </div>

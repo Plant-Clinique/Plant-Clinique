@@ -1,4 +1,4 @@
-   <div class="row" style="height: 100px;"> </div>
+<div class="row" style="height: 100px;"> </div>
 
 <div class="row bg-white" style="border-radius: 50px; text-align: center; height: 350px; border: 3px solid green; " >
   <div class="col vertical-center" style="padding: 20px;">
@@ -18,7 +18,7 @@
         <%= form.hidden_field :question_number, value: @question_number%>
         <%= form.hidden_field :possible_treatments, value: @possible_treatments.to_s%>
         <%= form.text_field :symptom_question_response%>
-        <%= form.submit "Submit", class: "mt-2 btn btn-info text-light" %>
+        <%= form.submit "Submit", class: "mt-2 btn text-light",  style: "background-color: #537A5A" %>
     <% end %>
   </div>
   <div class="col"></div>
