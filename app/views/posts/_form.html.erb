@@ -28,5 +28,5 @@
     <%= form.select(:topic, options_for_select(Post.topics.keys.map{|key| [key.capitalize.gsub(/[^0-9A-Za-z]/, ' '), Post.topics[key]]}), {:include_blank => "Select a topic", :selected => post.topic}, {:class => 'form-control'})%>
   </div>
 
-  <%= form.submit "Save Post", class: 'btn btn-warning text-dark' %>
+  <%= form.submit "Save Post", class: 'btn text-light',  style: "background-color: #537A5A"  %>
 <% end %>

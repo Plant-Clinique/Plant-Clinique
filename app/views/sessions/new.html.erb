@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-<canvas></canvas>
-<main >
 
-  <div id="myCanvas">
+<div class = "row" style = "height: 50px;"></div>
+
+  <div >
     <div class="row" style = "height: 500px;">
       <div class = "col-3">
       </div>
 
       <div class="col-md-6 bg">
       
-        <div class = "row" style = "height: 100px;">
+        <div class = "row" style = "height: 75px;">
         </div>
 
-        <h1 class='text-center' style="color:#ffc107;text-shadow: 0 0 3px #58D68D, 0 0 5px #212F3D ;">Welcome to Plant-Clinique</h1> 
+        <h1 class='text-center' style="color:#537A5A;text-shadow: 0 0 3px #537A5A, 0 0 5px #9AE19D ;">Welcome to Plant-Clinique</h1> 
         
         <div id="clearance" class="sign-in">
           <%= render partial: '/sessions/form' -%>
@@ -24,28 +24,48 @@
     <div class = "col-3">
     </div>
   </div>      
-</main>
 
 <div class = "row" style = "height: 450px;"></div>
+<!-- https://codepen.io/MAW/pen/KdmwMb -->
+<body>
+        <div class="page">
+            <div class="anim">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </body>
 
-
-<script>
-
-window.onload = function() {
-  var canvas = document.getElementById('myCanvas'); 
-  var context = canvas.getContext('2d'); 
-  context.fillRect(0, 0, 50, 50);
-  context.beginPath(); 
-  context.moveTo(0, 0); 
-  context.lineTo(100, 100); 
-  context.lineWidth = 1; 
-  context.strokeStyle = 'rgb(21, 128, 19)'; 
-  context.stroke();
-}
-  
-</script>
 
 </html>
+
+
 
 
 

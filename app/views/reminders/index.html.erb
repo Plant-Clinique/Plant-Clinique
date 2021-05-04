@@ -40,15 +40,16 @@
 <hr>
 
 <div class="new" style="margin: 5px;">
-      <%= link_to 'New Reminder', new_reminder_path, class: "btn btn-warning"%>
+      <%= link_to 'New Reminder', new_reminder_path, class: "btn btn-secondary text-light"%>
   </div>
 
 <div class= "mb-5">
+
   <% if @reminders.first.nil? %>
     <h4 class="text-danger pt-4"> You have no reminders </h4>
   <% end %>
   <% @reminders.each do |reminder| %>
-    <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background: #EFF69B;">
+    <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background: white;">
       <div class="card-body">
         <h5 class="card-title">My Reminder about: <%= link_to reminder.user_plant.name, reminder %></h5>
         <p class="card-text font-weight-bold">
@@ -88,6 +89,7 @@ window.onclick = function(event) {
   }
 }
 </script>
+
 <!-- hide with smaller window script -->
 <script >
   $(window).resize(function() {

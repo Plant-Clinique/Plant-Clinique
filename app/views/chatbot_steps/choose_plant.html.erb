@@ -20,19 +20,19 @@
             <%= form.hidden_field :from_bot, value: false %>
             <%= form.hidden_field :plant_id, value: option.id %>
             <%= form.hidden_field :content, value: option.name%>
-            <a><%= form.submit option.name, class: "mt-2 btn btn-info text-light button-group", 
-            style: "padding-right:10px; padding-left: 10px;display: flex;margin: 0 5px;" %></a>
+            <%= form.submit option.name, class: "mt-2 btn text-light button-group", 
+            style: "padding-right:10px; padding-left: 10px;display: flex;margin: 0 5px; background-color: #537A5A" %>
           <% end %>
         <% end %>
         <br>
       </div>
       <div class="row" style="height:40px;"></div>
       <div class="row col-md-10">
-        <%= link_to 'Add new plant', new_user_plant_path, class: "mt-2 btn btn-warning", 
+        <%= link_to 'Add new plant', new_user_plant_path, class: "mt-2 btn btn-secondary text-light", 
         style: "position: absolute; top: 60%; left: 50%;"  %>
       </div>
     </div>
     <div class="col"></div>
 </div>
 
-<div class="bottom-layer"></div>
+ <div style="height: 500px"></div>

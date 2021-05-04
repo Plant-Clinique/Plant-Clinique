@@ -1,9 +1,9 @@
-<div class="notifications row" >
+<div class="notifications row" style="background-color: white;" >
   <div class="heading clearfix">
     <h1><%= t('notifications.all_notifications') %></h1>
 
     <span class="pull-xs-right" >
-      <%= link_to t('notifications.clean_all'), notifications.clean_notifications_path, class: 'btn btn-sm btn-warning', method: 'delete' %>
+      <%= link_to t('notifications.clean_all'), notifications.clean_notifications_path, class: 'btn btn-sm btn-secondary text-light', method: 'delete' %>
     </span>
   </div>
   <div class="list ">
@@ -14,7 +14,7 @@
     <% else %>
       <% @notification_groups.each do |group, notifications| %>
         <div class="notification-group">
-          <div class="group-title"><%= group %></div>
+          <div class="group-title "><%= group %></div>
           <%= render notifications %>
         </div>
       <% end %>

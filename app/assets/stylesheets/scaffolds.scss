@@ -1,7 +1,4 @@
-body {
-  background-color: blue;
-  color: red;
-  margin: 33px; }
+
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -9,19 +6,20 @@ body, p, ol, ul, td {
   line-height: 18px; }
 
 pre {
-  background-color: blue;
+  background-color: black;
   padding: 10px;
   font-size: 11px; }
 
 a {
-  color: yellow; }
+  color: green; 
+}
 
 a:visited {
-  color: black; }
+  color: green; }
 
 a:hover {
-  color: black;
-  background-color: white; }
+  color: green;
+ }
 
 th {
   padding-bottom: 5px; }

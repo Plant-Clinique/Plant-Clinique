@@ -4,9 +4,9 @@
   <div class="row" style = "height: 430px;">
     <div class = "col-3">
     </div>
-    <div class="col-md-6 bg-rem" style="height: 400px; background-color: green; border: 5px solid green; border-radius: 25px;text-align: center; color:yellow;">
+    <div class="col-md-6 bg-rem" style="height: 400px; background-color: green; border: 5px solid green; border-radius: 25px;text-align: center; color:#9AE19D;;">
       <div class = "row text-center" style = "height: 50px;"> </div>
-      <h1 class='text-center' > Your Reminder </h1>
+      <h1 class='text-center' style="color: white;"> Your Reminder </h1>
             <p >
               <strong>User plant:</strong>
               <%= @reminder.user_plant_id %>
@@ -36,12 +36,11 @@
               <strong>Reminder Type:</strong>
               <%= @reminder.reminder_type %>
             </p>
-        <button class="bg-warning btn rounded"> 
-            <%= link_to 'Edit', edit_reminder_path(@reminder) %>
-        </button>
-        <button class="bg-warning btn rounded"> 
-            <%= link_to 'Back', reminders_path %> 
-        </button>
+       <div> 
+            <%= link_to 'Edit', edit_reminder_path(@reminder), class: "btn btn-warning" %> 
+            <%= link_to 'Back', reminders_path, class: "btn btn-secondary text-light" %> 
+        </div>
+
     </div>
   </div>
 </div>
