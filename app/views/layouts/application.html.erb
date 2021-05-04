@@ -68,7 +68,7 @@
 
           <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.posts_path) %> nav-item">
-              <%= button_to main_app.posts_path, method: :get, class: "btn-pc text-dark " do %> 
+              <%= button_to main_app.posts_path, method: :get, class: "btn btn-sm text-dark ", style: "background-color: #9AE19D; font-size: 13px;" do %> 
               <i class="fa fa-comments" aria-hidden="true"></i>
                 Posts
               <% end %>
@@ -83,7 +83,7 @@
                 <%= 'active' if current_page?("/chatbot_steps/display_possible_treatments")%>
                 <%= 'active' if current_page?("/chatbot_steps/select_symptoms")%>
               nav-item">
-              <%= button_to main_app.chatbot_steps_path, method: :get, class: "btn-pc text-dark " do %> 
+              <%= button_to main_app.chatbot_steps_path, method: :get, class: "btn btn-sm text-dark ", style: "background-color: #9AE19D;font-size: 13px;" do %> 
               <i class="fa fa-laptop" aria-hidden="true"> </i>
                 Chatbot
               <% end %>
@@ -92,7 +92,7 @@
                   
           <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.store_locators_path) %> nav-item">
-             <%= button_to main_app.store_locators_path, method: :get, class: "btn-pc text-dark " do %> 
+             <%= button_to main_app.store_locators_path, method: :get, class: "btn btn-sm text-dark ", style: "background-color: #9AE19D;font-size: 13px;" do %> 
               <i class="fa fa-map" aria-hidden="true"></i> 
                 Maps
               <% end %>
@@ -101,7 +101,7 @@
 
           <span>
             <li class="nav-link <%= 'active' if current_page?(notifications_path) %> nav-item"> 
-              <%= button_to notifications_path, method: :get, class: "btn-pc text-dark notification " do %> 
+              <%= button_to notifications_path, method: :get, class: " btn-sm text-dark notification ", style: "background-color: #9AE19D;font-size: 13px;border: none;" do %> 
               <i class="fa fa-bell" aria-hidden="true"></i>
               <span>Notifications</span>
               <!-- if reminders.unread? -->
@@ -113,7 +113,7 @@
 
           <span>
               <li class="nav-link <%= 'active' if current_page?(main_app.reminders_path) %> nav-item"> 
-                <%= button_to main_app.reminders_path, method: :get, class: "btn-pc text-dark notification " do %> 
+                <%= button_to main_app.reminders_path, method: :get, class: "notification  btn-sm text-dark  ", style: "background-color: #9AE19D;font-size: 13px;border: none;" do %> 
                 <i class="fa fa-clock" aria-hidden="true"></i>
                 <span>Reminders</span>
                 <!-- if reminders.unread? -->
@@ -125,7 +125,7 @@
 
           <span>
             <li class="nav-link <%= 'active' if current_page?(main_app.user_path(current_user.id)) %> nav-item">
-              <%= button_to main_app.user_path(current_user.id), method: :get, class: "btn-pc text-dark text-light " do %> 
+              <%= button_to main_app.user_path(current_user.id), method: :get, class: " btn btn-sm text-dark ", style: "background-color: #9AE19D;font-size: 13px;" do %> 
                 <i class="fa fa-user" aria-hidden="true"></i>
                 My Account
               <% end %>
@@ -148,8 +148,14 @@
           </span>
 
           <% else %>
+
           <span>
-            <i class="fa fa-sign-in" aria-hidden="true"></i> <li ><%= link_to 'Sign in', main_app.sign_in_path, class: "mx-2 " %></li>
+            <li class="nav-link nav-item">
+              <%= button_to main_app.sign_in_path,method: :delete, class: "btn-primary text-light " do %> 
+                <i class="fa fa-sign-in" aria-hidden="true"></i>
+                Sign In
+              <% end %>
+            </li>
           </span>
           <% end %>
         </ul>
@@ -158,20 +164,19 @@
 
     <div class="collapsed-nav">
       <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-warning p-4">
-          <h4>
-            <i class="fa fa-leaf" style="color:green;" aria-hidden="true" ></i>
-              
-              <%= link_to "Plant-Clinique", "/", class: "mx-2 " , style: "color: brown; font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
-            <i class="fa fa-leaf" style="color:green;"aria-hidden="true" ></i>
+        <div class=" p-4" style="background-color: #537A5A">
+          <h4 >
+            <i class="fa fa-leaf"  aria-hidden="true" style="color:#9AE19D;"></i>
+              <%= link_to "Plant-Clinique", "/", class: "mx-2 " , style: " color:white;font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
+            <i class="fa fa-leaf" aria-hidden="true" style="color:#9AE19D;"></i>
           </h4>
-          <span class="text-muted">
+          <span class="text-light">
             Extend the page to see your menu options.
           </span>
             
         </div>
       </div>
-      <nav class="navbar navbar-dark bg-warning">
+      <nav class="navbar navbar-dark " style="background-color: #537A5A">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -194,42 +199,42 @@
     </div>
     -->
   
-  <footer class="row justify-content-center plant-item" style="height: 20px; width: 100%; color: white; background-color:#92B78B; text-align: center;">
+  <footer class="row justify-content-center plant-item" style="height: 20px; width: 100%; color: white; background-color:#80827C; text-align: center;">
     <p style="text-align: center;left:0; bottom:0;"> 
       &emsp; &emsp;
-      <a href="https://plant-clinique.herokuapp.com/sign_in">
+      <a href="https://plant-clinique.herokuapp.com/sign_in" style="color:white;">
         Plant-Clinique.com
       </a> 
       &emsp;
-      <a href="https://bioonecareercenter.org/jobs?utm_source=google&utm_medium=adwords&gclid=CjwKCAjwgZuDBhBTEiwAXNofRIU9VIuy_4E1BAnJ3PMkr3URiDchCbLkKIaZIXNYOm4whh6FXKz_ZhoCE3YQAvD_BwE">
+      <a href="https://bioonecareercenter.org/jobs?utm_source=google&utm_medium=adwords&gclid=CjwKCAjwgZuDBhBTEiwAXNofRIU9VIuy_4E1BAnJ3PMkr3URiDchCbLkKIaZIXNYOm4whh6FXKz_ZhoCE3YQAvD_BwE" style="color:white;">
         Careers
       </a> 
       &emsp;
-      <a href="https://www.pilea.com/post/top-5-blogs-about-houseplants">
+      <a href="https://www.pilea.com/post/top-5-blogs-about-houseplants"style="color:white;">
         Blogs
       </a> 
       &emsp;
-      <a href="https://assets.cdnpandadoc.com/app/packages/templates/@covers/declaration-of-trust-template-ev1-fed8bf649a.jpg">
+      <a href="https://assets.cdnpandadoc.com/app/packages/templates/@covers/declaration-of-trust-template-ev1-fed8bf649a.jpg"style="color:white;">
         Documentation
       </a> 
       &emsp;
-      <a href="https://i2.wp.com/theconstructor.org/wp-content/uploads/2017/04/hinge-support-in-sydney-harbor-bridge.jpg?fit=564%2C373&ssl=1">
+      <a href="https://i2.wp.com/theconstructor.org/wp-content/uploads/2017/04/hinge-support-in-sydney-harbor-bridge.jpg?fit=564%2C373&ssl=1"style="color:white;">
         Support
       </a> 
       &emsp;
-      <a href="https://www.thelongestthread.com/pages/terms-of-service">
+      <a href="https://www.thelongestthread.com/pages/terms-of-service"style="color:white;">
         Terms of Service
       </a> 
       &emsp;
-      <a href="https://www.nielsen.com/us/en/legal/privacy-statement/website-privacy-statement/">
+      <a href="https://www.nielsen.com/us/en/legal/privacy-statement/website-privacy-statement/"style="color:white;">
         Privacy
       </a> 
       &emsp;
-      <a href="https://www.womensbeanproject.com/recipes/snickerdoodle-cookie-recipe/?gclid=CjwKCAjwgZuDBhBTEiwAXNofRH2Jme4S7BamfD7WNKRPJeqVWUOVK9HEfHHHq06XlKGGbqSB5HwSuRoC3-gQAvD_BwE">
+      <a href="https://www.womensbeanproject.com/recipes/snickerdoodle-cookie-recipe/?gclid=CjwKCAjwgZuDBhBTEiwAXNofRH2Jme4S7BamfD7WNKRPJeqVWUOVK9HEfHHHq06XlKGGbqSB5HwSuRoC3-gQAvD_BwE"style="color:white;">
         Cookies
       </a> 
       &emsp;
-      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"style="color:white;">
         ©Troll.gov
       </a> 
       &emsp; &emsp; 
@@ -240,7 +245,7 @@
 
    <script>
   $(window).resize(function() {
-  if ($(this).width() < 1200) {
+  if ($(this).width() < 1300) {
     $('.uncollapsed').hide(); /* hide uncollapsed navbar version */ 
     $('.collapsed-nav').show(); /* show collapsed */
   } else {
@@ -251,7 +256,7 @@
 </script>
 
 <script>
-if ($(this).width() < 1200) {
+if ($(this).width() < 1300) {
   $('.uncollapsed').hide(); /* hide uncollapsed navbar version */ 
   $('.collapsed-nav').show(); /* show collapsed */
 }

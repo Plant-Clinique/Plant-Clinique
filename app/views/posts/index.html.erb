@@ -4,9 +4,7 @@
 <body>
 <div class="row">
   <h2 class="col-2" style="padding: 10px;">
-    <%= button_to posts_path, method: :get, class: "btn btn-dark text-light space", style: "font-size: 30px;" do %>
-      Topics:
-    <% end %>
+    <%= link_to "Topics:", posts_path, class: " text-dark space", style: "font-size: 35px;" %>
   </h2>
   <div class="scrolling-wrapper col-10 col-md-10 py-1 rounded" >
     <% Post.topics.each do |topic, key| %>

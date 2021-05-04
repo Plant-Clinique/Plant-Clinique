@@ -29,8 +29,9 @@ body {
 background-color: #9AE19D;
 }
 
-
- 
+.footer-white{
+  color:white;
+}
   
  .header {
   text-align: center;

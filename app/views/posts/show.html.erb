@@ -27,7 +27,7 @@
 </div>
 <% if @post.replies.any? %>
   <% @post.replies.sort_by{|reply| reply.created_at.to_i}.each do |reply| %>
-  <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background-color: gray ; border-radius: 20px;">
+  <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background-color: #A8A8A8	 ; border-radius: 20px;">
     <div class="card-body">
       <div class="button-right-up">
         <% if reply.user.id.to_i == current_user.id.to_i %>
@@ -42,7 +42,7 @@
   <% end %>
 <% end %>
 
-<div class="card mt-3 mb-5 text-light" style="box-shadow: 0px 4px 10px grey; background-color: gray">
+<div class="card mt-3 mb-5 text-light" style="box-shadow: 0px 4px 10px grey; background-color: #A8A8A8	">
   <div class="card-body" >
     <p class="font-weight-bold" style="font-size: 20px;">New comment</p>
     <%= form_with(model: [@post, @post.replies.build]) do |form| %>
