@@ -1,10 +1,14 @@
+require './lib/reminders_utils'
+
 class RemindersController < ApplicationController
   before_action :require_login
   before_action :set_reminder, only: %i[ show edit update destroy ]
 
   # GET /reminders or /reminders.json
   def index
-    @reminders = Reminder.where(user_id: current_user)
+    @current_category = params[:reminder_type] || "All"
+    @reminders = RemindersUtils.reminders_by_category(current_user, params[:reminder_type])
+    @reminder_dropdown_list = RemindersUtils.reminder_type_dropdown.map{ |reminder_type| reminder_type[0].titleize }
   end
 
   # GET /reminders/1 or /reminders/1.json
@@ -14,14 +18,14 @@ class RemindersController < ApplicationController
   # GET /reminders/new
   def new
     @reminder = Reminder.new
-    @reminder_dropdown_list = reminder_type_dropdown
-    @user_plant_dropdown = user_plant_dropdown
+    @reminder_dropdown_list = RemindersUtils.reminder_type_dropdown
+    @user_plant_dropdown = RemindersUtils.user_plant_dropdown(current_user)
   end
 
   # GET /reminders/1/edit
   def edit
-    @reminder_dropdown_list = reminder_type_dropdown
-    @user_plant_dropdown = user_plant_dropdown
+    @reminder_dropdown_list = RemindersUtils.reminder_type_dropdown
+    @user_plant_dropdown = RemindersUtils.user_plant_dropdown(current_user)
   end
 
   # POST /reminders or /reminders.json
@@ -70,15 +74,6 @@ class RemindersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def reminder_params
       params.require(:reminder).permit(:user_plant_id, :user_id, :tick_time, :description, :reminder_type, :interval)
-    end
-
-    def reminder_type_dropdown
-      return Reminder.reminder_enums
-    end
-
-    def user_plant_dropdown
-      this_user_plants = UserPlant.where(user_id: current_user)
-      return this_user_plants.pluck(:name).zip(this_user_plants.pluck(:id))
     end
 
 end

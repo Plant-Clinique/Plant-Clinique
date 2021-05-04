@@ -117,7 +117,7 @@
                   </li>
                   <li class="list-group-item">
                     <i class="fas fa-tree text-success mx-2"></i>
-                    <%= "Type: #{plant.plant_type}" %>
+                    <%= "Type: #{PlantType.where(trefle_id: plant.plant_type).first.name}" %>
                   </li>
                   <li class="list-group-item">
                   <i class="fas fa-seedling text-success mx-2"></i>
@@ -170,8 +170,33 @@ window.onclick = function(event) {
   }
 }
 </script>
-<!--
+
 <script >
+  <h2 style="padding: 10px;">Posts related to your plants:</h2>
+  <% if @related_posts.empty?%>
+    <h4 class="text-danger " style="text-align: right;">No related posts were found for any of your plants</h4>
+  <% else %>
+    <div class= "mb-5">
+      <% @related_posts.each do |post| %>
+        <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background: #EFF69B;">
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5>
+            <p class="card-text font-weight-bold">
+                <%= post.user.username %>
+              | <%= post.created_at %>
+              | <%= post.replies.length %> Replies
+              <%= "| Edited" if post.edited?%>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="row" style = "height: 350px;"></div>
+
+  <script>
+
   $(window).resize(function() {
 
   if ($(this).width() < 1024) {
@@ -199,7 +224,7 @@ else  {
   $('.dropdown').hide(); 
 }
 </script>
--->
+
 
 <!--
 <script>

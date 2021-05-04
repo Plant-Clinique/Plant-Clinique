@@ -38,13 +38,14 @@ class RepliesController < ApplicationController
 
   # PATCH/PUT /replies/1 or /replies/1.json
   def update
+    @post = Post.find(reply_params[:post_id])
     respond_to do |format|
       if @reply.update(reply_params)
-        format.html { redirect_to @reply, notice: "Reply was successfully updated." }
+        format.html { redirect_to @post, notice: "Reply was successfully updated." }
         format.json { render :show, status: :ok, location: @reply }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @reply.errors, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -52,8 +53,9 @@ class RepliesController < ApplicationController
   # DELETE /replies/1 or /replies/1.json
   def destroy
     @reply.destroy
+    @post = Post.find(params[:post_id])
     respond_to do |format|
-      format.html { redirect_to replies_url, notice: "Reply was successfully destroyed." }
+      format.html { redirect_to @post, notice: "Reply was successfully destroyed." }
       format.json { head :no_content }
     end
   end

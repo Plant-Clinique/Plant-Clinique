@@ -1,0 +1,11 @@
+---
+name: PlantClinique
+blurb: We have let way too many plants die because we didn't know what to do to keep them alive and didn't have anyone to ask. This is why we made this plant health checkup and care app! It has a health checkup chatbot, reminders by email, store locator map, a forum, and much more.
+course: CS166B
+semester: 2021 (Spring)
+github: https://github.com/Plant-Clinique/Plant-Clinique
+application: https://plant-clinique.herokuapp.com/ 
+presentation: https://docs.google.com/presentation/d/1u_ZV_iwTwHEE5Gor9GjBLvlKQA9DYjXv88XHXtVZKQA/edit?usp=sharing
+image: https://i.ibb.co/DVDh1zV/Screen-Shot-2021-03-26-at-2-18-38-PM.png
+team: Eric Rosenheim, Osamah Mandawi, Roman Nguyen, Prabu Gugagantha
+---
