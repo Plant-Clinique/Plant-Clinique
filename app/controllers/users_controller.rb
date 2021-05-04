@@ -1,3 +1,5 @@
+require './lib/posts_utils'
+
 class UsersController < Clearance::UsersController
   # before_action :require_login
   before_action :require_login, except: [:new, :create, :set_user, :user_params]
@@ -10,6 +12,7 @@ class UsersController < Clearance::UsersController
 
   # GET /users/1 or /users/1.json
   def show
+    @related_posts = PostsUtils.get_related_posts(UserPlant.where(user_id: current_user.id))
   end
 
   # GET /users/new
