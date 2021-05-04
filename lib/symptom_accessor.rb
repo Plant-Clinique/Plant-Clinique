@@ -76,14 +76,17 @@ class SymptomAssessor
     diagnosis = cause_info['description']
     check_type = cause_info['check_type']
 
-    plant_data = JSON.parse(Net::HTTP.get(
-                                URI.parse(
-                                  "https://trefle.io/api/v1/plants/#{plant_trefle_id}?token=6j4O7U0FSKM_Te6mN3aFN7TORBk0RYtU_wk5sJgkjbw"
-                                )
-                              )
-                            )['data']['main_species']
+    # The below used to work when the Trefle API used to work but the API has been discontinued: https://github.com/treflehq/trefle-api
+    # You can see a working version of our app with the accurate plant data from Trefle here: https://drive.google.com/file/d/1bjiX44d5YHKiJzlv_T8YpAqp5OnaoLRW/view 
+    # plant_data = JSON.parse(Net::HTTP.get(
+    #                             URI.parse(
+    #                               "https://trefle.io/api/v1/plants/#{plant_trefle_id}?token=6j4O7U0FSKM_Te6mN3aFN7TORBk0RYtU_wk5sJgkjbw"
+    #                             )
+    #                           )
+    #                         )['data']['main_species']
+    # api_ideal_for_plant_type = CHECK_TARGET[field].call(plant_data)
 
-    api_ideal_for_plant_type = CHECK_TARGET[field].call(plant_data)
+    api_ideal_for_plant_type = 5 # just a fallback
     if check_type
       if api_ideal_for_plant_type and CHECK_TYPE[check_type].call(api_ideal_for_plant_type, user_plant_estimate)
         return diagnosis
