@@ -8,7 +8,7 @@
 
 require 'faker'
 require 'net/http'
-require 'json'
+# require 'json'
 
 User.delete_all
 UserPlant.delete_all
@@ -16,23 +16,23 @@ Reminder.delete_all
 Post.delete_all
 Reply.delete_all
 ChatbotMessage.delete_all
-PlantType.delete_all
+# PlantType.delete_all
 
 puts "Finish deleting"
 
-1.upto(8) do |page|
-  plants = JSON
-                .parse(
-                  Net::HTTP.get(
-                    URI.parse(
-                      "https://trefle.io/api/v1/plants?page=#{page}&filter[edible_parts]=fruits&filter[vegetable]=true&token=6j4O7U0FSKM_Te6mN3aFN7TORBk0RYtU_wk5sJgkjbw"
-                    )
-                  )
-                )['data'].reject{ |plant| plant['common_name'] == nil }
-  plants.each do |plant|
-    PlantType.create(name: plant['common_name'], trefle_id: plant['id'])
-  end
-end
+# 1.upto(8) do |page|
+#   plants = JSON
+#                 .parse(
+#                   Net::HTTP.get(
+#                     URI.parse(
+#                       "https://trefle.io/api/v1/plants?page=#{page}&filter[edible_parts]=fruits&filter[vegetable]=true&token=6j4O7U0FSKM_Te6mN3aFN7TORBk0RYtU_wk5sJgkjbw"
+#                     )
+#                   )
+#                 )['data'].reject{ |plant| plant['common_name'] == nil }
+#   plants.each do |plant|
+#     PlantType.create(name: plant['common_name'], trefle_id: plant['id'])
+#   end
+# end
 
 puts "Finish PlantType"
 
