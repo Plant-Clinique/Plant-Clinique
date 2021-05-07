@@ -11,15 +11,15 @@ class PostsUtils
       list.ordered_by_newest
     end
   end
-  def self.get_related_posts(plants)
+
+  def self.get_related_posts(plants, max_amount_of_posts)
     related_posts = [] # an array of related posts 
-    plants.each do |plant|
-      plant_type = PlantType.where(trefle_id: plant.plant_type).first.name
-      Post.all.each do |post|
-        if post.body.downcase.include?(plant_type.downcase) or post.title.downcase.include?(plant_type.downcase)
-          related_posts << post
-        end
+    plant_types = plants.map { |plant| PlantType.where(trefle_id: plant.plant_type).first.name }
+    Post.ordered_by_newest.all.each do |post|
+      if plant_types.any? { |plant_type| post.body.downcase.include?(plant_type.downcase) || post.title.downcase.include?(plant_type.downcase)}
+        related_posts << post
       end
+      break if related_posts.length >= max_amount_of_posts
     end
     return related_posts
   end
