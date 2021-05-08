@@ -28,18 +28,18 @@
 
   <%= form.hidden_field :user_id, value: current_user.id.to_i%>
 
-  <div class="m-2 text-field">
+  <div class="m-2 text-field" style="color:white;">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="m-2 text-field">
+  <div class="m-2 text-field" style="color:white;">
     <%= form.label :age %>
     <%= form.text_field :age %>
   </div>
 
   <div class="m-2 text-field" style="width:30%;">
-    <%= form.label :plant_type %>
+    <%= form.label :plant_type, style:"color:white;" %>
     <%= form.select(:plant_type, options_for_select(PlantType.all.map{|plant| [plant.name, plant.trefle_id]}), {:include_blank => "Select a plant type"}, {:class => 'bg-white js-states text-field', :id => 'single'})%>
   </div>
 
@@ -50,7 +50,8 @@
         allowClear: true
     });
   </script>
-  <div class="m-2 text-field">
+
+  <div class="m-2 text-field" style="color:white;">
     <%= form.label :description %>
     <%= form.text_field :description %>
   </div>

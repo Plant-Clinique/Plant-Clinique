@@ -20,6 +20,8 @@
     <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <meta charset="utf-8">
 
+    <%= tag :meta, name: :layout {}%>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <!-- Select2 CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
@@ -244,31 +246,65 @@
   </footer>
   </body>
 
-   <script>
-  $(window).resize(function() {
-  if ($(this).width() < 1300) {
-    $('.uncollapsed').hide(); /* hide uncollapsed navbar version */ 
-    $('.collapsed-nav').show(); /* show collapsed */
-  } else {
-    $('.collapsed-nav').hide(); /* hide collapsed */ 
-    $('.uncollapsed').show(); /* show uncollapsed */
-  }
-});
-</script>
+   <script src="layout.js"></script>
 
-<script>
-if ($(this).width() < 1300) {
-  $('.uncollapsed').hide(); /* hide uncollapsed navbar version */ 
-  $('.collapsed-nav').show(); /* show collapsed */
-}
-else  {
-  $('.collapsed-nav').hide(); /* hide collapsed */ 
-  $('.uncollapsed').show(); /* show uncollapsed */
-}
-</script>
-
-<script>
-console.log('welcome to the plant-clinique log')
-</script>
+<style>
+/* Scroll Bar */
+  
+ #style-6::-webkit-scrollbar-track
+ {
+  background-color: #F5F5F5;
+  overflow-y: scroll;
+overflow-x: hidden;
+ }
+  
+ #style-6::-webkit-scrollbar
+ {
+  width: 10px;
+  background-color: #F5F5F5;
+  overflow-y: scroll;
+overflow-x: hidden;
+ }
+  
+ #style-6::-webkit-scrollbar-thumb
+ {
+  background-color: #474A48;
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%,
+    transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%,
+    rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+  overflow-y: scroll;
+  overflow-x: hidden;
+ }
+  
+ /* width */
+ ::-webkit-scrollbar {
+  width: 20px;
+  background-color: lightgray;
+  overflow-y: scroll;
+ }
+  
+ /* Track */
+ ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+  overflow-y: scroll;
+overflow-x: hidden;
+ }
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+  background-color: #474A48; 
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%,transparent 25%,transparent 50%,rgba(255, 255, 255, .2) 50%,
+                        rgba(255, 255, 255, .2) 75%,transparent 75%,transparent);
+                        overflow-y: scroll;
+overflow-x: hidden;
+ }
+  
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+  background: #474A48;
+  overflow-y: scroll;
+  overflow-x: hidden;
+ }
+ </style>
 
 </html>

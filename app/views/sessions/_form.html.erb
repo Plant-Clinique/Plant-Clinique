@@ -15,12 +15,12 @@
 
   <div class = "m-2 row">
     <div class = 'text-center'>
-      <%= form.submit "Enter the garden", class: "btn btn-sm text-dark ", style: "background-color: #9AE19D;" %>
+      <%= form.submit "Enter the garden", class: "btn btn-large text-dark ", style: "background-color: #9AE19D;" %>
     </div>
   </div>
   
   <div class="m-2 mb-4 other-links">
-    <%= link_to t(".forgot_password"), new_password_path, class: "btn btn-sm text-dark ", style: "background-color: #9AE19D;" %>
+    <%= link_to t(".forgot_password"), new_password_path, class: "btn btn-sm text-light ", style: "background-color: gray;" %>
     <br>
     <% if Clearance.configuration.allow_sign_up? %>
       <%= link_to t(".sign_up"), sign_up_path, class: "btn btn-sm text-light ", style: "background-color: #537A5A; margin-top: 5px;" %>
