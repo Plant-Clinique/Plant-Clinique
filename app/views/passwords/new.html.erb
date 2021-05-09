@@ -2,25 +2,33 @@
   <div class = "col-3">
   </div>
 
-  <div class="col-md-6 bg-white">
+    <div class="col-md-6 bg-leaves" style="height: 350px; background-color: green; border: 5px solid green; border-radius: 25px;">
 
-    <div class = "row text-center" style = "height: 50px;">
+      <div class = "row text-center" style = "height: 50px;">
+      </div>
+      <div id="clearance" class="password-reset">
+        <h2 style="color:white;"><%= t(".title") %></h2>
+
+        <p style="color: white;"><%= t(".description") %></p>
+
+        <%= form_for :password, url: passwords_path do |form| %>
+          <div class="m-2 text-field">
+            <%= form.label :email, style: "color:white;" %>
+            <%= form.text_field :email, type: 'email', class: 'mb-1 form-control' %>
+          </div>
+
+          <div class="submit-field m-2">
+            <%= form.submit "Reset Password", class: "mt-2 btn btn-warning"  %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="m-2 mb-4 other-links">
+      <%= link_to 'Back', sign_in_path, class: "mt-2 btn btn-dark", style: "color: white;" %>
     </div>
-    <div id="clearance" class="password-reset">
-      <h2><%= t(".title") %></h2>
 
-      <p><%= t(".description") %></p>
-
-      <%= form_for :password, url: passwords_path do |form| %>
-        <div class="m-2 text-field">
-          <%= form.label :email %>
-          <%= form.text_field :email, type: 'email', class: 'mb-1 form-control' %>
-        </div>
-
-        <div class="submit-field m-2">
-          <%= form.submit "Reset Password", class: "mt-2 btn btn-warning"  %>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>
+
+<div style="height:855px;"> </div>

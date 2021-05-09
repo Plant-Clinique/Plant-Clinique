@@ -1,7 +1,6 @@
-<html>
 <p id="notice"><%= notice %></p>
 
-<body>
+
 <div class="row">
   <h2 class="col-2" style="padding: 10px;">
     <%= link_to "Topics:", posts_path, class: " text-dark space", style: "font-size: 35px;" %>
@@ -22,7 +21,7 @@
   <div class="col-6">
       <div class="dropdown ">
 
-        <button onclick="myFunction()" class="rounded dropbtn " style="margin: auto;width: 20%;border: 3px solid green;padding: 10px;">
+        <button id="sort-button" class="rounded dropbtn " style="margin: auto;width: 20%;border: 3px solid green;padding: 10px;">
           Sort By 
         </button>
 
@@ -85,44 +84,11 @@
 
 <%= paginate @current_page_posts %>
 
-</body>
+
 
 <div class="post-bottom"></div>
 <%if @current_page_posts.first.nil? %>
   <div class="post-bottom-2"></div>
 <%end%>
 
-<script>
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
-<script >
-  $(window).resize(function() {
-
-  if ($(this).width() < 1024) {
-
-    $('.dropdown').hide();
-
-  } else {
-
-    $('.dropdown').show();
-
-    }
-
-});
-</script>
-</html>
+<%= javascript_pack_tag 'post_button' %>

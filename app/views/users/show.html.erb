@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<html>
-
 <p id="notice"><%= notice %></p>
 
 <div class="row" style = "height: 10px;"> </div>
@@ -68,25 +66,7 @@
               </div>
             
           </div> 
-          <!--
-          <div >
-            <div >
-                <div class = "row justify-content-center">
-
-                  <button onclick="myFunction()" class="dropbtn col-md-auto" style="text-align: center; border: 3px solid green; border-radius: 10px;">
-                    Options
-                  </button>
-
-                  <div id="myDropdown" class="dropdown-content ">
-                    <a href= new_user_plant_path> Add Plant </a>
-                    <a href= edit_user_path(@user)> Edit Info </a>
-                    <a href= new_reminder_path> Add Reminder </a>
-                    <a href= reminders_path> Show Reminders </a>
-                  </div>
-                </div>
-            </div>
-          </div>
-          -->
+          
 
         </div>
       <div class="col-lg-4 align-items-center d-flex" style="position: relative; border-radius: 50%;">
@@ -199,53 +179,5 @@ window.onclick = function(event) {
       <% end %>
     </div>
   <% end %>
+<div class="row" style = "height: 350px;"></div>
 
-  <div class="row" style = "height: 350px;"></div>
-
-  <script>
-
-  $(window).resize(function() {
-
-  if ($(this).width() < 1024) {
-    $('.dropdown').show();
-    $('.plant-item').hide();
-    $('.button-row-show').hide();
-  } else {
-    $('.button-row-show').show();
-    $('.dropdown').hide();
-    $('.plant-item').show();
-    
-
-    }
-
-});
-</script>
-
-<script>
-if ($(this).width() < 1024) {
-  $('.button-row-show').hide(); 
-  $('.dropdown').show(); 
-}
-else  {
-  $('.button-row-show').show(); 
-  $('.dropdown').hide(); 
-}
-</script>
-
-
-<!--
-<script>
-  $(function () {
-    $('[data-toggle="popover"]').popover()
-  })
-</script>
-<script>  
-  $(function () {
-    $('.example-popover').popover({
-      container: 'body'
-    })
-  })
-</script>
- -->
-
-</html>

@@ -20,6 +20,7 @@
     <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <meta charset="utf-8">
 
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <!-- Select2 CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
@@ -163,12 +164,12 @@
       </div>
     </nav>
 
-    <div class="collapsed-nav">
-      <div class="collapse" id="navbarToggleExternalContent">
-        <div class=" p-4" style="background-color: #537A5A">
+    <div class="collapsed-nav" style="z-index: 1;">
+      <div class="collapse" id="navbarToggleExternalContent" >
+        <div class=" p-4" style="background-color: #537A5A; ">
           <h4 >
             <i class="fa fa-leaf"  aria-hidden="true" style="color:#9AE19D;"></i>
-              <%= link_to "Plant-Clinique", "/", class: "mx-2 " , style: " color:white;font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive;"%>
+              <%= link_to "Plant-Clinique", "/", class: "mx-2 " , style: " color:white;font-size: 30px; font-weight: bold; font-family: 'Brush Script MT', cursive; "%>
             <i class="fa fa-leaf" aria-hidden="true" style="color:#9AE19D;"></i>
           </h4>
           <span class="text-light">
@@ -242,33 +243,7 @@
     </p>
 
   </footer>
+  <%= javascript_pack_tag 'collapsible_nav' %>
   </body>
-
-   <script>
-  $(window).resize(function() {
-  if ($(this).width() < 1300) {
-    $('.uncollapsed').hide(); /* hide uncollapsed navbar version */ 
-    $('.collapsed-nav').show(); /* show collapsed */
-  } else {
-    $('.collapsed-nav').hide(); /* hide collapsed */ 
-    $('.uncollapsed').show(); /* show uncollapsed */
-  }
-});
-</script>
-
-<script>
-if ($(this).width() < 1300) {
-  $('.uncollapsed').hide(); /* hide uncollapsed navbar version */ 
-  $('.collapsed-nav').show(); /* show collapsed */
-}
-else  {
-  $('.collapsed-nav').hide(); /* hide collapsed */ 
-  $('.uncollapsed').show(); /* show uncollapsed */
-}
-</script>
-
-<script>
-console.log('welcome to the plant-clinique log')
-</script>
-
+ 
 </html>

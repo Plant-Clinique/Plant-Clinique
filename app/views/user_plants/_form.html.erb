@@ -1,16 +1,4 @@
 <!DOCTYPE HTML>
-<html>
-<head>
-<style>
-#div1 {
-  width: 350px;
-  height: 70px;
-  padding: 10px;
-  border: 1px solid #aaaaaa;
-}
-</style>
-</head>
-<body>
 
 <%= form_with(model: user_plant) do |form| %>
   <% if user_plant.errors.any? %>
@@ -28,29 +16,24 @@
 
   <%= form.hidden_field :user_id, value: current_user.id.to_i%>
 
-  <div class="m-2 text-field">
+  <div class="m-2 text-field" style="color:white;">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="m-2 text-field">
+  <div class="m-2 text-field" style="color:white;">
     <%= form.label :age %>
     <%= form.text_field :age %>
   </div>
 
   <div class="m-2 text-field" style="width:30%;">
-    <%= form.label :plant_type %>
+    <%= form.label :plant_type, style:"color:white;" %>
     <%= form.select(:plant_type, options_for_select(PlantType.all.map{|plant| [plant.name, plant.trefle_id]}), {:include_blank => "Select a plant type"}, {:class => 'bg-white js-states text-field', :id => 'single'})%>
   </div>
 
+  <%= javascript_pack_tag 'select' %>
 
-  <script>
-    $("#single").select2({
-        placeholder: "Select a plant type",
-        allowClear: true
-    });
-  </script>
-  <div class="m-2 text-field">
+  <div class="m-2 text-field" style="color:white;">
     <%= form.label :description %>
     <%= form.text_field :description %>
   </div>
@@ -61,4 +44,3 @@
 <% end %>
 
 
-</body>

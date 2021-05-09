@@ -13,14 +13,14 @@
       <%= @prompt %>
     </h2>
     <!-- Buttons take to the next step (check steps over at app/controllers/chatbot_steps_controller.rb) -->
-    <div class="row ">
-      <div class="col">
+    <div class="row">
+      <div class="col m-1">
         <%= button_to 'Symptom Assessment', wizard_path(:choose_plant), {class: "btn text-light btn-lg btn-block", method: "get", style: "background-color: #537A5A"}%>
       </div>
-      <div class="col">
+      <div class="col m-1">
         <%= button_to 'Check History', chatbot_messages_path, {class: "btn text-light btn-lg btn-block", method: "get", style: "background-color: #537A5A"} %>
       </div>
-      <div class="col">
+      <div class="col m-1">
         <!-- Replace :choose_plant with the correct path when you enable this button -->
         <%= button_to 'General Question', new_post_path, {class: "btn text-light btn-lg btn-block", method: "get", style: "background-color: #537A5A"} %>
       </div>
