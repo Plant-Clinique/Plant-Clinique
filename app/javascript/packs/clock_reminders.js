@@ -1,6 +1,6 @@
-function myFunction() {
+$("#categorization-button").on("click",function(){
   document.getElementById("myDropdown").classList.toggle("show");
-}
+});
 
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
