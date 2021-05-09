@@ -12,7 +12,7 @@ class UsersController < Clearance::UsersController
 
   # GET /users/1 or /users/1.json
   def show
-    @related_posts = PostsUtils.get_related_posts(UserPlant.where(user_id: current_user.id))
+    @related_posts = PostsUtils.get_related_posts(UserPlant.where(user_id: current_user.id), 3)
   end
 
   # GET /users/new

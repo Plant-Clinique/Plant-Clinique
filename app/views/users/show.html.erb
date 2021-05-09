@@ -161,16 +161,16 @@ window.onclick = function(event) {
 
   <h2 style="padding: 10px;">Posts related to your plants:</h2>
   <% if @related_posts.empty?%>
-    <h4 class="text-danger " style="text-align: right;">No related posts were found for any of your plants</h4>
+    <h4 class="text-danger" style="text-align: right;">No related posts were found for any of your plants</h4>
   <% else %>
-    <div class= "mb-5">
+    <div class= "d-flex justify-content-center">
       <% @related_posts.each do |post| %>
-        <div class="card mt-3" style="box-shadow: 0px 4px 10px grey; background: white;">
+        <div class="card mt-3 mx-3" style="box-shadow: 0px 4px 10px grey; background: white; width: 20rem; display: inline-block;">
           <div class="card-body">
-            <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5>
+            <h5 class="card-title"><%= link_to post.title.truncate(20, separator: ' '), post_path(post) %></h5>
             <p class="card-text font-weight-bold">
                 <%= post.user.username %>
-              | <%= post.created_at %>
+              | <%= time_ago_in_words post.created_at %> ago
               | <%= post.replies.length %> Replies
               <%= "| Edited" if post.edited?%>
             </p>
