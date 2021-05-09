@@ -22,16 +22,16 @@
                 <h5>Plants Owned: <span class = "badge badge-secondary"><%= current_user.user_plants.count%></span></h5>
               </div>
               <div class = "row justify-content-center" style = "height: 50px; font-size: large;">
-                <h5>Unread Messages: <span class = "badge badge-secondary">0</span></h5>
+                <h5>Water Reminders: <span class = "badge badge-secondary"><%= current_user.reminders.where(reminder_type: 0).count%></span></h5>
               </div>
             </div>
 
             <div class = "col">
               <div class = "row justify-content-center" style = "height: 50px; font-size: large;">
-                <h5>Water Notifications: <span class = "badge badge-secondary">0</span></h5>
+                <h5>Trim Reminders: <span class = "badge badge-secondary"><%= current_user.reminders.where(reminder_type: 1).count%></span></h5>
               </div>
               <div class = "row justify-content-center" style = "height: 50px;font-size: large;">
-                <h5>Soil Notifications: <span class = "badge badge-secondary">0</span></h5>
+                <h5>Fertilizer Reminders: <span class = "badge badge-secondary"><%= current_user.reminders.where(reminder_type: 2).count%></span></h5>
               </div>
             </div>
           </div>
@@ -137,7 +137,7 @@
                 <div>
                   <%= link_to 'Remove', plant, method: :delete, class: "text-light btn ", style:"background-color: #537A5A;", data: { confirm: 'Are you sure?' } %> 
                   <%= link_to 'Edit', edit_user_plant_path(plant), class: 'text-dark btn btn-warning'%>
-                  <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content= "<%= "#{plant.description}"%>">
+                  <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content= "<%= "#{plant.description}"%>">
                     <i class="fas fa-tree text-success mx-2"></i>
                   </button>
                 </div>
@@ -149,6 +149,15 @@
       <% end %>
     <% end %>
   </div>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+  });
+</script>
 
 
 <script>
