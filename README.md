@@ -4,6 +4,8 @@
 
 [Link to Plant-Clinique App](http://plant-clinique.herokuapp.com/)
 
+[Link to Plant-Clinique API Repo](https://github.com/Plant-Clinique/Plant-Clinique-API/)
+
 [Link to Final Report](https://plant-clinique.github.io/Plant-Clinique-Docs/)
 
 # Introduction
