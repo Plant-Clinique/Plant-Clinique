@@ -60,6 +60,8 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
+    Notification.where(second_target_id: @post.id).delete_all
+    Reply.where(post_id: @post.id).delete_all
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
