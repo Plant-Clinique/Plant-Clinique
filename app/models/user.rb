@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   include Gravtastic
-  gravtastic
-  
+  gravtastic 
   include Clearance::User
 
     has_many :user_plants
@@ -10,5 +9,7 @@ class User < ApplicationRecord
     has_many :replies
     has_many :posts
     
-    validates :username, presence: true, uniqueness: true
+    validates :username, presence: true
+    validates :email, presence: true, uniqueness: true
+
 end
