@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h2>Hi, <%= @reminder.user.username %></h2>
-    <p>
-      Here's a friendly reminder from Plant-Clinique to <%= Reminder.reminder_type_str(@reminder.reminder_type) %> your plant: <%= @reminder.user_plant.name %>
-      <br>
-      <strong>Description:</strong> <%= @reminder.description %>
-    </p>
-    </br>
-    <p> For more information, visit your garden at <a href="http://plant-clinique-test.herokuapp.com/">Plant-Clinique</a> </p>
-    <p> Have a great day! </p?
-    <p> Plant-Clinique </p>
-  </body>
-</html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h2>Hi, <%= @reminder.user.username %></h2>
+  <p>
+    Here's a friendly reminder from Plant-Clinique to <%= Reminder.reminder_type_str(@reminder.reminder_type) %> your plant: <%= @reminder.user_plant.name %>
+    <br>
+    <strong>Description:</strong> <%= @reminder.description %>
+  </p>
+  </br>
+  <p> For more information, visit your garden at <a href="http://plant-clinique-test.herokuapp.com/">Plant-Clinique</a> </p>
+  <p> Have a great day! </p?
+  <p> Plant-Clinique </p>
+</body>

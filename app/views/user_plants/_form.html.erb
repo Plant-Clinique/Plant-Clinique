@@ -1,16 +1,4 @@
 <!DOCTYPE HTML>
-<html>
-<head>
-<style>
-#div1 {
-  width: 350px;
-  height: 70px;
-  padding: 10px;
-  border: 1px solid #aaaaaa;
-}
-</style>
-</head>
-<body>
 
 <%= form_with(model: user_plant) do |form| %>
   <% if user_plant.errors.any? %>
@@ -43,13 +31,7 @@
     <%= form.select(:plant_type, options_for_select(PlantType.all.map{|plant| [plant.name, plant.trefle_id]}), {:include_blank => "Select a plant type"}, {:class => 'bg-white js-states text-field', :id => 'single'})%>
   </div>
 
-
-  <script>
-    $("#single").select2({
-        placeholder: "Select a plant type",
-        allowClear: true
-    });
-  </script>
+  <%= javascript_pack_tag 'select' %>
 
   <div class="m-2 text-field" style="color:white;">
     <%= form.label :description %>
@@ -62,4 +44,3 @@
 <% end %>
 
 
-</body>

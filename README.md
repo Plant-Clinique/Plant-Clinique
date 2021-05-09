@@ -161,7 +161,7 @@ Our application, Plant-Clinique, is a web-based application with the main goal o
 
 - Notifications: This allows the user to check on posts that have been interacted with, with an option to clear them all out at any point 
 
-<img src="./images-readme/newnotifications.png" title="notifications" width="50%">
+<img src="./images-readme/Screen Shot 2021-05-08 at 4.52.45 PM.png" title="notifications" width="50%">
 
 
 - Maps: This page shows you a local view of the area around you and you can search for local plant stores.
