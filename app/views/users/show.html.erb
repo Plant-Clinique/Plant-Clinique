@@ -137,7 +137,7 @@
                 <div>
                   <%= link_to 'Remove', plant, method: :delete, class: "text-light btn ", style:"background-color: #537A5A;", data: { confirm: 'Are you sure?' } %> 
                   <%= link_to 'Edit', edit_user_plant_path(plant), class: 'text-dark btn btn-warning'%>
-                  <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content= "<%= "#{plant.description}"%>">
+                  <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content= "<%= "#{plant.description}"%>">
                     <i class="fas fa-tree text-success mx-2"></i>
                   </button>
                 </div>
