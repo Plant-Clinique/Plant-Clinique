@@ -71,18 +71,22 @@ class UserPlantsController < ApplicationController
   private
 
     def fetch_plant_picture(plant_type)
-      plant_type = PlantType.where(trefle_id: plant_type).first.name.gsub(/\s/,"+")
-      pixabay_response = "https://pixabay.com/api/?key=21149754-82925dfd4f7141a3bcd1aae55&image_type=photo&category=food&per_page=10&order=popular&safesearch=true&q=#{plant_type}"
-      pictures = JSON.parse(Net::HTTP.get(
-                                  URI.parse(
-                                    pixabay_response
+      begin
+        plant_type = PlantType.where(trefle_id: plant_type).first.name.gsub(/\s/,"+")
+        pixabay_response = "https://pixabay.com/api/?key=21149754-82925dfd4f7141a3bcd1aae55&image_type=photo&category=food&per_page=10&order=popular&safesearch=true&q=#{plant_type}"
+        pictures = JSON.parse(Net::HTTP.get(
+                                    URI.parse(
+                                      pixabay_response
+                                    )
                                   )
-                                )
-                              )['hits']
-      if pictures.empty?
+                                )['hits']
+        if pictures.empty?
+          return "https://cdn.pixabay.com/photo/2019/06/17/08/24/pastel-4279379_960_720.jpg"
+        else
+          pictures.sample["largeImageURL"]
+        end
+      rescue
         "https://cdn.pixabay.com/photo/2019/06/17/08/24/pastel-4279379_960_720.jpg"
-      else
-        pictures.sample["largeImageURL"]
       end
     end
 
