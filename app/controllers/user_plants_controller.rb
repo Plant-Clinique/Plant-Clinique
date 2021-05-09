@@ -60,7 +60,6 @@ class UserPlantsController < ApplicationController
 
   # DELETE /user_plants/1 or /user_plants/1.json
   def destroy
-    Reminder.where(user_plant_id: @user_plant.id).delete_all
     @user_plant.destroy
     respond_to do |format|
       format.html { redirect_to users_url+"/#{current_user.id}", notice: "User plant was successfully destroyed." }
