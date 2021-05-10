@@ -120,6 +120,7 @@ Our application, Plant-Clinique, is a web-based application with the main goal o
   - plant_type_id: integer 🌱
   - name: string
 - <strong>Notification</strong>
+  - notification_id: integer 🌱 
   - <ins>user_id: bigint</ins>
   - <ins>actor_id: bigint</ins>
   - notify_type: string
